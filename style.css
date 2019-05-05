@@ -87,6 +87,30 @@ body {
     box-shadow: none;
 }
 
+.menu-transparent a{
+    color: #ffffff99;
+}
+
+.menu-transparent a:hover{
+    color: #ffffff;
+}
+
+.menu-transparent .menu-active{
+    color: #ffffff !important;
+}
+
+.menu-transparent .menu-title{
+    color: #ffffff;
+}
+
+.menu-transparent .more{
+    color: #ffffff !important;
+}
+
+@media (max-width: 768px) {.menu-transparent.responsive{
+    background-color: #0066ff;
+}}
+
 .menu-fixed{
     position: fixed;
 }
@@ -99,12 +123,6 @@ body {
 
 .menu-right a{
     float: right;
-}
-
-.menu button{
-    margin: 10px;
-    color: #000000;
-    background-color: #ffffff;
 }
 
 .menu .more{
