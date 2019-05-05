@@ -21,27 +21,118 @@ body {
 /* colors */
 
 .white{
-    color: white;
+    color: white !important;
 }
 
 .bg-white{
-    background-color: white;
+    background-color: white !important;
 }
 
 .black{
-    color: black;
+    color: black !important;
 }
 
 .bg-black{
-    background-color: black;
+    background-color: black !important;
 }
 
 .blue{
-    color: #0066ff;
+    color: #0066ff !important;
 }
 
 .bg-blue{
-    background-color: #0066ff;
+    background-color: #0066ff !important;
+}
+
+/* menu */
+
+.menu{
+    position: absolute;
+    box-sizing: border-box;
+    line-height: 50px;
+    width: 100%;
+    padding: 0 10px;
+    z-index: 2;
+    background-color: white;
+    box-shadow: 2px 2px 6px #00000033;
+    overflow-x: hidden;
+    overflow: hidden;
+}
+
+.menu a{
+    padding: 0 10px;
+    font-size: 19px;
+    text-decoration: none;
+    color: #00000099;
+    float: left;
+}
+
+.menu a:hover{
+    color: #0066ff;
+    cursor: pointer;
+}
+
+.menu-active{
+    color: #0066ff !important;
+}
+
+.menu-title{
+    color: #ffffff;
+    width: 240px;
+}
+
+.menu-transparent{
+    background-color: transparent;
+    position: absolute;
+    box-shadow: none;
+}
+
+.menu-fixed{
+    position: fixed;
+}
+
+.menu-sticky{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+.menu-right a{
+    float: right;
+}
+
+.menu button{
+    margin: 10px;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.menu .more{
+    display: none;
+    padding: 0 10px;
+    font-size: 19px;
+    text-decoration: none;
+    color: #00000099;
+    float: left;
+}
+
+@media (max-width: 768px) {
+    #smart-menu a:not(:first-child) {display: none;}
+        #smart-menu a.more {
+        float: right;
+        display: block;
+    }
+    #smart-menu.responsive {position: relative;}
+    #smart-menu.responsive .more {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    #smart-menu.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
 }
 
 /* container */
@@ -125,69 +216,6 @@ body {
     .col-xl-10 {width: 83.33%;}
     .col-xl-11 {width: 91.66%;}
     .col-xl-12 {width: 100%;}
-}
-
-/* menu */
-
-.menu{
-    position: absolute;
-    box-sizing: border-box;
-    line-height: 50px;
-    width: 100%;
-    padding: 0 10px;
-    z-index: 2;
-    background-color: white;
-    box-shadow: 2px 2px 6px #00000033;
-    overflow-x: hidden;
-    overflow: hidden;
-}
-
-.menu a{
-    padding: 0 10px;
-    font-size: 19px;
-    text-decoration: none;
-    color: #00000099;
-    float: left;
-}
-
-.menu a:hover{
-    color: black;
-    cursor: pointer;
-}
-
-.menu-active{
-    color: #ffffff;
-}
-
-.menu-title{
-    color: #ffffff;
-    width: 240px;
-}
-
-.menu-transparent{
-    background-color: transparent;
-    position: absolute;
-    box-shadow: none;
-}
-
-.menu-fixed{
-    position: fixed;
-}
-
-.menu-sticky{
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-}
-
-.menu-right a{
-    float: right;
-}
-
-.menu button{
-    margin: 10px;
-    color: #000000;
-    background-color: #ffffff;
 }
 
 /* headlines */
