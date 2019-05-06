@@ -44,6 +44,24 @@ body {
     background-color: #0066ff !important;
 }
 
+/* shadows */
+
+.sh-none{
+    box-shadow: none;
+}
+
+.sh-1{
+    box-shadow: -0px 1px 2px #00000033;
+}
+
+.sh-2{
+    box-shadow: -0px 1px 4px #00000033;
+}
+
+.sh-3{
+    box-shadow: -0px 2px 6px #00000033;
+}
+
 /* menu */
 
 .menu{
@@ -53,8 +71,7 @@ body {
     width: 100%;
     padding: 0 10px;
     z-index: 2;
-    background-color: white;
-    box-shadow: 2px 2px 6px #00000033;
+    background-color: #0066ff;
     overflow-x: hidden;
     overflow: hidden;
 }
@@ -63,7 +80,7 @@ body {
     padding: 0 10px;
     font-size: 19px;
     text-decoration: none;
-    color: #00000099;
+    color: #ffffff99;
     float: left;
 }
 
@@ -73,11 +90,11 @@ body {
 }
 
 .menu-active{
-    color: #0066ff !important;
+    color: white !important;
 }
 
 .menu-title{
-    color: #ffffff;
+    color: white !important;
     width: 240px;
 }
 
@@ -153,6 +170,57 @@ body {
     }
 }
 
+/* navigation */
+
+.navigation{
+    position: absolute;
+    display: block;
+    left: 0;
+    height: 100%;
+    padding: 20px;
+    color: black;
+}
+
+.navigation h2{
+    display: block;
+    padding: 40px 20px;
+    margin: 0px;
+    line-height: 40px;
+}
+
+.navigation a{
+    text-decoration: none;
+    display: block;
+    padding: 0px 20px;
+    line-height: 40px;
+    font-size: 18px;
+    color: black;
+    border-radius: 5px;
+}
+
+.navigation a:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.navigation a:active, .navigation a:visited{
+    color: black;
+}
+
+.navigation-fixed{
+    position: fixed;
+}
+
+.navigation-content{
+    margin-left: 250px;
+}
+
+.navigation-absolute{position: absolute;}
+.navigation-absolute div{position: sticky; top: 50px;}
+
+@media (max-width: 768px){.navigation{display: none;}}
+@media (max-width: 768px){.navigation-content{margin-left: 0;}}
+
 /* container */
 
 .container{
@@ -160,6 +228,7 @@ body {
     padding: 40px;
     width: 60%;
     margin: 0 auto;
+    margin-bottom: 40px;
     transition: width .5s;
 }
 
