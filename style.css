@@ -18,6 +18,10 @@ body {
     color: #ffffff;
 }
 
+.center{
+    text-align: center;
+}
+
 /* colors */
 
 .white{
@@ -61,6 +65,18 @@ body {
 .sh-3{
     box-shadow: -0px 2px 6px #00000033;
 }
+
+/* header */
+
+.header{
+    padding: 40px;
+    z-index: 2;
+    color: white;
+    font-size: 40px;
+    background-color: #1a1a1a;
+}
+
+@media screen and (max-width: 768px) {.header{display: none;}}
 
 /* menu */
 
@@ -173,6 +189,7 @@ body {
     left: 0;
     height: 100%;
     padding: 20px;
+    width: 210px;
     color: black;
     transform: left 0.2s
 }
@@ -217,6 +234,7 @@ body {
 
 @media (max-width: 768px){.navigation{left: -250px;}}
 @media (max-width: 768px){.navigation-content{margin-left: 0;}}
+@media (max-width: 992px){.navigation-content .container{width: 100%}}
 
 /* container */
 
@@ -334,13 +352,39 @@ h6{font-size: 16px;}
     border-radius: 5px;
 }
 
-.code{
+.box-example *:first-child{
+    margin-top: 0;
+}
+
+.box-example *:last-child{
+    margin-bottom: 0;
+}
+
+/* code elements */
+
+code{
+    
+}
+
+pre{
     font-family: "consolas";
 }
 
-.math{
+var{
     font-family: serif;
     font-style: italic;
 }
 
+kbd{
+    
+}
 
+samp{
+    
+}
+
+/* components */
+
+p{
+    margin:  -bottom: 20px;
+}
