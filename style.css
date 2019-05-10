@@ -85,7 +85,7 @@ body {
 }
 
 .menu a:hover{
-    color: #0066ff;
+    color: white;
     cursor: pointer;
 }
 
@@ -106,10 +106,6 @@ body {
 
 .menu-transparent a{
     color: #ffffff99;
-}
-
-.menu-transparent a:hover{
-    color: #ffffff;
 }
 
 .menu-transparent .menu-active{
@@ -147,7 +143,6 @@ body {
     padding: 0 10px;
     font-size: 19px;
     text-decoration: none;
-    color: #00000099;
     float: left;
 }
 
@@ -179,11 +174,13 @@ body {
     height: 100%;
     padding: 20px;
     color: black;
+    transform: left 0.2s
 }
 
 .navigation h2{
     display: block;
     padding: 40px 20px;
+    padding-top: 10px;
     margin: 0px;
     line-height: 40px;
 }
@@ -218,7 +215,7 @@ body {
 .navigation-absolute{position: absolute;}
 .navigation-absolute div{position: sticky; top: 50px;}
 
-@media (max-width: 768px){.navigation{display: none;}}
+@media (max-width: 768px){.navigation{left: -250px;}}
 @media (max-width: 768px){.navigation-content{margin-left: 0;}}
 
 /* container */
