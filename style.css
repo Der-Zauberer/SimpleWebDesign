@@ -229,6 +229,15 @@ body {
     transition: width .5s;
 }
 
+.container h1:first-child,
+.container h2:first-child,
+.container h3:first-child,
+.container h4:first-child,
+.container h5:first-child,
+.container h6:first-child{
+    margin-top: 0;
+}
+
 .container-fluid{
     box-sizing: border-box;
     padding: 40px;
@@ -315,3 +324,23 @@ h3{font-size: 25px;}
 h4{font-size: 20px;}
 h5{font-size: 18px;}
 h6{font-size: 16px;}
+
+/* box */
+
+.box{
+    background-color: #e6e6e6;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.code{
+    font-family: "consolas";
+}
+
+.math{
+    font-family: serif;
+    font-style: italic;
+}
+
+
