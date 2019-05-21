@@ -131,6 +131,7 @@ body {
 .menu-title{
     color: white !important;
     width: 240px;
+    display: block !important;
 }
 
 .menu-transparent{
@@ -173,7 +174,20 @@ body {
     float: right;
 }
 
-.menu .more{
+.menu img{
+    height: 20px;
+    padding: 15px 0;
+}
+
+#smart-menu .more{
+    display: none;
+    padding: 0 10px;
+    font-size: 19px;
+    text-decoration: none;
+    float: right;
+}
+
+#nav-menu .more{
     display: none;
     padding: 0 10px;
     font-size: 19px;
@@ -198,6 +212,20 @@ body {
         display: block;
         text-align: left;
     }
+    #nav-menu a:not(:first-child) {display: none;}
+    #nav-menu .more{
+        float: left;
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    #nav-menu .more{
+        display: none !important;
+    }
+    #nav-menu .menu-title{
+        display: none !important;
+    }
 }
 
 /* navigation */
@@ -210,7 +238,8 @@ body {
     padding: 20px;
     width: 210px;
     color: black;
-    transform: left 0.2s
+    background-color: white;
+    transform: left .2s;
 }
 
 .navigation h2{
@@ -246,6 +275,16 @@ body {
 
 .navigation-content{
     margin-left: 250px;
+}
+
+#smart-navigation{
+    left: -250px !important;
+}
+
+@media (max-width: 768px) {
+    #smart-navigation.responsive{
+        left: 0 !important;
+    }
 }
 
 .navigation-absolute{position: absolute;}
@@ -284,10 +323,14 @@ body {
     margin-top: 100px;
 }
 
+.article p{
+    color: #333333;
+}
+
 @media (max-width: 767px) {.article{margin: 0; border-radius: 0;}}
 @media (max-width: 767px) {.container{width: 100%}}
-@media (min-width: 768px) {.container{width: 80%}}
-@media (min-width: 992px) {.container{width: 70%}}
+@media (min-width: 768px) {.container{width: 70%}}
+@media (min-width: 992px) {.container{width: 60%}}
 @media (min-width: 1200px) {.container{width: 50%}}
 
 /* grids */
@@ -356,7 +399,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
-    margin: 40px 0px 20px 0px;
+    margin: 40px 0px 30px 0px;
 }
 
 h1{font-size: 40px;}
@@ -409,5 +452,5 @@ samp{
 /* components */
 
 p{
-    margin:  -bottom: 20px;
+    margin-bottom: 30px;
 }
