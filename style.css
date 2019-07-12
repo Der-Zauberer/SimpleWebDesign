@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 /* body */
 
 html {
@@ -5,7 +7,7 @@ html {
 }
 
 body {
-    font-family: sans-serif;
+    font-family: Roboto, sans-serif;
     background-color: #ffffff;
     font-size: 16px;
     line-height: 20px;
@@ -67,7 +69,7 @@ a{
 
 /* shadows */
 
-.sh-none{
+.sh-0{
     box-shadow: none;
 }
 
@@ -83,6 +85,10 @@ a{
     box-shadow: -0px 2px 6px #00000033;
 }
 
+.sh-4{
+    box-shadow: -0px 4px 8px #00000033;
+}
+
 /* rd-0 */
 
 .rd-0{
@@ -95,6 +101,10 @@ a{
 
 .rd-2{
     border-radius: 5px;
+}
+
+.rd-3{
+    border-radius: 10px;
 }
 
 /* header */
@@ -112,10 +122,10 @@ a{
 /* menu */
 
 .menu{
-    position: absolute;
     box-sizing: border-box;
     line-height: 50px;
     width: 100%;
+    margin-bottom: 50px;
     padding: 0 10px;
     z-index: 2;
     background-color: #0066ff;
@@ -142,7 +152,6 @@ a{
 
 .menu-title{
     color: white !important;
-    width: 240px;
     display: block !important;
 }
 
@@ -174,9 +183,11 @@ a{
 
 .menu-fixed{
     position: fixed;
+    margin-bottom: 0;
 }
 
 .menu-sticky{
+    margin-bottom: 0;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
@@ -363,14 +374,9 @@ a{
 
 @media (max-width: 767px) {.article{margin: 0; border-radius: 0;}}
 @media (max-width: 767px) {.container{width: 100%}}
-@media (min-width: 768px) {.container{width: 70%}}
-@media (min-width: 992px) {.container{width: 60%}}
-@media (min-width: 1200px) {.container{width: 50%}}
-
-@media (max-width: 767px) {.container-sm{width: 80%}}
-@media (min-width: 768px) {.container-sm{width: 60%}}
-@media (min-width: 992px) {.container-sm{width: 50%}}
-@media (min-width: 1200px) {.container-sm{width: 40%}}
+@media (min-width: 768px) {.container{width: 80%}}
+@media (min-width: 992px) {.container{width: 70%}}
+@media (min-width: 1200px) {.container{width: 60%}}
 
 /* grids */
 
@@ -379,16 +385,19 @@ a{
     content: "";
     clear: both;
     display: table;
-    margin-bottom: 20px;
 }
         
 [class*="col-"] {
     box-sizing: border-box;
     width: 100%;
     float: left;
+    padding: 0;
 }
 
 @media only screen and (min-width: 600px) {
+    [class*="col-sm-"] {padding: 0 10px;}
+    [class*="col-sm-"]:first-child {padding-left: 0px;}
+    [class*="col-sm-"]:last-child {padding-right: 0px;}
     .col-sm-1 {width: 8.33%;}
     .col-sm-2 {width: 16.66%;}
     .col-sm-3 {width: 25%;}
@@ -404,6 +413,9 @@ a{
 }
 
 @media only screen and (min-width: 768px) {
+    [class*="col-md-"] {padding: 0 10px;}
+    [class*="col-md-"]:first-child {padding-left: 0px;}
+    [class*="col-md-"]:last-child {padding-right: 0px;}
     .col-md-1 {width: 8.33%;}
     .col-md-2 {width: 16.66%;}
     .col-md-3 {width: 25%;}
@@ -419,6 +431,9 @@ a{
 }
 
 @media only screen and (min-width: 1024px) {
+    [class*="col-xl-"] {padding: 0 10px;}
+    [class*="col-xl-"]:first-child {padding-left: 0px;}
+    [class*="col-xl-"]:last-child {padding-right: 0px;}
     .col-xl-1 {width: 8.33%;}
     .col-xl-2 {width: 16.66%;}
     .col-xl-3 {width: 25%;}
@@ -436,16 +451,16 @@ a{
 /* headlines */
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
+    font-weight: 500;
     margin: 40px 0px 30px 0px;
 }
 
-h1{font-size: 40px;}
-h2{font-size: 30px;}
-h3{font-size: 25px;}
-h4{font-size: 20px;}
-h5{font-size: 18px;}
-h6{font-size: 16px;}
+h1{font-size: 40px; line-height: 40px}
+h2{font-size: 25px; line-height: 25px;}
+h3{font-size: 20px; line-height: 20px;}
+h4{font-size: 18px; line-height: 18px;}
+h5{font-size: 15px; line-height: 15px;}
+h6{font-size: 10px; line-height: 10px;}
 
 /* box */
 
@@ -511,7 +526,22 @@ samp{
     
 }
 
+.button{
+    background-color: #0066ff;
+    color: white;
+    padding: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 /* components */
+
+img{
+    max-width: 100%;
+    width: 100%;
+    object-fit: scale-down;
+}
 
 p{
     margin-bottom: 30px;
