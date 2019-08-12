@@ -66,6 +66,42 @@ a:hover{
     color: white !important;
 }
 
+/* shadows */
+
+.sh-none{
+    box-shadow: none;
+}
+
+.sh-1{
+    box-shadow: -0px 1px 2px #00000033;
+}
+
+.sh-2{
+    box-shadow: -0px 1px 4px #00000033;
+}
+
+.sh-3{
+    box-shadow: -0px 2px 6px #00000033;
+}
+
+/* rd-0 */
+
+.rd-0{
+    border-radius: 0px;
+}
+
+.rd-1{
+    border-radius: 2.5px;
+}
+
+.rd-2{
+    border-radius: 5px;
+}
+
+.rd-2{
+    border-radius: 10px;
+}
+
 /* header */
 
 .header{
@@ -390,23 +426,6 @@ h4{font-size: 18px; line-height: 20px;}
 h5{font-size: 15px; line-height: 18px; font-weight: bold;}
 h6{font-size: 12px; line-height: 12px; font-weight: bold;}
 
-/* box */
-
-.box{
-    background-color: #e6e6e6;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-.box-example *:first-child{
-    margin-top: 0;
-}
-
-.box-example *:last-child{
-    margin-bottom: 0;
-}
-
 /* froms */
 
 input, select, textarea{
@@ -501,6 +520,25 @@ label{
     margin-bottom: 20px;
 }
 
+/* boxes */
+
+.box{
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: -0px 1px 4px #00000033;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.box-border{
+    border-left: solid 5px #000000;
+}
+
+.box-text{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
 /* alerts */
 
 .alert{
@@ -555,13 +593,21 @@ code{
     display: block;
     background-color: #e6e6e6;
     padding: 10px;
+    margin-bottom: 25px;
     border-radius: 5px;
 }
 
 @media (max-width: 768px) {code{font-size: 13px;}}
 
 pre{
-    font-family: "consolas";
+    font-size: 14px;
+    line-height: 25px;
+    display: block;
+    color: white;
+    background-color: #1a1a1a;
+    padding: 10px;
+    margin-bottom: 25px;
+    border-radius: 5px;
 }
 
 var{
@@ -570,11 +616,16 @@ var{
 }
 
 kbd{
-    
+    border: solid 1px;
+    padding: 0 2px;
+    border-radius: 2.5px;
 }
 
 samp{
-    
+    font-size: 14px;
+    padding: 2px;
+    background-color: #e6e6e6;
+    border-radius: 2.5px;
 }
 
 /* components */

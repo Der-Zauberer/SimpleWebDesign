@@ -24,8 +24,11 @@
             <a href="#menu">Menu</a>
             <a href="#headlines">Navigation</a>
             <a href="#media">Media</a>
+            <a href="#boxes">Boxes</a>
+            <a href="#labels">Labels</a>
             <a href="#alerts">Alerts</a>
-            <a href="#labels">Lables</a>
+            <a href="#code">Code</a>
+            <a href="#pre">Pre (Console)</a>
         </div>
         <div class="navigation-content">
             <div class="container">
@@ -81,6 +84,11 @@
                     <h2>Test</h2>
                 </div>
                 
+                <h2 id="boxes">Boxes</h2>
+                
+                <div class="box">Test</div>
+                <div class="box box-border">This is a box!</div>
+                
                 <h2 id="labels">Labels</h2>
                 
                 <label>Default</label>
@@ -88,6 +96,9 @@
                 <label class="label-green">Success</label>
                 <label class="label-yellow">Warning</label>
                 <label class="label-red">Error</label>
+                <samp>Samp Code</samp>
+                <kbd>Space</kbd>
+                Text
                 
                 <code style="margin-top: 20px;">
                     &lt;label&gt;Default&lt;/label&gt;<br>
@@ -95,6 +106,8 @@
                     &lt;label class="label-green"&gt;Success&lt;/label&gt;<br>
                     &lt;label class="label-yellow"&gt;Warning&lt;/label&gt;<br>
                     &lt;label class="label-red"&gt;Error&lt;/label&gt;<br>
+                    &lt;samp&gt;Samp Code&lt;/samp&gt;<br>
+                    &lt;kbd&gt;Space&lt;/kbd&gt;<br>
                 </code>
                 
                 <h2 id="alerts">Alerts</h2>
@@ -105,8 +118,6 @@
                 <div class="alert alert-yellow"><strong>Warning</strong> This is a warnung alert!</div>
                 <div class="alert alert-red"><strong>Error</strong> This is an error alert!</div>
                 
-                &ensp;&ensp;
-                
                 <code>
                     &lt;div class="alert"&gt;&lt;strong&gt;Default&lt;strong&gt; This is a default alert!&lt;/div&gt;<br>
                     &lt;div class="alert alert-blue"&gt;&lt;strong&gt;Info&lt;strong&gt; This is a info alert!&lt;/div&gt;<br>
@@ -114,6 +125,30 @@
                     &lt;div class="alert alert-yellow"&gt;&lt;strong&gt;Warning&lt;strong&gt; This is a yellow alert!&lt;/div&gt;<br>
                     &lt;div class="alert alert-red"&gt;&lt;strong&gt;Error&lt;strong&gt; This is a error alert!&lt;/div&gt;<br>
                 </code>
+                
+                <h2 id="code">Code</h2>
+                
+                <code>
+                    @Override<br>
+                    public static void main(String[] args) {<br>
+                    &ensp;&ensp; System.out.println("This is a Test");<br>
+                    }<br>
+                </code>
+                
+                <code>
+                    &lt;code&gt;<br>
+                    &ensp;&ensp;@Override&lt;br&gt;<br>
+                    &ensp;&ensp;public static void main(String[] args) {&lt;br&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp; System.out.println("This is a Test");&lt;br&gt;<br>
+                    &ensp;&ensp;}&lt;br&gt;<br>
+                    &lt;/code&gt;<br>
+                </code>
+                
+                <h2 id="pre">Pre (Console)</h2>
+                
+                <pre>This is a Test</pre>
+                
+                <code>&lt;pre&gt; This is a Test &lt;/pre&gt; </code>
                                 
             </div>
         </div>
