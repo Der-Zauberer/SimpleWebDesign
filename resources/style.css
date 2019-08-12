@@ -34,6 +34,10 @@ a:hover{
     cursor: pointer;
 }
 
+.clearfix{
+    clear: both;
+}
+
 /* colors */
 
 .white{
@@ -68,39 +72,24 @@ a:hover{
 
 /* shadows */
 
-.sh-none{
-    box-shadow: none;
-}
+.sh-0{box-shadow: none;}
+.sh-1{box-shadow: -0px 1px 2px #00000033;}
+.sh-2{box-shadow: -0px 1px 4px #00000033;}
+.sh-3{box-shadow: -0px 2px 6px #00000033;}
 
-.sh-1{
-    box-shadow: -0px 1px 2px #00000033;
-}
+/* radius */
 
-.sh-2{
-    box-shadow: -0px 1px 4px #00000033;
-}
+.rd-0{border-radius: 0px;}
+.rd-1{border-radius: 2.5px;}
+.rd-2{border-radius: 5px;}
+.rd-3{border-radius: 10px;}
 
-.sh-3{
-    box-shadow: -0px 2px 6px #00000033;
-}
+/* padding */
 
-/* rd-0 */
-
-.rd-0{
-    border-radius: 0px;
-}
-
-.rd-1{
-    border-radius: 2.5px;
-}
-
-.rd-2{
-    border-radius: 5px;
-}
-
-.rd-2{
-    border-radius: 10px;
-}
+.pd-0{padding: 0px}
+.pd-1{padding: 5px}
+.pd-2{padding: 10px}
+.pd-3{padding: 20px}
 
 /* header */
 
@@ -503,26 +492,34 @@ label{
 
 .media img {
     background-image: url(Icon.jpg);
-    max-height: 128px;
-    max-width: 128px;
+    max-height: 64px;
+    max-width: 64px;
     float: left;
     margin-right: 10px;
 }
 
-.media h1,
-.media h2,
-.media h3,
-.media h4,
-.media h5,
-.media h6{
+.media-content:first-child{
     margin-top: 0px;
-    font-weight: 500;
-    margin-bottom: 20px;
+}
+
+.media-content:last-child{
+    margin-bottom: 0px;
+}
+
+.media-content h1,
+.media-content h2,
+.media-content h3,
+.media-content h4,
+.media-content h5,
+.media-content h6{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /* boxes */
 
 .box{
+    min-height: 20px;
     background-color: #ffffff;
     padding: 20px;
     box-shadow: -0px 1px 4px #00000033;
@@ -534,10 +531,40 @@ label{
     border-left: solid 5px #000000;
 }
 
-.box-text{
-    display: grid;
-    grid-template-columns: 1fr 5fr;
+.box-left{
+    display:inline-block;
+    width: auto;
+    float: left;
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 5px 0px 0px 5px;
+    margin-bottom: 0px;
 }
+
+.box-right{
+    display:inline-block;
+    width: ;
+    float: left;
+    border-radius: 0px 5px 5px 0px;
+    margin-bottom: 20px;
+}
+
+.box-top{
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 0px;
+}
+
+.box-center{
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+.box-bottom{
+    border-radius: 0px 0px 5px 5px;
+}
+
 
 /* alerts */
 
