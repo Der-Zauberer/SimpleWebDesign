@@ -16,6 +16,8 @@ body {
     background-repeat: no-repeat;
 }
 
+@media (max-width: 767px) {body{font-size: 14px;}}
+
 ::selection {
     background: #0066ff;
     color: #ffffff;
@@ -332,7 +334,7 @@ body {
 }
 
 .container > *:last-child{
-    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .container-fluid{
@@ -685,6 +687,31 @@ samp{
     border-radius: 2.5px;
 }
 
+@media (max-width: 768px) {
+    code, pre, samp, var{font-size: 12px;}
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table tr th {
+    background-color: #e6e6e6;
+    padding: 10px;
+    font-weight: normal;
+}
+
+table td, th {
+    padding: 10px;
+    text-align: left;
+    border: solid 2.5px #e6e6e6;
+}
+
 /* components */
 
 img{
@@ -704,4 +731,80 @@ a{
 
 a:hover{
     cursor: pointer;
+}
+
+ul{
+    padding-left: 17px;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+ul li{padding-bottom: 5px;}
+ul li:last-child{padding-bottom: 0px;}
+
+ol{
+    padding-left: 17px;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+ol li{padding-bottom: 5px;}
+ol li:last-child{padding-bottom: 0px;}
+
+.menulist {
+    background-color: #e6e6e6;
+    list-style-type:none;
+    padding: 20px;
+    width: 210px;
+    color: black;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+}
+
+.menulist > *{
+    text-decoration: none;
+    display: block;
+    padding: 0px 20px;
+    line-height: 40px;
+    font-size: 18px;
+    color: black;
+    border-radius: 5px;
+}
+
+.menulist > *:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.menulist > *:active, .menulist > *:visited{
+    color: black;
+}
+
+.itemlist{
+    background-color: #e6e6e6;
+    list-style-type:none;
+    padding: 0px;
+    width: 210px;
+    color: black;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+}
+
+.itemlist > *{
+    text-decoration: none;
+    display: block;
+    padding: 0px 20px;
+    line-height: 40px;
+    font-size: 18px;
+    color: black;
+    border-radius: 5px;
+}
+
+.itemlist > *:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.itemlist > *:active, .itemlist > *:visited{
+    color: black;
 }
