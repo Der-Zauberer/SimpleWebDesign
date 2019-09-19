@@ -246,11 +246,12 @@ body {
     color: black;
     background-color: #e6e6e6;
     transform: left .2s;
+    overflow-x: scroll;
 }
 
 .navigation h2{
     display: block;
-    padding: 40px 20px;
+    padding: 40px 10px;
     padding-top: 10px;
     margin: 0px;
     line-height: 40px;
@@ -259,7 +260,7 @@ body {
 .navigation a{
     text-decoration: none;
     display: block;
-    padding: 0px 20px;
+    padding: 0px 10px;
     line-height: 40px;
     font-size: 18px;
     color: black;
@@ -429,10 +430,10 @@ body {
     float: left;
 }
 
-.gallery-1{grid-template-columns: repeat(1, auto);}
-.gallery-2{grid-template-columns: repeat(2, auto);}
-.gallery-3{grid-template-columns: repeat(3, auto);}
-.gallery-4{grid-template-columns: repeat(4, auto);}
+.gallery-1{grid-template-columns: repeat(1, 6fr);}
+.gallery-2{grid-template-columns: repeat(2, 3fr);}
+.gallery-3{grid-template-columns: repeat(3, 2fr);}
+.gallery-4{grid-template-columns: repeat(4, 1.5fr);}
 
 /* headlines */
 
@@ -519,7 +520,9 @@ label{
 /* media */
 
 .media {
-    display: flex;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 64px, auto;
     margin-bottom: 20px;
 }
 
@@ -752,7 +755,37 @@ ol li{padding-bottom: 5px;}
 ol li:last-child{padding-bottom: 0px;}
 
 .menulist {
-    background-color: #e6e6e6;
+    list-style-type:none;
+    height: 50px;
+    padding: 0px;
+    border-radius: 5px;
+    background-color: #0066ff;
+}
+
+.menulist > *{
+    float: left;
+    text-decoration: none;
+    display: block;
+    padding: 0px;
+    padding-left: 20px;
+    line-height: 50px;
+    font-size: 18px;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    color: #ffffff99;
+}
+
+.menulist > *:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.menulist > *:active, .menulist > *:visited{
+    color: black;
+}
+
+.navigationlist {
     list-style-type:none;
     padding: 20px;
     width: 210px;
@@ -761,27 +794,26 @@ ol li:last-child{padding-bottom: 0px;}
     background-color: #e6e6e6;
 }
 
-.menulist > *{
+.navigationlist > *{
     text-decoration: none;
     display: block;
-    padding: 0px 20px;
+    padding: 0px 10px;
     line-height: 40px;
     font-size: 18px;
     color: black;
     border-radius: 5px;
 }
 
-.menulist > *:hover{
+.navigationlist > *:hover{
     background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
-.menulist > *:active, .menulist > *:visited{
+.navigationlist > *:active, .navigationlist > *:visited{
     color: black;
 }
 
 .itemlist{
-    background-color: #e6e6e6;
     list-style-type:none;
     padding: 0px;
     width: 210px;
@@ -793,7 +825,7 @@ ol li:last-child{padding-bottom: 0px;}
 .itemlist > *{
     text-decoration: none;
     display: block;
-    padding: 0px 20px;
+    padding: 0px 10px;
     line-height: 40px;
     font-size: 18px;
     color: black;
