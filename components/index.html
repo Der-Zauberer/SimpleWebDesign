@@ -10,7 +10,7 @@
         <link href="../resources/favicon.png" rel="icon">
         <title>Simple Web Design</title>
     </head>
-    <body>
+    <body class="lightmode">
         
         <div class="menu">
             <a class="menu-title" href="../">Simple Web Design</a>
@@ -39,7 +39,7 @@
                 
                 <h2 id="getstarted">Get started</h2>
                 
-                <p>Download the <a href="../resources/style.css" download>Stylesheet</a> and the <a href="../resources/script.js" download>Javascript</a> file. Then create a .html file, useing the following template!</p>
+                <p>Download the <a href="../resources/style.css" download>Stylesheet</a> and the <a href="../resources/script.js" download>Javascript</a> file. Then create a .html file, using the following template!</p>
                 
                 <code>
                     &lt;!DOCTYPE html&gt;<br>
@@ -99,15 +99,17 @@
                 
                 <div class="box">This is a box!</div>
                 <div class="box box-border">This is a box!</div>
-                <div class="box box-top">Box</div>
+                <div class="box box-top" style="background-color: black; color: white;">Box</div>
                 <div class="box box-center">This is a box!</div>
-                <div class="box box-bottom"><a style="float: right">Next ></a></div>
+                <div class="box box-bottom"><a style="float: right"><strong>NEXT</strong></a></div>
                 
                 <div class="gallery-3">
-                    <div><div class="box box-top" style="background-image: url(../resources/Image.jpg); height: 40px;"></div><div class="box box-bottom">This is a box with picture</div></div>
+                    <div><div class="box box-top" style="background-image: url(../resources/Image.jpg); height: 40px;"></div><div class="box box-bottom">This is a box with a picture</div></div>
                     <div class="box" style="background-image: url(../resources/Image.jpg)">This is also a box with picture</div>
                     <div class="box">This is a Box</div>
                 </div>
+                
+                <div class="box red">Error: Please try again!</div>
                 
                 <code>
                     &lt;div class="box">This is a box!&lt;/div><br>
@@ -116,6 +118,7 @@
                     &lt;div class="box box-center">This is a box!&lt;/div><br>
                     &lt;div class="box box-bottom">&lt;a style="float: right">Next >&lt;/a>&lt;/div><br>
                     &lt;div class="box" style="background-image: url(...); height: 40px;">This is a box!&lt;/div><br>
+                    &lt;div class="box red">Error: Please try again!&lt;/div><br>
                 </code>
                 
                 <h2 id="labels">Labels</h2>
@@ -210,17 +213,17 @@
                 <div class="gallery-2">
                     <ul><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li></ul>
                     <ol><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li></ol>
-                    <ul class="navigationlist"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li></ul>
-                    <ul class="itemlist"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li><li>Test.mp4</li></ul>
+                    <ul class="navigation-list"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li></ul>
+                    <ul class="item-list"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li><li>Test.mp4</li></ul>
                 </div>
-                 <ul class="menulist"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li><li>Test.mp4</li></ul>
+                 <ul class="menu-list"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li><li>Test.mp4</li></ul>
                 
                 <code>
                     &lt;ul>&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ul><br>
                     &lt;ol>&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ol><br>
-                    &lt;ul class="navigationlist">&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ul><br>
-                    &lt;ul class="itemlist">&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;li>Test.mp4&lt;/li>&lt;/ul><br>
-                    &lt;ul class="menulist">&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ul><br>
+                    &lt;ul class="navigation-list">&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ul><br>
+                    &lt;ul class="item-list">&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;li>Test.mp4&lt;/li>&lt;/ul><br>
+                    &lt;ul class="menu-list">&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ul><br>
                 </code>
                                 
             </div>
