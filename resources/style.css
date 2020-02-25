@@ -38,66 +38,44 @@ body {
 
 .dark-grey{ background-color: #d9d9d9 !important; border-color: #d9d9d9 !important; color: black !important;}
 .grey{ background-color: #e6e6e6 !important; border-color: #e6e6e6 !important; color: black !important;}
-.light-grey{ background-color: #f2f2f2 !important; border-color: #f2f2f2 !important; color: black !important;}
+
+.darkmode .dark-grey{ background-color: #262626 !important; border-color: #262626 !important; color: white !important;}
+.darkmode .grey{ background-color: #1a1a1a !important; border-color: #1a1a1a !important; color: white !important;}
 
 .dark-grey-darkmode{ background-color: #262626 !important; border-color: #262626 !important; color: white !important;}
 .grey-darkmode{ background-color: #1a1a1a !important; border-color: #1a1a1a !important; color: white !important;}
-.light-grey-darkmode{ background-color: #0d0d0d !important; border-color: #0d0d0d !important; color: white !important;}
 
-.dark-deep-blue{background-color: #000080 !important; border-color: #000080 !important; color: white !important;}
-.deep-blue{background-color: #0000bf !important; border-color: #0000bf !important; color: white !important;}
-.light-deep-blue{background-color: #0000ff !important; border-color: #0000ff !important; color: white !important;}
-.transparent-deep-blue{background-color: #0000bf80 !important; border-color: #0000bf !important; color: black !important;}
+.dark-blue{background-color: #000080 !important; border-color: #000080 !important; color: white !important;}
+.blue{background-color: #0000ff !important; border-color: #0000ff !important; color: white !important;}
+.transparent-blue{background-color: #0000ff44 !important; border-color: #0000ff !important; color: #0000ff !important;}
 
-.dark-blue{background-color: #0060bf !important; border-color: #0060bf !important; color: white !important;}
-.blue{background-color: #0080ff !important; border-color: #0080ff !important; color: white !important;}
-.light-blue{background-color: #40a0ff !important; border-color: #40a0ff !important; color: white !important;}
-.transparent-blue{background-color: #0080ff80 !important; border-color: #0080ff !important; color: black !important;}
+.dark-liblue{background-color: #004080 !important; border-color: #004080 !important; color: white !important;}
+.liblue{background-color: #0080ff !important; border-color: #0080ff !important; color: white !important;}
+.transparent-liblue{background-color: #0080ff44 !important; border-color: #0080ff !important; color: #0080ff !important;}
 
-.dark-aqua{background-color: #008fbf !important; border-color: #008fbf !important; color: white !important;}
-.aqua{background-color: #00bfff !important; border-color: #00bfff !important; color: white !important;}
-.light-aqua{background-color: #40cfff !important; border-color: #40cfff !important; color: white !important;}
-.transparent-aqua{background-color: #00bfff80 !important; border-color: #00bfff !important; color: black !important;}
+.dark-aqua{background-color: #008080 !important; border-color: #008080 !important; color: white !important;}
+.aqua{background-color: #00cccc !important; border-color: #00cccc !important; color: white !important;}
+.transparent-aqua{background-color: #00cccc44 !important; border-color: #00cccc !important; color: #00cccc !important;}
 
-.dark-turquoise{background-color: #008055 !important; border-color: #008055 !important; color: white !important;}
-.turquoise{background-color: #00bf80 !important; border-color: #00ff80 !important; color: white !important;}
-.light-turquoise{background-color: #40ffc0 !important; border-color: #40ffc0 !important; color: white !important;}
-.transparent-turquoise{background-color: #00bf8080 !important; border-color: #00bf80 !important; color: black !important;}
+.dark-turquoise{background-color: #008040 !important; border-color: #008040 !important; color: white !important;}
+.turquoise{background-color: #00cc66 !important; border-color: #00cc66 !important; color: white !important;}
+.transparent-turquoise{background-color: #00cc6644 !important; border-color: #00cc66 !important; color: #00cc66 !important;}
 
-.dark-deep-green{background-color: #008000 !important; border-color: #008000 !important; color: white !important;}
-.deep-green{background-color: #00bf00 !important; border-color: #00bf00 !important; color: white !important;}
-.light-deep-green{background-color: #00ff00 !important; border-color: #00ff00 !important; color: white !important;}
-.transparent-deep-green{background-color: #00bf0080 !important; border-color: #00bf00 !important; color: black !important;}
+.dark-green{background-color: #008000 !important; border-color: #008000 !important; color: white !important;}
+.green{background-color: #00cc00 !important; border-color: #00cc00 !important; color: white !important;}
+.transparent-green{background-color: #00cc0044 !important; border-color: #00cc00 !important; color: #00cc00 !important;}
 
-.dark-green{background-color: #558000 !important; border-color: #558000 !important; color: white !important;}
-.green{background-color: #80bf00 !important; border-color: #80bf00 !important; color: white !important;}
-.light-green{background-color: #abff00 !important; border-color: #abff00 !important; color: white !important;}
-.transparent-green{background-color: #80bf0080 !important; border-color: #80bf00 !important; color: black !important;}
+.dark-yellow{background-color: #997a00 !important; border-color: #997a00 !important; color: white !important;}
+.yellow{background-color: #ffcc00 !important; border-color: #ffcc00 !important; color: white !important;}
+.transparent-yellow{background-color: #ffcc0044 !important; border-color: #ffcc00 !important; color: #ffcc00 !important;}
 
-.dark-yellow{background-color: #bf8f00 !important; border-color: #bf8f00 !important; color: white !important;}
-.yellow{background-color: #ffbf00 !important; border-color: #ffbf00 !important; color: white !important;}
-.light-yellow{background-color: #ffcf40 !important; border-color: #ffcf40 !important; color: white !important;}
-.transparent-yellow{background-color: #ffbf0080 !important; border-color: #ffbf00 !important; color: black !important;}
-
-.dark-orange{background-color: #bf6000 !important; border-color: #bf6000 !important; color: white !important;}
+.dark-orange{background-color: #804000 !important; border-color: #804000 !important; color: white !important;}
 .orange{background-color: #ff8000 !important; border-color: #ff8000 !important; color: white !important;}
-.light-orange{background-color: #ffa040 !important; border-color: #ffa040 !important; color: white !important;}
-.transparent-orange{background-color: #ff800080 !important; border-color: #ff8000 !important; color: black !important;}
+.transparent-orange{background-color: #ff800044 !important; border-color: #ff8000 !important; color: #ff8000 !important;}
 
 .dark-red{background-color: #800000 !important; border-color: #800000 !important; color: white !important;}
-.red{background-color: #bf0000 !important; border-color: #bf0000 !important; color: white !important;}
-.light-red{background-color: #ff0000 !important; border-color: #ff0000 !important; color: white !important;}
-.transparent-red{background-color: #bf000080 !important; border-color: #bf0000 !important; color: black !important;}
-
-.dark-pink{background-color: #bf0060 !important; border-color: #bf0060 !important; color: white !important;}
-.pink{background-color: #ff0080 !important; border-color: #ff0080 !important; color: white !important;}
-.light-pink{background-color: #ff40a0 !important; border-color: #ff40a0 !important; color: white !important;}
-.transparent-pink{background-color: #ff008080 !important; border-color: #ff0080 !important; color: black !important;}
-
-.dark-purple{background-color: #550080 !important; border-color: #550080 !important; color: white !important;}
-.purple{background-color: #8000bf !important; border-color: #8000bf !important; color: white !important;}
-.light-purple{background-color: #ab00ff !important; border-color: #ab00ff !important; color: white !important;}
-.transparent-purple{background-color: #8000bf80 !important; border-color: #8000bf !important; color: black !important;}
+.red{background-color: #ff0000 !important; border-color: #ff0000 !important; color: white !important;}
+.transparent-red{background-color: #ff000044 !important; border-color: #ff0000 !important; color: #ff0000 !important;}
 
 /* dark and light */
 
@@ -666,7 +644,6 @@ label{
 }
 
 .box-top{
-    background-color: #000000;
     border-radius: 5px 5px 0px 0px;
     margin-bottom: 0px;
 }
