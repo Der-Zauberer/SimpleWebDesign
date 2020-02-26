@@ -10,7 +10,7 @@
         <link href="../resources/favicon.png" rel="icon">
         <title>Simple Web Design</title>
     </head>
-    <body class="lightmode">
+    <body>
         
         <div class="menu">
             <a class="menu-title" href="../">Simple Web Design</a>
@@ -29,7 +29,7 @@
             <a href="#labels">Labels</a>
             <a href="#alerts">Alerts</a>
             <a href="#code">Code</a>
-            <a href="#pre">Pre (Console)</a>
+            <a href="#pre">Pre (Console and Code)</a>
             <a href="#var">Var (Formula)</a>
             <a href="#table">Table</a>
             <a href="#list">List</a>
@@ -99,7 +99,7 @@
                 
                 <div class="box">This is a box!</div>
                 <div class="box box-border">This is a box!</div>
-                <div class="box box-top" style="background-color: black; color: white;">Box</div>
+                <div class="box box-top black">Box</div>
                 <div class="box box-center">This is a box!</div>
                 <div class="box box-bottom"><a style="float: right"><strong>NEXT</strong></a></div>
                 
@@ -114,9 +114,9 @@
                 <code>
                     &lt;div class="box">This is a box!&lt;/div><br>
                     &lt;div class="box box-border">This is a box!&lt;/div><br>
-                    &lt;div class="box box-top">Box&lt;/div><br>
+                    &lt;div class="box box-top black">Box&lt;/div><br>
                     &lt;div class="box box-center">This is a box!&lt;/div><br>
-                    &lt;div class="box box-bottom">&lt;a style="float: right">Next >&lt;/a>&lt;/div><br>
+                    &lt;div class="box box-bottom">&lt;a style="float: right">&lt;b>Next&lt;/b>&lt;/a>&lt;/div><br>
                     &lt;div class="box" style="background-image: url(...); height: 40px;">This is a box!&lt;/div><br>
                     &lt;div class="box red">Error: Please try again!&lt;/div><br>
                 </code>
@@ -124,20 +124,20 @@
                 <h2 id="labels">Labels</h2>
                 
                 <label>Default</label>
-                <label class="label-blue">Info</label>
-                <label class="label-green">Success</label>
-                <label class="label-yellow">Warning</label>
-                <label class="label-red">Error</label>
+                <label class="liblue">Info</label>
+                <label class="green">Success</label>
+                <label class="yellow">Warning</label>
+                <label class="red">Error</label>
                 <samp>Samp Code</samp>
                 <kbd>Space</kbd>
                 Text
                 
                 <code style="margin-top: 20px;">
                     &lt;label&gt;Default&lt;/label&gt;<br>
-                    &lt;label class="label-blue"&gt;Info&lt;/label&gt;<br>
-                    &lt;label class="label-green"&gt;Success&lt;/label&gt;<br>
-                    &lt;label class="label-yellow"&gt;Warning&lt;/label&gt;<br>
-                    &lt;label class="label-red"&gt;Error&lt;/label&gt;<br>
+                    &lt;label class="liblue"&gt;Info&lt;/label&gt;<br>
+                    &lt;label class="green"&gt;Success&lt;/label&gt;<br>
+                    &lt;label class="yellow"&gt;Warning&lt;/label&gt;<br>
+                    &lt;label class="red"&gt;Error&lt;/label&gt;<br>
                     &lt;samp&gt;Samp Code&lt;/samp&gt;<br>
                     &lt;kbd&gt;Space&lt;/kbd&gt;<br>
                 </code>
@@ -145,10 +145,10 @@
                 <h2 id="alerts">Alerts</h2>
                 
                 <div class="alert"><strong>Default</strong> This is a default alert!</div>
-                <div class="alert alert-blue"><strong>Info</strong> This is an info alert!</div>
-                <div class="alert alert-green"><strong>Success</strong> This is a success alert!</div>
-                <div class="alert alert-yellow"><strong>Warning</strong> This is a warnung alert!</div>
-                <div class="alert alert-red"><strong>Error</strong> This is an error alert!</div>
+                <div class="alert transparent-liblue"><strong>Info</strong> This is an info alert!</div>
+                <div class="alert transparent-green"><strong>Success</strong> This is a success alert!</div>
+                <div class="alert transparent-yellow"><strong>Warning</strong> This is a warnung alert!</div>
+                <div class="alert transparent-red"><strong>Error</strong> This is an error alert!</div>
                 
                 <code>
                     &lt;div class="alert"&gt;&lt;strong&gt;Default&lt;strong&gt; This is a default alert!&lt;/div&gt;<br>
@@ -176,7 +176,7 @@
                     &lt;/code&gt;<br>
                 </code>
                 
-                <h2 id="pre">Pre (Console)</h2>
+                <h2 id="pre">Pre (Console and Code)</h2>
                 
                 <pre>This is a Test</pre>
                 
@@ -190,7 +190,7 @@
                 
                 <h2 id="table">Table</h2>
                 
-                <div style="overflow-x:auto;">
+                <div style="overflow-x:auto; border-radius: 5px;">
                     <table>
                         <tr><th>Name</th><th>Author</th><th>Parts</th></tr>
                         <tr><td>Harry Potter</td><td>J. K. Rowling</td><td>7</td></tr>
@@ -199,7 +199,7 @@
                 </div>
                 
                 <code>
-                    &lt;div style="overflow-x:auto;"><br>
+                    &lt;div style="overflow-x:auto; border-radius: 5px;"><br>
                     &ensp;&ensp;&lt;table><br>
                     &ensp;&ensp;&ensp;&ensp;&lt;tr>&lt;th>Name&lt;/th>&lt;th>Author&lt;/th>&lt;th>Parts&lt;/th>&lt;/tr><br>
                     &ensp;&ensp;&ensp;&ensp;&lt;tr>&lt;td>Harry Potter&lt;/td>&lt;td>J. K. Rowling&lt;/td>&lt;td>7&lt;/td>&lt;/tr><br>
@@ -216,14 +216,14 @@
                     <ul class="navigation-list"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li></ul>
                     <ul class="item-list"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li><li>Test.mp4</li></ul>
                 </div>
-                 <ul class="menu-list"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li><li>Test.mp4</li></ul>
+                 <ul class="menu-list menu-centered-4"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li><li>Test.mp4</li></ul>
                 
                 <code>
                     &lt;ul>&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ul><br>
                     &lt;ol>&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ol><br>
                     &lt;ul class="navigation-list">&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ul><br>
                     &lt;ul class="item-list">&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;li>Test.mp4&lt;/li>&lt;/ul><br>
-                    &lt;ul class="menu-list">&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ul><br>
+                    &lt;ul class="menu-list menu-centered-4">&lt;li>Video.mp4&lt;/li>&lt;li>MyVideo.mp4&lt;/li>&lt;li>YouTube.mp4&lt;/li>&lt;/ul><br>
                 </code>
                                 
             </div>

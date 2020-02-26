@@ -9,7 +9,7 @@ html {
 body {
     font-family: Roboto, sans-serif;
     background-color: #ffffff;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 30px;
     padding: 0px;
     margin: 0px;
@@ -19,7 +19,7 @@ body {
 @media (max-width: 767px) {body{font-size: 14px;}}
 
 ::selection {
-    background: #0066ff;
+    background: #0080ff;
     color: #ffffff;
 }
 
@@ -45,35 +45,35 @@ body {
 .dark-grey-darkmode{ background-color: #262626 !important; border-color: #262626 !important; color: white !important;}
 .grey-darkmode{ background-color: #1a1a1a !important; border-color: #1a1a1a !important; color: white !important;}
 
-.dark-blue{background-color: #000080 !important; border-color: #000080 !important; color: white !important;}
+.dark-blue{background-color: #0000b3 !important; border-color: #0000b3 !important; color: white !important;}
 .blue{background-color: #0000ff !important; border-color: #0000ff !important; color: white !important;}
 .transparent-blue{background-color: #0000ff44 !important; border-color: #0000ff !important; color: #0000ff !important;}
 
-.dark-liblue{background-color: #004080 !important; border-color: #004080 !important; color: white !important;}
+.dark-liblue{background-color: #005ab3 !important; border-color: #005ab3 !important; color: white !important;}
 .liblue{background-color: #0080ff !important; border-color: #0080ff !important; color: white !important;}
 .transparent-liblue{background-color: #0080ff44 !important; border-color: #0080ff !important; color: #0080ff !important;}
 
-.dark-aqua{background-color: #008080 !important; border-color: #008080 !important; color: white !important;}
+.dark-aqua{background-color: #009999 !important; border-color: #009999 !important; color: white !important;}
 .aqua{background-color: #00cccc !important; border-color: #00cccc !important; color: white !important;}
 .transparent-aqua{background-color: #00cccc44 !important; border-color: #00cccc !important; color: #00cccc !important;}
 
-.dark-turquoise{background-color: #008040 !important; border-color: #008040 !important; color: white !important;}
+.dark-turquoise{background-color: #00994d !important; border-color: #00994d !important; color: white !important;}
 .turquoise{background-color: #00cc66 !important; border-color: #00cc66 !important; color: white !important;}
 .transparent-turquoise{background-color: #00cc6644 !important; border-color: #00cc66 !important; color: #00cc66 !important;}
 
-.dark-green{background-color: #008000 !important; border-color: #008000 !important; color: white !important;}
+.dark-green{background-color: #009900 !important; border-color: #009900 !important; color: white !important;}
 .green{background-color: #00cc00 !important; border-color: #00cc00 !important; color: white !important;}
 .transparent-green{background-color: #00cc0044 !important; border-color: #00cc00 !important; color: #00cc00 !important;}
 
-.dark-yellow{background-color: #997a00 !important; border-color: #997a00 !important; color: white !important;}
+.dark-yellow{background-color: #b38f00 !important; border-color: #b38f00 !important; color: white !important;}
 .yellow{background-color: #ffcc00 !important; border-color: #ffcc00 !important; color: white !important;}
 .transparent-yellow{background-color: #ffcc0044 !important; border-color: #ffcc00 !important; color: #ffcc00 !important;}
 
-.dark-orange{background-color: #804000 !important; border-color: #804000 !important; color: white !important;}
+.dark-orange{background-color: #b35a00 !important; border-color: #b35a00 !important; color: white !important;}
 .orange{background-color: #ff8000 !important; border-color: #ff8000 !important; color: white !important;}
 .transparent-orange{background-color: #ff800044 !important; border-color: #ff8000 !important; color: #ff8000 !important;}
 
-.dark-red{background-color: #800000 !important; border-color: #800000 !important; color: white !important;}
+.dark-red{background-color: #b30000 !important; border-color: #b30000 !important; color: white !important;}
 .red{background-color: #ff0000 !important; border-color: #ff0000 !important; color: white !important;}
 .transparent-red{background-color: #ff000044 !important; border-color: #ff0000 !important; color: #ff0000 !important;}
 
@@ -113,7 +113,7 @@ body {
     z-index: 2;
     color: white;
     font-size: 40px;
-    background-color: #004dbf;
+    background-color: #005ab3;
 }
 
 @media screen and (max-width: 768px) {.header{display: none;}}
@@ -125,12 +125,13 @@ body {
     margin-bottom: 0;
     position: sticky;
     position: -webkit-sticky;
+    text-align: center;
     top: 0;
     line-height: 50px;
     width: 100%;
     padding: 0 10px;
     z-index: 2;
-    background-color: #0066ff;
+    background-color: #0080ff;
     overflow-x: hidden;
     overflow: hidden;
 }
@@ -142,6 +143,15 @@ body {
     color: #ffffff99;
     float: left;
 }
+
+.menu-centered-2 a{padding: 0px; width: 50%;}
+.menu-centered-3 a{padding: 0px; width: 33%;}
+.menu-centered-4 a{padding: 0px; width: 25%;}
+.menu-centered-5 a{padding: 0px; width: 19%;}
+.menu-centered-6 a{padding: 0px; width: 16%;}
+.menu-centered-7 a{padding: 0px; width: 14%;}
+.menu-centered-8 a{padding: 0px; width: 12%;}
+.menu-centered-9 a{padding: 0px; width: 11%;}
 
 .menu a:hover{
     color: white;
@@ -158,7 +168,7 @@ body {
 }
 
 @media (max-width: 768px) {.menu-transparent.responsive{
-    background-color: #0066ff;
+    background-color: #0080ff;
 }}
 
 .menu-right a{
@@ -396,6 +406,10 @@ body {
 @media (min-width: 992px) {.navigation-content .container{width: 100%}}
 @media (min-width: 1200px) {.navigation-content .container{width: 60%}}
 
+.container-full{
+    width: 100%;
+}
+
 /* grids */
 
 .row::after {
@@ -486,15 +500,15 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
-    margin: 40px 0px 30px 0px;
+    margin: 40px 0px 20px 0px;
 }
 
 h1{font-size: 40px; line-height: 50px}
-h2{font-size: 25px; line-height: 30px;}
-h3{font-size: 20px; line-height: 25px;}
-h4{font-size: 18px; line-height: 20px;}
-h5{font-size: 15px; line-height: 18px; font-weight: bold;}
-h6{font-size: 12px; line-height: 16px; font-weight: bold; text-transform: uppercase;}
+h2{font-size: 30px; line-height: 30px;}
+h3{font-size: 25px; line-height: 25px;}
+h4{font-size: 20px; line-height: 20px;}
+h5{font-size: 18px; line-height: 18px; font-weight: bold;}
+h6{font-size: 16px; line-height: 16px; font-weight: bold; text-transform: uppercase;}
 
 /* froms */
 
@@ -533,7 +547,7 @@ input:focus, select:focus, textarea:focus{
 .button{
     font-size: 16px;
     border: none;
-    background-color: #0066ff;
+    background-color: #0080ff;
     color: white;
     padding: 15px;
     margin-right: 10px;
@@ -545,35 +559,15 @@ textarea, select, input, button { outline: none; }
 /* labels */
 
 label{
-    font-weight: bold;
+    /*font-weight: bold;
     padding: 2px 4px;
     background-color: #00000040;
     border: solid 2px;
-    border-radius: 5px;
-}
-
-.label-blue{
-    background-color: #0080ff40;
-    border-color: #0080ff;
-    color: #0080ff; 
-}
-
-.label-green{
-    background-color: #00bf0040;
-    border-color: #00bf00;
-    color: #00bf00; 
-}
-
-.label-yellow{
-    background-color: #ffbf0040;
-    border-color: #ffbf00;
-    color: #ffbf00; 
-}
-
-.label-red{
-    background-color: #bf000040;
-    border-color: #bf0000;
-    color: #bf0000; 
+    border-radius: 5px;*/
+    background-color: black;
+    border-radius: 3px;
+    padding: 2px 5px;;
+    color: white;
 }
 
 /* media */
@@ -675,30 +669,6 @@ label{
     margin-bottom: 20px;
 }
 
-.alert-blue{
-    background-color: #0080ff40;
-    border-color: #0080ff;
-    color: #0080ff;
-}
-
-.alert-green{
-    background-color: #00bf0040;
-    border-color: #00bf00;
-    color: #00bf00;
-}
-
-.alert-yellow{
-    background-color: #ffbf0040;
-    border-color: #ffbf00;
-    color: #ffbf00;
-}
-
-.alert-red{
-    background-color: #bf000040;
-    border-color: #bf0000;
-    color: #bf0000;
-}
-
 /* code elements */
 
 code{
@@ -769,6 +739,7 @@ table tr th {
     background-color: #e6e6e6;
     padding: 10px;
     font-weight: normal;
+    border-color: #e6e6e6;
 }
 
 .lightmode table tr th {
@@ -813,7 +784,7 @@ p{
 }
 
 a{
-    color: #0066ff;
+    color: #0080ff;
     text-decoration: none;
 }
 
@@ -844,7 +815,7 @@ ol li:last-child{padding-bottom: 0px;}
     height: 50px;
     padding: 0px;
     border-radius: 5px;
-    background-color: #0066ff;
+    background-color: #0080ff;
 }
 
 .menu-list > *{
@@ -860,6 +831,15 @@ ol li:last-child{padding-bottom: 0px;}
     border-radius: 5px;
     color: #ffffff99;
 }
+
+.menu-centered-2 > *{padding: 0px; width: 50%;}
+.menu-centered-3 > *{padding: 0px; width: 33%;}
+.menu-centered-4 > *{padding: 0px; width: 25%;}
+.menu-centered-5 > *{padding: 0px; width: 19%;}
+.menu-centered-6 > *{padding: 0px; width: 16%;}
+.menu-centered-7 > *{padding: 0px; width: 14%;}
+.menu-centered-8 > *{padding: 0px; width: 12%;}
+.menu-centered-9 > *{padding: 0px; width: 11%;}
 
 .menu-list > *:hover{
     color: white;
