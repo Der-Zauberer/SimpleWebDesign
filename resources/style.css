@@ -10,7 +10,7 @@ body {
     font-family: Roboto, sans-serif;
     background-color: #ffffff;
     font-size: 18px;
-    line-height: 30px;
+    line-height: 35px;
     padding: 0px;
     margin: 0px;
     background-repeat: no-repeat;
@@ -47,35 +47,35 @@ body {
 
 .dark-blue{background-color: #0000b3 !important; border-color: #0000b3 !important; color: white !important;}
 .blue{background-color: #0000ff !important; border-color: #0000ff !important; color: white !important;}
-.transparent-blue{background-color: #0000ff44 !important; border-color: #0000ff !important; color: #0000ff !important;}
+.transparent-blue{background-color: #0000ff33 !important; border-color: #0000ff !important; color: #0000ff !important;}
 
 .dark-liblue{background-color: #005ab3 !important; border-color: #005ab3 !important; color: white !important;}
 .liblue{background-color: #0080ff !important; border-color: #0080ff !important; color: white !important;}
-.transparent-liblue{background-color: #0080ff44 !important; border-color: #0080ff !important; color: #0080ff !important;}
+.transparent-liblue{background-color: #0080ff33 !important; border-color: #0080ff !important; color: #0080ff !important;}
 
 .dark-aqua{background-color: #009999 !important; border-color: #009999 !important; color: white !important;}
 .aqua{background-color: #00cccc !important; border-color: #00cccc !important; color: white !important;}
-.transparent-aqua{background-color: #00cccc44 !important; border-color: #00cccc !important; color: #00cccc !important;}
+.transparent-aqua{background-color: #00cccc33 !important; border-color: #00cccc !important; color: #00cccc !important;}
 
 .dark-turquoise{background-color: #00994d !important; border-color: #00994d !important; color: white !important;}
 .turquoise{background-color: #00cc66 !important; border-color: #00cc66 !important; color: white !important;}
-.transparent-turquoise{background-color: #00cc6644 !important; border-color: #00cc66 !important; color: #00cc66 !important;}
+.transparent-turquoise{background-color: #00cc6633 !important; border-color: #00cc66 !important; color: #00cc66 !important;}
 
 .dark-green{background-color: #009900 !important; border-color: #009900 !important; color: white !important;}
 .green{background-color: #00cc00 !important; border-color: #00cc00 !important; color: white !important;}
-.transparent-green{background-color: #00cc0044 !important; border-color: #00cc00 !important; color: #00cc00 !important;}
+.transparent-green{background-color: #00cc0033 !important; border-color: #00cc00 !important; color: #00cc00 !important;}
 
 .dark-yellow{background-color: #b38f00 !important; border-color: #b38f00 !important; color: white !important;}
 .yellow{background-color: #ffcc00 !important; border-color: #ffcc00 !important; color: white !important;}
-.transparent-yellow{background-color: #ffcc0044 !important; border-color: #ffcc00 !important; color: #ffcc00 !important;}
+.transparent-yellow{background-color: #ffcc0033 !important; border-color: #ffcc00 !important; color: #ffcc00 !important;}
 
 .dark-orange{background-color: #b35a00 !important; border-color: #b35a00 !important; color: white !important;}
 .orange{background-color: #ff8000 !important; border-color: #ff8000 !important; color: white !important;}
-.transparent-orange{background-color: #ff800044 !important; border-color: #ff8000 !important; color: #ff8000 !important;}
+.transparent-orange{background-color: #ff800033 !important; border-color: #ff8000 !important; color: #ff8000 !important;}
 
 .dark-red{background-color: #b30000 !important; border-color: #b30000 !important; color: white !important;}
 .red{background-color: #ff0000 !important; border-color: #ff0000 !important; color: white !important;}
-.transparent-red{background-color: #ff000044 !important; border-color: #ff0000 !important; color: #ff0000 !important;}
+.transparent-red{background-color: #ff000033 !important; border-color: #ff0000 !important; color: #ff0000 !important;}
 
 /* dark and light */
 
@@ -363,10 +363,10 @@ body {
 
 .container{
     box-sizing: border-box;
-    padding: 40px;
+    padding: 50px;
     width: 60%;
     margin: 0 auto;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     transition: width .5s;
 }
 
@@ -380,7 +380,7 @@ body {
 
 .container-fluid{
     box-sizing: border-box;
-    padding: 40px;
+    padding: 50px;
 }
 
 .container-fluid > *:first-child{
@@ -405,10 +405,6 @@ body {
 
 @media (min-width: 992px) {.navigation-content .container{width: 100%}}
 @media (min-width: 1200px) {.navigation-content .container{width: 60%}}
-
-.container-full{
-    width: 100%;
-}
 
 /* grids */
 
@@ -500,9 +496,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
-    margin: 40px 0px 20px 0px;
+    margin: 50px 0px 20px 0px;
 }
-
 h1{font-size: 40px; line-height: 50px}
 h2{font-size: 30px; line-height: 30px;}
 h3{font-size: 25px; line-height: 25px;}
@@ -533,24 +528,24 @@ input[type=submit]{
     box-sizing: border-box;
     min-height: 40px;
     height: 40px;
-    background-color: black;
-    border-color: black;
+    background-color: #0080ff;
+    border-color: #0080ff;
     color: white;
     font-size: 18px;
     cursor: pointer;
 }
 
 input:focus, select:focus, textarea:focus{
-    border-color: black;
+    border-color: #0080ff;
 }
 
 .button{
-    font-size: 16px;
+    font-size: 18px;
     border: none;
     background-color: #0080ff;
     color: white;
     padding: 15px;
-    margin-right: 10px;
+    margin-right: 20px;
     border-radius: 5px;
 }
 
@@ -559,14 +554,11 @@ textarea, select, input, button { outline: none; }
 /* labels */
 
 label{
-    /*font-weight: bold;
-    padding: 2px 4px;
-    background-color: #00000040;
-    border: solid 2px;
-    border-radius: 5px;*/
     background-color: black;
-    border-radius: 3px;
-    padding: 2px 5px;;
+    font-weight: 500;
+    border: solid 3px black;
+    border-radius: 5px;
+    padding: 0px 4px;
     color: white;
 }
 
