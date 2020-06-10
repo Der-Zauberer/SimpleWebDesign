@@ -544,7 +544,7 @@ input:focus, select:focus, textarea:focus{
     border: none;
     background-color: #0080ff;
     color: white;
-    padding: 15px;
+    padding: 10px;
     margin-right: 20px;
     border-radius: 5px;
 }
