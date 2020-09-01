@@ -16,8 +16,6 @@ body {
     background-repeat: no-repeat;
 }
 
-@media (max-width: 767px) {body{font-size: 14px;}}
-
 ::selection {
     background: #0080ff;
     color: #ffffff;
@@ -651,20 +649,10 @@ label{
     margin-bottom: 0;
 }
 
-/* alerts */
-
-.alert{
-    padding: 10px;
-    background-color: #00000040;
-    border: solid 3px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
 /* code elements */
 
 code{
-    font-size: 14px;
+    font-size: 15px;
     line-height: 25px;
     display: block;
     background-color: #e6e6e6;
