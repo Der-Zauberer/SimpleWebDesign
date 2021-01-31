@@ -394,6 +394,7 @@ body {
     color: black;
     border-radius: 5px;
     box-shadow: -0px 5px 10px #0000001a;
+    transition: width 0s;
 }
 
 @media (max-width: 767px) {.container{width: 100%}.document{border-radius: 0px; box-shadow: none; margin: 0px !important;}}
@@ -755,11 +756,6 @@ img{
 }
 
 p{
-    margin-bottom: 20px;
-}
-
-.subtitle{
-    font-size: 20px;
     margin-bottom: 20px;
 }
 
