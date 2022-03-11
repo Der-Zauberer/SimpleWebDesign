@@ -488,6 +488,8 @@ body {
 }
 
 [class*="gallery-"]{
+    box-sizing: border-box;
+    overflow-x: auto;
     display: grid;
     grid-gap: 20px;
 }
@@ -738,11 +740,13 @@ table {
     border-spacing: 0px;
     border-collapse: collapse;
     margin-bottom: 20px;
+    overflow-x: auto;
 }
 
 table tr th {
     background-color: #e6e6e6;
     padding: 10px;
+    min-width: 60px;
     font-weight: normal;
     border-color: #e6e6e6;
 }

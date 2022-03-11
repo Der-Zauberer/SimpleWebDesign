@@ -44,17 +44,17 @@
                 <code>
                     &lt;!DOCTYPE html&gt;<br>
                     &lt;html&gt;<br>
-                    &ensp;&ensp;&lt;head&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;head&gt;<br>
                     
-                    &ensp;&ensp;&ensp;&ensp;&lt;meta charset="utf-8"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;link href="style.css" rel="stylesheet"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;script src="script.js"&gt;&lt;/script&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;meta charset="utf-8"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;link href="style.css" rel="stylesheet"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;script src="script.js"&gt;&lt;/script&gt;<br>
                     
-                    &ensp;&ensp;&ensp;&ensp;&lt;title&gt;Template&lt;/title&gt;<br>
-                    &ensp;&ensp;&lt;/head&gt;<br>
-                    &ensp;&ensp;&lt;body&gt;<br><br>
-                    &ensp;&ensp;&lt;/body&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;title&gt;Template&lt;/title&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;/head&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;body&gt;<br><br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;/body&gt;<br>
                     &lt;/html&gt;<br>
                 </code>
                 
@@ -68,7 +68,7 @@
                     <div class="box liblue">container-flex</div>
                 </div>
 
-                <div class="box grey" style="min-width: 370px;">
+                <div class="box grey">
                     <div class="gallery-3">
                         <div class="box liblue" style="margin-bottom: 0px;">Gallery</div>
                         <div class="box green" style="margin-bottom: 0px;">Gallery</div>
@@ -80,9 +80,9 @@
                     &lt;div class="container"&gt;container&lt;/div&gt;<br>
                     &lt;div class="container-flex"&gt;container&lt;/div&gt;<br>
                     &lt;div class="gallery-3"&gt;<br>
-                    &ensp;&ensp;&lt;div class="box liblue"&gt;Gallery&lt;/div&gt;<br>
-                    &ensp;&ensp;&lt;div class="box green"&gt;Gallery&lt;/div&gt;<br>
-                    &ensp;&ensp;&lt;div class="box yellow"&gt;Gallery&lt;/div&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="box liblue"&gt;Gallery&lt;/div&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="box green"&gt;Gallery&lt;/div&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="box yellow"&gt;Gallery&lt;/div&gt;<br>
                     &lt;/div&gt;<br>
                 </code>
                 
@@ -105,20 +105,25 @@
                     &lt;h3&gt;Headline 3&lt;/h3&gt;<br>
                     &lt;h4&gt;Headline 4&lt;/h4&gt;<br>
                     &lt;h5&gt;Headline 5&lt;/h5&gt;<br>
+                    &lt;h6&gt;Headline 5&lt;/h6&gt;<br>
                 </code>
                 
                 <h2 id="media">Media</h2>
                 
                 <div class="media">
                     <img src="../resources/Icon.jpg">
-                    <div class="media-content"><h5>Title</h5>This is a Text</div>
+                    <div class="media-content">
+                        <h5>Title</h5>This is a Text
+                    </div>
                 </div>
                 
                 <code>
-                    &lt;div class="media"><br>
-                    &ensp;&ensp;&lt;img src="icon.png"><br>
-                    &ensp;&ensp;&lt;div class="media-content">&lt;h5>Title&lt;/h5>This is a Text&lt;/div><br>
-                    &lt;/div>
+                    &lt;div class="media"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;img src="icon.png"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="media-content"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;h5&gtTitle&lt;/h5&gt;This is a Text<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
+                    &lt;/div&lt;
                 </code>
                 
                 <h2 id="boxes">Boxes</h2>
@@ -143,13 +148,31 @@
                 <div class="box red">Error: Please try again!</div>
                 
                 <code>
-                    &lt;div class="box">This is a box!&lt;/div><br>
-                    &lt;div class="box box-border">This is a box!&lt;/div><br>
-                    &lt;div class="box box-top black">Box&lt;/div><br>
-                    &lt;div class="box box-center">This is a box!&lt;/div><br>
-                    &lt;div class="box box-bottom">&lt;a style="float: right">&lt;b>Next&lt;/b>&lt;/a>&lt;/div><br>
-                    &lt;div class="box" style="background-image: url(...); height: 40px;">This is a box!&lt;/div><br>
-                    &lt;div class="box red">Error: Please try again!&lt;/div><br>
+                    &lt;div class="box"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;This is a box!<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;div class="box box-border"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;This is a box!<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;div class="box box-top black"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;Box<br>
+                    &lt;/div&gt;<br>
+                    &lt;div class="box box-center"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;This is a box!<br>
+                    &lt;/div&gt;<br>
+                    &lt;div class="box box-bottom"&gt;&lt;a style="float: right"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;b&gt;Next&lt;/b&gt;&lt;/a&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;div class="box" style="background-image: url(...); height: 40px;"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;This is a box!<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;div class="box red"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;Error: Please try again!<br>
+                    &lt;/div&gt;<br>
                 </code>
                 
                 <h2 id="labels">Labels</h2>
@@ -178,16 +201,16 @@
                 <code>
                     @Override<br>
                     public static void main(String[] args) {<br>
-                    &ensp;&ensp; System.out.println("This is a Test");<br>
+                    &ensp;&ensp;&ensp;&ensp; System.out.println("This is a Test");<br>
                     }<br>
                 </code>
                 
                 <code>
                     &lt;code&gt;<br>
-                    &ensp;&ensp;@Override&lt;br&gt;<br>
-                    &ensp;&ensp;public static void main(String[] args) {&lt;br&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp; System.out.println("This is a Test");&lt;br&gt;<br>
-                    &ensp;&ensp;}&lt;br&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;@Override&lt;br&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;public static void main(String[] args) {&lt;br&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; System.out.println("This is a Test");&lt;br&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;}&lt;br&gt;<br>
                     &lt;/code&gt;<br>
                 </code>
                 
@@ -205,23 +228,38 @@
                 
                 <h2 id="table">Table</h2>
                 
-                <div style="overflow-x:auto; border-radius: 5px;">
+                <div style="overflow-x:auto;">
                     <table>
                         <tr><th>Name</th><th>Author</th><th>Parts</th></tr>
                         <tr><td>Harry Potter</td><td>J. K. Rowling</td><td>7</td></tr>
                         <tr><td>Lord of the Rings</td><td>J. R. Tolkien</td><td>3</td></tr>
                     </table>
                 </div>
-                
+
                 <code>
-                    &lt;div style="overflow-x:auto; border-radius: 5px;"><br>
-                    &ensp;&ensp;&lt;table><br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;tr>&lt;th>Name&lt;/th>&lt;th>Author&lt;/th>&lt;th>Parts&lt;/th>&lt;/tr><br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;tr>&lt;td>Harry Potter&lt;/td>&lt;td>J. K. Rowling&lt;/td>&lt;td>7&lt;/td>&lt;/tr><br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;tr>&lt;td>Lord of the Rings&lt;/td>&lt;td>J. R. Tolkien&lt;/td>&lt;td>3&lt;/td>&lt;/tr><br>
-                    &ensp;&ensp;&lt;/table><br>
-                    &lt;/div>
+                    &lt;div style="overflow-x:auto; border-radius: 5px;"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;table&gt;<br>
+
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;tr&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;th&gt;Name&lt;/th&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;th&gt;Author&lt;/th&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;th&gt;Parts&lt;/th&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;/tr&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;tr&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;td&gt;Harry Potter&lt;/td&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;td&gt;J. K. Rowling&lt;/td&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;td&gt;7&lt;/td><br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;/tr&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;tr&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;td&gt;Lord of the Rings&lt;/td&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;td&gt;J. R. Tolkien&lt;/td&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;td&gt;3&lt;/td&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;/tr&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;/table&gt;<br>
+                    &lt;/div&gt;
                 </code>
+
+                <h2 id="list">List</h2>
 
                 <div class="row">
                     <div class="col-md-6">
@@ -243,35 +281,35 @@
                 <ul class="menu-list menu-centered-4"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li><li>Test.mp4</li></ul>
                 
                 <code>
-                    &lt;ul><br>
-                    &ensp;&ensp;&lt;li>Video.mp4&lt;/li><br>
-                    &ensp;&ensp;&lt;li>MyVideo.mp4&lt;/li><br>
-                    &ensp;&ensp;&lt;li>YouTube.mp4&lt;/li><br>
-                    &lt;/ul><br>
+                    &lt;ul&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;Video.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
+                    &lt;/ul&gt;<br>
                     <br>
                     &lt;ol><br>
-                    &ensp;&ensp; &lt;li>Video.mp4&lt;/li><br>
-                    &ensp;&ensp; &lt;li>MyVideo.mp4&lt;/li><br>
-                    &ensp;&ensp; &lt;li>YouTube.mp4&lt;/li><br>
-                    &lt;/ol><br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;Video.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
+                    &lt;/ol&gt;<br>
                     <br>
-                    &lt;ul class="navigation-list"><br>
-                    &ensp;&ensp;&lt;li>Video.mp4&lt;/li><br>
-                    &ensp;&ensp;&lt;li>MyVideo.mp4&lt;/li><br>
-                    &ensp;&ensp;&lt;li>YouTube.mp4&lt;/li><br>
-                    &lt;/ul><br>
+                    &lt;ul class="navigation-list"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;Video.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
+                    &lt;/ul&gt;<br>
                     <br>
-                    &lt;ul class="item-list"><br>
-                    &ensp;&ensp; &lt;li>Video.mp4&lt;/li><br>
-                    &ensp;&ensp;&lt;li>MyVideo.mp4&lt;/li><br>
-                    &ensp;&ensp; &lt;li>YouTube.mp4&lt;/li><br>
-                    &ensp;&ensp; &lt;li>Test.mp4&lt;/li><br>
-                    &lt;/ul><br>
+                    &lt;ul class="item-list"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;Video.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;Test.mp4&lt;/li&gt;<br>
+                    &lt;/ul&gt;<br>
                     <br>
-                    &lt;ul class="menu-list menu-centered-4"><br>
-                    &ensp;&ensp;&lt;li>Video.mp4&lt;/li><br>
-                    &ensp;&ensp;&lt;li>MyVideo.mp4&lt;/li><br>
-                    &ensp;&ensp;&lt;li>YouTube.mp4&lt;/li><br>
+                    &lt;ul class="menu-list menu-centered-4"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;Video.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
                     &lt;/ul><br>
                 </code>
                                 
