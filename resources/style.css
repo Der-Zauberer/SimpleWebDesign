@@ -44,30 +44,30 @@ body {
 .white{ background-color: white !important; border-color: white !important; color: black !important;}
 .black{ background-color: black !important; border-color: black !important; color: white !important;}
 
+@media (prefers-color-scheme: dark) {
+    .white{ background-color: black !important; border-color: black !important; color: white !important;}
+    .black{ background-color: white !important; border-color: white !important; color: black !important;}
+}
+
 .lightmode .white{ background-color: white !important; border-color: white !important; color: black !important;}
 .lightmode .black{ background-color: black !important; border-color: black !important; color: white !important;}
 
 .darkmode .white{ background-color: black !important; border-color: black !important; color: white !important;}
 .darkmode .black{ background-color: white !important; border-color: white !important; color: black !important;}
 
-@media (prefers-color-scheme: dark) {
-    .white{ background-color: black !important; border-color: black !important; color: white !important;}
-    .black{ background-color: white !important; border-color: white !important; color: black !important;}
-}
-
 .dark-grey{ background-color: #d9d9d9 !important; border-color: #d9d9d9 !important; color: black !important;}
 .grey{ background-color: #e6e6e6 !important; border-color: #e6e6e6 !important; color: black !important;}
+
+@media (prefers-color-scheme: dark) {
+    .dark-grey{ background-color: #262626 !important; border-color: #262626 !important; color: white !important;}
+    .grey{ background-color: #1a1a1a !important; border-color: #1a1a1a !important; color: white !important;}
+}
 
 .lightmode .dark-grey{ background-color: #d9d9d9 !important; border-color: #d9d9d9 !important; color: black !important;}
 .lightmode .grey{ background-color: #e6e6e6 !important; border-color: #e6e6e6 !important; color: black !important;}
 
 .darkmode .dark-grey{ background-color: #262626 !important; border-color: #262626 !important; color: white !important;}
 .darkmode .grey{ background-color: #1a1a1a !important; border-color: #1a1a1a !important; color: white !important;}
-
-@media (prefers-color-scheme: dark) {
-    .dark-grey{ background-color: #262626 !important; border-color: #262626 !important; color: white !important;}
-    .grey{ background-color: #1a1a1a !important; border-color: #1a1a1a !important; color: white !important;}
-}
 
 .dark-blue{background-color: #0000b3 !important; border-color: #0000b3 !important; color: white !important;}
 .blue{background-color: #0000ff !important; border-color: #0000ff !important; color: white !important;}
@@ -103,6 +103,17 @@ body {
 
 /* dark and light */
 
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: black !important;
+        color: white !important;
+    }
+    body > * {
+        background-color: black;
+        color: white;
+    }
+}
+
 .darkmode{
     background-color: black !important;
     color: white !important;
@@ -121,17 +132,6 @@ body {
 .lightmode > * {
     background-color: white;
     color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-    body{
-        background-color: black !important;
-        color: white !important;
-    }
-    body > * {
-        background-color: black;
-        color: white;
-    }
 }
 
 /* padding */
@@ -278,6 +278,13 @@ body {
     overflow-y: auto;
 }
 
+@media (prefers-color-scheme: dark) {
+    .navigation{
+        background-color: #1a1a1a;
+        color: white;
+    }
+}
+
 .lightmode > .navigation{
     background-color: #e6e6e6;
     color: black;
@@ -286,13 +293,6 @@ body {
 .darkmode > .navigation{
     background-color: #1a1a1a;
     color: white;
-}
-
-@media (prefers-color-scheme: dark) {
-    .navigation{
-        background-color: #1a1a1a;
-        color: white;
-    }
 }
 
 .navigation h2{
@@ -313,6 +313,12 @@ body {
     border-radius: 5px;
 }
 
+@media (prefers-color-scheme: dark) {
+    .navigation a{
+        color: white;
+    }
+}
+
 .lightmode .navigation a{
     color: black;
 }
@@ -321,15 +327,16 @@ body {
     color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-    .navigation a{
-        color: white;
-    }
-}
-
 .navigation a:hover{
     background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+    .navigation a:hover{
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
 }
 
 .lightmode .navigation a:hover{
@@ -342,15 +349,15 @@ body {
     color: white;
 }
 
+.navigation a:active, .navigation a:visited{
+    color: black;
+}
+
 @media (prefers-color-scheme: dark) {
-    .navigation a:hover{
+    .navigation a:active, .navigation a:visited{
         background-color: rgba(255, 255, 255, 0.1);
         color: white;
     }
-}
-
-.navigation a:active, .navigation a:visited{
-    color: black;
 }
 
 .lightmode .navigation a:active, .lightmode > .navigation a:visited{
@@ -363,15 +370,15 @@ body {
     color: white;
 }
 
+.navigation-active{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 @media (prefers-color-scheme: dark) {
-    .navigation a:active, .navigation a:visited{
+    .navigation-active{
         background-color: rgba(255, 255, 255, 0.1);
         color: white;
     }
-}
-
-.navigation-active{
-    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .ligtmode .navigation-active{
@@ -382,13 +389,6 @@ body {
 .darkmode .navigation-active{
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
-}
-
-@media (prefers-color-scheme: dark) {
-    .navigation-active{
-        background-color: rgba(255, 255, 255, 0.1);
-        color: white;
-    }
 }
 
 .navigation-content{
@@ -606,18 +606,43 @@ h6{font-size: 16px; line-height: 16px; font-weight: bold; text-transform: upperc
 input, select, textarea{
     display: block;
     box-sizing: border-box;
+    font-family: Roboto;
+    background-color: #e6e6e6;
     min-height: 40px;
     font-size: 16px;
     padding: 10px;
     height: 30px;
     margin-bottom: 25px;
-    border: solid #d9d9d9 2px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    border-width: 0px;
+    border-bottom-width: 3px;
     border-radius: 5px;
     width: 100%;
 }
 
 textarea{
     height: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+    input, select, textarea{
+        color: white;
+        background-color: #1a1a1a;
+        border-color: #262626;
+    }
+}
+
+.lightmode input, .lightmode select, .lightmode textarea{
+    color: black;
+    background-color: #e6e6e6;
+    border-color: #d9d9d9;
+}
+
+.darkmode input, .darkmode select, .darkmode textarea{
+    color: white;
+    background-color: #1a1a1a;
+    border-color: #262626;
 }
 
 input[type=submit]{
@@ -645,17 +670,37 @@ input:focus, select:focus, textarea:focus{
     border-radius: 5px;
 }
 
-textarea, select, input, button { outline: none; }
+textarea, select, input, button {outline: none;}
 
 /* labels */
 
 label{
+    color: white;
     background-color: black;
-    font-weight: 500;
     border: solid 3px black;
+    font-weight: 500;
     border-radius: 5px;
     padding: 0px 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+    label{
+        color: black;
+        background-color: white;
+        border: solid 3px white;
+    }
+}
+
+.lightmode label{
     color: white;
+    background-color: black;
+    border: solid 3px black;
+}
+
+.darkmode label{
+    color: black;
+    background-color: white;
+    border: solid 3px white;
 }
 
 /* media */
@@ -664,7 +709,7 @@ label{
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 64px auto;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .media img {
@@ -699,8 +744,14 @@ label{
     min-height: 20px;
     background-color: #e6e6e6;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border-radius: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .box{
+        background-color: #1a1a1a;
+    }
 }
 
 .lightmode .box{
@@ -711,14 +762,15 @@ label{
     background-color: #1a1a1a;
 }
 
-@media (prefers-color-scheme: dark) {
-    .box{
-        background-color: #1a1a1a;
-    }
-}
-
 .box-border{
     border-left: solid 5px #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    .box-border{
+        border-color: white;
+        color: white;
+    }
 }
 
 .lightmode .box-border{
@@ -729,13 +781,6 @@ label{
 .darkmode .box-border{
     border-color: white;
     color: white;
-}
-
-@media (prefers-color-scheme: dark) {
-    .box-border{
-        border-color: white;
-        color: white;
-    }
 }
 
 .box-top{
@@ -769,11 +814,17 @@ code{
     line-height: 25px;
     display: block;
     background-color: #e6e6e6;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 25px;
     border-radius: 5px;
     white-space: nowrap;
     overflow-x: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+    code{
+        background-color: #1a1a1a;
+    }
 }
 
 .lightmode code{
@@ -782,12 +833,6 @@ code{
 
 .darkmode code{
     background-color: #1a1a1a;
-}
-
-@media (prefers-color-scheme: dark) {
-    code{
-        background-color: #1a1a1a;
-    }
 }
 
 pre{
@@ -825,18 +870,18 @@ samp{
     border-radius: 2.5px;
 }
 
+@media (prefers-color-scheme: dark) {
+    samp{
+        background-color: #1a1a1a;
+    }
+}
+
 .lightmode samp{
     background-color: #e6e6e6;
 }
 
 .darkmode samp{
     background-color: #1a1a1a;
-}
-
-@media (prefers-color-scheme: dark) {
-    samp{
-        background-color: #1a1a1a;
-    }
 }
 
 code:hover{overflow-x: auto;}
@@ -859,7 +904,7 @@ table {
     width: 100%;
     border-spacing: 0px;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     overflow-x: auto;
 }
 
@@ -869,6 +914,13 @@ table tr th {
     min-width: 60px;
     font-weight: normal;
     border-color: #e6e6e6;
+}
+
+@media (prefers-color-scheme: dark) {
+    table tr th {
+        background-color: #1a1a1a;
+        border-color: #1a1a1a;
+    }
 }
 
 .lightmode table tr th {
@@ -881,17 +933,16 @@ table tr th {
     border-color: #1a1a1a;
 }
 
-@media (prefers-color-scheme: dark) {
-    table tr th {
-        background-color: #1a1a1a;
-        border-color: #1a1a1a;
-    }
-}
-
 table td, th {
     padding: 10px;
     text-align: left;
     border: solid 2.5px #e6e6e6;
+}
+
+@media (prefers-color-scheme: dark) {
+    table td, th{
+        border-color: #1a1a1a;
+    }
 }
 
 .lightmode td, th{
@@ -900,12 +951,6 @@ table td, th {
 
 .darkmode td, th{
     border-color: #1a1a1a;
-}
-
-@media (prefers-color-scheme: dark) {
-    table td, th{
-        border-color: #1a1a1a;
-    }
 }
 
 @media (max-width: 768px) {table tr th{padding: 2px 7px;}table tr td{padding: 2px 7px;}}
@@ -919,7 +964,7 @@ img{
 }
 
 p{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 a{
@@ -934,7 +979,7 @@ a:hover{
 ul{
     padding-left: 17px;
     margin: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 ul li{padding-bottom: 5px;}
@@ -943,7 +988,7 @@ ul li:last-child{padding-bottom: 0px;}
 ol{
     padding-left: 17px;
     margin: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 ol li{padding-bottom: 5px;}
@@ -1005,18 +1050,18 @@ ol li:last-child{padding-bottom: 0px;}
     background-color: #e6e6e6;
 }
 
+@media (prefers-color-scheme: dark) {
+    .navigation-list{
+        background-color: #1a1a1a;
+    }
+}
+
 .lightmode .navigation-list{
     background-color: #e6e6e6;
 }
 
 .darkmode .navigation-list{
     background-color: #1a1a1a;
-}
-
-@media (prefers-color-scheme: dark) {
-    .navigation-list{
-        background-color: #1a1a1a;
-    }
 }
 
 .navigation-list > *{
@@ -1029,6 +1074,12 @@ ol li:last-child{padding-bottom: 0px;}
     border-radius: 5px;
 }
 
+@media (prefers-color-scheme: dark) {
+    .navigation-list > *{
+        color: white;
+    }
+}
+
 .lightmode .navigation-list > *{
     color: black;
 }
@@ -1037,15 +1088,15 @@ ol li:last-child{padding-bottom: 0px;}
     color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-    .navigation-list > *{
-        color: white;
-    }
-}
-
 .navigation-list > *:hover{
     background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+    .navigation-list > *:hover{
+        background-color: rgba(255, 255, 255, 0.1);
+    }
 }
 
 .lightmode .navigation-list > *:hover{
@@ -1056,14 +1107,14 @@ ol li:last-child{padding-bottom: 0px;}
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-    .navigation-list > *:hover{
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-}
-
 .navigation-list > *:active, .navigation-list > *:visited{
     color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    .navigation-list > *:active, .navigation-list > *:visited{
+        color: white;
+    }
 }
 
 .lightmode .navigation-list > *:active, .lightmode .navigation-list > *:visited{
@@ -1072,12 +1123,6 @@ ol li:last-child{padding-bottom: 0px;}
 
 .darkmode .navigation-list > *:active, .darkmode .navigation-list > *:visited{
     color: white;
-}
-
-@media (prefers-color-scheme: dark) {
-    .navigation-list > *:active, .navigation-list > *:visited{
-        color: white;
-    }
 }
 
 .navigation-list > * > *{
@@ -1093,18 +1138,18 @@ ol li:last-child{padding-bottom: 0px;}
     background-color: #e6e6e6;
 }
 
+@media (prefers-color-scheme: dark) {
+    .item-list{
+        background-color: #1a1a1a;
+    }
+}
+
 .lightmode .item-list{
     background-color: #e6e6e6;
 }
 
 .darkmode .item-list{
     background-color: #1a1a1a;
-}
-
-@media (prefers-color-scheme: dark) {
-    .item-list{
-        background-color: #1a1a1a;
-    }
 }
 
 .item-list > *{
@@ -1117,6 +1162,13 @@ ol li:last-child{padding-bottom: 0px;}
     border-radius: 5px;
 }
 
+@media (prefers-color-scheme: dark) {
+    .item-list > *{
+        background-color: #1a1a1a;
+        color: white;
+    }
+}
+
 .lightmode .item-list > *{
     background-color: #e6e6e6;
     color: black;
@@ -1127,16 +1179,15 @@ ol li:last-child{padding-bottom: 0px;}
     color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-    .item-list > *{
-        background-color: #1a1a1a;
-        color: white;
-    }
-}
-
 .item-list > *:hover{
     background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+    .item-list > *:hover{
+        background-color: rgba(255, 255, 255, 0.1);
+    }
 }
 
 .lightmode .item-list > *:hover{
@@ -1145,12 +1196,6 @@ ol li:last-child{padding-bottom: 0px;}
 
 .darkmode .item-list > *:hover{
     background-color: rgba(255, 255, 255, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-    .item-list > *:hover{
-        background-color: rgba(255, 255, 255, 0.1);
-    }
 }
 
 .item-list > *:active, .item-list > *:visited{
