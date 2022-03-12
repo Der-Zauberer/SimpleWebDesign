@@ -167,9 +167,11 @@ body {
     padding: 0 10px;
     z-index: 2;
     background-color: #0080ff;
-    overflow-x: hidden;
     overflow: hidden;
 }
+
+.menu:hover{overflow-x: auto}
+@media (hover: none) {.menu{overflow-x: auto}}
 
 .menu a{
     padding: 0 10px;
@@ -275,7 +277,7 @@ body {
     color: black;
     background-color: #e6e6e6;
     transform: left .2s;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -294,6 +296,9 @@ body {
     background-color: #1a1a1a;
     color: white;
 }
+
+.navigation:hover{overflow-y: auto}
+@media (hover: none) {.navigation{overflow-y: auto}}
 
 .navigation h2{
     display: block;
@@ -559,10 +564,7 @@ body {
     overflow-x: hidden;
 }
 
-[class*="gallery-"]:hover{
-    overflow-x: auto;
-}
-
+[class*="gallery-"]:hover{overflow-x: auto;}
 @media (hover: none) {[class*="gallery-"]{overflow-x: auto;}}
 
 [class*="gallery-"] > *{
