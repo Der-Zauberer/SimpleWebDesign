@@ -1,5 +1,3 @@
-window.addEventListener("load", syntaxHighlighter());
-
 function toggleMenu() {
     var menu = document.getElementById("smart-menu");
     if (!menu.classList.contains("responsive")) {
