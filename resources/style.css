@@ -172,6 +172,7 @@ body {
 
 .menu:hover{overflow-x: auto}
 @media (hover: none) {.menu{overflow-x: auto}}
+@media screen and (max-width: 768px) {.menu{overflow-x: auto}}
 
 .menu a{
     padding: 0 10px;
@@ -299,6 +300,7 @@ body {
 
 .navigation:hover{overflow-y: auto}
 @media (hover: none) {.navigation{overflow-y: auto}}
+@media screen and (max-width: 768px) {.navigation{overflow-y: auto}}
 
 .navigation h2{
     display: block;
@@ -566,6 +568,7 @@ body {
 
 [class*="gallery-"]:hover{overflow-x: auto;}
 @media (hover: none) {[class*="gallery-"]{overflow-x: auto;}}
+@media screen and (max-width: 768px) {[class*="gallery-"]{overflow-x: auto;}}
 
 [class*="gallery-"] > *{
     width: auto;
@@ -620,7 +623,7 @@ input, select, textarea{
     border-width: 0px;
     border-bottom-width: 3px;
     border-radius: 5px;
-    width: 100%;
+    width: 300px;
 }
 
 textarea{
@@ -653,6 +656,7 @@ input[type=submit]{
     height: 40px;
     background-color: #0080ff;
     border-color: #0080ff;
+    border-radius: 5px;
     color: white;
     font-size: 18px;
     cursor: pointer;
@@ -673,6 +677,8 @@ input:focus, select:focus, textarea:focus{
 }
 
 textarea, select, input, button {outline: none;}
+
+@media screen and (max-width: 768px) {input, select, textarea{width: 100%;}}
 
 /* labels */
 
@@ -707,23 +713,24 @@ label{
 
 /* media */
 
-.media {
+.media{
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 64px auto;
     margin-bottom: 30px;
 }
 
-.media img {
+.media img{
     background-image: url(Icon.jpg);
     max-height: 64px;
     max-width: 64px;
     float: left;
+    margin: 0px;
     margin-right: 10px;
 }
 
 .media-content:first-child{
-    margin-top: 0px;
+    margin: 0px;
 }
 
 .media-content:last-child{
@@ -765,24 +772,7 @@ label{
 }
 
 .box-border{
-    border-left: solid 5px #000000;
-}
-
-@media (prefers-color-scheme: dark) {
-    .box-border{
-        border-color: white;
-        color: white;
-    }
-}
-
-.lightmode .box-border{
-    border-color: black;
-    color: black;
-}
-
-.darkmode .box-border{
-    border-color: white;
-    color: white;
+    border-left: solid 5px #0080ff;
 }
 
 .box-top{
@@ -896,6 +886,12 @@ var:hover{overflow-x: auto;}
     var{overflow-x: auto;}
 }
 
+@media screen and (max-width: 768px) {
+    code{overflow-x: auto;}
+    pre{overflow-x: auto;}
+    var{overflow-x: auto;}
+}
+
 @media (max-width: 768px) {
     code, pre, samp, var{font-size: 11px;}
 }
@@ -959,12 +955,6 @@ table td, th {
 
 /* components */
 
-img{
-    max-width: 100%;
-    width: 100%;
-    object-fit: scale-down;
-}
-
 p{
     margin-bottom: 30px;
 }
@@ -976,6 +966,51 @@ a{
 
 a:hover{
     cursor: pointer;
+}
+
+img{
+    display: block;
+    margin: 0px auto;
+    max-width: 100%;
+    width: 100%;
+    object-fit: scale-down;
+    margin-bottom: 30px;
+}
+
+video{
+    display: block;
+    margin: 0px auto;
+    max-width: 100%;
+    width: 100%;;
+    object-fit: scale-down;
+    margin-bottom: 30px;
+}
+
+iframe{
+    width: 100%;
+    height: 100%;
+}
+
+.youtube {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 0;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.youtube iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+audio {
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 ul{
