@@ -134,7 +134,7 @@ body {
     z-index: 2;
     color: white;
     font-size: 40px;
-    background-color: #005ab3;
+    background-color: #003ecc;
 }
 
 @media screen and (max-width: 768px) {.header{display: none;}}
@@ -760,6 +760,7 @@ label{
 
 .box-border{
     background-color: #d9d9d9 !important;
+    color: black !important;
     border-color: #004dff;
     border-style: solid !important;
     border-width: 0px 0px 0px 5px !important;
@@ -767,15 +768,18 @@ label{
 
 @media (prefers-color-scheme: dark) {
     .box-border{
+        color: white !important;
         background-color: #262626 !important;
     }
 }
 
 .lightmode .box-border{
+    color: black !important;
     background-color: #d9d9d9 !important;
 }
 
 .darkmode .box-border{
+    color: white !important;
     background-color: #262626 !important;
 }
 
@@ -806,6 +810,7 @@ label{
 /* code elements */
 
 code{
+    font-family: consolas;
     font-size: 15px;
     line-height: 25px;
     display: block;
@@ -832,6 +837,7 @@ code{
 }
 
 pre{
+    font-family: consolas;
     font-size: 15px;
     line-height: 25px;
     display: block;
@@ -854,12 +860,14 @@ var{
 }
 
 kbd{
+    font-family: consolas;
     border: solid 1px;
     padding: 0 2px;
     border-radius: 2.5px;
 }
 
 samp{
+    font-family: consolas;
     font-size: 14px;
     padding: 2px;
     background-color: #d9d9d9;
