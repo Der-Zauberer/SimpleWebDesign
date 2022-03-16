@@ -658,7 +658,7 @@ input:focus, select:focus, textarea:focus{
     border: none;
     background-color: #004dff;
     color: white;
-    padding: 10px;
+    padding: 10px 20px;
     margin-right: 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -672,31 +672,11 @@ textarea, select, input, button {outline: none;}
 
 label{
     color: white;
-    background-color: black;
-    border: solid 3px black;
+    background-color: #004dff;
+    border: solid 3px #004dff;
     font-weight: 500;
     border-radius: 5px;
     padding: 0px 4px;
-}
-
-@media (prefers-color-scheme: dark) {
-    label{
-        color: black;
-        background-color: white;
-        border: solid 3px white;
-    }
-}
-
-.lightmode label{
-    color: white;
-    background-color: black;
-    border: solid 3px black;
-}
-
-.darkmode label{
-    color: black;
-    background-color: white;
-    border: solid 3px white;
 }
 
 /* media */
