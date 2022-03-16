@@ -9,9 +9,10 @@
         <link href="../resources/favicon.png" rel="icon">
         <title>Simple Web Design</title>
     </head>
-    <body>
+    <body onload="initializeSmartMenu()">
         
-        <div class="menu">
+        <div id="smart-menu" class="menu">
+            <img src="../icons/menu.svg" class="only-mobile" onclick="toggleSmartMenu()">
             <a class="menu-title" href="../">Simple Web Design</a>
             <a href="../components">Components</a>
             <a class="menu-active" href="">Colors</a>

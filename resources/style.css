@@ -38,6 +38,13 @@ body {
     clear: both;
 }
 
+@media (min-width: 767px) {
+    .only-mobile{display: none !important;}
+}
+@media (max-width: 767px) {
+    .not-mobile{display: none !important;}
+}
+
 @media (max-width: 767px) {body{font-size: 15px; line-height: 30px;}}
 
 /* colors */
@@ -156,6 +163,7 @@ body {
     position: -webkit-sticky;
     text-align: center;
     top: 0;
+    max-height: 50px;
     line-height: 50px;
     width: 100%;
     padding: 0 10px;
@@ -206,57 +214,13 @@ body {
 }
 
 .menu img{
-    height: 20px;
-    padding: 15px 0;
-}
-
-#smart-menu .more{
-    display: none;
-    padding: 0 10px;
-    font-size: 19px;
-    text-decoration: none;
-    float: right;
-}
-
-#nav-menu .more{
-    display: none;
-    padding: 0 10px;
-    font-size: 19px;
-    text-decoration: none;
     float: left;
-}
-
-@media (max-width: 768px) {
-    #smart-menu a:not(:first-child) {display: none;}
-        #smart-menu a.more {
-        float: right;
-        display: block;
-    }
-    #smart-menu.responsive {position: relative;}
-    #smart-menu.responsive .more {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    #smart-menu.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-    #nav-menu a:not(:first-child) {display: none;}
-    #nav-menu .more{
-        float: left;
-        display: block;
-    }
-}
-
-@media (min-width: 768px) {
-    #nav-menu .more{
-        display: none !important;
-    }
-    #nav-menu .menu-title{
-        display: none !important;
-    }
+    display: inline;
+    width: initial;
+    height: 17px;
+    padding: 16px 10px 0px 10px;
+    margin: 0px;
+    cursor: pointer;
 }
 
 /* navigation */
@@ -266,12 +230,13 @@ body {
     display: block;
     position: fixed;
     left: 0;
-    height: 90%;
-    padding: 20px;
+    height: calc(100% - 130px);
+    padding: 40px 20px;
     width: 210px;
     color: black;
     background-color: #e6e6e6;
-    transform: left .2s;
+    z-index: 1;
+    transition: left 0.2s;
     overflow-y: hidden;
 }
 
@@ -296,35 +261,39 @@ body {
 @media (hover: none) {.navigation{overflow-y: auto}}
 @media screen and (max-width: 768px) {.navigation{overflow-y: auto}}
 
-.navigation h2{
-    display: block;
-    padding: 40px 10px;
-    padding-top: 10px;
-    margin: 0px;
-    line-height: 40px;
+.navigation  > *:first-child{
+    margin-top: 0px;
 }
 
-.navigation a{
-    text-decoration: none;
+.navigation h2{
+    margin: 40px 0px;
+    font-size: 30px;
+}
+
+.navigation > *{
     display: block;
+    max-width: 230px;
     padding: 0px 10px;
     line-height: 40px;
     font-size: 18px;
+    font-size: 18px;
     color: black;
     border-radius: 5px;
+    white-space: nowrap;
+    overflow-x: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
-    .navigation a{
+    .navigation > *{
         color: white;
     }
 }
 
-.lightmode .navigation a{
+.lightmode .navigation > *{
     color: black;
 }
 
-.darkmode .navigation a{
+.darkmode .navigation > *{
     color: white;
 }
 
@@ -396,16 +365,10 @@ body {
     margin-left: 250px;
 }
 
-#smart-navigation{
-    left: -250px !important;
+@media (max-width: 768px){
+    .navigation-display{left: 0px !important;}
+    .navigation-content-hide{opacity: 0.5;}
 }
-
-@media (max-width: 768px) {
-    #smart-navigation.responsive{
-        left: 0 !important;
-    }
-}
-
 .navigation-absolute{position: absolute;}
 .navigation-absolute div{position: sticky; top: 50px;}
 
@@ -908,7 +871,7 @@ pre:hover{overflow-x: auto;}
 
 /* Table */
 
-table {
+table{
     width: 100%;
     border-spacing: 0px;
     border-collapse: collapse;
@@ -916,7 +879,7 @@ table {
     overflow-x: auto;
 }
 
-table tr th {
+table tr th{
     background-color: #e6e6e6;
     padding: 10px;
     min-width: 60px;
@@ -925,23 +888,23 @@ table tr th {
 }
 
 @media (prefers-color-scheme: dark) {
-    table tr th {
+    table tr th{
         background-color: #1a1a1a;
         border-color: #1a1a1a;
     }
 }
 
-.lightmode table tr th {
+.lightmode table tr th{
     background-color: #e6e6e6;
     border-color: #e6e6e6;
 }
 
-.darkmode table tr th {
+.darkmode table tr th{
     background-color: #1a1a1a;
     border-color: #1a1a1a;
 }
 
-table td, th {
+table td, th{
     padding: 10px;
     text-align: left;
     border: solid 2.5px #e6e6e6;

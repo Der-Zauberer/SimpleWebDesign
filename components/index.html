@@ -9,16 +9,17 @@
         <link href="../resources/favicon.png" rel="icon">
         <title>Simple Web Design</title>
     </head>
-    <body onload="generateNavigation()">
+    <body onload="generateNavigation(); initializeSmartMenu()">
         
-        <div class="menu">
+        <div id="smart-menu" class="menu">
+            <img src="../icons/menu.svg" class="only-mobile" onclick="toggleSmartMenu()">
             <a class="menu-title" href="../">Simple Web Design</a>
             <a class="menu-active" href="">Components</a>
             <a href="../colors">Colors</a>
             <a href="../templates">Templates</a>
         </div>
         
-        <div class="navigation">
+        <div id="navigation" class="navigation">
             <h2>Navigation</h2>
         </div>
         <div class="navigation-content">
@@ -53,7 +54,7 @@
                 </div>
 
                 <div class="box">
-                    <div class="box blue">container-flex</div>
+                    <div class="box blue">container-fluid</div>
                 </div>
 
                 <div class="box">
@@ -66,7 +67,7 @@
 
                 <code>
                     &lt;div class="container"&gt;container&lt;/div&gt;<br>
-                    &lt;div class="container-flex"&gt;container&lt;/div&gt;<br>
+                    &lt;div class="container-fluid"&gt;container&lt;/div&gt;<br>
                     &lt;div class="gallery-3"&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;div class="box blue"&gt;Gallery&lt;/div&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;div class="box green"&gt;Gallery&lt;/div&gt;<br>
