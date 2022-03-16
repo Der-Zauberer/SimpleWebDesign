@@ -731,6 +731,8 @@ label{
     padding: 20px;
     margin-bottom: 30px;
     border-radius: 5px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
 }
 
 @media (prefers-color-scheme: dark) {
