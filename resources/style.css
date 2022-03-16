@@ -38,7 +38,7 @@ body {
     clear: both;
 }
 
-@media (max-width: 767px) {body{font-size: 15px}}
+@media (max-width: 767px) {body{font-size: 15px; line-height: 30px;}}
 
 /* colors */
 
@@ -127,6 +127,13 @@ body {
 .pd-1{padding: 5px}
 .pd-2{padding: 10px}
 .pd-3{padding: 20px}
+
+/* margin */
+
+.mg-0{margin: 0px}
+.mg-1{margin: 5px}
+.mg-2{margin: 10px}
+.mg-3{margin: 20px}
 
 /* header */
 
@@ -654,6 +661,7 @@ input:focus, select:focus, textarea:focus{
 }
 
 .button{
+    line-height: 40px;
     font-size: 18px;
     border: none;
     background-color: #004dff;
@@ -840,6 +848,7 @@ var{
 
 kbd{
     font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
     border: solid 1px;
     padding: 0 2px;
     border-radius: 2.5px;
@@ -847,7 +856,7 @@ kbd{
 
 samp{
     font-family: 'Source Code Pro', monospace;
-    font-size: 14px;
+    font-size: 16px;
     padding: 2px;
     background-color: #d9d9d9;
     border-radius: 2.5px;
@@ -855,15 +864,18 @@ samp{
 
 @media (prefers-color-scheme: dark) {
     samp{
+        color: white;
         background-color: #262626;
     }
 }
 
 .lightmode samp{
+    color: black;
     background-color: #d9d9d9;
 }
 
 .darkmode samp{
+    color: white;
     background-color: #262626;
 }
 
@@ -881,7 +893,7 @@ pre:hover{overflow-x: auto;}
 }
 
 @media (max-width: 768px) {
-    code, pre, samp{font-size: 12px;}
+    code, pre, samp, kbd{font-size: 12px;}
     var{font-size: 15px;}
 }
 
