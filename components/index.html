@@ -9,7 +9,7 @@
         <link href="../resources/favicon.png" rel="icon">
         <title>Simple Web Design</title>
     </head>
-    <body>
+    <body onload="generateNavigation()">
         
         <div class="menu">
             <a class="menu-title" href="../">Simple Web Design</a>
@@ -20,24 +20,6 @@
         
         <div class="navigation">
             <h2>Navigation</h2>
-            <a href="#getstarted">Get started</a>
-            <a href="#layout">Layout</a>
-            <a href="#menu">Menu</a>
-            <a href="#navigation">Navigation</a>
-            <a href="#headline">Headline</a>
-            <a href="#box">Box</a>
-            <a href="#button">Button</a>
-            <a href="#form">Form</a>
-            <a href="#image">Image</a>
-            <a href="#video">Video</a>
-            <a href="#audio">Audio</a>
-            <a href="#media">Media</a>
-            <a href="#label">Label</a>
-            <a href="#code">Code</a>
-            <a href="#pre">Pre (Console)</a>
-            <a href="#var">Var (Formula)</a>
-            <a href="#table">Table</a>
-            <a href="#list">List</a>
         </div>
         <div class="navigation-content">
             <div class="container">
@@ -182,6 +164,25 @@
                     &lt;/div&gt;<br>
                 </code>
 
+                <h2 id="label">Label</h2>
+                
+                <label class="blue">Info</label>
+                <label class="green">Success</label>
+                <label class="yellow">Warning</label>
+                <label class="red">Error</label>
+                <samp>Samp Code</samp>
+                <kbd>Space</kbd>
+                Text
+                
+                <code style="margin-top: 20px;">
+                    &lt;label class="blue"&gt;Info&lt;/label&gt;<br>
+                    &lt;label class="green"&gt;Success&lt;/label&gt;<br>
+                    &lt;label class="yellow"&gt;Warning&lt;/label&gt;<br>
+                    &lt;label class="red"&gt;Error&lt;/label&gt;<br>
+                    &lt;samp&gt;Samp Code&lt;/samp&gt;<br>
+                    &lt;kbd&gt;Space&lt;/kbd&gt;<br>
+                </code>
+
                 <h2 id="button">Button</h2>
 
                 <p>
@@ -285,25 +286,6 @@
                     &ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
                     &lt;/div&lt;
                 </code>
-
-                <h2 id="label">Label</h2>
-                
-                <label class="blue">Info</label>
-                <label class="green">Success</label>
-                <label class="yellow">Warning</label>
-                <label class="red">Error</label>
-                <samp>Samp Code</samp>
-                <kbd>Space</kbd>
-                Text
-                
-                <code style="margin-top: 20px;">
-                    &lt;label class="blue"&gt;Info&lt;/label&gt;<br>
-                    &lt;label class="green"&gt;Success&lt;/label&gt;<br>
-                    &lt;label class="yellow"&gt;Warning&lt;/label&gt;<br>
-                    &lt;label class="red"&gt;Error&lt;/label&gt;<br>
-                    &lt;samp&gt;Samp Code&lt;/samp&gt;<br>
-                    &lt;kbd&gt;Space&lt;/kbd&gt;<br>
-                </code>
                 
                 <h2 id="code">Code</h2>
                 
@@ -378,16 +360,6 @@
                         <ol><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li></ol>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="navigation-list"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li></ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="item-list"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li><li>Test.mp4</li></ul>
-                    </div>
-                </div>
-
-                <ul class="menu-list menu-centered-4"><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li><li>Test.mp4</li></ul>
                 
                 <code>
                     &lt;ul&gt;<br>
@@ -401,25 +373,6 @@
                     &ensp;&ensp;&ensp;&ensp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
                     &lt;/ol&gt;<br>
-                    <br>
-                    &lt;ul class="navigation-list"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;Video.mp4&lt;/li&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
-                    &lt;/ul&gt;<br>
-                    <br>
-                    &lt;ul class="item-list"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;Video.mp4&lt;/li&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;Test.mp4&lt;/li&gt;<br>
-                    &lt;/ul&gt;<br>
-                    <br>
-                    &lt;ul class="menu-list menu-centered-4"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;Video.mp4&lt;/li&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
-                    &lt;/ul><br>
                 </code>
 
             </div>
