@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 
 /* body */
 
@@ -810,8 +811,8 @@ label{
 /* code elements */
 
 code{
-    font-family: consolas;
-    font-size: 15px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
     line-height: 25px;
     display: block;
     background-color: #d9d9d9;
@@ -837,8 +838,8 @@ code{
 }
 
 pre{
-    font-family: consolas;
-    font-size: 15px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
     line-height: 25px;
     display: block;
     color: white;
@@ -853,21 +854,19 @@ pre{
 var{
     font-family: serif;
     font-style: italic;
-    font-size: 17px;
-    padding: 15px;
+    font-size: 18px;
     white-space: nowrap;
-    overflow-x: hidden;
 }
 
 kbd{
-    font-family: consolas;
+    font-family: 'Source Code Pro', monospace;
     border: solid 1px;
     padding: 0 2px;
     border-radius: 2.5px;
 }
 
 samp{
-    font-family: consolas;
+    font-family: 'Source Code Pro', monospace;
     font-size: 14px;
     padding: 2px;
     background-color: #d9d9d9;
@@ -890,22 +889,20 @@ samp{
 
 code:hover{overflow-x: auto;}
 pre:hover{overflow-x: auto;}
-var:hover{overflow-x: auto;}
 
 @media (hover: none) {
     code{overflow-x: auto;}
     pre{overflow-x: auto;}
-    var{overflow-x: auto;}
 }
 
 @media screen and (max-width: 768px) {
     code{overflow-x: auto;}
     pre{overflow-x: auto;}
-    var{overflow-x: auto;}
 }
 
 @media (max-width: 768px) {
-    code, pre, samp, var{font-size: 11px;}
+    code, pre, samp{font-size: 12px;}
+    var{font-size: 15px;}
 }
 
 /* Table */
