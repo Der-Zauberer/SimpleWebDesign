@@ -130,19 +130,19 @@ body {
 
 /* padding */
 
-.pd-0{padding: 0px}
-.pd-1{padding: 5px}
-.pd-2{padding: 10px}
-.pd-3{padding: 20px}
+.pd-0{padding: 0px !important}
+.pd-1{padding: 5px !important}
+.pd-2{padding: 10px !important}
+.pd-3{padding: 20px !important}
 
 /* margin */
 
-.mg-0{margin: 0px}
-.mg-1{margin: 5px}
-.mg-2{margin: 10px}
-.mg-3{margin: 20px}
+.mg-0{margin: 0px !important}
+.mg-1{margin: 5px !important}
+.mg-2{margin: 10px !important}
+.mg-3{margin: 20px !important}
 
-.mg-b{margin-bottom: 30px;}
+.mg-b{margin-bottom: 30px !important}
 
 /* overflow */
 
