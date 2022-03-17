@@ -43,8 +43,8 @@ function generateNavigation() {
 function toggleSmartMenu() {
     const navigation = document.getElementById("navigation");
     let navigationContent = document.getElementsByClassName("navigation-content").item(0);
-    if (!navigationContent && document.getElementsByClassName("container").item(0)) navigationContent=document.getElementsByClassName("container").item(0);
-    else if (document.getElementsByClassName("container-fluid").item(0)) navigationContent=document.getElementsByClassName("container-fluid").item(0);
+    if (document.getElementsByClassName("container-fluid").item(0)) navigationContent=document.getElementsByClassName("container-fluid").item(0);
+    else if (!navigationContent && document.getElementsByClassName("container").item(0)) navigationContent=document.getElementsByClassName("container").item(0);
     if (navigation) {
         if (navigation.classList.contains("navigation-display")) {
             navigation.classList.remove("navigation-display");
