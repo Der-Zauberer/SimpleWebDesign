@@ -144,6 +144,16 @@ body {
 
 .mg-b{margin-bottom: 30px;}
 
+/* overflow */
+
+.overflow {
+    overflow: hidden !important;
+}
+
+.overflow:hover{overflow-x: auto !important}
+@media (hover: none) {.overflow{overflow-x: auto !important}}
+@media screen and (max-width: 768px) {.overflow{overflow-x: auto !important}}
+
 /* header */
 
 .header{
