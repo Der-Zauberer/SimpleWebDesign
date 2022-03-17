@@ -12,7 +12,7 @@
     <body>
         
         <div id="smart-menu" class="menu">
-            <img id="mneu-toggle" src="../icons/menu.svg" class="only-mobile" onclick="toggleSmartMenu()">
+            <img id="menu-toggle" src="../icons/menu.svg" class="only-mobile">
             <a class="menu-title" href="../">Simple Web Design</a>
             <a class="menu-active" href="">Components</a>
             <a href="../colors">Colors</a>
@@ -77,8 +77,49 @@
                 </code>
                 
                 <h2 id="menu">Menu</h2>
+
+                <code>
+                    &lt;!-- menu --&gt;<br>
+                    &lt;div class="menu"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-title"&gt;Name&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-active"&gt;Menu1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu2&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu3&lt;/a&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;!-- menu for desktop and mobile devices --&gt;<br>
+                    &lt;div id="smart-menu" class="menu"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;img id="menu-toggle"  src="../icons/menu.svg" class="only-mobile"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-title"&gt;Name&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-active"&gt;Menu1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu2&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu3&lt;/a&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;!-- focus the element in the menu, which has the innerHtml of string --&gt;<br>
+                    &lt;script&gt;setMenuFocus("string")&lt;/script&gt;
+                </code>
                 
                 <h2 id="navigation">Navigation</h2>
+                
+                <code>
+                    &lt;!-- navigation --&gt;<br>
+                    &lt;div class="navigation"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;h2&gt;Headline&lt;/h2&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Nav1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Nav2&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Nav3&lt;/a&gt;<br>
+                    &lt;/div&gt;<br>
+                    &lt;div class="navigation-content"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;!--content of webite here--&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;!-- navigation with automatic headlines --&gt;<br>
+                    &lt;div id="navigation" class="navigation navigation-headlines"&gt;&lt;/div&gt;<br>
+                    &lt;div class="navigation-content"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;!--content of webite here--&gt;<br>
+                    &lt;/div&gt;<br>
+                </code>
                 
                 <h2 id="headline">Headline</h2>
 
@@ -117,7 +158,7 @@
                     &lt;h6&gt;Headline 5&lt;/h6&gt;<br>
                 </code>
                 
-                <h2 id="boxe">Box</h2>
+                <h2 id="box">Box</h2>
                 
                 <div class="box">This is a box!</div>
                 <div class="box box-border blue">This is a box!</div>
@@ -225,7 +266,7 @@
                 <h2 id="image">Image</h2>
                 
                 <img src="../resources/image.jpg" alt="image">
-                <img src="../resources/icon.jpg" height="128px" alt="icon">
+                <img src="../resources/icon.jpg" alt="icon">
 
                 <code>
                     &lt;img src="../resources/Image.jpg" alt="image"&gt;

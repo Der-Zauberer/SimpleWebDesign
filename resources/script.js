@@ -18,7 +18,8 @@ function initializeSmartMenu() {
     const navigation = document.getElementById("navigation");
     if (menu) {
         document.addEventListener("click", onMouseClick);
-        window.addEventListener('resize', onWindowResize);
+        window.addEventListener("resize", onWindowResize);
+        menuToggle.addEventListener("click", toggleSmartMenu);
         Array.from(menu.children).forEach(element => {
             if (!element.classList.contains("menu-title") && !(element.tagName === "IMG")) {
                 element.classList.add("not-mobile");
