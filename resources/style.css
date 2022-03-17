@@ -147,6 +147,7 @@ body {
 /* overflow */
 
 .overflow {
+    max-width: 100%;
     overflow: hidden !important;
 }
 
