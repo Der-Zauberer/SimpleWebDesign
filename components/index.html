@@ -12,9 +12,9 @@
     <body>
         
         <div id="smart-menu" class="menu">
-            <img id="menu-toggle" src="../icons/menu.svg" class="only-mobile">
+            <img src="../icons/menu.svg" class="only-mobile" onclick="toggleSmartMenu()">
             <a class="menu-title" href="../">Simple Web Design</a>
-            <a class="menu-active" href="">Components</a>
+            <a class="menu-active">Components</a>
             <a href="../colors">Colors</a>
             <a href="../templates">Templates</a>
         </div>
@@ -78,26 +78,102 @@
                 
                 <h2 id="menu">Menu</h2>
 
+                <div class="mg-b">
+                    <div class="menu" style="z-index: 0;">
+                        <a class="menu-title">Menu</a>
+                        <a>Menu1</a>
+                        <a class="menu-active">Menu2</a>
+                        <a>Menu2</a>
+                    </div>
+                </div>
+
                 <code>
-                    &lt;!-- menu --&gt;<br>
                     &lt;div class="menu"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-title"&gt;Name&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-title"&gt;Menu&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-active"&gt;Menu2&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu3&lt;/a&gt;<br>
+                    &lt;/div&gt;<br>
+                </code>
+
+                <div class="mg-b">
+                    <div class="menu" style="z-index: 0;">
+                        <a class="menu-title">Menu</a>
+                        <div class="fr">
+                            <a>Menu1</a>
+                            <a class="menu-active">Menu2</a>
+                            <a>Menu3</a>
+                        </div>
+                    </div>
+                </div>
+
+                <code>
+                    &lt;div class="menu"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-title"&gt;Menu&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-active"&gt;Menu2&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu3&lt;/a&gt;<br>
+                    &lt;/div&gt;<br>
+                </code>
+
+                <div class="mg-b">
+                    <div class="menu menu-centered-4" style="z-index: 0;">
+                        <a class="menu-title">Menu</a>
+                        <a>Menu1</a>
+                        <a class="menu-active">Menu2</a>
+                        <a>Menu3</a>
+                    </div>
+                </div>
+
+                <code>
+                    &lt;div class="menu menu-centered-4"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-title"&gt;Menu&lt;/a&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-active"&gt;Menu1&lt;/a&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu2&lt;/a&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu3&lt;/a&gt;<br>
                     &lt;/div&gt;<br>
-                    <br>
-                    &lt;!-- menu for desktop and mobile devices --&gt;<br>
+                </code>
+
+                <div class="mg-b">
+                    <div class="menu" style="z-index: 0;">
+                        <img src="../icons/menu.svg" class="only-mobile">
+                        <a class="menu-title">Menu</a>
+                        <a>Menu1</a>
+                        <a class="menu-active">Menu2</a>
+                        <a>Menu3</a>
+                    </div>
+                    <div class="navigation"></div>
+                    <p>Resize winows to see the difference.</p>
+                    <p>The navigation can not be displayed in this prefiew!</p>
+                </div>
+
+                <code>
                     &lt;div id="smart-menu" class="menu"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;img id="menu-toggle"  src="../icons/menu.svg" class="only-mobile"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-title"&gt;Name&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;img src="../icons/menu.svg" class="only-mobile" onclick="toggleSmartMenu()&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-title"&gt;Menu&lt;/a&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-active"&gt;Menu1&lt;/a&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu2&lt;/a&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu3&lt;/a&gt;<br>
                     &lt;/div&gt;<br>
-                    <br>
-                    &lt;!-- focus the element in the menu, which has the innerHtml of string --&gt;<br>
-                    &lt;script&gt;setMenuFocus("string")&lt;/script&gt;
+                </code>
+
+                <div class="mg-b">
+                    <div class="menu" style="z-index: 0;">
+                        <a class="menu-title">Menu</a>
+                        <a>Menu1</a>
+                        <a>Menu2</a>
+                        <a class="menu-active">Menu3</a>
+                    </div>
+                </div>
+
+                <code>
+                    &lt;div class="menu"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="menu-title"&gt;Menu&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu2&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a&gt;Menu3&lt;/a&gt;<br>
+                    &lt;/div&gt;<br>
+                    &lt;script&gt;setMenuFocus("Menu3")&lt;/script&gt;
                 </code>
                 
                 <h2 id="navigation">Navigation</h2>

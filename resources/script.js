@@ -14,12 +14,10 @@ function onLoad() {
 //Remove all elements of menu from the viewport except for the title and images
 function initializeSmartMenu() {
     const menu = document.getElementById("smart-menu");
-    const menuToggle = document.getElementById("menu-toggle");
     const navigation = document.getElementById("navigation");
     if (menu) {
         document.addEventListener("click", onMouseClick);
         window.addEventListener("resize", onWindowResize);
-        menuToggle.addEventListener("click", toggleSmartMenu);
         Array.from(menu.children).forEach(element => {
             if (!element.classList.contains("menu-title") && !(element.tagName === "IMG")) {
                 element.classList.add("not-mobile");
@@ -108,6 +106,8 @@ function generateNavigationMenu(menu, navigation) {
                 let classString = "only-mobile menu-item ";
                 if (element.classList.contains("menu-active")) classString += "navigation-active";
                 menuString += "<a href=\"" + element.href + "\" class=\"" + classString + "\">" + innerHtml + "</a>";
+            } else if (navigation && Array.from(element.children).length > 0) {
+                generateNavigationMenu(element, navigation);
             }
         });
         navigation.innerHTML = menuString + navigation.innerHTML;
