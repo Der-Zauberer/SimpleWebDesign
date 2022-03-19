@@ -30,11 +30,12 @@ body {
     clear: both;
 }
 
-.fl{
+.float-left{
     float: left !important;
 }
 
-.fr{
+.float-right{
+    box-sizing: border-box;
     float: right !important;
 }
 
@@ -117,8 +118,8 @@ body {
 .dark-green{background-color: #007f00 !important; border-color: #007f00 !important; color: white !important;}
 .green{background-color: #00b300 !important; border-color: #00b300 !important; color: white !important;}
 .transparent-green{background-color: #00b30033 !important; border-color: #00b300 !important; color: #00b300 !important;}
+.green-border{border: solid 3px #00b300 !important;}
 .green-text{color: #00b300 !important;}
-.green-border{border: solid 3pxa #00b300 !important;}
 
 .dark-yellow{background-color: #cc9900 !important; border-color: #cc9900 !important; color: white !important;}
 .yellow{background-color: #ffbf00 !important; border-color: #ffbf00 !important; color: white !important;}
@@ -933,7 +934,7 @@ table tr th{
 table td, th{
     padding: 10px;
     text-align: left;
-    border: solid 2.5px #e6e6e6;
+    border: solid 3px #e6e6e6;
 }
 
 @media (prefers-color-scheme: dark) {
