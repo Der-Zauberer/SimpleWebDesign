@@ -26,6 +26,10 @@ body {
     text-align: center;
 }
 
+.clearfix{
+    clear: both;
+}
+
 .fl{
     float: left !important;
 }
@@ -34,8 +38,8 @@ body {
     float: right !important;
 }
 
-.clearfix{
-    clear: both;
+.width-100{
+    width: 100% !important;
 }
 
 @media (min-width: 767px) {
@@ -87,18 +91,22 @@ body {
 
 .dark-grey{background-color: #cccccc !important; border-color: #cccccc !important; color: black !important;}
 .grey{background-color: #e6e6e6 !important; border-color: #e6e6e6 !important; color: black !important;}
+.grey-border{border: solid 3px #e6e6e6 !important;}
 .grey-text{color: #808080 !important;}
 
 @media (prefers-color-scheme: dark) {
     .dark-grey{background-color: #333333 !important; border-color: #333333 !important; color: white !important;}
     .grey{background-color: #1a1a1a !important; border-color: #1a1a1a !important; color: white !important;}
+    .grey-border{border: solid 3px #1a1a1a !important;}
 }
 
 .lightmode .dark-grey{background-color: #cccccc !important; border-color: #cccccc !important; color: black !important;}
 .lightmode .grey{background-color: #e6e6e6 !important; border-color: #e6e6e6 !important; color: black !important;}
+.lightmode .grey-border{border: solid 3px #e6e6e6 !important;}
 
 .darkmode .dark-grey{background-color: #333333 !important; border-color: #333333 !important; color: white !important;}
 .darkmode .grey{background-color: #1a1a1a !important; border-color: #1a1a1a !important; color: white !important;}
+.darkmode .grey-border{border: solid 3px #1a1a1a !important;}
 
 .dark-blue{background-color: #003ecc !important; border-color: #003ecc !important; color: white !important;}
 .blue{background-color: #004dff !important; border-color: #004dff !important; color: white !important;}
@@ -645,14 +653,16 @@ input:focus, select:focus, textarea:focus{
 
 .button{
     display: inline-block;
+    box-sizing: border-box;
     font-size: 18px;
     background-color: #004dff;
     border: none;
     color: white;
-    padding: 7px 20px;
+    padding: 5px 20px;
     margin-right: 20px;
     margin-bottom: 30px;
     border-radius: 5px;
+    text-align: center;
     white-space: nowrap;
     width: min-content;
     cursor: pointer;
