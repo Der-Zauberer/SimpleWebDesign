@@ -449,8 +449,7 @@ body {
 }
 
 .document{
-    background-color: white;
-    color: black;
+    margin-top: 50px;
     border-radius: 5px;
     box-shadow: -0px 5px 10px #0000001a;
     transition: width 0s;
