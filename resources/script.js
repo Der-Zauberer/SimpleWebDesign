@@ -65,9 +65,16 @@ function toggleSmartMenu() {
 //Focus the element in the menu, which has the innerHtml of string
 function setMenuFocus(string) {
     let menu = document.getElementsByClassName("menu").item(0);
-    if (menu) {
+    setRecursiveMenuFocus(string, menu);
+}
+
+//private
+function setRecursiveMenuFocus(string, menu) {
+    if (menu && Array.from(menu.children).length > 0) {
         Array.from(menu.children).forEach(element => {
-            if (element.innerHTML === string) {
+            if (Array.from(element.children).length > 0) {
+                setRecursiveMenuFocus(string, element);
+            } else if (element.innerHTML.toLowerCase() === string.toLowerCase()) {
                 element.classList.add("menu-active");
                 return;
             }
