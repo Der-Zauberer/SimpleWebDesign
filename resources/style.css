@@ -35,8 +35,11 @@ body {
 }
 
 .float-right{
-    box-sizing: border-box;
     float: right !important;
+}
+
+.height-100{
+    height: 100% !important;
 }
 
 .width-100{
@@ -240,7 +243,6 @@ body {
 
 .menu-title{
     color: white !important;
-    display: block !important;
 }
 
 @media (max-width: 768px) {.menu-transparent.responsive{background-color: #004dff;}}
