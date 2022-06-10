@@ -106,13 +106,17 @@ function onWindowResize() {
 function generateNavigationMenu(menu, navigation) {
     if (menu && navigation) {
         let menuString = "";
+        let hasHome = false;
+        Array.from(menu.children).forEach(element => {
+            if (!hasHome && navigation && element.tagName === "A" && element.innerHTML === "Home") hasHome = true;
+        });
         Array.from(menu.children).forEach(element => {
             if (navigation && element.tagName === "A") {
                 let innerHtml = element.innerHTML;
                 if (element.classList.contains("menu-title")) innerHtml = "Home";
                 let classString = "only-mobile menu-item ";
                 if (element.classList.contains("menu-active")) classString += "navigation-active";
-                menuString += "<a href=\"" + element.href + "\" class=\"" + classString + "\">" + innerHtml + "</a>";
+                if (!element.classList.contains("menu-title") || !hasHome) menuString += "<a href=\"" + element.href + "\" class=\"" + classString + "\">" + innerHtml + "</a>";
             } else if (navigation && Array.from(element.children).length > 0) {
                 generateNavigationMenu(element, navigation);
             }
