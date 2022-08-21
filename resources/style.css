@@ -170,6 +170,13 @@ body {
 
 .mg-b{margin-bottom: 30px !important}
 
+/* radius */
+
+.r-0{border-radius: 0px !important}
+.r-1{border-radius: 5px !important}
+.r-2{border-radius: 10px !important}
+.r-3{border-radius: 20px!important}
+
 /* overflow */
 
 .overflow {
