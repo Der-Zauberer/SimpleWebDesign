@@ -610,14 +610,13 @@ input, select, textarea{
     min-height: 40px;
     font-size: 16px;
     padding: 10px;
-    height: 30px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     border-style: solid;
     border-color: #cccccc;
     border-width: 0px;
     border-bottom-width: 3px;
     border-radius: 5px;
-    width: 300px;
+    width: 100%;
 }
 
 textarea{
@@ -663,13 +662,10 @@ input:focus, select:focus, textarea:focus{
 .button{
     display: inline-block;
     box-sizing: border-box;
-    font-size: 18px;
     background-color: #004dff;
     border: none;
     color: white;
-    padding: 5px 20px;
-    margin-right: 20px;
-    margin-bottom: 30px;
+    padding: 2.5px 20px;
     border-radius: 5px;
     text-align: center;
     white-space: nowrap;
