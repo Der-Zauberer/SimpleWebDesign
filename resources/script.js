@@ -68,6 +68,12 @@ function setMenuFocus(string) {
     setRecursiveMenuFocus(string, menu);
 }
 
+//Focus the element in the navigation, which has the innerHtml of string
+function setNavigationFocus(string) {
+    let navigation = document.getElementsByClassName("navigation").item(0);
+    setRecursiveNavigationFocus(string, navigation);
+}
+
 //private
 function setRecursiveMenuFocus(string, menu) {
     if (menu && Array.from(menu.children).length > 0) {
@@ -76,6 +82,20 @@ function setRecursiveMenuFocus(string, menu) {
                 setRecursiveMenuFocus(string, element);
             } else if (element.innerHTML.toLowerCase() === string.toLowerCase()) {
                 element.classList.add("menu-active");
+                return;
+            }
+        });
+    }
+}
+
+//private
+function setRecursiveNavigationFocus(string, navigation) {
+    if (navigation && Array.from(navigation.children).length > 0) {
+        Array.from(navigation.children).forEach(element => {
+            if (Array.from(element.children).length > 0) {
+                setRecursiveMenuFocus(string, element);
+            } else if (element.innerHTML.toLowerCase() === string.toLowerCase()) {
+                element.classList.add("navigation-active");
                 return;
             }
         });
