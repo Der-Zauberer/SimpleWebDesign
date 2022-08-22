@@ -17,6 +17,14 @@
             <a class="menu-active">Components</a>
             <a href="../colors">Colors</a>
             <a href="../templates">Templates</a>
+            <div class="dropdown">
+                <a class="dropdown-button">Dropdown</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
         </div>
         
         <div id="navigation" class="navigation navigation-headlines">
@@ -319,9 +327,18 @@
                 <h2 id="form">Form</h2>
 
                 <form style="max-width: 300px;">
-                    Name:<input type="text">
-                    Email:<input type="email">
-                    Text:<textarea></textarea>
+                    Name:
+                    <input type="text">
+                    Email:
+                    <input type="email">
+                    Type:
+                    <select>
+                        <option>Question</option>
+                        <option>Answer</option>
+                        <option>Ticket</option>
+                    </select>
+                    Text:
+                    <textarea></textarea>
                     <input type="submit" value="Submit">
                 </form>
 

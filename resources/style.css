@@ -329,7 +329,6 @@ body {
     padding: 0px 10px;
     line-height: 40px;
     font-size: 18px;
-    font-size: 18px;
     color: black;
     border-radius: 5px;
     white-space: nowrap;
@@ -679,6 +678,85 @@ input:focus, select:focus, textarea:focus{
 textarea, select, input, button {outline: none;}
 
 @media screen and (max-width: 768px) {input, select, textarea{width: 100%;}}
+
+/* dropdown */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #e6e6e6;
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: fit-content;
+    z-index: 3;
+}
+
+.lightmode .dropdown-content{
+    background-color: #e6e6e6;
+    border-color: #cccccc;
+}
+
+.darkmode .dropdown-content{
+    background-color: #1a1a1a;
+    border-color: #333333;
+}
+
+@media (prefers-color-scheme: dark) {
+    .dropdown-content{
+        background-color: #1a1a1a;
+        border-color: #333333;
+    }
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    text-decoration: none;
+    text-align: left;
+    max-width: 230px;
+    min-width: 150px;
+    border-radius: 5px;
+    padding: 0px 10px;
+    line-height: 40px;
+    font-size: 18px;
+    color: black;
+}
+
+.lightmode .dropdown-content a{color: black;}
+.darkmode .dropdown-content a{color: white;}
+@media (prefers-color-scheme: dark) {.dropdown-content a{color: white;}}
+
+.dropdown-content a:hover{
+    color: black;
+    background-color: #cccccc
+}
+
+.lightmode .dropdown-content a:hover{
+    color: black;
+    background-color: #cccccc
+}
+
+.darkmode .dropdown-content a:hover{
+    color: white;
+    background-color: #333333;
+}
+
+@media (prefers-color-scheme: dark) {
+    .dropdown-content a:hover{
+        color: white;
+        background-color: #333333;
+    }
+}
 
 /* labels */
 
