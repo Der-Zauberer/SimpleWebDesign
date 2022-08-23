@@ -50,6 +50,10 @@ body {
     white-space: nowrap !important;
 }
 
+.fir-content{
+    width: fit-content !important;
+}
+
 @media (min-width: 767px) {
     .only-mobile{display: none !important;}
 }
