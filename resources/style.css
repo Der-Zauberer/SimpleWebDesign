@@ -651,6 +651,7 @@ textarea{
 }
 
 input[type=submit]{
+    font-size: 18px;
     box-sizing: border-box;
     min-height: 40px;
     height: 40px;
@@ -666,6 +667,7 @@ input:focus, select:focus, textarea:focus{
 }
 
 .button{
+    font-size: 18px;
     display: inline-block;
     box-sizing: border-box;
     background-color: #004dff;
