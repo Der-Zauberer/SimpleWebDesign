@@ -731,7 +731,6 @@ textarea, select, input, button {outline: none;}
     text-align: left;
     max-width: 230px;
     min-width: 150px;
-    border-radius: 5px;
     padding: 0px 10px;
     line-height: 40px;
     font-size: 18px;
