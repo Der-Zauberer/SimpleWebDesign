@@ -668,6 +668,7 @@ input:focus, select:focus, textarea:focus{
 
 .button{
     font-size: 18px;
+    line-height: 35px;
     display: inline-block;
     box-sizing: border-box;
     background-color: #004dff;
