@@ -689,7 +689,6 @@ textarea, select, input, button {outline: none;}
 /* dropdown */
 
 .dropdown {
-    position: relative;
     display: inline-block;
 }
 
@@ -1044,6 +1043,35 @@ table td, th{
 }
 
 @media (max-width: 768px) {table tr th{padding: 2px 7px;}table tr td{padding: 2px 7px;}}
+
+/* dialog */
+
+.dialog{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding: 100px 0px;
+	z-index: 3;
+	background-color: #ffffff7f;
+}
+
+.darkmode .dialog{background-color: #0000007f !important}
+
+.lightmode .dialog{background-color: #ffffff7f !important}
+
+@media (prefers-color-scheme: dark) {
+    .dialog{background-color: #0000007f !important}
+}
+
+.dialog > *{
+	margin: auto;
+}
+
+@media only screen and (max-width: 1024px){.dialog{padding: 20px 0px;}}
+@media only screen and (max-width: 1024px){.dialog > *{transform: translateY(0);}}
+
 
 /* components */
 
