@@ -165,25 +165,34 @@ body {
 /* padding */
 
 .pd-0{padding: 0px !important}
-.pd-1{padding: 5px !important}
-.pd-2{padding: 10px !important}
-.pd-3{padding: 20px !important}
+.pd-5{padding: 5px !important}
+.pd-10{padding: 10px !important}
+.pd-20{padding: 20px !important}
+.pd-30{padding: 30px !important}
+.pd-50{padding: 50px !important}
 
 /* margin */
 
 .mg-0{margin: 0px !important}
-.mg-1{margin: 5px !important}
-.mg-2{margin: 10px !important}
-.mg-3{margin: 20px !important}
+.mg-5{margin: 5px !important}
+.mg-10{margin: 10px !important}
+.mg-20{margin: 20px !important}
+.mg-30{margin: 30px !important}
+.mg-50{margin: 50px !important}
 
 .mg-b{margin-bottom: 30px !important}
+.mg-b-0{margin-bottom: 0px !important}
+
+.mg-center{margin-left: auto !important; margin-right: auto !important}
 
 /* radius */
 
 .r-0{border-radius: 0px !important}
-.r-1{border-radius: 5px !important}
-.r-2{border-radius: 10px !important}
-.r-3{border-radius: 20px!important}
+.r-5{border-radius: 5px !important}
+.r-10{border-radius: 10px !important}
+.r-20{border-radius: 20px!important}
+.r-30{border-radius: 30px !important}
+.r-50{border-radius: 50px!important}
 
 /* overflow */
 
@@ -560,39 +569,6 @@ body {
     .row > [class*="col-xl-"]:last-child{padding-right: 0px}
 }
 
-[class*="gallery-"]{
-    box-sizing: border-box;
-    display: grid;
-    grid-gap: 20px;
-    overflow-x: hidden;
-}
-
-[class*="gallery-"]:hover{overflow-x: auto;}
-@media (hover: none) {[class*="gallery-"]{overflow-x: auto;}}
-@media screen and (max-width: 768px) {[class*="gallery-"]{overflow-x: auto;}}
-
-[class*="gallery-"] > *{
-    width: auto;
-    float: left;
-}
-
-.gallery-1{grid-template-columns: repeat(1, 6fr);}
-.gallery-2{grid-template-columns: repeat(2, 3fr);}
-.gallery-3{grid-template-columns: repeat(3, 2fr);}
-.gallery-4{grid-template-columns: repeat(4, 1.5fr);}
-
-.grid{
-    display: grid;
-    grid-gap: 20px;
-}
-
-.grid > *{
-    width: auto;
-    float: left;
-}
-
-@media screen and (max-width: 768px) {[class*="gallery-"]{grid-gap: 10px;} .grid{grid-gap: 10px;}}
-
 /* headlines */
 
 h1, h2, h3, h4, h5, h6 {
@@ -617,7 +593,6 @@ input, select, textarea{
     min-height: 40px;
     font-size: 16px;
     padding: 10px;
-    margin-bottom: 30px;
     border-style: solid;
     border-color: #cccccc;
     border-width: 0px;
@@ -628,6 +603,7 @@ input, select, textarea{
 
 textarea{
     height: auto;
+    resize: vertical;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1046,6 +1022,7 @@ table td, th{
 /* components */
 
 p{
+    margin: 0px;
     margin-bottom: 30px;
 }
 
