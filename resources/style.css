@@ -54,15 +54,10 @@ body {
     width: fit-content !important;
 }
 
-@media (min-width: 767px) {
-    .only-mobile{display: none !important;}
-}
-@media (max-width: 767px) {
-    .not-mobile{display: none !important;}
-}
+@media (min-width: 768px) {.only-mobile{display: none !important}}
+@media (max-width: 767px) {.not-mobile{display: none !important}}
 
 .darkmode .only-lightmode{display: none !important;}
-
 .lightmode .only-darkmode{display: none !important;}
 
 @media (prefers-color-scheme: dark) {
