@@ -331,7 +331,7 @@
                     &lt;/form&gt;<br>
                 </code>
 
-                <h2 id="dropdown-headline">Dropdown</h2>
+                <h2 id="dropdown">Dropdown</h2>
                 
                 <div class="dropdown mg-r mg-b">
                     <a class="button">Dropdown</a>
@@ -342,7 +342,7 @@
                     </div>
                 </div>
 
-                <div class="dropdown">
+                <div class="dropdown mg-r mg-b">
                     <a class="button">Profile</a>
                     <div class="dropdown-content">
                         <h3 class="pd-10 mg-0" style="padding-top: 20px !important">Max Mustermann</h3>
@@ -350,6 +350,52 @@
                         <a>Show profile</a>
                     </div>
                 </div>
+
+                <code>
+                    &lt;div class="dropdown mg-r mg-b"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="button">Dropdown&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="dropdown-content"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a&gt;Link 1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a&gt;Link 1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a&gt;Link 1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
+                    &lt;/div&gt;<br><br>
+
+                    &lt;div class="dropdown"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="button">Profile&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="dropdown-content"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;h3 class="pd-10 mg-0" style="padding-top: 20px !important"&gt;Max Mustermann&lt;/h3&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;div class="pd-10 mg-b blue-text">max.mustermann@mustermail.com&lt;/div&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a&gt;Show profile&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
+                <h2 id="dialog">Dialog</h2>
+
+                <a class="button mg-b" onclick="toggleDialog(document.getElementById('test-dialog'))">Dialog</a>
+                
+                <div class="dialog" id="test-dialog">
+                    <div class="dialog-content box centered">
+                        <h3>Test</h3>
+                        <p>Test</p>
+                        <a class="button width-100 mg-b" onclick="toggleDialog(document.getElementById('test-dialog'))">Confirm</a>
+                        <a class="button red width-100" onclick="toggleDialog(document.getElementById('test-dialog'))">Cancel</a>
+                    </div>
+                </div>
+                
+                <code>
+                    &lt;a class="button mg-b" onclick="toggleDialog(document.getElementById('test-dialog'))"&gt;Dialog&lt;/a&gt;<br>
+                
+                    &lt;div class="dialog" id="test-dialog"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="dialog-content box centered"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;strong&gt;Dialog&lt;/strong&gt;&lt;br&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;p&gt;Test&lt;/p&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a class="button width-100 mg-b" onclick="toggleDialog(document.getElementById('test-dialog'))">Confirm&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a class="button red width-100" onclick="toggleDialog(document.getElementById('test-dialog'))">Cancel&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </code>
 
                 <h2 id="image">Image</h2>
                 

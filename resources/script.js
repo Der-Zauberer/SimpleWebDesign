@@ -103,6 +103,18 @@ function hideAllDropdowns() {
     });
 }
 
+//Toggle visibillity of dialog
+function toggleDialog(dialog) {
+    if (dialog) {
+        if (dialog.classList.contains('show')) {
+            dialog.classList.remove('show');
+        } else {
+            hideAllDropdowns();
+            dialog.classList.add('show');
+        }
+    }
+}
+
 //private
 function setRecursiveMenuFocus(string, menu) {
     if (menu && Array.from(menu.children).length > 0) {
