@@ -5,10 +5,18 @@ document.addEventListener('readystatechange', event => {
 
 //This function will be called, if the body does load the first time
 function onLoad() {
+    document.addEventListener("click", onMouseClick);
+    window.addEventListener("resize", onWindowResize);
     const navigation = document.getElementById("navigation")
     const menu = document.getElementById("smart-menu");
     if (navigation && navigation.classList.contains("navigation-headlines")) generateNavigation();
     if (menu) initializeSmartMenu();
+    Array.from(document.getElementsByClassName("dropdown")).forEach(element => {
+        element.onclick = () => {
+
+            toggleDropdown(element)
+        };
+    });
 }
 
 //Remove all elements of menu from the viewport except for the title and images
@@ -16,8 +24,6 @@ function initializeSmartMenu() {
     const menu = document.getElementById("smart-menu");
     const navigation = document.getElementById("navigation");
     if (menu) {
-        document.addEventListener("click", onMouseClick);
-        window.addEventListener("resize", onWindowResize);
         Array.from(menu.children).forEach(element => {
             if (!element.classList.contains("menu-title") && !(element.tagName === "IMG")) {
                 element.classList.add("not-mobile");
@@ -74,6 +80,29 @@ function setNavigationFocus(string) {
     setRecursiveNavigationFocus(string, navigation);
 }
 
+//Toggle visibility of dropdown content
+function toggleDropdown(dropdown) {
+    const content = dropdown.getElementsByClassName("dropdown-content")[0];
+    if (content) {
+        if (content.classList.contains('show')) {
+            content.classList.remove('show');
+        } else {
+            hideAllDropdowns();
+            content.classList.add('show');
+        }
+    }
+}
+
+//Hide all dropdowns
+function hideAllDropdowns() {
+    Array.from(document.getElementsByClassName("dropdown")).forEach(element => {
+        const content = element.getElementsByClassName("dropdown-content")[0];
+        if (content != null && content.classList.contains('show')) {
+            content.classList.remove('show');
+        }
+    });
+}
+
 //private
 function setRecursiveMenuFocus(string, menu) {
     if (menu && Array.from(menu.children).length > 0) {
@@ -109,6 +138,9 @@ function onMouseClick(event) {
         if (navigation.classList.contains("navigation-display") && event.clientX > 250) {
             toggleSmartMenu();
         }
+    }
+    if (event.target && event.target.parentNode && !event.target.parentNode.classList.contains("dropdown")) {
+        hideAllDropdowns();
     }
 }
 
