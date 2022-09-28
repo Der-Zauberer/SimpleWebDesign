@@ -838,28 +838,28 @@ img.box{
     position: absolute;
     text-align: left;
     top: 8px;
-    left: 16px;
+    left: 15px;
 }
   
 .top-right {
     position: absolute;
     text-align: right;
     top: 8px;
-    right: 16px;
+    right: 15px;
 }
 
 .bottom-left {
     position: absolute;
     text-align: left;
     bottom: 8px;
-    left: 16px;
+    left: 15px;
 }
   
 .bottom-right {
     position: absolute;
     text-align: right;
     bottom: 8px;
-    right: 16px;
+    right: 15px;
 }
   
 .center {
