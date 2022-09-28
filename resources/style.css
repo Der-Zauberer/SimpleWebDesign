@@ -869,7 +869,7 @@ img.box{
     right: 0px;
 }
   
-.center {
+.centered {
     position: absolute;
     text-align: center;
     padding: 20px;
