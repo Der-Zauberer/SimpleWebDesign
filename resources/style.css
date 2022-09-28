@@ -763,6 +763,10 @@ label{
     background-size: 100% auto;
 }
 
+img.box{
+    padding: 0px;
+}
+
 @media (prefers-color-scheme: dark) {
     .box{
         background-color: #1a1a1a;
@@ -825,6 +829,46 @@ label{
 }
 
 @media (max-width: 767px) {.box{padding: 15px}}
+
+.overlay{
+    position: relative;
+}
+  
+.top-left {
+    position: absolute;
+    text-align: left;
+    top: 8px;
+    left: 16px;
+}
+  
+.top-right {
+    position: absolute;
+    text-align: right;
+    top: 8px;
+    right: 16px;
+}
+
+.bottom-left {
+    position: absolute;
+    text-align: left;
+    bottom: 8px;
+    left: 16px;
+}
+  
+.bottom-right {
+    position: absolute;
+    text-align: right;
+    bottom: 8px;
+    right: 16px;
+}
+  
+.center {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /* code elements */
 

@@ -230,46 +230,43 @@
                 <div class="box box-top blue">Box</div>
                 <div class="box box-bottom">This is a box!</div>
                 
+                <div class="box red">Error: Please try again!</div>
+
                 <div class="row">
                     <div class="col-xl-4">
-                        <div><div class="box box-top" style="background-image: url(../resources/image.jpg); height: 40px;"></div><div class="box box-bottom">This is a box with a picture</div></div>
+                        <div><img class="box box-top" src="/resources/image.jpg"><div class="box box-bottom">This is a box with a picture</div></div>
                     </div>
                     <div class="col-xl-4">
-                        <div class="box" style="background-image: url(../resources/image.jpg); min-height: 80px;">This is also a box with a picture</div>
+                        <div class="overlay">
+                            <img class="box" src="/resources/image.jpg">
+                            <div class="top-left">This is also a box with a picture</div>
+                        </div>
                     </div>
                     <div class="col-xl-4">
                         <div class="box">This is a Box</div>
                     </div>
                 </div>
                 
-                <div class="box red">Error: Please try again!</div>
-                
                 <code>
-                    &lt;div class="box"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;This is a box!<br>
-                    &lt;/div&gt;<br>
-                    <br>
-                    &lt;div class="box box-border blue"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;This is a box!<br>
-                    &lt;/div&gt;<br>
-                    <br>
-                    &lt;div class="box box-top blue"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;Box<br>
-                    &lt;/div&gt;<br>
-                    &lt;div class="box box-center"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;This is a box!<br>
-                    &lt;/div&gt;<br>
-                    &lt;div class="box box-bottom"&gt;&lt;a style="float: right"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;b&gt;Next&lt;/b&gt;&lt;/a&gt;<br>
-                    &lt;/div&gt;<br>
-                    <br>
-                    &lt;div class="box" style="background-image: url(...); height: 40px;"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;This is a box!<br>
-                    &lt;/div&gt;<br>
-                    <br>
-                    &lt;div class="box red"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;Error: Please try again!<br>
-                    &lt;/div&gt;<br>
+                    &lt;div class="box"&gt;This is a box!&lt;/div&gt;<br><br>
+
+                    &lt;div class="box box-border blue"&gt;This is a box!&lt;/div&gt;<br><br>
+
+                    &lt;div class="box box-top blue"&gt;;Box&lt;/div&gt;<br>
+                    &lt;div class="box box-center"&gt;This is a box!&lt;/div&gt;<br>
+                    &lt;div class="box box-bottom float-right"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a style="float: right"&gt;Next&lt;/a&gt;<br>
+                    &lt;/div&gt;<br><br>
+
+                    &lt;div class="box red"&gt;Error: Please try again!&lt;/div&gt;<br><br>
+
+                    &lt;img class="box box-top" src="image.jpg"&gt;<br>
+                    &lt;div class="box box-bottom"&gt;This is a box with a picture&lt;/div&gt;<br><br>
+
+                    &lt;div class="overlay"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;&lt;img class="box" src="image.jpg"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;&lt;div class="top-left">This is also a box with a picture&lt;/div&gt;<br>
+                    &lt;/div&gt;
                 </code>
 
                 <h2 id="label">Label</h2>
