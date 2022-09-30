@@ -13,10 +13,10 @@ function onLoad() {
     if (menu) initializeSmartMenu();
     Array.from(document.getElementsByClassName("dropdown")).forEach(element => {
         element.onclick = () => {
-
             toggleDropdown(element)
         };
     });
+    initializeDropDowns();
 }
 
 //Remove all elements of menu from the viewport except for the title and images
@@ -164,6 +164,7 @@ function onWindowResize() {
             toggleSmartMenu();
         }
     }
+    initializeDropDowns();
 }
 
 //private
@@ -186,5 +187,27 @@ function generateNavigationMenu(menu, navigation) {
             }
         });
         navigation.innerHTML = menuString + navigation.innerHTML;
+    }
+}
+
+//private
+function initializeDropDowns() {
+    Array.from(document.getElementsByClassName("dropdown-content")).forEach(element => {
+        let parent = element;
+        while (parent.parentNode) {
+            parent = parent.parentNode;
+            if (parent.scrollLeftMax && parent.scrollLeftMax != 0) {
+                translateDropDown(element, parent);
+                parent.onscroll = (event) => translateDropDown(element, parent);
+                return;
+            }
+        }
+    });
+}
+
+//private
+function translateDropDown(dropdown, overflow) {
+    if (overflow.scrollLeftMax && parent.scrollLeftMax != 0) {
+        dropdown.style.transform = "translateX(-" + ((-overflow.scrollLeftMax * -1) - (overflow.scrollLeftMax - overflow.scrollLeft)) + "px)";
     }
 }
