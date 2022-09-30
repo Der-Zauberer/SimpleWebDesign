@@ -192,13 +192,17 @@ function generateNavigationMenu(menu, navigation) {
 
 //private
 function initializeDropDowns() {
-    Array.from(document.getElementsByClassName("dropdown-content")).forEach(element => {
-        let parent = element;
+    Array.from(document.getElementsByClassName("dropdown-content")).forEach(dropdown => {
+        let parent = dropdown;
         while (parent.parentNode) {
             parent = parent.parentNode;
             if (parent.scrollLeftMax && parent.scrollLeftMax != 0) {
-                translateDropDown(element, parent);
-                parent.onscroll = (event) => translateDropDown(element, parent);
+                let hoverElement = dropdown.parentElement.childNodes[0];
+                while(hoverElement != null && hoverElement.nodeType == 3) hoverElement = hoverElement.nextSibling;
+                translateDropDown(hoverElement, dropdown);
+                hoverElement.onclick = (event) => translateDropDown(hoverElement, dropdown);
+                hoverElement.onmouseover = (event) => translateDropDown(hoverElement, dropdown);
+                parent.addEventListener("scroll", (event) => translateDropDown(hoverElement, dropdown));
                 return;
             }
         }
@@ -206,8 +210,22 @@ function initializeDropDowns() {
 }
 
 //private
-function translateDropDown(dropdown, overflow) {
-    if (overflow.scrollLeftMax && parent.scrollLeftMax != 0) {
-        dropdown.style.transform = "translateX(-" + ((-overflow.scrollLeftMax * -1) - (overflow.scrollLeftMax - overflow.scrollLeft)) + "px)";
+function translateDropDown(hoverElement, dropdown) {
+    const dropdownRect = dropdown.getBoundingClientRect();
+    if (dropdownRect.width == 0) return;
+    const hoverRect = hoverElement.getBoundingClientRect();
+    const windowSize = window.innerWidth;
+    let left;
+    if (hoverRect.left <= 0) {
+        left = 0;
+    } else if (hoverRect.right > windowSize) {
+        left = windowSize - dropdownRect.width;
+        console.log("Test2");
+    } else if (hoverRect.left + dropdownRect.width > windowSize) {
+        left = hoverRect.right - dropdownRect.width;
+        console.log("Test")
+    } else {
+        left = hoverRect.left;
     }
+    dropdown.style.left = left + "px";
 }

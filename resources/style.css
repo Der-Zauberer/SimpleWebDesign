@@ -648,7 +648,7 @@ textarea, select, input, button {outline: none;}
     border-style: solid;
     border-width: 3px;
     border-radius: 5px;
-    width: fit-content;
+    
 }
 
 .dropdown-content > *:first-child{margin-top: 0px}
