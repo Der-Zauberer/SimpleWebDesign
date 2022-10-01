@@ -11,11 +11,6 @@ function onLoad() {
     const menu = document.getElementById("smart-menu");
     if (navigation && navigation.classList.contains("navigation-headlines")) generateNavigation();
     if (menu) initializeSmartMenu();
-    Array.from(document.getElementsByClassName("dropdown")).forEach(element => {
-        element.onclick = () => {
-            toggleDropdown(element)
-        };
-    });
     initializeDropDowns();
 }
 
@@ -192,17 +187,28 @@ function generateNavigationMenu(menu, navigation) {
 
 //private
 function initializeDropDowns() {
-    Array.from(document.getElementsByClassName("dropdown-content")).forEach(dropdown => {
+    Array.from(document.getElementsByClassName("dropdown")).forEach(dropdown => {
+        const content = dropdown.getElementsByClassName("dropdown-content")[0]
+        let hoverElement = dropdown.childNodes[0];
+        while (hoverElement != null && hoverElement.nodeType == 3) hoverElement = hoverElement.nextSibling;
+        if (!content || !hoverElement) return;
+        translateDropDown(hoverElement, content);
+        dropdown.addEventListener("mouseover", event => {
+            if (!content.classList.contains('show')) hideAllDropdowns();
+            translateDropDown(hoverElement, content);
+        });
+        dropdown.addEventListener("click", event => {
+            translateDropDown(hoverElement, content);
+            toggleDropdown(dropdown);
+        });
         let parent = dropdown;
         while (parent.parentNode) {
             parent = parent.parentNode;
             if (parent.scrollLeftMax && parent.scrollLeftMax != 0) {
-                let hoverElement = dropdown.parentElement.childNodes[0];
-                while(hoverElement != null && hoverElement.nodeType == 3) hoverElement = hoverElement.nextSibling;
-                translateDropDown(hoverElement, dropdown);
-                hoverElement.onclick = (event) => translateDropDown(hoverElement, dropdown);
-                hoverElement.onmouseover = (event) => translateDropDown(hoverElement, dropdown);
-                parent.addEventListener("scroll", (event) => translateDropDown(hoverElement, dropdown));
+                parent.addEventListener("scroll", (event) => {
+                    hideAllDropdowns();
+                    translateDropDown(hoverElement, content);
+                });
                 return;
             }
         }
@@ -210,22 +216,22 @@ function initializeDropDowns() {
 }
 
 //private
-function translateDropDown(hoverElement, dropdown) {
-    const dropdownRect = dropdown.getBoundingClientRect();
-    if (dropdownRect.width == 0) return;
+function translateDropDown(hoverElement, content) {
+    const contentRect = content.getBoundingClientRect();
+    if (contentRect.width == 0) return;
     const hoverRect = hoverElement.getBoundingClientRect();
     const windowSize = window.innerWidth;
     let left;
     if (hoverRect.left <= 0) {
         left = 0;
     } else if (hoverRect.right > windowSize) {
-        left = windowSize - dropdownRect.width;
+        left = windowSize - contentRect.width;
         console.log("Test2");
-    } else if (hoverRect.left + dropdownRect.width > windowSize) {
-        left = hoverRect.right - dropdownRect.width;
+    } else if (hoverRect.left + contentRect.width > windowSize) {
+        left = hoverRect.right - contentRect.width;
         console.log("Test")
     } else {
         left = hoverRect.left;
     }
-    dropdown.style.left = left + "px";
+    content.style.left = left + "px";
 }
