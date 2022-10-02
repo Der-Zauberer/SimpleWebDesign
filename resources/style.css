@@ -74,7 +74,7 @@ body {
     .darkmode .only-darkmode{display: initial !important;}
 }
 
-@media (max-width: 768px) {body{font-size: 15px; line-height: 30px;}}
+@media screen and (max-width: 768px) {body{font-size: 15px; line-height: 30px;}}
 
 /* colors */
 
@@ -722,12 +722,16 @@ textarea, select, input, button {outline: none;}
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .dialog-content{
     position: absolute;
+    box-sizing: border-box;
     min-width: 200px;
+    max-width: 350px;
+    width: calc(100% - 60px);
+    padding: 20px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -735,14 +739,32 @@ textarea, select, input, button {outline: none;}
     border-color: #cccccc;
     border-style: solid;
     border-width: 3px;
+    border-radius: 5px;
 }
 
-.lightmode .dialog{background-color: rgba(255, 255, 255, 0.5)}
+.dialog-content > *:first-child{margin-top: 0px}
+.dialog-content > *:last-child{margin-bottom: 0px;}
 
-.darkmode .dialog{background-color: rgba(0, 0, 0, 0.5)}
+.dialog-button{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.dialog-button > *{width: 100%}
+
+@media screen and (max-width: 768px) {
+    .dialog-button{flex-direction: column;}
+    .dialog-button > *{width: 100%;}
+}
+
+.lightmode .dialog{background-color: rgba(255, 255, 255, 0.7)}
+
+.darkmode .dialog{background-color: rgba(0, 0, 0, 0.7)}
 
 @media (prefers-color-scheme: dark) {
-    .dialog{ background-color: rgba(0, 0, 0, 0.5)}
+    .dialog{ background-color: rgba(0, 0, 0, 0.7)}
 }
 
 .lightmode .dialog-content{

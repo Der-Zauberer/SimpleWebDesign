@@ -411,11 +411,13 @@
                 <a class="button mg-b" onclick="toggleDialog(document.getElementById('test-dialog'))">Dialog</a>
                 
                 <div class="dialog" id="test-dialog">
-                    <div class="dialog-content box centered">
+                    <div class="dialog-content">
                         <h3>Test</h3>
                         <p>Test</p>
-                        <a class="button width-100 mg-b" onclick="toggleDialog(document.getElementById('test-dialog'))">Confirm</a>
-                        <a class="button red width-100" onclick="toggleDialog(document.getElementById('test-dialog'))">Cancel</a>
+                        <div class="dialog-button">
+                            <a class="button width-100 red" onclick="toggleDialog(document.getElementById('test-dialog'))">Cancel</a>
+                            <a class="button width-100" onclick="toggleDialog(document.getElementById('test-dialog'))">Confirm</a>
+                        </div>
                     </div>
                 </div>
                 
@@ -423,11 +425,13 @@
                     &lt;a class="button mg-b" onclick="toggleDialog(document.getElementById('test-dialog'))"&gt;Dialog&lt;/a&gt;<br>
                 
                     &lt;div class="dialog" id="test-dialog"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;div class="dialog-content box centered"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="dialog-content"&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;strong&gt;Dialog&lt;/strong&gt;&lt;br&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;p&gt;Test&lt;/p&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a class="button width-100 mg-b" onclick="toggleDialog(document.getElementById('test-dialog'))">Confirm&lt;/a&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a class="button red width-100" onclick="toggleDialog(document.getElementById('test-dialog'))">Cancel&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;div class="dialog-button"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a class="button width-100" onclick="toggleDialog(document.getElementById('test-dialog'))">Confirm&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a class="button width-100 red" onclick="toggleDialog(document.getElementById('test-dialog'))">Cancel&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
                     &lt;/div&gt;
                 </code>
