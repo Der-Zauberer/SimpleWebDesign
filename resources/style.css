@@ -22,8 +22,8 @@ body {
     color: #ffffff;
 }
 
-.center {text-align: center}
-.clearfix {clear: both}
+.center {text-align: center !important}
+.clearfix {clear: both !important}
 .float-left {float: left !important}
 .float-right {float: right !important}
 .height-100 {height: 100% !important}
@@ -116,6 +116,42 @@ body {
 .transparent-red {background-color: #e6000033 !important; border-color: #e60000 !important; color: #e60000 !important}
 .red-border {border: solid 3px #e60000 !important}
 .red-text {color: #e60000 !important}
+
+/* hover colors */
+
+.white-hover:hover {background-color: white !important;  border-color: white !important; color: black !important}
+.black-hover:hover {background-color: black !important; border-color: black !important; color: white !important}
+
+@media (prefers-color-scheme: dark) {
+    .white-hover:hover {background-color: black !important; border-color: black !important; color: white !important}
+    .black-hover:hover {background-color: white !important; border-color: white !important; color: black !important}
+}
+.lightmode .white-hover:hover {background-color: white !important; border-color: white !important; color: black !important}
+.lightmode .black-hover:hover {background-color: black !important; border-color: black !important; color: white !important}
+.darkmode .white-hover:hover {background-color: black !important; border-color: black !important; color: white !important}
+.darkmode .black-hover:hover {background-color: white !important; border-color: white !important; color: black !important}
+
+.dark-grey-hover:hover {background-color: #cccccc !important; border-color: #cccccc !important; color: black !important}
+.grey-hover:hover {background-color: #e6e6e6 !important; border-color: #e6e6e6 !important; color: black !important}
+
+@media (prefers-color-scheme: dark) {
+    .dark-grey-hover:hover {background-color: #333333 !important; border-color: #333333 !important; color: white !important}
+    .grey-hover:hover {background-color: #1a1a1a !important; border-color: #1a1a1a !important; color: white !important}
+}
+
+.lightmode .dark-grey-hover:hover {background-color: #cccccc !important; border-color: #cccccc !important; color: black !important}
+.lightmode .grey-hover:hover {background-color: #e6e6e6 !important; border-color: #e6e6e6 !important; color: black !important}
+.darkmode .dark-grey-hover:hover {background-color: #333333 !important; border-color: #333333 !important; color: white !important}
+.darkmode .grey-hover:hover {background-color: #1a1a1a !important; border-color: #1a1a1a !important; color: white !important}
+
+.dark-blue-hover:hover {background-color: #003ecc !important; border-color: #003ecc !important; color: white !important}
+.blue-hover:hover {background-color: #004dff !important; border-color: #004dff !important; color: white !important}
+.dark-green-hover:hover {background-color: #007f00 !important; border-color: #007f00 !important; color: white !important}
+.green-hover:hover {background-color: #00b300 !important; border-color: #00b300 !important; color: white !important}
+.dark-yellow-hover:hover {background-color: #cc9900 !important; border-color: #cc9900 !important; color: white !important}
+.yellow-hover:hover {background-color: #ffbf00 !important; border-color: #ffbf00 !important; color: white !important}
+.dark-red-hover:hover {background-color: #b30000 !important; border-color: #b30000 !important; color: white !important}
+.red-hover:hover {background-color: #e60000 !important; border-color: #e60000 !important; color: white !important}
 
 /* darkmode and lightmode */
 
@@ -603,6 +639,10 @@ input:focus, select:focus, textarea:focus {
     width: min-content;
     cursor: pointer;
 }
+
+.button-left {border-top-right-radius: 0px; border-bottom-right-radius: 0px}
+.button-middle {border-radius: 0px}
+.button-right {border-top-left-radius: 0px; border-bottom-left-radius: 0px}
 
 textarea, select, input, button {outline: none}
 
