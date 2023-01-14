@@ -215,7 +215,11 @@ body {
 .mg-l {margin-left: 30px !important}
 .mg-r {margin-right: 30px !important}
 .mg-b {margin-bottom: 30px !important}
-.mg-b-0{margin-bottom: 0px !important}
+
+.mg-t-0 {margin-top: 0px !important}
+.mg-l-0 {margin-left: 0px !important}
+.mg-r-0 {margin-right: 0px !important}
+.mg-b-0 {margin-bottom: 0px !important}
 
 .mg-center {margin-left: auto !important; margin-right: auto !important}
 
@@ -556,6 +560,7 @@ input:focus, select:focus, textarea:focus {
     white-space: nowrap;
     width: min-content;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .button-left {border-top-right-radius: 0px; border-bottom-right-radius: 0px}
