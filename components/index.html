@@ -348,15 +348,24 @@
                 </code>
 
                 <h2 id="dropdown">Dropdown</h2>
-                
+
                 <div class="dropdown mg-r mg-b">
-                    <a class="button">Dropdown</a>
+                    <a class="button">Toggle Dropdown</a>
                     <div class="dropdown-content">
                         <a>Link 1</a>
                         <a>Link 1</a>
                         <a>Link 1</a>
                     </div>
                 </div>
+                
+                <div class="dropdown dropdown-hover mg-r mg-b">
+                    <a class="button">Hover Dropdown</a>
+                    <div class="dropdown-content">
+                        <a>Link 1</a>
+                        <a>Link 1</a>
+                        <a>Link 1</a>
+                    </div>
+                </div><br>
 
                 <div class="dropdown mg-r mg-b">
                     <a class="button">Profile</a>
@@ -367,44 +376,18 @@
                     </div>
                 </div>
 
-                <div class="overflow mg-b">
-                    <div style="display: flex;">
-                        <div class="dropdown mg-r mg-b">
-                            <a class="button">Scroll Dropdown</a>
-                            <div class="dropdown-content">
-                                <a>Link 1</a>
-                                <a>Link 1</a>
-                                <a>Link 1</a>
-                            </div>
-                        </div>
-                        <div class="nowrap">
-                            ---> Scroll ---> Scroll ---> Scroll ---> Scroll --->  Scroll --->  Scroll --->  Scroll --->
-                        </div>
-                        <div class="dropdown mg-r mg-l mg-b">
-                            <a class="button">Scroll Dropdown</a>
-                            <div class="dropdown-content">
-                                <a>Link 1</a>
-                                <a>Link 1</a>
-                                <a>Link 1</a>
-                            </div>
-                        </div>
-                        <div class="nowrap">
-                            ---> Scroll ---> Scroll ---> Scroll ---> Scroll --->  Scroll --->  Scroll --->  Scroll --->
-                        </div>
-                        <div class="dropdown mg-l mg-b">
-                            <a class="button">Scroll Dropdown</a>
-                            <div class="dropdown-content">
-                                <a>Link 1</a>
-                                <a>Link 1</a>
-                                <a>Link 1</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <code>
                     &lt;div class="dropdown mg-r mg-b"&gt;<br>
-                    &ensp;&ensp;&ensp;&ensp;&lt;a class="button">Dropdown&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="button">Toggle Dropdown&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="dropdown-content"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a&gt;Link 1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a&gt;Link 1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a&gt;Link 1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
+                    &lt;/div&gt;<br><br>
+
+                    &lt;div class="dropdown dropdown-hover mg-r mg-b"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;a class="button">Hover Dropdown&lt;/a&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;div class="dropdown-content"&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a&gt;Link 1&lt;/a&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a&gt;Link 1&lt;/a&gt;<br>
@@ -420,6 +403,50 @@
                     &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a&gt;Show profile&lt;/a&gt;<br>
                     &ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
                     &lt;/div&gt;
+                </code>
+
+                <h2 id="input-dropdowns">Input Dropdowns</h2>
+
+                Text:<br>
+                <div class="dropdown mg-b">
+                    <input type="text">
+                    <div class="dropdown-content">
+                        <a>Link 1</a>
+                        <a>Link 2</a>
+                        <a>Link 3</a>
+                    </div>
+                </div><br>
+
+                Options:<br>
+                <div class="dropdown mg-b">
+                    <input type="text" readonly>
+                    <div class="dropdown-content">
+                        <a>Link 1</a>
+                        <a>Link 2</a>
+                        <a>Link 3</a>
+                    </div>
+                </div>
+                
+                <code>
+                    Text:&lt;br&gt;<br>
+                    &lt;div class="dropdown mg-b"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;input type="text"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="dropdown-content"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a>Link 1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a>Link 2&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a>Link 3&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
+                    &lt;/div&gt;<br>
+
+                    Options:&lt;br&gt;<br>
+                    &lt;div class="dropdown mg-b"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;input type="text" readonly&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;div class="dropdown-content"&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a>Link 1&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a>Link 2&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;a>Link 3&lt;/a&gt;<br>
+                    &ensp;&ensp;&ensp;&ensp;&lt;/div&gt;<br>
+                    &lt;/div&gt;<br>
                 </code>
 
                 <h2 id="dialog">Dialog</h2>
@@ -633,6 +660,7 @@
                         <tr><td><samp>width-100</samp></td><td><samp>width: 100% !important</samp></td></tr>
                         <tr><td><samp>nowrap</samp></td><td><samp>white-space: nowrap !important</samp></td></tr>
                         <tr><td><samp>show</samp></td><td><samp>display: block !important</samp></td></tr>
+                        <tr><td><samp>hide</samp></td><td><samp>display: none !important</samp></td></tr>
                         <tr><td><samp>fit-content</samp></td><td><samp>width: fit-content !important</samp></td></tr>
                         <tr><td><samp>overflow</samp></td><td><samp>max-width: 100%;<br>overflow: hidden !important</samp></td></tr>
                         <tr><td><samp>pd-0</samp></td><td><samp>padding: 0px !important</samp></td></tr>
