@@ -113,10 +113,11 @@ function initializeDropDowns() {
                 const value = valueElements[i].getAttribute('value');
                 valueElements[i].addEventListener('click', event => {
                     input.value = value;
-                    toggleDropdown(dropdown, content);
+                    if (!input || !content.classList.contains('show')) toggleDropdown(dropdown, content);
                 });
             }
             input.addEventListener('input', event => {
+                if (!content.classList.contains('show')) content.classList.add('show');
                 let counter = 0;
                 for (var i = 0; i < valueElements.length; i++) {
                     if (input.value == '') {
@@ -133,6 +134,43 @@ function initializeDropDowns() {
                     if (!content.classList.contains('hide')) content.classList.add('hide');
                 } else {
                     content.classList.remove('hide'); 
+                }
+            });
+            let activeElement = -1;
+            input.addEventListener('keydown', event => {
+                let visibleElemnts = [];
+                for (var i = 0; i < valueElements.length; i++) {
+                    if (!valueElements[i].classList.contains('hide')) visibleElemnts.push(valueElements[i]);
+                }
+                if (!content.classList.contains('show') && event.keyCode == 13) dropdown.classList.remove(content.classList.add('show'));
+                if (!content.classList.contains('show')) return;
+                if (event.keyCode == 40) {
+                    event.preventDefault();
+                    if (activeElement == -1) {
+                        visibleElemnts[0].classList.add('dropdown-active');
+                        activeElement = 0;
+                    } else {
+                        if (visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.remove('dropdown-active');
+                        if (activeElement + 1 < visibleElemnts.length) activeElement++;
+                        else activeElement = 0;
+                        if (!visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.add('dropdown-active');
+                    }
+                } else if (event.keyCode == 38) {
+                    event.preventDefault();
+                    if (activeElement == -1) {
+                        visibleElemnts[visibleElemnts.length - 1].classList.add('dropdown-active');
+                        activeElement = visibleElemnts.length - 1;
+                    } else {
+                        if (visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.remove('dropdown-active');
+                        if (activeElement - 1 >= 0) activeElement--;
+                        else activeElement = visibleElemnts.length - 1;
+                        if (!visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.add('dropdown-active');
+                    }
+                } else if (event.keyCode == 13 && activeElement != -1) {
+                    input.value = visibleElemnts[activeElement].getAttribute('value');
+                    toggleDropdown(dropdown, content);
+                    if (visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.remove('dropdown-active');
+                    activeElement = -1;
                 }
             });
         }
@@ -228,6 +266,5 @@ function onWindowResize() {
 function translateDropDown(dropdown, content) {
     const contentRect = content.getBoundingClientRect();
     const dropdownRect = dropdown.getBoundingClientRect();
-    const windowSize = window.innerWidth;
-    if (contentRect.right > windowSize) content.style.cssText = 'left: -' + (contentRect.width - dropdownRect.width) + 'px;';
+    if (contentRect.right > window.innerWidth) content.style.cssText = 'left: -' + (contentRect.width - dropdownRect.width) + 'px;';
 }
