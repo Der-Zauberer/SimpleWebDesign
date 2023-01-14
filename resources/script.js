@@ -155,6 +155,7 @@ function initializeDropDowns() {
                         else activeElement = 0;
                         if (!visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.add('dropdown-active');
                     }
+                    content.scrollTop = visibleElemnts[activeElement].offsetTop;
                 } else if (event.keyCode == 38) {
                     event.preventDefault();
                     if (activeElement == -1) {
@@ -166,6 +167,7 @@ function initializeDropDowns() {
                         else activeElement = visibleElemnts.length - 1;
                         if (!visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.add('dropdown-active');
                     }
+                    content.scrollTop = visibleElemnts[activeElement].offsetTop;
                 } else if (event.keyCode == 13 && activeElement != -1) {
                     input.value = visibleElemnts[activeElement].getAttribute('value');
                     toggleDropdown(dropdown, content);
@@ -267,4 +269,9 @@ function translateDropDown(dropdown, content) {
     const contentRect = content.getBoundingClientRect();
     const dropdownRect = dropdown.getBoundingClientRect();
     if (contentRect.right > window.innerWidth) content.style.cssText = 'left: -' + (contentRect.width - dropdownRect.width) + 'px;';
+    if (dropdown.getElementsByTagName('input')[0]) {
+        if (contentRect.bottom > window.innerHeight && window.innerHeight - contentRect.top > 100) content.style.maxHeight = (window.innerHeight - contentRect.top) + 'px';
+        else content.style.maxHeight = '';
+    }
+    
 }
