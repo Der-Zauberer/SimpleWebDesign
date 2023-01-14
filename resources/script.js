@@ -142,7 +142,10 @@ function initializeDropDowns() {
                 for (var i = 0; i < valueElements.length; i++) {
                     if (!valueElements[i].classList.contains('hide')) visibleElemnts.push(valueElements[i]);
                 }
-                if (!content.classList.contains('show') && event.keyCode == 13) dropdown.classList.remove(content.classList.add('show'));
+                if (!content.classList.contains('show') && event.keyCode == 13) {
+                    dropdown.classList.remove(content.classList.add('show'));
+                    return;
+                }
                 if (!content.classList.contains('show')) return;
                 if (event.keyCode == 40) {
                     event.preventDefault();
