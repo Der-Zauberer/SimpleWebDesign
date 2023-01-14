@@ -277,7 +277,7 @@ body {
 @media (hover: none) {.menu {overflow-x: auto}}
 @media screen and (max-width: 768px) {.menu {overflow-x: auto}}
 
-.menu > * {
+.menu * {
     padding: 0 10px;
     font-size: 19px;
     text-decoration: none;
@@ -304,6 +304,7 @@ body {
 }
 
 .menu-title {
+    font-weight: bold;
     color: white !important;
 }
 
@@ -339,7 +340,7 @@ body {
 @media (hover: none) {.navigation {overflow-y: auto}}
 @media screen and (max-width: 768px) {.navigation {overflow-y: auto}}
 
-.navigation > * {
+.navigation * {
     display: block;
     max-width: 230px;
     padding: 0px 10px;
