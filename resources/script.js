@@ -108,74 +108,73 @@ function initializeDropDowns() {
         if (input) {
             const valueElements = content.getElementsByTagName('a');
             input.setAttribute("autocomplete", "off");
+            let activeElement = -1;
+            let visibleElemnts = [];
+            input.addEventListener('click', event => {
+                visibleElemnts = valueElements;
+                activeElement = -1;
+                for (var i = 0; i < valueElements.length; i++) valueElements[i].classList.remove('hide');
+            });
             for (var i = 0; i < valueElements.length; i++) {
                 if (!valueElements[i].hasAttribute('value')) valueElements[i].setAttribute('value', valueElements[i].innerHTML);
-                const value = valueElements[i].getAttribute('value');
                 valueElements[i].addEventListener('click', event => {
-                    input.value = value;
-                    if (!input || !content.classList.contains('show')) toggleDropdown(dropdown, content);
+                    input.value = event.target.getAttribute('value');
+                    event.target.classList.remove('dropdown-active');
+                    activeElement = -1;
                 });
             }
             input.addEventListener('input', event => {
                 if (!content.classList.contains('show')) content.classList.add('show');
-                let counter = 0;
-                for (var i = 0; i < valueElements.length; i++) {
-                    if (input.value == '') {
-                        if (valueElements[i].classList.contains('hide')) valueElements[i].classList.remove('hide');
-                        counter++;
-                    } else if (input.value.includes(valueElements[i].getAttribute('value')) || valueElements[i].getAttribute('value').includes(input.value)) {
-                        if (valueElements[i].classList.contains('hide')) valueElements[i].classList.remove('hide');
-                        counter++;
-                    } else {
-                        if (!valueElements[i].classList.contains('hide')) valueElements[i].classList.add('hide');
+                if (activeElement != -1 && visibleElemnts.length > 0) visibleElemnts[activeElement].classList.remove('dropdown-active');
+                visibleElemnts = [];
+                activeElement = -1;
+                if (input.value == '') {
+                    visibleElemnts = valueElements;
+                    for (var i = 0; i < valueElements.length; i++) valueElements[i].classList.remove('hide');
+                } else {
+                    for (var i = 0; i < valueElements.length; i++) {
+                        if (input.value.includes(valueElements[i].getAttribute('value')) || valueElements[i].getAttribute('value').includes(input.value)) {
+                            valueElements[i].classList.remove('hide');
+                            visibleElemnts.push(valueElements[i]);
+                        } else {
+                            if (!valueElements[i].classList.contains('hide')) valueElements[i].classList.add('hide');
+                        }
                     }
                 }
-                if (counter == 0) {
+                if (visibleElemnts.length == 0) {
                     if (!content.classList.contains('hide')) content.classList.add('hide');
                 } else {
                     content.classList.remove('hide'); 
                 }
             });
-            let activeElement = -1;
             input.addEventListener('keydown', event => {
-                let visibleElemnts = [];
-                for (var i = 0; i < valueElements.length; i++) {
-                    if (!valueElements[i].classList.contains('hide')) visibleElemnts.push(valueElements[i]);
-                }
-                if (!content.classList.contains('show') && event.keyCode == 13) {
-                    dropdown.classList.remove(content.classList.add('show'));
+                if (!content.classList.contains('show')) {
+                    if (event.keyCode == 13) content.classList.add('show');
                     return;
                 }
-                if (!content.classList.contains('show')) return;
-                if (event.keyCode == 40) {
+                if ((event.keyCode == 40 || event.keyCode == 38) && visibleElemnts.length > 0) {
                     event.preventDefault();
                     if (activeElement == -1) {
-                        visibleElemnts[0].classList.add('dropdown-active');
-                        activeElement = 0;
+                        activeElement = event.keyCode == 40 ? 0 : visibleElemnts.length - 1;
+                        visibleElemnts[activeElement].classList.add('dropdown-active');
                     } else {
-                        if (visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.remove('dropdown-active');
-                        if (activeElement + 1 < visibleElemnts.length) activeElement++;
-                        else activeElement = 0;
+                        visibleElemnts[activeElement].classList.remove('dropdown-active');
+                        if (event.keyCode == 40) {
+                            if (activeElement + 1 < visibleElemnts.length) activeElement++;
+                             else activeElement = 0;
+                        } else {
+                            if (activeElement - 1 >= 0) activeElement--;
+                            else activeElement = visibleElemnts.length - 1;
+                        }
                         if (!visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.add('dropdown-active');
                     }
-                    content.scrollTop = visibleElemnts[activeElement].offsetTop;
-                } else if (event.keyCode == 38) {
-                    event.preventDefault();
-                    if (activeElement == -1) {
-                        visibleElemnts[visibleElemnts.length - 1].classList.add('dropdown-active');
-                        activeElement = visibleElemnts.length - 1;
-                    } else {
-                        if (visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.remove('dropdown-active');
-                        if (activeElement - 1 >= 0) activeElement--;
-                        else activeElement = visibleElemnts.length - 1;
-                        if (!visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.add('dropdown-active');
-                    }
-                    content.scrollTop = visibleElemnts[activeElement].offsetTop;
+                    const contentRect = content.getBoundingClientRect();
+                    const elementRect = visibleElemnts[activeElement].getBoundingClientRect();
+                    const elementOffset = visibleElemnts[activeElement].offsetTop;
+                    if (elementOffset > content.scrollTop + contentRect.height) content.scrollTop = elementOffset + elementRect.height - contentRect.height;
+                    else if (elementOffset < content.scrollTop) content.scrollTop = elementOffset;
                 } else if (event.keyCode == 13 && activeElement != -1) {
-                    input.value = visibleElemnts[activeElement].getAttribute('value');
-                    toggleDropdown(dropdown, content);
-                    if (visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.remove('dropdown-active');
-                    activeElement = -1;
+                    valueElements[activeElement].click();
                 }
             });
         }
@@ -197,9 +196,7 @@ function toggleDropdown(dropdown, content) {
 function hideAllDropdowns() {
     Array.from(document.getElementsByClassName('dropdown')).forEach(element => {
         const content = element.getElementsByClassName('dropdown-content')[0];
-        if (content != null && content.classList.contains('show')) {
-            content.classList.remove('show');
-        }
+        content.classList.remove('show');
     });
 }
 
