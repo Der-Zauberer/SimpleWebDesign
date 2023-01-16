@@ -171,7 +171,7 @@ function initializeDropDowns() {
                     const contentRect = content.getBoundingClientRect();
                     const elementRect = visibleElemnts[activeElement].getBoundingClientRect();
                     const elementOffset = visibleElemnts[activeElement].offsetTop;
-                    if (elementOffset > content.scrollTop + contentRect.height) content.scrollTop = elementOffset + elementRect.height - contentRect.height;
+                    if (elementOffset + elementRect.height > content.scrollTop + contentRect.height) content.scrollTop = elementOffset + elementRect.height - contentRect.height;
                     else if (elementOffset < content.scrollTop) content.scrollTop = elementOffset;
                 } else if (event.keyCode == 13 && activeElement != -1) {
                     valueElements[activeElement].click();

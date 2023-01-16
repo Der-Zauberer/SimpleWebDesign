@@ -583,7 +583,7 @@ textarea, select, input, button {outline: none}
     border-width: 3px;
     border-radius: 5px;
     min-width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .dropdown-content > *:first-child {margin-top: 0px}
