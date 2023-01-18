@@ -684,7 +684,7 @@ label {
 }
 
 .media img {
-    background-image: url(Icon.jpg);
+    background-image: url(icon.jpg);
     max-height: 64px;
     max-width: 64px;
     float: left;
