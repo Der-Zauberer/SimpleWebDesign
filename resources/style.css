@@ -298,6 +298,7 @@ body {
 .menu a:hover, .menu-active {
     color: white;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .menu-title {
@@ -373,6 +374,7 @@ body {
 
 .navigation a:active, .navigation a:visited {
     color: var(--theme-text-color);
+    text-decoration: none;
 }
 
 .navigation-content {
@@ -557,6 +559,10 @@ input:focus, select:focus, textarea:focus {
     text-decoration: none;
 }
 
+.button:hover {
+    text-decoration: none;
+}
+
 .button-left {border-top-right-radius: 0px; border-bottom-right-radius: 0px}
 .button-middle {border-radius: 0px}
 .button-right {border-top-left-radius: 0px; border-bottom-left-radius: 0px}
@@ -606,6 +612,7 @@ textarea, select, input, button {outline: none}
 .dropdown-content a:hover, .dropdown-active {
     background-color: var(--theme-grey-secondary);
     color: var(--theme-text-color);
+    text-decoration: none;
 }
 
 /* dialog */
@@ -902,6 +909,11 @@ p {
 
 a {
     color: var(--theme-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 a:hover {
