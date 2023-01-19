@@ -274,6 +274,9 @@ body {
     z-index: 2;
     background-color: var(--theme-primary);
     overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .menu:hover {overflow-x: auto}
@@ -333,6 +336,9 @@ body {
     z-index: 1;
     transition: left 0.2s;
     overflow-y: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .navigation:hover {overflow-y: auto}
@@ -592,6 +598,9 @@ input[type=submit]{
     border-radius: var(--theme-border-radius);
     color: white;
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -612,6 +621,9 @@ input:focus, select:focus, textarea:focus {
     white-space: nowrap;
     width: min-content;
     text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .button:hover {
