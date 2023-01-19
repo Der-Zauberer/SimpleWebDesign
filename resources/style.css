@@ -297,7 +297,6 @@ body {
 
 .menu a:hover, .menu-active {
     color: white;
-    cursor: pointer;
     text-decoration: none;
 }
 
@@ -369,7 +368,7 @@ body {
 
 .navigation a:hover, .navigation-active {
     background-color: var(--theme-grey-secondary);
-    cursor: pointer;
+    text-decoration: none;
 }
 
 .navigation a:active, .navigation a:visited {
@@ -438,6 +437,20 @@ body {
     float: left;
     padding: 0px;
 }
+
+.col-def-1{width: 8.33%}
+.col-def-2{width: 16.66%}
+.col-def-3{width: 25%}
+.col-def-4{width: 33.33%}
+.col-def-5{width: 41.66%}
+.col-def-6{width: 50%}
+.col-def-7{width: 58.33%}
+.col-def-8{width: 66.66%}
+.col-def-9{width: 75%}
+.col-def-10{width: 83.33%}
+.col-def-11{width: 91.66%}
+.col-def-12{width: 100%}
+[class*="col-def-"]{padding: 0px 15px}
 
 @media only screen and (min-width: 600px) {
     .col-sm-1{width: 8.33%}
@@ -555,7 +568,6 @@ input:focus, select:focus, textarea:focus {
     text-align: center;
     white-space: nowrap;
     width: min-content;
-    cursor: pointer;
     text-decoration: none;
 }
 
@@ -910,14 +922,11 @@ p {
 a {
     color: var(--theme-primary);
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:hover {
     text-decoration: underline;
-}
-
-a:hover {
-    cursor: pointer;
 }
 
 img {
