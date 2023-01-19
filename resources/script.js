@@ -103,7 +103,7 @@ function initializeDropDowns() {
     Array.from(document.getElementsByClassName('dropdown')).forEach(dropdown => {
         const content = dropdown.getElementsByClassName('dropdown-content')[0];
         const input = dropdown.getElementsByTagName('input')[0];
-        if (dropdown.classList.contains('dropdown-hover'))  dropdown.addEventListener('mouseover', event => translateDropDown(dropdown, content));
+        if (dropdown.classList.contains('dropdown-hover')) dropdown.addEventListener('mouseover', event => translateDropDown(dropdown, content));
         else dropdown.addEventListener('click', event => toggleDropdown(dropdown, content));
         if (input) {
             const valueElements = content.getElementsByTagName('a');
