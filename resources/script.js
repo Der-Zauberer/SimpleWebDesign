@@ -288,10 +288,10 @@ function highlightHtml(string) {
     let tag = false;
     let attribute = false;
     let value = false;
+    let comment = false;
     let lastAddedIndex = 0;
     for (let i = 0; i < string.length; i++) {
-        if (!tag && i + 3 < string.length && string.substring(i, i + 4) == '&lt;') {
-            if (i + 7 < string.length && string.substring(i + 4, i + 7) == '!--') continue;
+        if (!tag && i + 3 < string.length && string.substring(i, i + 4) == '&lt;' && !(i + 7 < string.length && string.substring(i, i + 7) == '&lt;!--')) {
             codeString += string.substring(lastAddedIndex, i) + '<span class="blue-text">&lt;';
             tag = true;
             i += 4;
@@ -312,6 +312,16 @@ function highlightHtml(string) {
             codeString += value ? string.substring(lastAddedIndex, i) + '"</span>' : string.substring(lastAddedIndex, i) + '<span class="red-text">"';
             value = !value;
             lastAddedIndex = i + 1;
+        } else if (!tag && !comment && i + 7 < string.length && string.substring(i, i + 7) == '&lt;!--') {
+            codeString += string.substring(lastAddedIndex, i) + '<span class="grey-text">&lt;!--';
+            comment = true;
+            i += 7;
+            lastAddedIndex = i;
+        } else if (comment && i + 6 < string.length && string.substring(i, i + 6) == '--&gt;') {
+            codeString += string.substring(lastAddedIndex, i) + '--&gt;</span>';
+            comment = false;
+            i += 6;
+            lastAddedIndex = i;
         }
     }
     codeString += string.substring(lastAddedIndex, string.length - 1);
