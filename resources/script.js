@@ -12,6 +12,7 @@ function onLoad() {
     if (navigation && navigation.classList.contains('navigation-headlines')) generateNavigation();
     if (menu) initializeSmartMenu();
     initializeDropDowns();
+    initializeCode();
 }
 
 //Remove all elements of menu from the viewport except for the title and images
@@ -274,4 +275,45 @@ function translateDropDown(dropdown, content) {
         else content.style.maxHeight = '';
     }
     
+}
+
+function initializeCode() {
+    Array.from(document.getElementsByTagName('code')).forEach(element => {
+        if (element.classList.contains("html")) element.innerHTML = highlightHtml(element.innerHTML);
+    });
+}
+
+function highlightHtml(string) {
+    let codeString = '';
+    let tag = false;
+    let attribute = false;
+    let value = false;
+    let lastAddedIndex = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (!tag && i + 3 < string.length && string.substring(i, i + 4) == '&lt;') {
+            if (i + 7 < string.length && string.substring(i + 4, i + 7) == '!--') continue;
+            codeString += string.substring(lastAddedIndex, i) + '<span class="blue-text">&lt;';
+            tag = true;
+            i += 4;
+            lastAddedIndex = i;
+        } else if (tag && i + 3 < string.length && string.substring(i, i + 4) == '&gt;') {
+            codeString += string.substring(lastAddedIndex, i);
+            if (attribute) codeString += '</span>';
+            codeString += '&gt;</span>';
+            tag = false;
+            attribute = false;
+            i += 3;
+            lastAddedIndex = i + 1;
+        } else if (tag && !attribute && string.charAt(i) == ' ') {
+            codeString += string.substring(lastAddedIndex, i) + '<span class="green-text">';
+            attribute = true;
+            lastAddedIndex = i;
+        } else if (tag && attribute && string.charAt(i) == '"') {
+            codeString += value ? string.substring(lastAddedIndex, i) + '"</span>' : string.substring(lastAddedIndex, i) + '<span class="red-text">"';
+            value = !value;
+            lastAddedIndex = i + 1;
+        }
+    }
+    codeString += string.substring(lastAddedIndex, string.length - 1);
+    return codeString;
 }
