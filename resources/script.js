@@ -280,6 +280,7 @@ function translateDropDown(dropdown, content) {
 function initializeCode() {
     Array.from(document.getElementsByTagName('code')).forEach(element => {
         if (element.classList.contains("html")) element.innerHTML = highlightHtml(element.innerHTML);
+        else if (element.classList.contains("css")) element.innerHTML = highlightCss(element.innerHTML);
     });
 }
 
@@ -326,4 +327,45 @@ function highlightHtml(string) {
     }
     codeString += string.substring(lastAddedIndex, string.length - 1);
     return codeString;
+}
+
+function highlightCss(string) {
+    let codeString = '';
+    let key = false;
+    let value = false;
+    let comment = false;
+    let lastAddedIndex = 0;
+    for (let i = 0; i < string.length; i++) {
+        if (!comment && !key && string.charAt(i) == '{') {
+            codeString += string.substring(lastAddedIndex, i) + '</span>{<span class="green-text">';
+            key = true;
+            lastAddedIndex = ++i;
+        } else if (!comment && key && string.charAt(i) == ':') {
+            codeString += string.substring(lastAddedIndex, i) + '</span>:<span class="red-text">';
+            value = true;
+            lastAddedIndex = ++i;
+        } else if (!comment && key && string.charAt(i) == '}') {
+            codeString += string.substring(lastAddedIndex, i) + '</span>}<span class="blue-text">';
+            key = false;
+            value = false;
+            lastAddedIndex = ++i;
+        } else if (!comment && value && string.charAt(i) == ';') {
+            codeString += string.substring(lastAddedIndex, i) + '</span>;<span class="green-text">';
+            key = true;
+            value = false;
+            lastAddedIndex = ++i;
+        } else if (!comment && i + 1 < string.length && string.substring(i, i + 1) == '/*') {
+            codeString += string.substring(lastAddedIndex, i) + '<span class="grey-text">/*';
+            comment = true;
+            i += 2;
+            lastAddedIndex = i;
+        } else if (comment && i + 1 < string.length && string.substring(i, i + 1) == '*/') {
+            codeString += string.substring(lastAddedIndex, i) + '/*</span>';
+            comment = false;
+            i += 2;
+            lastAddedIndex = i;
+        }
+    }
+    codeString += string.substring(lastAddedIndex, string.length - 1);
+    return '<span class="blue-text">' + codeString + '</span>';
 }
