@@ -354,12 +354,12 @@ function highlightCss(string) {
             key = true;
             value = false;
             lastAddedIndex = ++i;
-        } else if (!comment && i + 1 < string.length && string.substring(i, i + 1) == '/*') {
+        } else if (!comment && i + 1 < string.length && string.substring(i, i + 2) == '/*') {
             codeString += string.substring(lastAddedIndex, i) + '<span class="grey-text">/*';
             comment = true;
             i += 2;
             lastAddedIndex = i;
-        } else if (comment && i + 1 < string.length && string.substring(i, i + 1) == '*/') {
+        } else if (comment && i + 1 < string.length && string.substring(i, i + 2) == '*/') {
             codeString += string.substring(lastAddedIndex, i) + '/*</span>';
             comment = false;
             i += 2;
