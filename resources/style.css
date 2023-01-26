@@ -14,7 +14,7 @@
     --theme-grey-primary: #e6e6e6;
     --theme-grey-secondary: #cccccc;
     --theme-text-color: #000000;
-    --theme-border-radius: 5px;
+    --theme-radius: 5px;
     --theme-spacing: 30px;
     background-color: var(--theme-background);
     color: var(--theme-text-color);
@@ -351,7 +351,7 @@ body {
     padding: 0px 10px;
     line-height: 40px;
     font-size: 18px;
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
     text-decoration: none;
     white-space: nowrap;
     overflow-x: hidden;
@@ -518,7 +518,7 @@ body {
     background-color: var(--theme-grey-primary);
     padding: 20px;
     margin-bottom: var(--theme-spacing);
-    border-radius: 5px;
+    border-radius: var(--theme-radius);
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
@@ -534,7 +534,7 @@ img.box {
 }
 
 .box-top {
-    border-radius: 5px 5px 0px 0px;
+    border-radius: var(--theme-radius) var(--theme-radius) 0px 0px;
     margin-bottom: 0px;
 }
 
@@ -544,7 +544,7 @@ img.box {
 }
 
 .box-bottom {
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px var(--theme-radius) var(--theme-radius);
 }
 
 .box > *:first-child {margin-top: 0}
@@ -579,7 +579,7 @@ input, select, textarea {
     padding: 10px;
     border: solid 0px var(--theme-grey-secondary);
     border-bottom-width: 3px;
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
     width: 100%;
 }
 
@@ -595,7 +595,7 @@ input[type=submit]{
     height: 40px;
     border: none;
     background-color: var(--theme-primary);
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
     color: white;
     cursor: pointer;
     user-select: none;
@@ -609,14 +609,13 @@ input:focus, select:focus, textarea:focus {
 
 .button {
     font-size: 18px;
-    line-height: 35px;
     display: inline-block;
     box-sizing: border-box;
     background-color: var(--theme-primary);
     color: white;
     border: none;
     padding: 2.5px 15px;
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
     text-align: center;
     white-space: nowrap;
     width: min-content;
@@ -654,7 +653,7 @@ textarea, select, input, button {outline: none}
     border-color: var(--theme-grey-secondary);
     border-style: solid;
     border-width: 3px;
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
     min-width: 100%;
     overflow-y: auto;
 }
@@ -689,7 +688,7 @@ textarea, select, input, button {outline: none}
     z-index: 3;
     top: calc(100% + 10px);
     padding: 1px 10px;
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
     font-size: 15px;
     color: white;
     background-color: rgba(12, 12, 12, 0.8);
@@ -726,7 +725,7 @@ textarea, select, input, button {outline: none}
     border-color: var(--theme-grey-secondary);
     border-style: solid;
     border-width: 3px;
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
 }
 
 .dialog-content > *:first-child {margin-top: 0px}
@@ -760,7 +759,7 @@ label {
     color: var(--theme-text-color);
     background-color: var(--theme-primary);
     font-weight: 500;
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
     padding: 2px 6px;
 }
 
@@ -858,7 +857,7 @@ code {
     background-color: var(--theme-grey-primary);
     padding: 15px;
     margin-bottom: 25px;
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
     white-space: nowrap;
     overflow-x: hidden;
 }
@@ -872,7 +871,7 @@ pre {
     background-color: #1a1a1a;
     padding: 15px;
     margin-bottom: 25px;
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
     white-space: nowrap;
     overflow-x: hidden;
 }
@@ -889,7 +888,7 @@ kbd {
     font-size: 16px;
     border: solid 1px;
     padding: 2px 6px;
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
 }
 
 samp {
@@ -897,7 +896,7 @@ samp {
     font-size: 16px;
     padding: 3px 6px;
     background-color: var(--theme-grey-primary);
-    border-radius: var(--theme-border-radius);
+    border-radius: var(--theme-radius);
 }
 
 code:hover {overflow-x: auto}
