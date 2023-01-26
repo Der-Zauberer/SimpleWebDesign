@@ -32,6 +32,52 @@ body {
     background-repeat: no-repeat;
 }
 
+/* darkmode and lightmode */
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --theme-background: #ffffff;
+        --theme-grey-primary: #e6e6e6;
+        --theme-grey-secondary: #cccccc;
+        --theme-text-color: #000000;
+    }
+    .only-lightmode {display: initial;}
+    .only-darkmode {display: none;}
+}
+
+.lightmode > *{
+    --theme-background: #ffffff;
+    --theme-grey-primary: #e6e6e6;
+    --theme-grey-secondary: #cccccc;
+    --theme-text-color: #000000;
+    background-color: var(--theme-background);
+    color: var(--theme-text-color);
+}
+.lightmode .only-lightmode {display: initial;}
+.lightmode .only-darkmode {display: none;}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --theme-background: #000000;
+        --theme-grey-primary: #1a1a1a;
+        --theme-grey-secondary: #333333;
+        --theme-text-color: #ffffff;
+    }
+    .only-lightmode {display: none;}
+    .only-darkmode {display: initial;}
+}
+
+.darkmode > * {
+    --theme-background: #000000;
+    --theme-grey-primary: #1a1a1a;
+    --theme-grey-secondary: #333333;
+    --theme-text-color: #ffffff;
+    background-color: var(--theme-background);
+    color: var(--theme-text-color);
+}
+.darkmode .only-lightmode {display: none;}
+.darkmode .only-darkmode {display: initial;}
+
 /* header */
 
 .header {
@@ -41,8 +87,6 @@ body {
     font-size: 40px;
     background-color: var(--theme-secondary);
 }
-
-@media screen and (max-width: 768px) {.header {display: none}}
 
 /* menu */
 
@@ -175,11 +219,9 @@ body {
 }
 
 @media (max-width: 768px) {
-    .navigation-display {left: 0px}
+    .navigation-display {left: 0px !important}
     .navigation-content-hide {opacity: 0.5}
 }
-.navigation-absolute {position: absolute}
-.navigation-absolute div {position: sticky; top: 50px}
 
 @media (max-width: 768px) {.navigation {left: -250px}}
 @media (max-width: 768px) {.navigation-content {margin-left: 0}}
@@ -384,6 +426,7 @@ input:focus, select:focus, textarea:focus {
 
 .button {
     font-size: 18px;
+    line-height: 35px;
     display: inline-block;
     box-sizing: border-box;
     background-color: var(--theme-primary);
@@ -409,8 +452,6 @@ input:focus, select:focus, textarea:focus {
 .button-right {border-top-left-radius: 0px; border-bottom-left-radius: 0px}
 
 textarea, select, input, button {outline: none}
-
-@media screen and (max-width: 768px) {input, select, textarea {width: 100%}}
 
 /* dropdown */
 
@@ -760,58 +801,12 @@ ol li:last-child {padding-bottom: 0px}
 .nowrap {white-space: nowrap;}
 .fit-content {width: fit-content;}
 .show {display: block;}
-.hide {display: none;;}
+.hide {display: none;}
 
-@media (min-width: 769px) {.only-mobile {display: none;}}
-@media (max-width: 768px) {.not-mobile {display: none;}}
+@media (min-width: 769px) {.only-mobile {display: none !important}}
+@media (max-width: 768px) {.not-mobile {display: none !important}}
 
 @media screen and (max-width: 768px) {:root {font-size: 15px; line-height: 30px; --theme-box-spacing: 15px;}}
-
-/* darkmode and lightmode */
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --theme-background: #ffffff;
-        --theme-grey-primary: #e6e6e6;
-        --theme-grey-secondary: #cccccc;
-        --theme-text-color: #000000;
-    }
-    .only-lightmode {display: initial;}
-    .only-darkmode {display: none;}
-}
-
-.lightmode > *{
-    --theme-background: #ffffff;
-    --theme-grey-primary: #e6e6e6;
-    --theme-grey-secondary: #cccccc;
-    --theme-text-color: #000000;
-    background-color: var(--theme-background);
-    color: var(--theme-text-color);
-}
-.lightmode .only-lightmode {display: initial;}
-.lightmode .only-darkmode {display: none;}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --theme-background: #000000;
-        --theme-grey-primary: #1a1a1a;
-        --theme-grey-secondary: #333333;
-        --theme-text-color: #ffffff;
-    }
-    .only-lightmode {display: none;}
-    .only-darkmode {display: initial;}
-}
-
-.darkmode > * {
-    --theme-background: #000000;
-    --theme-grey-primary: #1a1a1a;
-    --theme-grey-secondary: #333333;
-    --theme-text-color: #ffffff;
-    background-color: var(--theme-background);
-    color: var(--theme-text-color);
-}
-.darkmode .only-lightmode {display: none;}
-.darkmode .only-darkmode {display: initial;}
 
 /* colors */
 
