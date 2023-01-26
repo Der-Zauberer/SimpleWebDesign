@@ -191,12 +191,12 @@
                 <div style="overflow-x:auto; border-radius: 5px;">
                     <table>
                         <tr><th>Headlines</th></tr>
-                        <tr><td><h1 style="margin: 20px 0px 20px 0px;">Headline 1</h1></td></tr>
-                        <tr><td><h2 style="margin: 20px 0px 20px 0px;">Headline 2</h2></td></tr>
-                        <tr><td><h3 style="margin: 20px 0px 20px 0px;">Headline 3</h3></td></tr>
-                        <tr><td><h4 style="margin: 20px 0px 20px 0px;">Headline 4</h4></td></tr>
-                        <tr><td><h5 style="margin: 20px 0px 20px 0px;">Headline 5</h5></td></tr>
-                        <tr><td><h6 style="margin: 20px 0px 20px 0px;">Headline 6</h6></td></tr>
+                        <tr><td><h1 style="margin: 10px 0px 10px 0px;">Headline 1</h1></td></tr>
+                        <tr><td><h2 style="margin: 10px 0px 10px 0px;">Headline 2</h2></td></tr>
+                        <tr><td><h3 style="margin: 10px 0px 10px 0px;">Headline 3</h3></td></tr>
+                        <tr><td><h4 style="margin: 10px 0px 10px 0px;">Headline 4</h4></td></tr>
+                        <tr><td><h5 style="margin: 10px 0px 10px 0px;">Headline 5</h5></td></tr>
+                        <tr><td><h6 style="margin: 10px 0px 10px 0px;">Headline 6</h6></td></tr>
                     </table>
                 </div>
                 
@@ -527,26 +527,6 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;Your browser does not support HTML5 audio.<br>
                     &lt;/audio&gt;
                 </code>
-
-                <h2 id="media">Media</h2>
-                
-                <div class="media">
-                    <img src="../resources/icon.jpg">
-                    <div class="media-content">
-                        <strong>Title</strong><br>
-                        This is a text!
-                    </div>
-                </div>
-
-                <code class="html">
-                    &lt;div class="media"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="icon.png"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="media-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;strong&gt;Title&lt;/strong&gt;&lt;br&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is a text!<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &lt;/div&gt;
-                </code>
                 
                 <h2 id="code">Code</h2>
 
@@ -609,7 +589,7 @@
                 
                 <h2 id="table">Table</h2>
                 
-                <div style="overflow-x:auto; border-radius: 5px;">
+                <div class="overflow">
                     <table>
                         <tr><th>Name</th><th>Author</th><th>Parts</th></tr>
                         <tr><td>Harry Potter</td><td>J. K. Rowling</td><td>7</td></tr>
@@ -618,10 +598,10 @@
                 </div>
 
                 <code class="html">
-                    &lt;div style="overflow-x:auto; border-radius: 5px;"&gt;<br>
+                    &lt;div class="overflow"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;table&gt;<br>
 
-                    &nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;&ensp;&lt;tr&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Name&lt;/th&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Author&lt;/th&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Parts&lt;/th&gt;<br>
@@ -667,16 +647,18 @@
 
                 <h2 id="variables">Variables</h2>
 
-                <table>
-                    <tr><th>Variables</th><th></th></tr>
-                    <tr><td><samp>--theme-border-radius</samp></td><td><samp>5px</samp></td></tr>
-                    <tr><td><samp>--theme-element-spacing</samp></td><td><samp>30px</samp></td></tr>
-                    <tr><td><samp>--theme-box-spacing</samp></td><td><samp>20px</samp></td></tr>
-                </table>
+                <div class="overflow">
+                    <table>
+                        <tr><th>Variables</th><th></th></tr>
+                        <tr><td><samp>--theme-border-radius</samp></td><td><samp>5px</samp></td></tr>
+                        <tr><td><samp>--theme-element-spacing</samp></td><td><samp>30px</samp></td></tr>
+                        <tr><td><samp>--theme-box-spacing</samp></td><td><samp>20px</samp></td></tr>
+                    </table>
+                </div>
 
                 <h2 id="utility">Utility Classes</h2>
 
-                <div style="overflow-x:auto; border-radius: 5px;">
+                <div class="overflow">
                     <table>
                         <tr><th>Class</th><th></th></tr>
                         <tr><td><samp>only-mobile</samp></td><td>Element will only be displayed on mobile devices</td></tr>
@@ -699,7 +681,7 @@
 
                 <h3>Padding</h3>
 
-                <div style="overflow-x:auto; border-radius: 5px;">
+                <div class="overflow">
                     <table>
                         <tr><th>Class</th><th></th></tr>
                         <tr><td><samp>pd-0</samp></td><td><samp>padding: 0px</samp></td></tr>
@@ -721,7 +703,7 @@
 
                 <h3>Margin</h3>
 
-                <div style="overflow-x:auto; border-radius: 5px;">
+                <div class="overflow">
                     <table>
                         <tr><th>Class</th><th></th></tr>
                         <tr><td><samp>mg-0</samp></td><td><samp>margin: 0px</samp></td></tr>
@@ -744,7 +726,7 @@
 
                 <h3>Border-Radius</h3>
 
-                <div style="overflow-x:auto; border-radius: 5px;">
+                <div class="overflow">
                     <table>
                         <tr><th>Class</th><th></th></tr>
                         <tr><td><samp>r-0</samp></td><td><samp>border-radius: 0px</samp></td></tr>
