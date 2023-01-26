@@ -615,7 +615,7 @@ input:focus, select:focus, textarea:focus {
     background-color: var(--theme-primary);
     color: white;
     border: none;
-    padding: 2.5px 20px;
+    padding: 2.5px 15px;
     border-radius: var(--theme-border-radius);
     text-align: center;
     white-space: nowrap;
@@ -645,8 +645,8 @@ textarea, select, input, button {outline: none}
     position: relative;
 }
 
-.dropdown-content {
-    z-index: 1;
+.dropdown .dropdown-content {
+    z-index: 3;
     display: none;
     box-sizing: border-box;
     position: absolute;
@@ -659,14 +659,14 @@ textarea, select, input, button {outline: none}
     overflow-y: auto;
 }
 
-.dropdown-content > *:first-child {margin-top: 0px}
-.dropdown-content > *:last-child {margin-bottom: 0px}
+.dropdown .dropdown-content > *:first-child {margin-top: 0px}
+.dropdown .dropdown-content > *:last-child {margin-bottom: 0px}
 
-.dropdown-hover:hover .dropdown-content {
+.dropdown .dropdown-hover:hover .dropdown-content {
     display: block;
 }
 
-.dropdown-content a {
+.dropdown .dropdown-content a {
     display: block;
     text-decoration: none;
     text-align: left;
@@ -676,10 +676,27 @@ textarea, select, input, button {outline: none}
     color: var(--theme-text-color);
 }
 
-.dropdown-content a:hover, .dropdown-active {
+.dropdown .dropdown-content a:hover, .dropdown-active {
     background-color: var(--theme-grey-secondary);
     color: var(--theme-text-color);
     text-decoration: none;
+}
+
+.dropdown .tooltip {
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 3;
+    top: calc(100% + 10px);
+    padding: 1px 10px;
+    border-radius: var(--theme-border-radius);
+    font-size: 15px;
+    color: white;
+    background-color: rgba(12, 12, 12, 0.8);
+}
+
+.dropdown:hover .tooltip {
+    display: block;
 }
 
 /* dialog */
@@ -692,7 +709,7 @@ textarea, select, input, button {outline: none}
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .dialog-content {
@@ -729,12 +746,12 @@ textarea, select, input, button {outline: none}
     .dialog-button > *{width: 100%}
 }
 
-.lightmode .dialog {background-color: rgba(255, 255, 255, 0.7)}
+.lightmode .dialog {background-color: rgba(255, 255, 255, 0.8)}
 
-.darkmode .dialog {background-color: rgba(0, 0, 0, 0.7)}
+.darkmode .dialog {background-color: rgba(0, 0, 0, 0.8)}
 
 @media (prefers-color-scheme: dark) {
-    .dialog { background-color: rgba(0, 0, 0, 0.7)}
+    .dialog { background-color: rgba(0, 0, 0, 0.8)}
 }
 
 /* labels */

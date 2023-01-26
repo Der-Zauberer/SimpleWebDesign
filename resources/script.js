@@ -197,7 +197,7 @@ function toggleDropdown(dropdown, content) {
 function hideAllDropdowns() {
     Array.from(document.getElementsByClassName('dropdown')).forEach(element => {
         const content = element.getElementsByClassName('dropdown-content')[0];
-        content.classList.remove('show');
+        if (content) content.classList.remove('show');
     });
 }
 
