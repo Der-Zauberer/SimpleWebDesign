@@ -477,8 +477,8 @@ textarea, select, input, button {outline: none}
 .dropdown .dropdown-content > *:first-child {margin-top: 0px}
 .dropdown .dropdown-content > *:last-child {margin-bottom: 0px}
 
-.dropdown .dropdown-hover:hover .dropdown-content {
-    display: block;
+.dropdown.dropdown-hover:hover .dropdown-content {
+    display: block !important;
 }
 
 .dropdown .dropdown-content a {
@@ -792,16 +792,16 @@ ol li:last-child {padding-bottom: 0px}
 
 /* utility classes */
 
-.center {text-align: center;}
-.clearfix {clear: both;}
-.float-left {float: left;}
-.float-right {float: right;}
-.height-100 {height: 100%;}
-.width-100 {width: 100%;}
-.nowrap {white-space: nowrap;}
-.fit-content {width: fit-content;}
-.show {display: block;}
-.hide {display: none;}
+.center {text-align: center}
+.clearfix {clear: both}
+.float-left {float: left}
+.float-right {float: right}
+.height-100 {height: 100%}
+.width-100 {width: 100%}
+.nowrap {white-space: nowrap}
+.fit-content {width: fit-content}
+.show {display: block !important}
+.hide {display: none !important}
 
 @media (min-width: 769px) {.only-mobile {display: none !important}}
 @media (max-width: 768px) {.not-mobile {display: none !important}}

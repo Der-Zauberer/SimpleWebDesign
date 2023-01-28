@@ -103,6 +103,7 @@ function generateNavigationMenu(menu, navigation) {
 function initializeDropDowns() {
     Array.from(document.getElementsByClassName('dropdown')).forEach(dropdown => {
         const content = dropdown.getElementsByClassName('dropdown-content')[0];
+        if (!content) return;
         const input = dropdown.getElementsByTagName('input')[0];
         if (dropdown.classList.contains('dropdown-hover')) dropdown.addEventListener('mouseover', event => translateDropDown(dropdown, content));
         else dropdown.addEventListener('click', event => toggleDropdown(dropdown, content));
