@@ -14,7 +14,8 @@
     --theme-grey-primary: #e6e6e6;
     --theme-grey-secondary: #cccccc;
     --theme-text-color: #000000;
-    --theme-radius: 5px;
+    --theme-border-radius: 5px;
+    --theme-border-width: 3px;
     --theme-element-spacing: 30px;
     --theme-box-spacing: 20px;
     background-color: var(--theme-background);
@@ -181,7 +182,7 @@ body {
     padding: 0px 10px;
     line-height: 40px;
     font-size: 18px;
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
     text-decoration: none;
     white-space: nowrap;
     overflow-x: hidden;
@@ -249,7 +250,7 @@ h6{font-size: 16px; line-height: 26px; letter-spacing: 1px; font-weight: bold; t
     background-color: var(--theme-grey-primary);
     padding: calc(var(--theme-box-spacing) - 5px) var(--theme-box-spacing);
     margin-bottom: var(--theme-element-spacing);
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
@@ -264,9 +265,9 @@ img.box {
     border-color: var(--theme--grey-primary);
 }
 
-.box-top {border-radius: var(--theme-radius) var(--theme-radius) 0px 0px; margin-bottom: 0px;}
+.box-top {border-radius: var(--theme-border-radius) var(--theme-border-radius) 0px 0px; margin-bottom: 0px;}
 .box-center {border-radius: 0px; margin-bottom: 0px;}
-.box-bottom {border-radius: 0px 0px var(--theme-radius) var(--theme-radius);}
+.box-bottom {border-radius: 0px 0px var(--theme-border-radius) var(--theme-border-radius);}
 
 .box > *:first-child {margin-top: 0}
 .box > *:last-child {margin-bottom: 0;}
@@ -284,7 +285,7 @@ input, select, textarea {
     padding: 10px;
     border: solid 0px var(--theme-grey-secondary);
     border-bottom-width: 3px;
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
     width: 100%;
 }
 
@@ -300,7 +301,7 @@ input[type=submit] {
     height: 40px;
     border: none;
     background-color: var(--theme-primary);
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
     color: white;
     cursor: pointer;
     user-select: none;
@@ -321,7 +322,7 @@ input:focus, select:focus, textarea:focus {
     color: white;
     border: none;
     padding: 2.5px 15px;
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
     text-align: center;
     white-space: nowrap;
     width: min-content;
@@ -357,7 +358,7 @@ textarea, select, input, button {outline: none}
     border-color: var(--theme-grey-secondary);
     border-style: solid;
     border-width: 3px;
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
     min-width: 100%;
     overflow-y: auto;
 }
@@ -392,7 +393,7 @@ textarea, select, input, button {outline: none}
     z-index: 3;
     top: calc(100% + 10px);
     padding: 1px 10px;
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
     font-size: 15px;
     color: white;
     background-color: rgba(12, 12, 12, 0.8);
@@ -429,7 +430,7 @@ textarea, select, input, button {outline: none}
     border-color: var(--theme-grey-secondary);
     border-style: solid;
     border-width: 3px;
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
 }
 
 .dialog-content > *:first-child {margin-top: 0px}
@@ -463,7 +464,7 @@ label {
     color: var(--theme-text-color);
     background-color: var(--theme-primary);
     font-weight: 500;
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
     padding: 2px 6px;
 }
 
@@ -496,7 +497,7 @@ code {
     background-color: var(--theme-grey-primary);
     padding: 15px;
     margin-bottom: 25px;
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
     white-space: nowrap;
     overflow-x: hidden;
 }
@@ -510,7 +511,7 @@ pre {
     background-color: #1a1a1a;
     padding: 15px;
     margin-bottom: 25px;
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
     white-space: nowrap;
     overflow-x: hidden;
 }
@@ -527,7 +528,7 @@ kbd {
     font-size: 16px;
     border: solid 1px;
     padding: 2px 6px;
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
 }
 
 samp {
@@ -535,7 +536,7 @@ samp {
     font-size: 16px;
     padding: 3px 6px;
     background-color: var(--theme-grey-primary);
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
 }
 
 code:hover {overflow-x: auto}
@@ -667,7 +668,7 @@ ol li:last-child {padding-bottom: 0px}
     max-width: 100%;
     overflow: hidden;
     margin-bottom: var(--theme-element-spacing);
-    border-radius: var(--theme-radius);
+    border-radius: var(--theme-border-radius);
 }
 
 .overflow > *:last-child {
@@ -869,6 +870,10 @@ ol li:last-child {padding-bottom: 0px}
 
 /* colors */
 
+.transparent {
+    background-color: transparent;
+}
+
 .white {background-color: white;  border-color: white; color: black}
 .white-text {color: white}
 .black {background-color: black; border-color: black; color: white}
@@ -1030,9 +1035,14 @@ ol li:last-child {padding-bottom: 0px}
 
 /* radius */
 
-.r-0{border-radius: 0px}
-.r-5{border-radius: 5px}
-.r-10{border-radius: 10px}
-.r-20{border-radius: 20px!important}
-.r-30{border-radius: 30px}
-.r-50{border-radius: 50px!important}
+.border {
+    border-style: solid;
+    border-width: var(--theme-border-width);
+}
+
+.r-0 {border-radius: 0px}
+.r-5 {border-radius: 5px}
+.r-10 {border-radius: 10px}
+.r-20 {border-radius: 20px}
+.r-30 {border-radius: 30px}
+.r-50 {border-radius: 50px}
