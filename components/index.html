@@ -152,39 +152,106 @@
                     &lt;/div&gt;<br>
                 </code>
 
-                <h2 id="layout">Layout</h2>
+                <h2 id="container">Container</h2>
 
                 <div class="box">
-                    <div class="container box blue" style="width: 50%;">container</div>
+                    <div class="box blue" style="width: 50%; margin: 0px auto;">container</div>
                 </div>
 
                 <div class="box">
                     <div class="box blue">container-fluid</div>
                 </div>
 
-                <div class="box">
-                    <div class="row">
-                        <div class="col-def-5"><div class="box blue mg-0"></div></div>
-                        <div class="col-def-3"><div class="box green mg-0"></div></div>
-                        <div class="col-def-2"><div class="box yellow mg-0"></div></div>
-                        <div class="col-def-2"><div class="box red mg-0"></div></div>
-                    </div>
+                <code class="html">
+                    &lt;div class="container"&gt;container&lt;/div&gt;<br>
+                    &lt;div class="container-sm"&gt;container-sm&lt;/div&gt;<br>
+                    &lt;div class="container-md"&gt;container-md&lt;/div&gt;<br>
+                    &lt;div class="container-xl"&gt;container-xl&lt;/div&gt;<br>
+                    &lt;div class="container-fluid"&gt;container&lt;/div&gt;
+                </code>
+
+                <div class="overflow">
+                    <table>
+                        <tr><th>Class</th><th>Size</th></tr>
+                        <tr><td><samp>container-fluid</samp></td><td><samp>100%</samp></td></tr>
+                        <tr><td><samp>container</samp></td><td><samp>800px</samp></td></tr>
+                        <tr><td><samp>container-sm</samp></td><td><samp>600px</samp></td></tr>
+                        <tr><td><samp>container-md</samp></td><td><samp>800px</samp></td></tr>
+                        <tr><td><samp>container-xl</samp></td><td><samp>1200px</samp></td></tr>
+                    </table>
+                </div>
+
+                <h2 id="rows">Rows (Bootstrap)</h2>
+
+                <p>Please resize window to see changes:</p>
+
+                <div class="row">
+                    <div class="col-5"><div class="box blue">col-5</div></div>
+                    <div class="col-3"><div class="box green">col-3</div></div>
+                    <div class="col-2"><div class="box yellow">col-2</div></div>
+                    <div class="col-2"><div class="box red">col-2</div></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5"><div class="box blue">col-md-5</div></div>
+                    <div class="col-md-3"><div class="box green">col-md-3</div></div>
+                    <div class="col-md-2"><div class="box yellow">col-md-2</div></div>
+                    <div class="col-md-2"><div class="box red">col-md-2</div></div>
                 </div>
 
                 <code class="html">
-                    &lt;div class="container"&gt;container&lt;/div&gt;<br>
-                    &lt;div class="container container-sm"&gt;container-sm&lt;/div&gt;<br>
-                    &lt;div class="container container-md"&gt;container-md&lt;/div&gt;<br>
-                    &lt;div class="container container-xl"&gt;container-xl&lt;/div&gt;<br>
-                    &lt;div class="container container-fluid"&gt;container&lt;/div&gt;<br><br>
+                    &lt;div class="row"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-5"&gt;&lt;div class="box blue"&gt;&lt;/div&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-3"&gt;&lt;div class="box green"&gt;&lt;/div&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-2"&gt;&lt;div class="box yellow"&gt;&lt;/div&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-2"&gt;&lt;div class="box red"&gt;&lt;/div&gt;&lt;/div&gt;<br>
+                    &lt;/div&gt;<br><br>
 
                     &lt;div class="row"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-def-5"&gt;&lt;div class="box blue mg-0"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-def-3"&gt;&lt;div class="box green mg-0"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-def-2"&gt;&lt;div class="box yellow mg-0"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-def-2"&gt;&lt;div class="box red mg-0"&gt;&lt;/div&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-5"&gt;&lt;div class="box blue"&gt;&lt;/div&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-3"&gt;&lt;div class="box green"&gt;&lt;/div&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-2"&gt;&lt;div class="box yellow"&gt;&lt;/div&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-2"&gt;&lt;div class="box red"&gt;&lt;/div&gt;&lt;/div&gt;<br>
                     &lt;/div&gt;
                 </code>
+
+                <div class="overflow">
+                    <table>
+                        <tr><th>Class</th><th>Breakpoint</th></tr>
+                        <tr><td><samp>col-[1-12]</samp></td><td>Always</td></tr>
+                        <tr><td><samp>col-sm-[1-12]</samp></td><td><samp>min-width: 600px</samp></td></tr>
+                        <tr><td><samp>col-md-[1-12]</samp></td><td><samp>min-width: 768px</samp></td></tr>
+                        <tr><td><samp>col-xl-[1-12]</samp></td><td><samp>min-width: 1024px</samp></td></tr>
+                    </table>
+                </div>
+
+                <h2 id="grids">Grids</h2>
+
+                <div class="grid-4">
+                    <div class="box blue"></div>
+                    <div class="box green"></div>
+                    <div class="box yellow"></div>
+                    <div class="box red"></div>
+                </div>
+
+                <code class="html">
+                    &lt;div class="grid-4"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box blue"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box green"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box yellow"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box red"&gt;&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
+                <div class="overflow">
+                    <table>
+                        <tr><th>Class</th><th>Breakpoint</th></tr>
+                        <tr><td><samp>grid-[1-12]</samp></td><td>Always</td></tr>
+                        <tr><td><samp>grid-sm-[1-12]</samp></td><td><samp>min-width: 600px</samp></td></tr>
+                        <tr><td><samp>grid-md-[1-12]</samp></td><td><samp>min-width: 768px</samp></td></tr>
+                        <tr><td><samp>grid-xl-[1-12]</samp></td><td><samp>min-width: 1024px</samp></td></tr>
+                    </table>
+                </div>
                 
                 <h2 id="headlines">Headlines</h2>
 
