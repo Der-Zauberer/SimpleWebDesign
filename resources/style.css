@@ -822,7 +822,7 @@ ol li:last-child {padding-bottom: 0px}
 .grid-11{grid-template-columns: repeat(11, auto)}
 .grid-12{grid-template-columns: repeat(12, auto)}
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 599px) {
     .grid-sm-1{grid-template-columns: repeat(1, auto)}
     .grid-sm-2{grid-template-columns: repeat(2, auto)}
     .grid-sm-3{grid-template-columns: repeat(3, auto)}
@@ -837,7 +837,7 @@ ol li:last-child {padding-bottom: 0px}
     .grid-sm-12{grid-template-columns: repeat(12, auto)}
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 767px) {
     .grid-md-1{grid-template-columns: repeat(1, auto)}
     .grid-md-2{grid-template-columns: repeat(2, auto)}
     .grid-md-3{grid-template-columns: repeat(3, auto)}
@@ -852,7 +852,7 @@ ol li:last-child {padding-bottom: 0px}
     .grid-md-12{grid-template-columns: repeat(12, auto)}
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (max-width: 1023px) {
     .grid-xl-1{grid-template-columns: repeat(1, auto)}
     .grid-xl-2{grid-template-columns: repeat(2, auto)}
     .grid-xl-3{grid-template-columns: repeat(3, auto)}
