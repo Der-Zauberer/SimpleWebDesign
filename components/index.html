@@ -181,51 +181,9 @@
                     </table>
                 </div>
 
-                <h2 id="rows">Rows (Bootstrap)</h2>
+                <h2 id="grids">Grids</h2>
 
                 <p>Please resize window to see changes:</p>
-
-                <div class="row">
-                    <div class="col-5"><div class="box blue">col-5</div></div>
-                    <div class="col-3"><div class="box green">col-3</div></div>
-                    <div class="col-2"><div class="box yellow">col-2</div></div>
-                    <div class="col-2"><div class="box red">col-2</div></div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-5"><div class="box blue">col-md-5</div></div>
-                    <div class="col-md-3"><div class="box green">col-md-3</div></div>
-                    <div class="col-md-2"><div class="box yellow">col-md-2</div></div>
-                    <div class="col-md-2"><div class="box red">col-md-2</div></div>
-                </div>
-
-                <code class="html">
-                    &lt;div class="row"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-5"&gt;&lt;div class="box blue"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-3"&gt;&lt;div class="box green"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-2"&gt;&lt;div class="box yellow"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-2"&gt;&lt;div class="box red"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &lt;/div&gt;<br><br>
-
-                    &lt;div class="row"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-5"&gt;&lt;div class="box blue"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-3"&gt;&lt;div class="box green"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-2"&gt;&lt;div class="box yellow"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-2"&gt;&lt;div class="box red"&gt;&lt;/div&gt;&lt;/div&gt;<br>
-                    &lt;/div&gt;
-                </code>
-
-                <div class="overflow">
-                    <table>
-                        <tr><th>Class</th><th>Breakpoint</th></tr>
-                        <tr><td><samp>col-[1-12]</samp></td><td>Always</td></tr>
-                        <tr><td><samp>col-sm-[1-12]</samp></td><td><samp>min-width: 600px</samp></td></tr>
-                        <tr><td><samp>col-md-[1-12]</samp></td><td><samp>min-width: 768px</samp></td></tr>
-                        <tr><td><samp>col-xl-[1-12]</samp></td><td><samp>min-width: 1024px</samp></td></tr>
-                    </table>
-                </div>
-
-                <h2 id="grids">Grids</h2>
 
                 <div class="grid-4">
                     <div class="box blue"></div>
@@ -234,8 +192,21 @@
                     <div class="box red"></div>
                 </div>
 
+                <div class="grid-4 grid-sm-2">
+                    <div class="box blue"></div>
+                    <div class="box green"></div>
+                    <div class="box yellow"></div>
+                    <div class="box red"></div>
+                </div>
+
                 <code class="html">
                     &lt;div class="grid-4"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box blue"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box green"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box yellow"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box red"&gt;&lt;/div&gt;<br>
+                    &lt;/div&gt;<br><br>
+                    &lt;div class="grid-4 grid-sm-2"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box blue"&gt;&lt;/div&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box green"&gt;&lt;/div&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box yellow"&gt;&lt;/div&gt;<br>
