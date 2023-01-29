@@ -262,7 +262,7 @@ img.box {
 .box-border {
     border-style: solid;
     border-width: 0px 0px 0px 5px;
-    border-color: var(--theme--grey-primary);
+    border-color: var(--theme-grey-primary);
 }
 
 .box-top {border-radius: var(--theme-border-radius) var(--theme-border-radius) 0px 0px; margin-bottom: 0px;}
