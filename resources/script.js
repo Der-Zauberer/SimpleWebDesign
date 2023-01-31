@@ -14,6 +14,7 @@ let navigation;
 let navigationMenu;
 let navigationContent;
 let headlines = [];
+let dropdowns = [];
 
 function onLoad() {
     for (let element of document.getElementsByTagName('*')) {
@@ -21,18 +22,23 @@ function onLoad() {
         else if (!navigation && element.classList.contains('navigation')) navigation = element;
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
         else if (element.nodeName == 'H2' && element.id != '') headlines.push(element);
-        else if (element.nodeName == 'CODE') {
+        else if (element.classList.contains('dropdown')) {
+            const content = element.getElementsByClassName('dropdown-content')[0];
+            if (!content) continue;
+            const input = element.getElementsByTagName('input')[0];
+            if (element.classList.contains('dropdown-hover')) element.addEventListener('mouseover', event => translateDropdown(element, content));
+            else element.addEventListener('click', event => toggleDropdown(element, content));
+            dropdowns.push(element);
+            if (input) initializeInputDropdown(dropdown, content, input);
+        } else if (element.nodeName == 'CODE') {
             if (element.classList.contains("html")) element.innerHTML = highlightHtml(element.innerHTML);
             else if (element.classList.contains("css")) element.innerHTML = highlightCss(element.innerHTML);
         }
     }
     initializeMenu();
     initializeNavigation();
-    initializeDropDowns();
     loaded = true;
-    for (let submition of submitions) {
-        submition.call();
-    }
+    for (let submition of submitions) submition.call();
 }
 
 function onMouseClick(event) {
@@ -42,6 +48,7 @@ function onMouseClick(event) {
 
 function onWindowResize() {
     if (navigation && navigation.classList.contains('show')) toggleMobileMenu();
+    hideAllDropdowns();
 }
 
 function initializeMenu() {
@@ -120,115 +127,103 @@ function setNavigationFocus(string) {
     }
 }
 
-function initializeDropDowns() {
-    Array.from(document.getElementsByClassName('dropdown')).forEach(dropdown => {
-        const content = dropdown.getElementsByClassName('dropdown-content')[0];
-        if (!content) return;
-        const input = dropdown.getElementsByTagName('input')[0];
-        if (dropdown.classList.contains('dropdown-hover')) dropdown.addEventListener('mouseover', event => translateDropDown(dropdown, content));
-        else dropdown.addEventListener('click', event => toggleDropdown(dropdown, content));
-        if (input) {
-            const valueElements = content.getElementsByTagName('a');
-            input.setAttribute("autocomplete", "off");
-            let activeElement = -1;
-            let visibleElemnts = [];
-            input.addEventListener('click', event => {
-                visibleElemnts = valueElements;
-                activeElement = -1;
-                for (var i = 0; i < valueElements.length; i++) valueElements[i].classList.remove('hide');
-            });
+function initializeInputDropdown(dropdown, content, input) {
+    const valueElements = content.getElementsByTagName('a');
+    input.setAttribute("autocomplete", "off");
+    let activeElement = -1;
+    let visibleElemnts = [];
+    input.addEventListener('click', event => {
+        visibleElemnts = valueElements;
+        activeElement = -1;
+        for (var i = 0; i < valueElements.length; i++) valueElements[i].classList.remove('hide');
+    });
+    for (var i = 0; i < valueElements.length; i++) {
+        if (!valueElements[i].hasAttribute('value')) valueElements[i].setAttribute('value', valueElements[i].innerHTML);
+        valueElements[i].addEventListener('click', event => {
+            input.value = event.target.getAttribute('value');
+            event.target.classList.remove('dropdown-active');
+            activeElement = -1;
+        });
+    }
+    input.addEventListener('input', event => {
+        content.classList.add('show');
+        if (activeElement != -1 && visibleElemnts.length > 0) visibleElemnts[activeElement].classList.remove('dropdown-active');
+        visibleElemnts = [];
+        activeElement = -1;
+         if (input.value == '') {
+            visibleElemnts = valueElements;
+            for (var i = 0; i < valueElements.length; i++) valueElements[i].classList.remove('hide');
+        } else {
             for (var i = 0; i < valueElements.length; i++) {
-                if (!valueElements[i].hasAttribute('value')) valueElements[i].setAttribute('value', valueElements[i].innerHTML);
-                valueElements[i].addEventListener('click', event => {
-                    input.value = event.target.getAttribute('value');
-                    event.target.classList.remove('dropdown-active');
-                    activeElement = -1;
-                });
-            }
-            input.addEventListener('input', event => {
-                content.classList.add('show');
-                if (activeElement != -1 && visibleElemnts.length > 0) visibleElemnts[activeElement].classList.remove('dropdown-active');
-                visibleElemnts = [];
-                activeElement = -1;
-                if (input.value == '') {
-                    visibleElemnts = valueElements;
-                    for (var i = 0; i < valueElements.length; i++) valueElements[i].classList.remove('hide');
+                if (input.value.includes(valueElements[i].getAttribute('value')) || valueElements[i].getAttribute('value').includes(input.value)) {
+                    valueElements[i].classList.remove('hide');
+                    visibleElemnts.push(valueElements[i]);
                 } else {
-                    for (var i = 0; i < valueElements.length; i++) {
-                        if (input.value.includes(valueElements[i].getAttribute('value')) || valueElements[i].getAttribute('value').includes(input.value)) {
-                            valueElements[i].classList.remove('hide');
-                            visibleElemnts.push(valueElements[i]);
-                        } else {
-                            valueElements[i].classList.add('hide');
-                        }
-                    }
+                    valueElements[i].classList.add('hide');
                 }
-                if (visibleElemnts.length == 0) content.classList.add('hide');
-                else content.classList.remove('hide');
-            });
-            input.addEventListener('keydown', event => {
-                if (!content.classList.contains('show')) {
-                    if (event.keyCode == 13) content.classList.add('show');
-                    return;
+            }
+        }
+        if (visibleElemnts.length == 0) content.classList.add('hide');
+        else content.classList.remove('hide');
+    });
+    input.addEventListener('keydown', event => {
+        if (!content.classList.contains('show')) {
+            if (event.keyCode == 13) content.classList.add('show');
+            return;
+        }
+        if ((event.keyCode == 40 || event.keyCode == 38) && visibleElemnts.length > 0) {
+            event.preventDefault();
+            if (activeElement == -1) {
+                activeElement = event.keyCode == 40 ? 0 : visibleElemnts.length - 1;
+                visibleElemnts[activeElement].classList.add('dropdown-active');
+            } else {
+                visibleElemnts[activeElement].classList.remove('dropdown-active');
+                if (event.keyCode == 40) {
+                    if (activeElement + 1 < visibleElemnts.length) activeElement++;
+                    else activeElement = 0;
+                } else {
+                    if (activeElement - 1 >= 0) activeElement--;
+                    else activeElement = visibleElemnts.length - 1;
                 }
-                if ((event.keyCode == 40 || event.keyCode == 38) && visibleElemnts.length > 0) {
-                    event.preventDefault();
-                    if (activeElement == -1) {
-                        activeElement = event.keyCode == 40 ? 0 : visibleElemnts.length - 1;
-                        visibleElemnts[activeElement].classList.add('dropdown-active');
-                    } else {
-                        visibleElemnts[activeElement].classList.remove('dropdown-active');
-                        if (event.keyCode == 40) {
-                            if (activeElement + 1 < visibleElemnts.length) activeElement++;
-                             else activeElement = 0;
-                        } else {
-                            if (activeElement - 1 >= 0) activeElement--;
-                            else activeElement = visibleElemnts.length - 1;
-                        }
-                        visibleElemnts[activeElement].classList.add('dropdown-active');
-                    }
-                    const contentRect = content.getBoundingClientRect();
-                    const elementRect = visibleElemnts[activeElement].getBoundingClientRect();
-                    const elementOffset = visibleElemnts[activeElement].offsetTop;
-                    if (elementOffset + elementRect.height > content.scrollTop + contentRect.height) content.scrollTop = elementOffset + elementRect.height - contentRect.height;
-                    else if (elementOffset < content.scrollTop) content.scrollTop = elementOffset;
-                } else if (event.keyCode == 13 && activeElement != -1) {
-                    valueElements[activeElement].click();
-                }
-            });
+                visibleElemnts[activeElement].classList.add('dropdown-active');
+            }
+            const contentRect = content.getBoundingClientRect();
+            const elementRect = visibleElemnts[activeElement].getBoundingClientRect();
+            const elementOffset = visibleElemnts[activeElement].offsetTop;
+            if (elementOffset + elementRect.height > content.scrollTop + contentRect.height) content.scrollTop = elementOffset + elementRect.height - contentRect.height;
+            else if (elementOffset < content.scrollTop) content.scrollTop = elementOffset;
+        } else if (event.keyCode == 13 && activeElement != -1) {
+            valueElements[activeElement].click();
         }
     });
 }
 
 function toggleDropdown(dropdown, content) {
-    if (content.classList.contains('show')) {
-        content.classList.remove('show');
-    } else {
+    if (!content.classList.contains('show')) {
         hideAllDropdowns();
         content.classList.add('show');
-        translateDropDown(dropdown, content);
+        translateDropdown(dropdown, content);
+    } else {
+        content.classList.remove('show');
     }
 }
 
 function hideAllDropdowns() {
-    Array.from(document.getElementsByClassName('dropdown')).forEach(element => {
-        const content = element.getElementsByClassName('dropdown-content')[0];
-        if (content) content.classList.remove('show');
-    });
-}
-
-function toggleDialog(dialog) {
-    if (dialog) {
-        if (dialog.classList.contains('show')) {
-            dialog.classList.remove('show');
-        } else {
-            hideAllDropdowns();
-            dialog.classList.add('show');
-        }
+    for (let element of dropdowns) {
+        element.getElementsByClassName('dropdown-content')[0].classList.remove('show');
     }
 }
 
-function translateDropDown(dropdown, content) {
+function toggleDialog(dialog) {
+    if (!dialog.classList.contains('show')) {
+        hideAllDropdowns();
+        dialog.classList.add('show');
+    } else {
+        dialog.classList.remove('show');
+    }
+}
+
+function translateDropdown(dropdown, content) {
     const contentRect = content.getBoundingClientRect();
     const dropdownRect = dropdown.getBoundingClientRect();
     if (contentRect.right > window.innerWidth) content.style.cssText = 'left: -' + (contentRect.width - dropdownRect.width) + 'px;';
