@@ -11,8 +11,8 @@
     </head>
     <body>
         
-        <div id="smart-menu" class="menu">
-            <img src="../icons/menu.svg" class="only-mobile" onclick="toggleSmartMenu()">
+        <div class="menu mobile-menu">
+            <img src="../icons/menu.svg" class="only-mobile" onclick="toggleMobileMenu()">
             <a class="menu-title" href="../">Simple Web Design</a>
             <a class="menu-active">Components</a>
             <a href="../colors">Colors</a>
@@ -118,8 +118,8 @@
                 </div>
 
                 <code class="html">
-                    &lt;div id="smart-menu" class="menu"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="../icons/menu.svg" class="only-mobile" onclick="toggleSmartMenu()"&gt;<br>
+                    &lt;div class="menu mobile-menu"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="../icons/menu.svg" class="only-mobile" onclick="toggleMobileMenu()"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-title"&gt;Menu&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-active"&gt;Menu1&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Menu2&lt;/a&gt;<br>
@@ -128,7 +128,7 @@
                 </code>
 
                 <code class="html">
-                    &lt;script&gt;setMenuFocus("Menu3")&lt;/script&gt;
+                    &lt;script&gt;setMenuFocus('Menu3')&lt;/script&gt;
                 </code>
                 
                 <h2 id="_navigation">Navigation</h2>

@@ -1,105 +1,122 @@
 document.addEventListener('readystatechange', event => { 
-    if (event.target.readyState === 'interactive') {onLoad();}
-    if (event.target.readyState === 'complete') {}
+    if (event.target.readyState === 'interactive') {
+        document.addEventListener('click', onMouseClick);
+        window.addEventListener('resize', onWindowResize);
+        onLoad(document);
+    }
 });
 
-//This function will be called, if the body does load the first time
+let loaded = false;
+let submitions = [];
+
+let menu;
+let navigation;
+let navigationMenu;
+let navigationContent;
+let headlines = [];
+
 function onLoad() {
-    document.addEventListener('click', onMouseClick);
-    window.addEventListener('resize', onWindowResize);
-    const navigation = document.getElementById('navigation')
-    const menu = document.getElementById('smart-menu');
-    if (navigation && navigation.classList.contains('navigation-headlines')) generateNavigation();
-    if (menu) initializeSmartMenu();
+    for (let element of document.getElementsByTagName('*')) {
+        if (!menu && element.classList.contains('menu')) menu = element;
+        else if (!navigation && element.classList.contains('navigation')) navigation = element;
+        else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
+        else if (element.nodeName == 'H2' && element.id != '') headlines.push(element);
+    }
+    initializeMenu();
+    initializeNavigation();
     initializeDropDowns();
     initializeCode();
-}
-
-//Remove all elements of menu from the viewport except for the title and images
-function initializeSmartMenu() {
-    const menu = document.getElementById('smart-menu');
-    const navigation = document.getElementById('navigation');
-    if (menu) {
-        Array.from(menu.children).forEach(element => {
-            if (!element.classList.contains('menu-title') && !(element.tagName === 'IMG')) {
-                element.classList.add('not-mobile');
-            }
-        });
-    }
-    if (!navigation) menu.outerHTML += '<div id=\'navigation\' class=\'navigation only-mobile\'></div>';
-}
-
-//Generate a link to a h2 headline at the bottom of the navigation
-function generateNavigation() {
-    const navigation = document.getElementById('navigation');
-    if (navigation) {
-        Array.from(document.getElementsByTagName('h2')).forEach(element => {
-            if (typeof element.id != 'undefined' && !(element.id === '')) {
-                navigation.innerHTML += '<a href=\'#' + element.id + '\'>' + element.innerHTML + '</a>';
-            }
-        });
+    loaded = true;
+    for (let submition of submitions) {
+        submition.call();
     }
 }
 
-//Toggle the navigation for the menu on mobile devices
-function toggleSmartMenu() {
-    const navigation = document.getElementById('navigation');
-    let navigationContent = document.getElementsByClassName('navigation-content').item(0);
-    if (document.getElementsByClassName('container-fluid').item(0)) navigationContent=document.getElementsByClassName('container-fluid').item(0);
-    else if (!navigationContent && document.getElementsByClassName('container').item(0)) navigationContent=document.getElementsByClassName('container').item(0);
-    if (navigation) {
-        if (navigation.classList.contains('navigation-display')) {
-            navigation.classList.remove('navigation-display');
-            if (navigationContent) navigationContent.classList.remove('navigation-content-hide');
-            Array.from(navigation.children).forEach(element => {
-                if (element.classList.contains('menu-item')) navigation.removeChild(element); 
-            });
-        } else {
-            const menu = document.getElementById('smart-menu');
-            generateNavigationMenu(menu, navigation);
-            navigation.classList.add('navigation-display');
-            if (navigationContent) navigationContent.classList.add('navigation-content-hide');
+function onMouseClick(event) {
+    if (navigation && navigation.classList.contains('show') && event.clientX > 250) toggleMobileMenu();
+    if (!event.target.parentNode.classList || !event.target.parentNode.classList.contains('dropdown')) hideAllDropdowns();
+}
+
+function onWindowResize() {
+    if (navigation && navigation.classList.contains('show')) toggleMobileMenu();
+}
+
+function initializeMenu() {
+    if (!menu || !menu.classList.contains('mobile-menu')) return;
+    navigationMenu = document.createElement('div');
+    navigationMenu.classList.add('navigation-menu');
+    navigationMenu.classList.add('only-mobile');
+    for (let element of menu.getElementsByTagName('*')) {
+        if (element.nodeName != 'A' || element.classList.contains('only-mobile') || element.classList.contains('menu-title')) continue;
+        navigationMenu.appendChild(element.cloneNode(true));
+        element.classList.add('not-mobile');
+    }
+}
+
+function initializeNavigation() {
+    if (!navigation && menu && menu.classList.contains('mobile-menu')) {
+        navigation = document.createElement('div');
+        navigation.classList.add('navigation');
+        navigation.classList.add('only-mobile');
+        document.body.insertBefore(navigation, menu ? menu.nextElementSibling : body.firstChild);
+    }
+    if (navigation && navigation.classList.contains('navigation-headlines')) {
+        const navigationHeadlines = document.createElement('div');
+        navigationHeadlines.classList.add('navigation-auto-headlines');
+        for (let element of headlines) {
+            const link = document.createElement('a');
+            link.href = '#' + element.id;
+            link.innerText = element.innerText;
+            navigationHeadlines.appendChild(link);
         }
-        
+        navigation.appendChild(navigationHeadlines);
+    }
+    if (navigation && !navigationContent) navigationContent = navigation.nextElementSibling;
+}
+
+function toggleMobileMenu() {
+    if (!navigation.classList.contains('show')) {
+        navigation.insertBefore(navigationMenu, navigation.children[0]);
+        navigation.classList.add('show');
+        if (navigationContent) navigationContent.classList.add('navigation-content-hide');
+    } else {
+        if (navigationContent) navigationContent.classList.remove('navigation-content-hide');
+        navigation.classList.remove('show');
+        const oldNavigationMenu = navigation.getElementsByClassName('navigation-menu')[0];
+        if (oldNavigationMenu != undefined) navigation.removeChild(oldNavigationMenu);
     }
 }
 
-//Focus the element in the menu, which has the innerHtml of string
 function setMenuFocus(string) {
-    let menu = document.getElementsByClassName('menu').item(0);
-    setRecursiveMenuFocus(string, menu);
-}
-
-//Focus the element in the navigation, which has the innerHtml of string
-function setNavigationFocus(string) {
-    let navigation = document.getElementsByClassName('navigation').item(0);
-    setRecursiveNavigationFocus(string, navigation);
-}
-
-// Generate navigation entries based on headlines in the document
-function generateNavigationMenu(menu, navigation) {
-    if (menu && navigation) {
-        let menuString = '';
-        let hasHome = false;
-        Array.from(menu.children).forEach(element => {
-            if (!hasHome && navigation && element.tagName === 'A' && element.innerHTML === 'Home') hasHome = true;
-        });
-        Array.from(menu.children).forEach(element => {
-            if (navigation && element.tagName === 'A') {
-                let innerHtml = element.innerHTML;
-                if (element.classList.contains('menu-title')) innerHtml = 'Home';
-                let classString = 'only-mobile menu-item ';
-                if (element.classList.contains('menu-active')) classString += 'navigation-active';
-                if (!element.classList.contains('menu-title') || !hasHome) menuString += '<a href=\'' + element.href + '\' class=\'' + classString + '\'>' + innerHtml + '</a>';
-            } else if (navigation && Array.from(element.children).length > 0) {
-                generateNavigationMenu(element, navigation);
-            }
-        });
-        navigation.innerHTML = menuString + navigation.innerHTML;
+    if (!loaded) {
+        submitions.push(() => setMenuFocus(string));
+        return;
+    }
+    if (string == undefined || string == '' || !menu) return;
+    for (let element of menu.getElementsByTagName('A')) {
+        if (element.innerText == string) element.classList.add('menu-active');
+        else element.classList.remove('menu-active');
+    }
+    if (!navigationMenu) return;
+    for (let element of navigationMenu.getElementsByTagName('A')) {
+        if (element.innerText == string) element.classList.add('menu-active');
+        else element.classList.remove('menu-active');
     }
 }
 
-// Set events for all dropdowns
+function setNavigationFocus(string) {
+    if (!loaded) {
+        submitions.push(() => setNavigationFocus(string));
+        return;
+    }
+    if (string == undefined || string == '' || !navigation) return;
+    for (let element of navigation.getElementsByTagName('A')) {
+        if (element.parentElement.classList.contains('navigation-menu')) continue;
+        if (element.innerText == string) element.classList.add('navigation-active');
+        else element.classList.remove('menu-active');
+    }
+}
+
 function initializeDropDowns() {
     Array.from(document.getElementsByClassName('dropdown')).forEach(dropdown => {
         const content = dropdown.getElementsByClassName('dropdown-content')[0];
@@ -126,7 +143,7 @@ function initializeDropDowns() {
                 });
             }
             input.addEventListener('input', event => {
-                if (!content.classList.contains('show')) content.classList.add('show');
+                content.classList.add('show');
                 if (activeElement != -1 && visibleElemnts.length > 0) visibleElemnts[activeElement].classList.remove('dropdown-active');
                 visibleElemnts = [];
                 activeElement = -1;
@@ -139,15 +156,12 @@ function initializeDropDowns() {
                             valueElements[i].classList.remove('hide');
                             visibleElemnts.push(valueElements[i]);
                         } else {
-                            if (!valueElements[i].classList.contains('hide')) valueElements[i].classList.add('hide');
+                            valueElements[i].classList.add('hide');
                         }
                     }
                 }
-                if (visibleElemnts.length == 0) {
-                    if (!content.classList.contains('hide')) content.classList.add('hide');
-                } else {
-                    content.classList.remove('hide'); 
-                }
+                if (visibleElemnts.length == 0) content.classList.add('hide');
+                else content.classList.remove('hide');
             });
             input.addEventListener('keydown', event => {
                 if (!content.classList.contains('show')) {
@@ -168,7 +182,7 @@ function initializeDropDowns() {
                             if (activeElement - 1 >= 0) activeElement--;
                             else activeElement = visibleElemnts.length - 1;
                         }
-                        if (!visibleElemnts[activeElement].classList.contains('dropdown-active')) visibleElemnts[activeElement].classList.add('dropdown-active');
+                        visibleElemnts[activeElement].classList.add('dropdown-active');
                     }
                     const contentRect = content.getBoundingClientRect();
                     const elementRect = visibleElemnts[activeElement].getBoundingClientRect();
@@ -183,7 +197,6 @@ function initializeDropDowns() {
     });
 }
 
-//Toggle visibility of dropdown content
 function toggleDropdown(dropdown, content) {
     if (content.classList.contains('show')) {
         content.classList.remove('show');
@@ -194,7 +207,6 @@ function toggleDropdown(dropdown, content) {
     }
 }
 
-//Hide all dropdowns
 function hideAllDropdowns() {
     Array.from(document.getElementsByClassName('dropdown')).forEach(element => {
         const content = element.getElementsByClassName('dropdown-content')[0];
@@ -202,7 +214,6 @@ function hideAllDropdowns() {
     });
 }
 
-//Toggle visibillity of dialog
 function toggleDialog(dialog) {
     if (dialog) {
         if (dialog.classList.contains('show')) {
@@ -214,59 +225,6 @@ function toggleDialog(dialog) {
     }
 }
 
-//private
-function setRecursiveMenuFocus(string, menu) {
-    if (menu && Array.from(menu.children).length > 0) {
-        Array.from(menu.children).forEach(element => {
-            if (Array.from(element.children).length > 0) {
-                setRecursiveMenuFocus(string, element);
-            } else if (element.innerHTML.toLowerCase() === string.toLowerCase()) {
-                element.classList.add('menu-active');
-                return;
-            }
-        });
-    }
-}
-
-//private
-function setRecursiveNavigationFocus(string, navigation) {
-    if (navigation && Array.from(navigation.children).length > 0) {
-        Array.from(navigation.children).forEach(element => {
-            if (Array.from(element.children).length > 0) {
-                setRecursiveMenuFocus(string, element);
-            } else if (element.innerHTML.toLowerCase() === string.toLowerCase()) {
-                element.classList.add('navigation-active');
-                return;
-            }
-        });
-    }
-}
-
-// private
-function onMouseClick(event) {
-    const navigation = document.getElementById('navigation');
-    if (navigation) {
-        if (navigation.classList.contains('navigation-display') && event.clientX > 250) {
-            toggleSmartMenu();
-        }
-    }
-    if (event.target && event.target.parentNode && !event.target.parentNode.classList.contains('dropdown')) {
-        hideAllDropdowns();
-    }
-}
-
-//private
-function onWindowResize() {
-    const navigation = document.getElementById('navigation');
-    if (navigation) {
-        if (navigation.classList.contains('navigation-display')) {
-            toggleSmartMenu();
-        }
-    }
-    initializeDropDowns();
-}
-
-//private
 function translateDropDown(dropdown, content) {
     const contentRect = content.getBoundingClientRect();
     const dropdownRect = dropdown.getBoundingClientRect();

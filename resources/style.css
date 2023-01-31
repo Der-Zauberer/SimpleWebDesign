@@ -114,7 +114,7 @@ body {
 @media (hover: none) {.menu {overflow-x: auto}}
 @media screen and (max-width: 768px) {.menu {overflow-x: auto}}
 
-.menu * {
+.menu *:not(div) {
     padding: 0 10px;
     font-size: 19px;
     text-decoration: none;
@@ -131,12 +131,12 @@ body {
 .menu-centered-8 a {padding: 0px; width: 12%}
 .menu-centered-9 a {padding: 0px; width: 11%}
 
-.menu a:hover, .menu-active {
+.menu a:hover, .menu .menu-active {
     color: white;
     text-decoration: none;
 }
 
-.menu-title {
+.menu .menu-title {
     font-weight: bold;
     color: white;
 }
@@ -176,7 +176,7 @@ body {
 @media (hover: none) {.navigation {overflow-y: auto}}
 @media screen and (max-width: 768px) {.navigation {overflow-y: auto}}
 
-.navigation * {
+.navigation *:not(div) {
     display: block;
     max-width: 230px;
     padding: 0px 10px;
@@ -199,13 +199,13 @@ body {
     max-width: 190px;
 }
 
-.navigation h2{
+.navigation h2 {
     margin-top: 40px;
     margin-bottom: 20px;
     font-size: 30px;
 }
 
-.navigation a:hover, .navigation-active {
+.navigation a:hover, .navigation .navigation-active, .navigation .menu-active {
     background-color: var(--theme-grey-secondary);
     text-decoration: none;
 }
@@ -220,7 +220,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .navigation-display {left: 0px !important}
+    .navigation.show {left: 0px !important}
     .navigation-content-hide {opacity: 0.5}
 }
 
@@ -241,7 +241,6 @@ h3{font-size: 25px; line-height: 45px;}
 h4{font-size: 20px; line-height: 35px; letter-spacing: 1px;}
 h5{font-size: 18px; line-height: 28px; letter-spacing: 1px; font-weight: bold;}
 h6{font-size: 16px; line-height: 26px; letter-spacing: 1px; font-weight: bold; text-transform: uppercase}
-
 
 /* boxes */
 
@@ -896,8 +895,8 @@ ol li:last-child {padding-bottom: 0px}
 .show {display: block !important}
 .hide {display: none !important}
 
-@media (min-width: 769px) {.only-mobile {display: none !important}}
 @media (max-width: 768px) {.not-mobile {display: none !important}}
+@media (min-width: 769px) {.only-mobile {display: none !important}}
 
 @media screen and (max-width: 768px) {:root {font-size: 15px; line-height: 30px; --theme-box-spacing: 15px;}}
 
