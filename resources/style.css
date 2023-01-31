@@ -895,8 +895,8 @@ ol li:last-child {padding-bottom: 0px}
 .show {display: block !important}
 .hide {display: none !important}
 
-@media (max-width: 768px) {.not-mobile {display: none !important}}
-@media (min-width: 769px) {.only-mobile {display: none !important}}
+@media screen and (max-width: 768px) {.not-mobile {display: none !important}}
+@media screen and (min-width: 769px) {.only-mobile {display: none !important}}
 
 @media screen and (max-width: 768px) {:root {font-size: 15px; line-height: 30px; --theme-box-spacing: 15px;}}
 

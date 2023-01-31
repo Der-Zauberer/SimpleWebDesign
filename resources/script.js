@@ -57,7 +57,7 @@ function initializeMenu() {
     navigationMenu.classList.add('navigation-menu');
     navigationMenu.classList.add('only-mobile');
     for (let element of menu.getElementsByTagName('*')) {
-        if (element.nodeName != 'A' || element.classList.contains('only-mobile') || element.classList.contains('menu-title')) continue;
+        if (element.nodeName != 'A' || element.classList.contains('not-mobile') || element.classList.contains('menu-title')) continue;
         navigationMenu.appendChild(element.cloneNode(true));
         element.classList.add('not-mobile');
     }
