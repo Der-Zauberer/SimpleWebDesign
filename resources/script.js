@@ -21,11 +21,14 @@ function onLoad() {
         else if (!navigation && element.classList.contains('navigation')) navigation = element;
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
         else if (element.nodeName == 'H2' && element.id != '') headlines.push(element);
+        else if (element.nodeName == 'CODE') {
+            if (element.classList.contains("html")) element.innerHTML = highlightHtml(element.innerHTML);
+            else if (element.classList.contains("css")) element.innerHTML = highlightCss(element.innerHTML);
+        }
     }
     initializeMenu();
     initializeNavigation();
     initializeDropDowns();
-    initializeCode();
     loaded = true;
     for (let submition of submitions) {
         submition.call();
@@ -234,13 +237,6 @@ function translateDropDown(dropdown, content) {
         else content.style.maxHeight = '';
     }
     
-}
-
-function initializeCode() {
-    Array.from(document.getElementsByTagName('code')).forEach(element => {
-        if (element.classList.contains("html")) element.innerHTML = highlightHtml(element.innerHTML);
-        else if (element.classList.contains("css")) element.innerHTML = highlightCss(element.innerHTML);
-    });
 }
 
 function highlightHtml(string) {
