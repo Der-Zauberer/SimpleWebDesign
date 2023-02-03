@@ -717,62 +717,62 @@ ol li:last-child {padding-bottom: 0px}
     margin-bottom: 0px;
 }
 
-.grid-1 {grid-template-columns: repeat(1, auto)}
-.grid-2 {grid-template-columns: repeat(2, auto)}
-.grid-3 {grid-template-columns: repeat(3, auto)}
-.grid-4 {grid-template-columns: repeat(4, auto)}
-.grid-5 {grid-template-columns: repeat(5, auto)}
-.grid-6 {grid-template-columns: repeat(6, auto)}
-.grid-7 {grid-template-columns: repeat(7, auto)}
-.grid-8 {grid-template-columns: repeat(8, auto)}
-.grid-9 {grid-template-columns: repeat(9, auto)}
-.grid-10 {grid-template-columns: repeat(10, auto)}
-.grid-11 {grid-template-columns: repeat(11, auto)}
-.grid-12 {grid-template-columns: repeat(12, auto)}
+.grid-1 {grid-template-columns: repeat(1, minmax(0, 1fr))}
+.grid-2 {grid-template-columns: repeat(2, minmax(0, 1fr))}
+.grid-3 {grid-template-columns: repeat(3, minmax(0, 1fr))}
+.grid-4 {grid-template-columns: repeat(4, minmax(0, 1fr))}
+.grid-5 {grid-template-columns: repeat(5, minmax(0, 1fr))}
+.grid-6 {grid-template-columns: repeat(6, minmax(0, 1fr))}
+.grid-7 {grid-template-columns: repeat(7, minmax(0, 1fr))}
+.grid-8 {grid-template-columns: repeat(8, minmax(0, 1fr))}
+.grid-9 {grid-template-columns: repeat(9, minmax(0, 1fr))}
+.grid-10 {grid-template-columns: repeat(10, minmax(0, 1fr))}
+.grid-11 {grid-template-columns: repeat(11, minmax(0, 1fr))}
+.grid-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
 
 @media only screen and (max-width: 599px) {
-    .grid-sm-1 {grid-template-columns: repeat(1, auto)}
-    .grid-sm-2 {grid-template-columns: repeat(2, auto)}
-    .grid-sm-3 {grid-template-columns: repeat(3, auto)}
-    .grid-sm-4 {grid-template-columns: repeat(4, auto)}
-    .grid-sm-5 {grid-template-columns: repeat(5, auto)}
-    .grid-sm-6 {grid-template-columns: repeat(6, auto)}
-    .grid-sm-7 {grid-template-columns: repeat(7, auto)}
-    .grid-sm-8 {grid-template-columns: repeat(8, auto)}
-    .grid-sm-9 {grid-template-columns: repeat(9, auto)}
-    .grid-sm-10 {grid-template-columns: repeat(10, auto)}
-    .grid-sm-11 {grid-template-columns: repeat(11, auto)}
-    .grid-sm-12 {grid-template-columns: repeat(12, auto)}
+    .grid-sm-1 {grid-template-columns: repeat(1, minmax(0, 1fr))}
+    .grid-sm-2 {grid-template-columns: repeat(2, minmax(0, 1fr))}
+    .grid-sm-3 {grid-template-columns: repeat(3, minmax(0, 1fr))}
+    .grid-sm-4 {grid-template-columns: repeat(4, minmax(0, 1fr))}
+    .grid-sm-5 {grid-template-columns: repeat(5, minmax(0, 1fr))}
+    .grid-sm-6 {grid-template-columns: repeat(6, minmax(0, 1fr))}
+    .grid-sm-7 {grid-template-columns: repeat(7, minmax(0, 1fr))}
+    .grid-sm-8 {grid-template-columns: repeat(8, minmax(0, 1fr))}
+    .grid-sm-9 {grid-template-columns: repeat(9, minmax(0, 1fr))}
+    .grid-sm-10 {grid-template-columns: repeat(10, minmax(0, 1fr))}
+    .grid-sm-11 {grid-template-columns: repeat(11, minmax(0, 1fr))}
+    .grid-sm-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
 }
 
 @media only screen and (max-width: 767px) {
-    .grid-md-1 {grid-template-columns: repeat(1, auto)}
-    .grid-md-2 {grid-template-columns: repeat(2, auto)}
-    .grid-md-3 {grid-template-columns: repeat(3, auto)}
-    .grid-md-4 {grid-template-columns: repeat(4, auto)}
-    .grid-md-5 {grid-template-columns: repeat(5, auto)}
-    .grid-md-6 {grid-template-columns: repeat(6, auto)}
-    .grid-md-7 {grid-template-columns: repeat(7, auto)}
-    .grid-md-8 {grid-template-columns: repeat(8, auto)}
-    .grid-md-9 {grid-template-columns: repeat(9, auto)}
-    .grid-md-10 {grid-template-columns: repeat(10, auto)}
-    .grid-md-11 {grid-template-columns: repeat(11, auto)}
-    .grid-md-12 {grid-template-columns: repeat(12, auto)}
+    .grid-md-1 {grid-template-columns: repeat(1, minmax(0, 1fr))}
+    .grid-md-2 {grid-template-columns: repeat(2, minmax(0, 1fr))}
+    .grid-md-3 {grid-template-columns: repeat(3, minmax(0, 1fr))}
+    .grid-md-4 {grid-template-columns: repeat(4, minmax(0, 1fr))}
+    .grid-md-5 {grid-template-columns: repeat(5, minmax(0, 1fr))}
+    .grid-md-6 {grid-template-columns: repeat(6, minmax(0, 1fr))}
+    .grid-md-7 {grid-template-columns: repeat(7, minmax(0, 1fr))}
+    .grid-md-8 {grid-template-columns: repeat(8, minmax(0, 1fr))}
+    .grid-md-9 {grid-template-columns: repeat(9, minmax(0, 1fr))}
+    .grid-md-10 {grid-template-columns: repeat(10, minmax(0, 1fr))}
+    .grid-md-11 {grid-template-columns: repeat(11, minmax(0, 1fr))}
+    .grid-md-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
 }
 
 @media only screen and (max-width: 1023px) {
-    .grid-xl-1 {grid-template-columns: repeat(1, auto)}
-    .grid-xl-2 {grid-template-columns: repeat(2, auto)}
-    .grid-xl-3 {grid-template-columns: repeat(3, auto)}
-    .grid-xl-4 {grid-template-columns: repeat(4, auto)}
-    .grid-xl-5 {grid-template-columns: repeat(5, auto)}
-    .grid-xl-6 {grid-template-columns: repeat(6, auto)}
-    .grid-xl-7 {grid-template-columns: repeat(7, auto)}
-    .grid-xl-8 {grid-template-columns: repeat(8, auto)}
-    .grid-xl-9 {grid-template-columns: repeat(9, auto)}
-    .grid-xl-10 {grid-template-columns: repeat(10, auto)}
-    .grid-xl-11 {grid-template-columns: repeat(11, auto)}
-    .grid-xl-12 {grid-template-columns: repeat(12, auto)}
+    .grid-xl-1 {grid-template-columns: repeat(1, minmax(0, 1fr))}
+    .grid-xl-2 {grid-template-columns: repeat(2, minmax(0, 1fr))}
+    .grid-xl-3 {grid-template-columns: repeat(3, minmax(0, 1fr))}
+    .grid-xl-4 {grid-template-columns: repeat(4, minmax(0, 1fr))}
+    .grid-xl-5 {grid-template-columns: repeat(5, minmax(0, 1fr))}
+    .grid-xl-6 {grid-template-columns: repeat(6, minmax(0, 1fr))}
+    .grid-xl-7 {grid-template-columns: repeat(7, minmax(0, 1fr))}
+    .grid-xl-8 {grid-template-columns: repeat(8, minmax(0, 1fr))}
+    .grid-xl-9 {grid-template-columns: repeat(9, minmax(0, 1fr))}
+    .grid-xl-10 {grid-template-columns: repeat(10, minmax(0, 1fr))}
+    .grid-xl-11 {grid-template-columns: repeat(11, minmax(0, 1fr))}
+    .grid-xl-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
 }
 
 /* colors */
