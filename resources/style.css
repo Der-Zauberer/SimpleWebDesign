@@ -247,7 +247,7 @@ h6{font-size: 16px; line-height: 26px; letter-spacing: 1px; font-weight: bold; t
 .box {
     min-height: 20px;
     background-color: var(--theme-grey-primary);
-    padding: calc(var(--theme-box-spacing) - 5px) var(--theme-box-spacing);
+    padding: var(--theme-box-spacing);
     margin-bottom: var(--theme-element-spacing);
     border-radius: var(--theme-border-radius);
     background-repeat: no-repeat;
@@ -477,7 +477,7 @@ label {
 .overlay > .top-left, .overlay > .top-right, .overlay > .bottom-left, .overlay > .bottom-right, .overlay > .centered {
     position: absolute;
     text-align: left;
-    margin: calc(var(--theme-box-spacing) - 5px) var(--theme-box-spacing);
+    margin: var(--theme-box-spacing);
 }
   
 .overlay > .top-left {top: 0px; left: 0px;}
