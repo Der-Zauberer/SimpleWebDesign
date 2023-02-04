@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+@import url(font_roboto/roboto.css);
+@import url(font_roboto_mono/roboto-mono.css);
 
 /* root */
 
@@ -489,7 +489,7 @@ label {
 /* code elements */
 
 code {
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Roboto Mono', monospace;
     font-size: 14px;
     line-height: 25px;
     display: block;
@@ -502,7 +502,7 @@ code {
 }
 
 pre {
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Roboto Mono', monospace;
     font-size: 14px;
     line-height: 25px;
     display: block;
@@ -523,7 +523,7 @@ var {
 }
 
 kbd {
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Roboto Mono', monospace;
     font-size: 16px;
     border: solid 1px;
     padding: 2px 6px;
@@ -531,7 +531,7 @@ kbd {
 }
 
 samp {
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Roboto Mono', monospace;
     font-size: 16px;
     padding: 3px 6px;
     background-color: var(--theme-grey-primary);
