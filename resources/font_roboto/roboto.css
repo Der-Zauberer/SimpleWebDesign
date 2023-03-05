@@ -19,7 +19,7 @@
     font-style: normal;
     font-weight: bold;
     font-display: swap;
-    src: url(Roboto-Black.ttf) format('truetype');
+    src: url(Roboto-Bold.ttf) format('truetype');
 }
 
 @font-face {
@@ -27,5 +27,5 @@
     font-style: italic;
     font-weight: bold;
     font-display: swap;
-    src: url(Roboto-BlackItalic.ttf) format('truetype');
+    src: url(Roboto-BoldItalic.ttf) format('truetype');
 }
