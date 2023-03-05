@@ -68,7 +68,7 @@ function initializeNavigation() {
         navigation = document.createElement('div');
         navigation.classList.add('navigation');
         navigation.classList.add('only-mobile');
-        document.body.insertBefore(navigation, menu ? menu.nextElementSibling : body.firstChild);
+        document.body.insertBefore(navigation, menu ? menu.nextElementSibling : document.body.firstChild);
     }
     if (navigation && navigation.classList.contains('navigation-headlines')) {
         const navigationHeadlines = document.createElement('div');
