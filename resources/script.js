@@ -58,7 +58,9 @@ function initializeMenu() {
     navigationMenu.classList.add('only-mobile');
     for (let element of menu.getElementsByTagName('*')) {
         if (element.nodeName != 'A' || element.classList.contains('not-mobile') || element.classList.contains('menu-title')) continue;
-        navigationMenu.appendChild(element.cloneNode(true));
+        const menuItem = element.cloneNode(true);
+        menuItem.addEventListener('click', () => toggleMobileMenu());
+        navigationMenu.appendChild(menuItem);
         element.classList.add('not-mobile');
     }
 }
@@ -77,6 +79,7 @@ function initializeNavigation() {
             const link = document.createElement('a');
             link.href = '#' + element.id;
             link.innerText = element.innerText;
+            link.addEventListener('click', () => toggleMobileMenu());
             navigationHeadlines.appendChild(link);
         }
         navigation.appendChild(navigationHeadlines);
@@ -85,6 +88,8 @@ function initializeNavigation() {
 }
 
 function toggleMobileMenu() {
+    console.log(window.screen.width);
+    if (window.screen.width > 768) return;
     if (!navigation.classList.contains('show')) {
         navigation.insertBefore(navigationMenu, navigation.children[0]);
         navigation.classList.add('show');
