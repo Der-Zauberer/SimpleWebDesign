@@ -88,8 +88,7 @@ function initializeNavigation() {
 }
 
 function toggleMobileMenu() {
-    console.log(window.screen.width);
-    if (window.screen.width > 768) return;
+    if (window.innerWidth > 768) return;
     if (!navigation.classList.contains('show')) {
         navigation.insertBefore(navigationMenu, navigation.children[0]);
         navigation.classList.add('show');
