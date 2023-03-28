@@ -14,7 +14,6 @@ let navigation;
 let navigationMenu;
 let navigationContent;
 let headlines = [];
-let dropdowns = [];
 
 function onLoad() {
     for (let element of document.getElementsByTagName('*')) {
@@ -22,15 +21,8 @@ function onLoad() {
         else if (!navigation && element.classList.contains('navigation')) navigation = element;
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
         else if (element.nodeName == 'H2' && element.id != '') headlines.push(element);
-        else if (element.classList.contains('dropdown')) {
-            const content = element.getElementsByClassName('dropdown-content')[0];
-            if (!content) continue;
-            const input = element.getElementsByTagName('input')[0];
-            if (element.classList.contains('dropdown-hover')) element.addEventListener('mouseover', event => translateDropdown(element, content));
-            else element.addEventListener('click', event => toggleDropdown(element, content));
-            dropdowns.push(element);
-            if (input) initializeInputDropdown(dropdown, content, input);
-        } else if (element.nodeName == 'CODE') {
+        else if (element.classList.contains('dropdown')) initializeDropdown(element);
+        else if (element.nodeName == 'CODE') {
             if (element.classList.contains("html")) element.innerHTML = highlightHtml(element.innerHTML);
             else if (element.classList.contains("css")) element.innerHTML = highlightCss(element.innerHTML);
         }
@@ -143,6 +135,18 @@ function toggleMobileMenu() {
 // * Dropdown          *
 // *********************
 
+let dropdowns = [];
+
+function initializeDropdown(dropdown) {
+    const content = dropdown.getElementsByClassName('dropdown-content')[0];
+    if (!content) return;
+    if (dropdown.classList.contains('dropdown-hover')) dropdown.addEventListener('mouseover', event => translateDropdown(dropdown, content));
+    dropdown.addEventListener('click', event => toggleDropdown(dropdown, content));
+    dropdowns.push(dropdown);
+    const input = dropdown.getElementsByTagName('input')[0];
+    if (input) initializeInputDropdown(dropdown, content, input);
+}
+
 function initializeInputDropdown(dropdown, content, input) {
     const valueElements = content.getElementsByTagName('a');
     input.setAttribute("autocomplete", "off");
@@ -230,6 +234,16 @@ function hideAllDropdowns() {
     }
 }
 
+function translateDropdown(dropdown, content) {
+    const contentRect = content.getBoundingClientRect();
+    const dropdownRect = dropdown.getBoundingClientRect();
+    if (contentRect.right > window.innerWidth) content.style.cssText = 'left: -' + (contentRect.width - dropdownRect.width) + 'px;';
+    if (dropdown.getElementsByTagName('input')[0]) {
+        if (contentRect.bottom > window.innerHeight && window.innerHeight - contentRect.top > 100) content.style.maxHeight = (window.innerHeight - contentRect.top) + 'px';
+        else content.style.maxHeight = '';
+    }    
+}
+
 // *********************
 // * Dialog            *
 // *********************
@@ -241,16 +255,6 @@ function toggleDialog(dialog) {
     } else {
         dialog.classList.remove('show');
     }
-}
-
-function translateDropdown(dropdown, content) {
-    const contentRect = content.getBoundingClientRect();
-    const dropdownRect = dropdown.getBoundingClientRect();
-    if (contentRect.right > window.innerWidth) content.style.cssText = 'left: -' + (contentRect.width - dropdownRect.width) + 'px;';
-    if (dropdown.getElementsByTagName('input')[0]) {
-        if (contentRect.bottom > window.innerHeight && window.innerHeight - contentRect.top > 100) content.style.maxHeight = (window.innerHeight - contentRect.top) + 'px';
-        else content.style.maxHeight = '';
-    }    
 }
 
 // *********************

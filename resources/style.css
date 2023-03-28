@@ -362,11 +362,31 @@ textarea, select, input, button {outline: none}
     overflow-y: auto;
 }
 
+.dropdown .tooltip {
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 3;
+    top: calc(100% + 10px);
+    padding: 1px 10px;
+    left: 0;
+    font-size: 15px;
+    border: none;
+    border-radius: var(--theme-border-radius);
+    color: white;
+    background-color: rgba(12, 12, 12, 0.8);
+}
+
 .dropdown .dropdown-content > *:first-child {margin-top: 0px}
 .dropdown .dropdown-content > *:last-child {margin-bottom: 0px}
 
-.dropdown.dropdown-hover:hover .dropdown-content {
+.dropdown.dropdown-hover:hover .dropdown-content, .dropdown-content .tooltip.show {
     display: block !important;
+}
+
+.dropdown:hover .tooltip {
+    display: ruby !important;
 }
 
 .dropdown .dropdown-content a {
@@ -383,23 +403,6 @@ textarea, select, input, button {outline: none}
     background-color: var(--theme-grey-secondary);
     color: var(--theme-text-color);
     text-decoration: none;
-}
-
-.dropdown .tooltip {
-    display: none;
-    position: absolute;
-    box-sizing: border-box;
-    z-index: 3;
-    top: calc(100% + 10px);
-    padding: 1px 10px;
-    border-radius: var(--theme-border-radius);
-    font-size: 15px;
-    color: white;
-    background-color: rgba(12, 12, 12, 0.8);
-}
-
-.dropdown:hover .tooltip {
-    display: block;
 }
 
 /* dialog */
