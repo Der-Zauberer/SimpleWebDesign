@@ -51,6 +51,10 @@ function onWindowResize() {
     hideAllDropdowns();
 }
 
+// *********************
+// * Menu              *
+// *********************
+
 function initializeMenu() {
     if (!menu || !menu.classList.contains('mobile-menu')) return;
     navigationMenu = document.createElement('div');
@@ -64,6 +68,27 @@ function initializeMenu() {
         element.classList.add('not-mobile');
     }
 }
+
+function setMenuFocus(string) {
+    if (!loaded) {
+        submitions.push(() => setMenuFocus(string));
+        return;
+    }
+    if (string == undefined || string == '' || !menu) return;
+    for (let element of menu.getElementsByTagName('A')) {
+        if (element.innerText == string) element.classList.add('menu-active');
+        else element.classList.remove('menu-active');
+    }
+    if (!navigationMenu) return;
+    for (let element of navigationMenu.getElementsByTagName('A')) {
+        if (element.innerText == string) element.classList.add('menu-active');
+        else element.classList.remove('menu-active');
+    }
+}
+
+// *********************
+// * Navigation        *
+// *********************
 
 function initializeNavigation() {
     if (!navigation && menu && menu.classList.contains('mobile-menu')) {
@@ -87,6 +112,19 @@ function initializeNavigation() {
     if (navigation && !navigationContent) navigationContent = navigation.nextElementSibling;
 }
 
+function setNavigationFocus(string) {
+    if (!loaded) {
+        submitions.push(() => setNavigationFocus(string));
+        return;
+    }
+    if (string == undefined || string == '' || !navigation) return;
+    for (let element of navigation.getElementsByTagName('A')) {
+        if (element.parentElement.classList.contains('navigation-menu')) continue;
+        if (element.innerText == string) element.classList.add('navigation-active');
+        else element.classList.remove('menu-active');
+    }
+}
+
 function toggleMobileMenu() {
     if (window.innerWidth > 768) return;
     if (!navigation.classList.contains('show')) {
@@ -101,35 +139,9 @@ function toggleMobileMenu() {
     }
 }
 
-function setMenuFocus(string) {
-    if (!loaded) {
-        submitions.push(() => setMenuFocus(string));
-        return;
-    }
-    if (string == undefined || string == '' || !menu) return;
-    for (let element of menu.getElementsByTagName('A')) {
-        if (element.innerText == string) element.classList.add('menu-active');
-        else element.classList.remove('menu-active');
-    }
-    if (!navigationMenu) return;
-    for (let element of navigationMenu.getElementsByTagName('A')) {
-        if (element.innerText == string) element.classList.add('menu-active');
-        else element.classList.remove('menu-active');
-    }
-}
-
-function setNavigationFocus(string) {
-    if (!loaded) {
-        submitions.push(() => setNavigationFocus(string));
-        return;
-    }
-    if (string == undefined || string == '' || !navigation) return;
-    for (let element of navigation.getElementsByTagName('A')) {
-        if (element.parentElement.classList.contains('navigation-menu')) continue;
-        if (element.innerText == string) element.classList.add('navigation-active');
-        else element.classList.remove('menu-active');
-    }
-}
+// *********************
+// * Dropdown          *
+// *********************
 
 function initializeInputDropdown(dropdown, content, input) {
     const valueElements = content.getElementsByTagName('a');
@@ -218,6 +230,10 @@ function hideAllDropdowns() {
     }
 }
 
+// *********************
+// * Dialog            *
+// *********************
+
 function toggleDialog(dialog) {
     if (!dialog.classList.contains('show')) {
         hideAllDropdowns();
@@ -234,9 +250,12 @@ function translateDropdown(dropdown, content) {
     if (dropdown.getElementsByTagName('input')[0]) {
         if (contentRect.bottom > window.innerHeight && window.innerHeight - contentRect.top > 100) content.style.maxHeight = (window.innerHeight - contentRect.top) + 'px';
         else content.style.maxHeight = '';
-    }
-    
+    }    
 }
+
+// *********************
+// * Code Highlighting *
+// *********************
 
 function highlightHtml(string) {
     let codeString = '';
