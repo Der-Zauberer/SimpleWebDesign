@@ -33,6 +33,8 @@ body {
     background-repeat: no-repeat;
 }
 
+@media screen and (max-width: 768px) {:root {font-size: 15px; line-height: 30px; --theme-box-spacing: 15px;}}
+
 /* darkmode and lightmode */
 
 @media (prefers-color-scheme: light) {
@@ -900,8 +902,6 @@ ol li:last-child {padding-bottom: 0px}
 
 @media screen and (max-width: 768px) {.not-mobile {display: none !important}}
 @media screen and (min-width: 769px) {.only-mobile {display: none !important}}
-
-@media screen and (max-width: 768px) {:root {font-size: 15px; line-height: 30px; --theme-box-spacing: 15px;}}
 
 /* padding */
 
