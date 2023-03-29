@@ -43,6 +43,10 @@ function onWindowResize() {
     hideAllDropdowns();
 }
 
+function addOnLoad(submission) {
+    submitions.push(submission);
+}
+
 // *********************
 // * Menu              *
 // *********************
