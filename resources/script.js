@@ -15,8 +15,8 @@ let navigationMenu;
 let navigationContent;
 let headlines = [];
 
-function onLoad() {
-    for (let element of document.getElementsByTagName('*')) {
+function onLoad(root) {
+    for (let element of root.getElementsByTagName('*')) {
         if (!menu && element.classList.contains('menu')) menu = element;
         else if (!navigation && element.classList.contains('navigation')) navigation = element;
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;

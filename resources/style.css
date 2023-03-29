@@ -17,7 +17,6 @@
     --theme-border-radius: 5px;
     --theme-border-width: 3px;
     --theme-element-spacing: 30px;
-    --theme-box-spacing: 20px;
     background-color: var(--theme-background);
     color: var(--theme-text-color);
 }
@@ -33,7 +32,7 @@ body {
     background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 768px) {:root {font-size: 15px; line-height: 30px; --theme-box-spacing: 15px;}}
+@media screen and (max-width: 768px) {:root {font-size: 15px; line-height: 30px;}}
 
 /* darkmode and lightmode */
 
@@ -249,7 +248,7 @@ h6{font-size: 16px; line-height: 26px; letter-spacing: 1px; font-weight: bold; t
 .box {
     min-height: 20px;
     background-color: var(--theme-grey-primary);
-    padding: var(--theme-box-spacing);
+    padding: calc(var(--theme-element-spacing) / 2);
     margin-bottom: var(--theme-element-spacing);
     border-radius: var(--theme-border-radius);
     background-repeat: no-repeat;
@@ -477,12 +476,14 @@ label {
 .overlay {
     color: white;
     position: relative;
+    height: fit-content;
+    width: fit-content;
 }
 
 .overlay > .top-left, .overlay > .top-right, .overlay > .bottom-left, .overlay > .bottom-right, .overlay > .centered {
     position: absolute;
     text-align: left;
-    margin: var(--theme-box-spacing);
+    margin: calc( var(--theme-element-spacing) / 2);
 }
   
 .overlay > .top-left {top: 0px; left: 0px;}
@@ -714,12 +715,7 @@ ol li:last-child {padding-bottom: 0px}
 
 [class*="grid-"] {
     display: grid;
-    grid-gap: var(--theme-element-spacing);
-    margin-bottom: var(--theme-element-spacing);
-}
-
-[class*="grid-"] > * {
-    margin-bottom: 0px;
+    column-gap: var(--theme-element-spacing);
 }
 
 .grid-1 {grid-template-columns: repeat(1, minmax(0, 1fr))}
