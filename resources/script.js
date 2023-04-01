@@ -9,22 +9,16 @@ document.addEventListener('readystatechange', event => {
 let loaded = false;
 let submitions = [];
 
-let menu;
-let navigation;
-let navigationMenu;
-let navigationContent;
-let headlines = [];
-
 function onLoad(root) {
     for (let element of root.getElementsByTagName('*')) {
-        if (!menu && element.classList.contains('menu')) menu = element;
+        if (!menu && element.classList.contains('menu')) initializeMenu(menu);
         else if (!navigation && element.classList.contains('navigation')) navigation = element;
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
         else if (element.nodeName == 'H2' && element.id != '') headlines.push(element);
         else if (element.classList.contains('dropdown')) initializeDropdown(element);
         else if (element.nodeName == 'CODE') {
-            if (element.classList.contains("html")) element.innerHTML = highlightHtml(element.innerHTML);
-            else if (element.classList.contains("css")) element.innerHTML = highlightCss(element.innerHTML);
+            if (element.classList.contains("html")) highlightHtml(element);
+            else if (element.classList.contains("css")) highlightCss(element);
         }
     }
     initializeMenu();
@@ -50,6 +44,8 @@ function addOnLoad(submission) {
 // *********************
 // * Menu              *
 // *********************
+
+let menu;
 
 function initializeMenu() {
     if (!menu || !menu.classList.contains('mobile-menu')) return;
@@ -85,6 +81,11 @@ function setMenuFocus(string) {
 // *********************
 // * Navigation        *
 // *********************
+
+let navigation;
+let navigationMenu;
+let navigationContent;
+let headlines = [];
 
 function initializeNavigation() {
     if (!navigation && menu && menu.classList.contains('mobile-menu')) {
@@ -265,7 +266,8 @@ function toggleDialog(dialog) {
 // * Code Highlighting *
 // *********************
 
-function highlightHtml(string) {
+function highlightHtml(element) {
+    const string = element.innerHTML;
     let codeString = '';
     let tag = false;
     let attribute = false;
@@ -307,10 +309,11 @@ function highlightHtml(string) {
         }
     }
     codeString += string.substring(lastAddedIndex, string.length - 1);
-    return codeString;
+    element.innerHTML = codeString;
 }
 
-function highlightCss(string) {
+function highlightCss(element) {
+    const string = element.innerHTML;
     let codeString = '';
     let key = false;
     let value = false;
@@ -348,5 +351,5 @@ function highlightCss(string) {
         }
     }
     codeString += string.substring(lastAddedIndex, string.length - 1);
-    return '<span class="blue-text">' + codeString + '</span>';
+    element.innerHTML = '<span class="blue-text">' + codeString + '</span>';
 }
