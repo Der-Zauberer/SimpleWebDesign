@@ -393,6 +393,32 @@ input:invalid + .input-name, textarea:invalid + .input-name {
     right: 0;
 }
 
+.input-buttons {
+    display: grid;
+    grid-template-columns: fit-content(0px) auto fit-content(0px);
+}
+
+.input-buttons * {
+    display: inline-block;
+    margin-bottom: var(--theme-element-spacing);
+}
+
+.input-buttons .button {
+    display: flex;
+    align-items: center;
+}
+
+
+.input-buttons input::-webkit-outer-spin-button,
+.input-buttons input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-buttons input[type=number] {
+  appearance: textfield;
+}
+
 /* dropdown */
 
 .dropdown {

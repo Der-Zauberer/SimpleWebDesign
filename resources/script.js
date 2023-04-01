@@ -158,6 +158,28 @@ function initializeInput(input) {
     }
 }
 
+function incrementInput(element) {
+    const input = element.parentElement.getElementsByTagName('input')[0];
+    if (!input || !(!input.hasAttribute('max') || input.getAttribute('max') > input.value)) return;
+    input.value++;
+    const event = new Event('input', {
+        bubbles: true,
+        cancelable: true,
+    });
+    input.dispatchEvent(event);
+}
+
+function decrementInput(element) {
+    const input = element.parentElement.getElementsByTagName('input')[0];
+    if (!input || !(!input.hasAttribute('min') || input.getAttribute('min') < input.value)) return;
+    input.value--;
+    const event = new Event('input', {
+        bubbles: true,
+        cancelable: true,
+    });
+    input.dispatchEvent(event);
+}
+
 // *********************
 // * Dropdown          *
 // *********************
