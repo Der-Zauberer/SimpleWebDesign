@@ -17,6 +17,7 @@ function onLoad(root) {
         else if (element.nodeName == 'H2' && element.id != '') headlines.push(element);
         else if (element.classList.contains('dropdown')) initializeDropdown(element);
         else if (element.classList.contains('input')) initializeInput(element);
+        else if (element.classList.contains('input-buttons')) initializeInputButtons(element);
         else if (element.nodeName == 'CODE') {
             if (element.classList.contains("html")) highlightHtml(element);
             else if (element.classList.contains("css")) highlightCss(element);
@@ -156,6 +157,14 @@ function initializeInput(input) {
         inputError.innerText = inputField.validationMessage;
         inputField.addEventListener('input', event => inputError.innerText = inputField.validationMessage);
     }
+}
+
+function initializeInputButtons(input) {
+    const inputField = input.getElementsByTagName('input')[0];
+    if (!inputField) return;
+    const buttons = input.getElementsByTagName('a');
+    inputField.addEventListener('focus', event => Array.from(buttons).forEach(button => button.classList.add('active')));
+    inputField.addEventListener('focusout', event => Array.from(buttons).forEach(button => button.classList.remove('active')));
 }
 
 function incrementInput(element) {

@@ -346,6 +346,8 @@ input:invalid, select:invalid, textarea:invalid {
 .button-right {border-top-left-radius: 0px; border-bottom-left-radius: 0px}
 
 textarea, select, input, button {outline: none}
+input::-webkit-outer-spin-button, .input-buttons input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
+input[type=number] {appearance: textfield;}
 
 .input {
     display: block !important;
@@ -403,20 +405,17 @@ input:invalid + .input-name, textarea:invalid + .input-name {
     margin-bottom: var(--theme-element-spacing);
 }
 
+.input-buttons input {
+    border: none;
+}
+
 .input-buttons .button {
     display: flex;
     align-items: center;
 }
 
-
-.input-buttons input::-webkit-outer-spin-button,
-.input-buttons input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.input-buttons input[type=number] {
-  appearance: textfield;
+.input-buttons .button.active {
+    background-color: var(--theme-primary);
 }
 
 /* dropdown */
