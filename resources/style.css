@@ -314,7 +314,7 @@ input:focus, select:focus, textarea:focus {
     border-color: var(--theme-primary);
 }
 
-input:invalid, select:invalid, textarea:invalid {
+input:invalid[dirty], select:invalid[dirty], textarea:invalid[dirty] {
     border-color: var(--theme-error-color);
 }
 
@@ -374,7 +374,7 @@ input:focus + .input-name, textarea:focus + .input-name {
     color: var(--theme-primary);
 }
 
-input:invalid + .input-name, textarea:invalid + .input-name {
+input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
     color: var(--theme-error-color);
 }
 

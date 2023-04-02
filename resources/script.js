@@ -16,12 +16,13 @@ function onLoad(root) {
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
         else if (element.nodeName == 'H2' && element.id != '') headlines.push(element);
         else if (element.classList.contains('dropdown')) initializeDropdown(element);
-        else if (element.classList.contains('input')) initializeInput(element);
+        else if (element.classList.contains('input')) initializeInputObject(element);
         else if (element.classList.contains('input-buttons')) initializeInputButtons(element);
         else if (element.nodeName == 'CODE') {
             if (element.classList.contains("html")) highlightHtml(element);
             else if (element.classList.contains("css")) highlightCss(element);
         }
+        if (element.nodeName === 'INPUT') initializeInput(element);
     }
     initializeMenu();
     initializeNavigation();
@@ -143,6 +144,13 @@ function toggleMobileMenu() {
 // *********************
 
 function initializeInput(input) {
+    input.addEventListener('input', event => input.setAttribute('dirty', ''));
+    input.addEventListener('focusout', event => {
+        if (input.value !== 0 && input.value !== '') input.setAttribute('dirty', '');
+    });
+}
+
+function initializeInputObject(input) {
     let inputField = input.getElementsByTagName('input')[0];
     if (!inputField) inputField = input.getElementsByTagName('textarea')[0];
     if (!inputField) return;
@@ -171,22 +179,14 @@ function incrementInput(element) {
     const input = element.parentElement.getElementsByTagName('input')[0];
     if (!input || !(!input.hasAttribute('max') || input.getAttribute('max') > input.value)) return;
     input.value++;
-    const event = new Event('input', {
-        bubbles: true,
-        cancelable: true,
-    });
-    input.dispatchEvent(event);
+    input.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
 }
 
 function decrementInput(element) {
     const input = element.parentElement.getElementsByTagName('input')[0];
     if (!input || !(!input.hasAttribute('min') || input.getAttribute('min') < input.value)) return;
     input.value--;
-    const event = new Event('input', {
-        bubbles: true,
-        cancelable: true,
-    });
-    input.dispatchEvent(event);
+    input.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
 }
 
 // *********************
