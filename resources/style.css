@@ -14,6 +14,7 @@
     --theme-grey-primary: #e6e6e6;
     --theme-grey-secondary: #cccccc;
     --theme-text-color: #000000;
+    --theme-text-grey-color: #808080;
     --theme-error-color: #e60000;
     --theme-border-radius: 5px;
     --theme-border-width: 3px;
@@ -347,7 +348,7 @@ input:invalid[dirty], select:invalid[dirty], textarea:invalid[dirty] {
 .button-right {border-top-left-radius: 0px; border-bottom-left-radius: 0px}
 
 textarea, select, input, button {outline: none}
-input::-webkit-outer-spin-button, .input-buttons input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
 input[type=number] {appearance: textfield;}
 
 .input {
@@ -369,6 +370,7 @@ input[type=number] {appearance: textfield;}
     top: 0px;
     left: 10px;
     font-size: 13px;
+    color: var(--theme-text-grey-color);
 }
 
 input:focus + .input-name, textarea:focus + .input-name {
@@ -394,6 +396,7 @@ input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
     font-size: 13px;
     line-height: 12px;
     right: 0;
+    color: var(--theme-text-grey-color);
 }
 
 .input-buttons {
