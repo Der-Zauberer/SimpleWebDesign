@@ -284,6 +284,7 @@ input, select, textarea {
     min-height: 40px;
     font-size: 16px;
     padding: 8px 10px;
+    margin-bottom: var(--theme-element-spacing);
     border: solid 0px var(--theme-grey-secondary);
     border-bottom-width: 3px;
     border-radius: var(--theme-border-radius);
