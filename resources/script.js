@@ -10,7 +10,7 @@ let loaded = false;
 let submitions = [];
 
 function onLoad(root) {
-    for (let element of root.getElementsByTagName('*')) {
+    for (const element of root.getElementsByTagName('*')) {
         if (!menu && element.classList.contains('menu')) initializeMenu(menu);
         else if (!navigation && element.classList.contains('navigation')) navigation = element;
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
@@ -23,6 +23,8 @@ function onLoad(root) {
             else if (element.classList.contains("css")) highlightCss(element);
         }
         if (element.nodeName === 'INPUT') initializeInput(element);
+        if (element.hasAttribute('include')) include(element, element.getAttribute('include'));
+        else if (element.hasAttribute('replace')) replace(element, element.getAttribute('replace'));
     }
     initializeMenu();
     initializeNavigation();
@@ -42,6 +44,23 @@ function onWindowResize() {
 
 function addOnLoad(submission) {
     submitions.push(submission);
+}
+
+// *********************
+// * Include Replace   *
+// *********************
+
+function include(element, src) {
+    fetch(src).then(response => response.text()).then(text => element.innerHTML = text).then(text => onLoad(element));
+}
+
+function replace(element, src) {
+    fetch(src).then(response => response.text()).then(text => element.innerHTML = text).then(text => onLoad(element)).then(text => {
+        for (const child of element.children) {
+            element.after(child);
+        }
+        element.remove();
+    });
 }
 
 // *********************
