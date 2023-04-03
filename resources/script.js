@@ -11,7 +11,7 @@ let submitions = [];
 
 function onLoad(root) {
     for (const element of root.getElementsByTagName('*')) {
-        if (!menu && element.classList.contains('menu')) initializeMenu(menu);
+        if (!menu && element.classList.contains('menu')) menu = element;
         else if (!navigation && element.classList.contains('navigation')) navigation = element;
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
         else if (element.nodeName == 'H2' && element.id != '') headlines.push(element);
@@ -70,7 +70,7 @@ function replace(element, src) {
 let menu;
 
 function initializeMenu() {
-    if (!menu || !menu.classList.contains('mobile-menu')) return;
+    if (!menu.classList.contains('mobile-menu')) return;
     navigationMenu = document.createElement('div');
     navigationMenu.classList.add('navigation-menu');
     navigationMenu.classList.add('only-mobile');
@@ -145,7 +145,7 @@ function setNavigationFocus(string) {
 }
 
 function toggleMobileMenu() {
-    if (window.innerWidth > 768) return;
+    if (window.innerWidth > 768 || !navigationMenu) return;
     if (!navigation.classList.contains('show')) {
         navigation.insertBefore(navigationMenu, navigation.children[0]);
         navigation.classList.add('show');
