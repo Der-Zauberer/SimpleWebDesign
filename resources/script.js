@@ -74,7 +74,7 @@ function initializeMenu() {
     navigationMenu = document.createElement('div');
     navigationMenu.classList.add('navigation-menu');
     navigationMenu.classList.add('only-mobile');
-    for (let element of menu.getElementsByTagName('*')) {
+    for (let element of menu.children) {
         if (element.nodeName != 'A' || element.classList.contains('not-mobile') || element.classList.contains('menu-title')) continue;
         const menuItem = element.cloneNode(true);
         menuItem.addEventListener('click', () => toggleMobileMenu());

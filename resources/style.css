@@ -95,44 +95,37 @@ body {
 /* menu */
 
 .menu {
+    display: flex;
     box-sizing: border-box;
-    margin-bottom: 0;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
     position: sticky;
     position: -webkit-sticky;
-    text-align: center;
     top: 0;
-    max-height: 50px;
-    line-height: 50px;
+    height: 50px;
     width: 100%;
     padding: 0 10px;
     z-index: 2;
+    font-size: 19px;
+    margin-bottom: 0;
+    text-decoration: none;
+    white-space: nowrap;
     background-color: var(--theme-primary);
-    overflow: hidden;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
 }
 
-.menu:hover {overflow-x: auto}
-@media (hover: none) {.menu {overflow-x: auto}}
-@media screen and (max-width: 768px) {.menu {overflow-x: auto}}
-
 .menu *:not(div) {
+    box-sizing: border-box;
     padding: 0 10px;
-    font-size: 19px;
-    text-decoration: none;
     color: #ffffff99;
-    float: left;
 }
 
-.menu-centered-2 a {padding: 0px; width: 50%}
-.menu-centered-3 a {padding: 0px; width: 33%}
-.menu-centered-4 a {padding: 0px; width: 25%}
-.menu-centered-5 a {padding: 0px; width: 19%}
-.menu-centered-6 a {padding: 0px; width: 16%}
-.menu-centered-7 a {padding: 0px; width: 14%}
-.menu-centered-8 a {padding: 0px; width: 12%}
-.menu-centered-9 a {padding: 0px; width: 11%}
+.menu-centered {
+    justify-content: space-between;
+}
 
 .menu a:hover, .menu .menu-active {
     color: white;
@@ -145,15 +138,24 @@ body {
 }
 
 .menu img {
-    float: left;
-    box-sizing: border-box;
-    display: inline;
     width: initial;
     height: 50px;
     padding: 16px 10px 16px 10px;
     margin: 0px;
     cursor: pointer;
 }
+
+.menu input {
+    color: var(--theme-text-color);
+    border: 0px;
+    max-height: 35px;
+    min-height: 35px;
+    margin: 10px 10px;
+    width: initial;
+}
+
+.menu .dropdown {margin: 0 10px;}
+.menu .dropdown input {margin: 0px;}
 
 /* navigation */
 
@@ -238,12 +240,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: calc(var(--theme-element-spacing) * 2) 0px var(--theme-element-spacing) 0px;
 }
 
-h1{font-size: 40px; line-height: 60px;}
-h2{font-size: 30px; line-height: 50px;}
-h3{font-size: 25px; line-height: 45px;}
-h4{font-size: 20px; line-height: 35px; letter-spacing: 1px;}
-h5{font-size: 18px; line-height: 28px; letter-spacing: 1px; font-weight: bold;}
-h6{font-size: 16px; line-height: 26px; letter-spacing: 1px; font-weight: bold; text-transform: uppercase}
+h1 {font-size: 40px; line-height: 60px;}
+h2 {font-size: 30px; line-height: 50px;}
+h3 {font-size: 25px; line-height: 45px;}
+h4 {font-size: 20px; line-height: 35px; letter-spacing: 1px;}
+h5 {font-size: 18px; line-height: 28px; letter-spacing: 1px; font-weight: bold;}
+h6 {font-size: 16px; line-height: 26px; letter-spacing: 1px; font-weight: bold; text-transform: uppercase}
 
 /* boxes */
 
