@@ -298,6 +298,8 @@ input, select, textarea {
 textarea {
     height: auto;
     resize: vertical;
+    min-height: 120px;
+    max-height: 240px;
 }
 
 input[type=submit] {
