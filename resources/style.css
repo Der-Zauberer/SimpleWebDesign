@@ -238,7 +238,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     margin: calc(var(--theme-element-spacing) * 2) 0px var(--theme-element-spacing) 0px;
-    scroll-margin-top: 80px;
+    scroll-margin-top: calc(50px + var(--theme-element-spacing));
 }
 
 h1 {font-size: 40px; line-height: 60px;}
