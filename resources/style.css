@@ -696,6 +696,14 @@ img {
     margin-bottom: var(--theme-element-spacing);
 }
 
+.icon {
+    display: inline;
+    margin: initial;
+    max-width: initial;
+    object-fit: fill;
+    transform: translateY(2px);
+}
+
 video {
     display: block;
     margin: 0px auto;
