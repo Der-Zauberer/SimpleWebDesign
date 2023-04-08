@@ -432,6 +432,10 @@ input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
     position: relative;
 }
 
+.dropdown input {
+    margin-bottom: 0px;
+}
+
 .dropdown .dropdown-content {
     z-index: 3;
     display: none;
