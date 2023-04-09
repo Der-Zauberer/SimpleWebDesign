@@ -340,6 +340,7 @@ input:invalid[dirty], select:invalid[dirty], textarea:invalid[dirty] {
     width: min-content;
     text-decoration: none;
     user-select: none;
+    cursor: pointer;
     -webkit-user-select: none;
     -ms-user-select: none;
 }
