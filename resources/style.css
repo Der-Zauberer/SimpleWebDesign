@@ -7,7 +7,7 @@
     font-family: Roboto, sans-serif;
     scroll-behavior: smooth;
     font-size: 18px;
-    line-height: 35px;
+    line-height: 30px;
     --theme-primary: #004dff;
     --theme-secondary: #003ecc;
     --theme-background: #ffffff;
@@ -34,7 +34,7 @@ body {
     background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 768px) {:root {font-size: 15px; line-height: 30px;}}
+@media screen and (max-width: 768px) {:root {font-size: 15px; line-height: 25px; --theme-element-spacing: 25px;}}
 
 /* darkmode and lightmode */
 
@@ -871,6 +871,17 @@ ol li:last-child {padding-bottom: 0px}
     .grid-xl-10 {grid-template-columns: repeat(10, minmax(0, 1fr))}
     .grid-xl-11 {grid-template-columns: repeat(11, minmax(0, 1fr))}
     .grid-xl-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
+}
+
+/* flex */
+
+.flex {
+    display: flex; gap:
+    var(--theme-element-spacing);
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
 /* colors */
