@@ -622,14 +622,21 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;Your browser does not support HTML5 video.<br>
                     &lt;/video&gt;
                 </code>
-                
-                <div class="youtube">
-                    <iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                <a class="button mg-b" id="youtube-button" onclick="expose('youtube-video'); cover('youtube-button')">Show YouTube video</a>
+                <div class="youtube hide" id="youtube-video">
+                    <!--<iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
                 </div>
 
                 <code class="html">
                     &lt;div class="youtube"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;iframe src="https://www.youtube.com/embed/r2nblrwCMeA"&gt;<br>
+                    &lt;/div&gt;<br><br>
+
+                    &lt;!-- privacy-protection video --&gt;<br>
+                    &lt;a class="button mg-b" id="youtube-button" onclick="expose('youtube-video'); cover('youtube-button')"&gt;Show YouTube video&lt;/a&gt;<br>
+                    &lt;div class="youtube hide" id="youtube-video"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&lt;iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&lt;--&gt;<br>
                     &lt;/div&gt;
                 </code>
 
@@ -769,6 +776,18 @@
                 <code class="html">
                     &lt;div include="/path/to/index.html"&gt;&lt;/div&gt;<br>
                     &lt;div replace="/path/to/index.html"&gt;&lt;/div&gt;
+                </code>
+
+                <a class="button mg-b mg-r" onclick="expose('toggle');">Expose</a>
+                <a class="button mg-b mg-r" onclick="cover('toggle');">Cover</a>
+                <a class="button mg-b mg-r" onclick="toggle('toggle');">Toggle</a>
+                <div class="box" id="toggle">Content to toggle</div>
+
+                <code class="html">
+                    &lt;a class="button mg-b mg-r" onclick="expose('toggle');"&gt;Expose&lt;/a&gt;<br>
+                    &lt;a class="button mg-b mg-r" onclick="cover('toggle');"&gt;Cover&lt;/a&gt;<br>
+                    &lt;a class="button mg-b mg-r" onclick="toggle('toggle');"&gt;Toggle&lt;/a&gt;<br>
+                    &lt;div class="box" id="toggle"&gt;Content to toggle&lt;/div&gt;<br>
                 </code>
 
                 <h2 id="variables">Variables</h2>

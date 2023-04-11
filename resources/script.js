@@ -17,7 +17,7 @@ let submitions = [];
 
 function onLoad(root) {
     for (const element of root.getElementsByTagName('*')) {
-        if (element.classList.contains('table-of-contents')) addOnPostLoad(() => generateTableOfContents(element));
+        if (element.classList.contains('table-of-contents')) addOnPostLoad(() => { element.innerHTML = '';  generateTableOfContents(element) });
         else if (!menu && element.classList.contains('menu')) menu = element;
         else if (!navigation && element.classList.contains('navigation')) navigation = element;
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
@@ -58,6 +58,27 @@ function replace(element, src) {
         }
         element.remove();
     });
+}
+
+function expose(id) {
+    const element = document.getElementById(id);
+    if (!element.classList.contains('hide')) return;
+    element.classList.remove('hide');
+    element.innerHTML = element.innerHTML.replace('<!--', '').replace('-->', '');
+    onLoad(element);
+}
+
+function cover(id) {
+    const element = document.getElementById(id);
+    if (element.classList.contains('hide')) return;
+    element.classList.add('hide');
+    element.innerHTML = '<!--' + element.innerHTML + '-->';
+}
+
+function toggle(id) {
+    const element = document.getElementById(id);
+    if (element.classList.contains('hide')) expose(id)
+    else cover(id);
 }
 
 // *********************
