@@ -591,7 +591,7 @@ code {
     display: block;
     background-color: var(--theme-grey-primary);
     padding: 15px;
-    margin-bottom: 25px;
+    margin-bottom: var(--theme-element-spacing);
     border-radius: var(--theme-border-radius);
     white-space: nowrap;
     overflow-x: hidden;
@@ -605,7 +605,7 @@ pre {
     color: white;
     background-color: #1a1a1a;
     padding: 15px;
-    margin-bottom: 25px;
+    margin-bottom: var(--theme-element-spacing);
     border-radius: var(--theme-border-radius);
     white-space: nowrap;
     overflow-x: hidden;
