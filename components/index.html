@@ -317,33 +317,47 @@
                 </code>
 
                 <h2 id="button">Button</h2>
+                
+                <div class="flex flex-wrap">
+                    <a class="button blue">Button</a>
+                    <a class="button green">Button</a>
+                    <a class="button yellow">Button</a>
+                    <a class="button red">Button</a>
+                </div>
+                
+                <div class="flex flex-wrap">
+                    <a class="button blue dark-blue-hover">Hover</a>
+                    <a class="button green dark-green-hover">Hover</a>
+                    <a class="button yellow dark-yellow-hover">Hover</a>
+                    <a class="button red dark-red-hover">Hover</a><br>
+                </div>
 
-                <a class="button blue mg-b" style="margin-right: 20px;">Button</a>
-                <a class="button green mg-b" style="margin-right: 20px;">Button</a>
-                <a class="button yellow mg-b" style="margin-right: 20px;">Button</a>
-                <a class="button red mg-b" style="margin-right: 20px;">Button</a>
-                <br>
-                <a class="button blue dark-blue-hover mg-b" style="margin-right: 20px;">Hover</a>
-                <a class="button green dark-green-hover mg-b" style="margin-right: 20px;">Hover</a>
-                <a class="button yellow dark-yellow-hover mg-b" style="margin-right: 20px;">Hover</a>
-                <a class="button red dark-red-hover mg-b" style="margin-right: 20px;">Hover</a><br>
-
-                <a class="button button-left blue dark-blue-hover mg-b">1</a><a class="button button-middle blue dark-blue-hover mg-b">2</a><a class="button button-right blue dark-blue-hover mg-b">3</a>
+                <div class="flex flex-no-gap">
+                    <a class="button button-left blue dark-blue-hover mg-b">1</a>
+                    <a class="button button-middle blue dark-blue-hover mg-b">2</a>
+                    <a class="button button-right blue dark-blue-hover mg-b">3</a>
+                </div>
 
                 <code class="html">
-                    &lt;a class="button blue"&gt;Button&lt;/a&gt;<br>
-                    &lt;a class="button green"&gt;Button&lt;/a&gt;<br>
-                    &lt;a class="button yellow"&gt;Button&lt;/a&gt;<br>
-                    &lt;a class="button red"&gt;Button&lt;/a&gt;<br><br>
+                    &lt;div class="flex flex-wrap"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button blue"&gt;Button&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button green"&gt;Button&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button yellow"&gt;Button&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button red"&gt;Button&lt;/a&gt;<br>
+                    &lt;/div&gt;<br><br>
 
-                    &lt;a class="button dark-blue-hover blue"&gt;Hover&lt;/a&gt;<br>
-                    &lt;a class="button dark-green-hover green"&gt;Hover&lt;/a&gt;<br>
-                    &lt;a class="button dark-yellow-hover yellow"&gt;Hover&lt;/a&gt;<br>
-                    &lt;a class="button dark-red-hover red"&gt;Hover&lt;/a&gt;<br><br>
+                    &lt;div class="flex flex-wrap"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button dark-blue-hover blue"&gt;Hover&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button dark-green-hover green"&gt;Hover&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button dark-yellow-hover yellow"&gt;Hover&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button dark-red-hover red"&gt;Hover&lt;/a&gt;<br>
+                    &lt;/div&gt;<br><br>
 
-                    &lt;a class="button button-left blue dark-blue-hover mg-b"&gt;1&lt;/a&gt;<br>
-                    &lt;a class="button button-middle blue dark-blue-hover mg-b"&gt;2&lt;/a&gt;<br>
-                    &lt;a class="button button-right blue dark-blue-hover mg-b"&gt;3&lt;/a&gt;
+                    &lt;div class="flex flex-no-gap"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button button-left blue dark-blue-hover mg-b"&gt;1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button button-middle blue dark-blue-hover mg-b"&gt;2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button button-right blue dark-blue-hover mg-b"&gt;3&lt;/a&gt;<br>
+                    &lt;/div&gt;
                 </code>
 
                 <h2 id="form">Form</h2>
@@ -502,40 +516,42 @@
 
                 <h2 id="dropdown">Dropdown</h2>
 
-                <div class="dropdown mg-b" style="margin-right: 20px;">
-                    <a class="button">Toggle Dropdown</a>
-                    <div class="dropdown-content">
-                        <a>Link 1</a>
-                        <a>Link 1</a>
-                        <a>Link 1</a>
+                <div class="flex flex-wrap">
+                    <div class="dropdown">
+                        <a class="button">Toggle Dropdown</a>
+                        <div class="dropdown-content">
+                            <a>Link 1</a>
+                            <a>Link 1</a>
+                            <a>Link 1</a>
+                        </div>
+                    </div>
+                    <div class="dropdown dropdown-hover">
+                        <a class="button">Hover Dropdown</a>
+                        <div class="dropdown-content">
+                            <a>Link 1</a>
+                            <a>Link 1</a>
+                            <a>Link 1</a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="dropdown dropdown-hover mg-b" style="margin-right: 20px;">
-                    <a class="button">Hover Dropdown</a>
-                    <div class="dropdown-content">
-                        <a>Link 1</a>
-                        <a>Link 1</a>
-                        <a>Link 1</a>
+                <div class="flex flex-wrap">
+                    <div class="dropdown">
+                        <a class="button">Profile</a>
+                        <div class="dropdown-content">
+                            <h3 class="pd-10 mg-0" style="padding-top: 20px">Max Mustermann</h3>
+                            <div class="pd-10 mg-b blue-text">max.mustermann@mustermail.com</div>
+                            <a>Show profile</a>
+                        </div>
                     </div>
-                </div><br>
-
-                <div class="dropdown mg-b" style="margin-right: 20px;">
-                    <a class="button">Profile</a>
-                    <div class="dropdown-content">
-                        <h3 class="pd-10 mg-0" style="padding-top: 20px">Max Mustermann</h3>
-                        <div class="pd-10 mg-b blue-text">max.mustermann@mustermail.com</div>
-                        <a>Show profile</a>
+                    <div class="dropdown">
+                        <a class="button">Tooltip</a>
+                        <div class="dropdown-content tooltip">Tooltip</div>
                     </div>
-                </div>
-
-                <div class="dropdown mg-b" style="margin-right: 20px;">
-                    <a class="button">Tooltip</a>
-                    <div class="dropdown-content tooltip">Tooltip</div>
                 </div>
 
                 <code class="html">
-                    &lt;div class="dropdown mg-r mg-b"&gt;<br>
+                    &lt;div class="dropdown"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button">Toggle Dropdown&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dropdown-content"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Link 1&lt;/a&gt;<br>
@@ -544,7 +560,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
                     &lt;/div&gt;<br><br>
 
-                    &lt;div class="dropdown dropdown-hover mg-r mg-b"&gt;<br>
+                    &lt;div class="dropdown dropdown-hover"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button">Hover Dropdown&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dropdown-content"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Link 1&lt;/a&gt;<br>
@@ -570,7 +586,7 @@
 
                 <h2 id="dialog">Dialog</h2>
 
-                <a class="button mg-b" onclick="toggleDialog(document.getElementById('test-dialog'))">Dialog</a>
+                <a class="button" onclick="toggleDialog(document.getElementById('test-dialog'))">Dialog</a>
                 
                 <div class="dialog" id="test-dialog">
                     <div class="dialog-content">
@@ -584,7 +600,7 @@
                 </div>
                 
                 <code class="html">
-                    &lt;a class="button mg-b" onclick="toggleDialog(document.getElementById('test-dialog'))"&gt;Dialog&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="toggleDialog(document.getElementById('test-dialog'))"&gt;Dialog&lt;/a&gt;<br>
                 
                     &lt;div class="dialog" id="test-dialog"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dialog-content"&gt;<br>
@@ -632,7 +648,7 @@
 
                 <div class="box" id="youtube-button">
                     <p>We've embedded content from YouTube here. As YouTube may collect personal data and track your viewing behaviour, we'll only load the video after you consent to their use of cookies and similar technologies as described in their <a href="https://www.youtube.com/t/privacy">privacy policy</a>.</p>
-                    <a class="button" style="display: block; margin-left: auto;" onclick="expose('youtube-video'); cover('youtube-button')">Allow content from YouTube</a>
+                    <a class="button" style="margin-left: auto;" onclick="expose('youtube-video'); cover('youtube-button')">Allow content from YouTube</a>
                 </div>
                 <div class="youtube hide" id="youtube-video">
                     <!--<iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
@@ -791,15 +807,17 @@
                     &lt;div replace="/path/to/index.html"&gt;&lt;/div&gt;
                 </code>
 
-                <a class="button mg-b mg-r" onclick="expose('toggle');">Expose</a>
-                <a class="button mg-b mg-r" onclick="cover('toggle');">Cover</a>
-                <a class="button mg-b mg-r" onclick="toggle('toggle');">Toggle</a>
+                <div class="flex flex-wrap">
+                    <a class="button" onclick="expose('toggle')">Expose</a>
+                    <a class="button" onclick="cover('toggle')">Cover</a>
+                    <a class="button" onclick="toggle('toggle')">Toggle</a>
+                </div>
                 <div class="box" id="toggle">Content to toggle</div>
 
                 <code class="html">
-                    &lt;a class="button mg-b mg-r" onclick="expose('toggle');"&gt;Expose&lt;/a&gt;<br>
-                    &lt;a class="button mg-b mg-r" onclick="cover('toggle');"&gt;Cover&lt;/a&gt;<br>
-                    &lt;a class="button mg-b mg-r" onclick="toggle('toggle');"&gt;Toggle&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="expose('toggle')"&gt;Expose&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="cover('toggle')"&gt;Cover&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="toggle('toggle')"&gt;Toggle&lt;/a&gt;<br>
                     &lt;div class="box" id="toggle"&gt;Content to toggle&lt;/div&gt;<br>
                 </code>
 

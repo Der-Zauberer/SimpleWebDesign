@@ -145,6 +145,11 @@ body {
     cursor: pointer;
 }
 
+.menu .button {
+    margin: 10px 10px;
+    max-height: 35px;
+}
+
 .menu input {
     color: var(--theme-text-color);
     border: 0px;
@@ -328,13 +333,14 @@ input:invalid[dirty], select:invalid[dirty], textarea:invalid[dirty] {
 .button {
     font-size: 18px;
     line-height: 35px;
-    display: inline-block;
+    display: block;
     box-sizing: border-box;
     background-color: var(--theme-primary);
     color: white;
     border: none;
     padding: 2.5px 15px;
     border-radius: var(--theme-border-radius);
+    margin-bottom: var(--theme-element-spacing);
     text-align: center;
     white-space: nowrap;
     width: min-content;
@@ -431,11 +437,13 @@ input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
 /* dropdown */
 
 .dropdown {
-    display: inline-block;
+    display: block;
     position: relative;
+    width: fit-content;
+    margin-bottom: var(--theme-element-spacing);
 }
 
-.dropdown input {
+.dropdown > *:first-child {
     margin-bottom: 0px;
 }
 
@@ -536,7 +544,7 @@ input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
     gap: 20px;
 }
 
-.dialog-button > *{width: 100%}
+.dialog-button > *{width: 100%; margin-bottom: 0px;}
 
 @media screen and (max-width: 768px) {
     .dialog-button {flex-direction: column}
@@ -883,6 +891,10 @@ ol li:last-child {padding-bottom: 0px}
 
 .flex-wrap {
     flex-wrap: wrap;
+}
+
+.flex-no-gap {
+    gap: 0px;
 }
 
 /* colors */
