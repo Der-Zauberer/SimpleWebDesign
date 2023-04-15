@@ -203,6 +203,10 @@ body {
     margin-top: 0px;
 }
 
+@media screen and (min-width: 769px) {.mobile-navigation + * {
+    margin-top: 0px !important;
+}}
+
 .navigation img {
     margin-top: 10px;
     margin-bottom: 10px;
