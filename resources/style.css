@@ -973,7 +973,7 @@ ol li:last-child {padding-bottom: 0px}
 /* text colors */
 
 .white-text {color: white} @media (prefers-color-scheme: dark) {.white-text {color: black}} .lightmode .white-text {color: white} .darkmode .white-text {color: black}
-.black-text {color: black} @media (prefers-color-scheme: dark) {.white-text {color: white}} .lightmode .black-text {color: black} .darkmode .black-text {color: white}
+.black-text {color: black} @media (prefers-color-scheme: dark) {.black-text {color: white}} .lightmode .black-text {color: black} .darkmode .black-text {color: white}
 .grey-text {color: #808080}
 .blue-text {color: #004dff}
 .green-text {color: #00b300}
