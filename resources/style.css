@@ -45,8 +45,7 @@ body {
         --theme-grey-secondary: #cccccc;
         --theme-text-color: #000000;
     }
-    .only-lightmode {display: initial}
-    .only-darkmode {display: none}
+    .only-darkmode:not(.darkmode, .darkmode *) {display: none}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,8 +55,7 @@ body {
         --theme-grey-secondary: #333333;
         --theme-text-color: #ffffff;
     }
-    .only-lightmode {display: none}
-    .only-darkmode {display: initial}
+    .only-lightmode:not(.lightmode, .lightmode *) {display: none}
 }
 
 .lightmode, .lightmode > *{
@@ -68,7 +66,6 @@ body {
     background-color: var(--theme-background);
     color: var(--theme-text-color);
 }
-.lightmode .only-lightmode {display: initial}
 .lightmode .only-darkmode {display: none}
 
 .darkmode, .darkmode > * {
@@ -80,7 +77,6 @@ body {
     color: var(--theme-text-color);
 }
 .darkmode .only-lightmode {display: none}
-.darkmode .only-darkmode {display: initial}
 
 /* header */
 

@@ -21,38 +21,49 @@
         </div>
 
         <div class="container">
-            <div class="icons">
+            <div class="icons flex flex-wrap mg-b">
                 <div class="grey r-5 pd-t">
-                    <img src="/SimpleWebDesign/resources/icons/hamburger.svg" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/hamburger_black.svg" class="only-lightmode" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/hamburger_white.svg" class="only-darkmode" height="32" width="32">
                     <span>hamburger</span>
                 </div>
                 <div class="grey r-5 pd-t">
-                    <img src="/SimpleWebDesign/resources/icons/arrow_left.svg" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/arrow_left_black.svg" class="only-lightmode" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/arrow_left_white.svg" class="only-darkmode" height="32" width="32">
                     <span>arrow_left</span>
                 </div>
                 <div class="grey r-5 pd-t">
-                    <img src="/SimpleWebDesign/resources/icons/arrow_right.svg" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/arrow_right_black.svg" class="only-lightmode" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/arrow_right_white.svg" class="only-darkmode" height="32" width="32">
                     <span>arrow_right</span>
                 </div>
                 <div class="grey r-5 pd-t">
-                    <img src="/SimpleWebDesign/resources/icons/arrow_up.svg" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/arrow_up_black.svg" class="only-lightmode" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/arrow_up_white.svg" class="only-darkmode" height="32" width="32">
                     <span>arrow_up</span>
                 </div>
                 <div class="grey r-5 pd-t">
-                    <img src="/SimpleWebDesign/resources/icons/arrow_down.svg" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/arrow_down_black.svg" class="only-lightmode" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/arrow_down_white.svg" class="only-darkmode" height="32" width="32">
                     <span>arrow_down</span>
                 </div>
                 <div class="grey r-5 pd-t">
-                    <img src="/SimpleWebDesign/resources/icons/more.svg" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/more_black.svg" class="only-lightmode" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/more_white.svg" class="only-darkmode" height="32" width="32">
                     <span>more</span>
                 </div>
                 <div class="grey r-5 pd-t">
-                    <img src="/SimpleWebDesign/resources/icons/more_down.svg" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/more_down_black.svg" class="only-lightmode" height="32" width="32">
+                    <img src="/SimpleWebDesign/resources/icons/more_down_white.svg" class="only-darkmode" height="32" width="32">
                     <span>more_down</span>
                 </div>
             </div>
             <code class="html">
-                &lt;img class="icon" src="/resources/icons/hamburger.svg"&gt;
+                &lt;img class="icon" src="/resources/icons/hamburger_white.svg"&gt;<br><br>
+
+                &lt;!-- Theme based icons --&gt;<br>
+                &lt;img class="icon only-lightmode" src="/resources/icons/hamburger_white.svg"&gt;<br>
+                &lt;img class="icon only-darkmode" src="/resources/icons/hamburger_black.svg"&gt;
             </code>
         </div>
 
@@ -75,13 +86,6 @@
         </div>
 
         <style>
-
-            .icons {
-                display: flex;
-                flex-wrap: wrap;
-                gap: var(--theme-element-spacing);
-                margin-bottom: var(--theme-element-spacing);
-            }
 
             .icons div {
                 width: 88px;
