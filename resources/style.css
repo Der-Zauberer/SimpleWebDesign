@@ -911,19 +911,19 @@ ol li:last-child {padding-bottom: 0px}
 
 .dark-blue {background-color: #003ecc; border-color: #003ecc; color: white}
 .blue {background-color: #004dff; border-color: #004dff; color: white}
-.transparent-blue {background-color: #004dff33; border-color: #004dff; color: #004dff}
+.transparent-blue {background-color: #004dff4d; border-color: #004dff; color: #004dff}
 
 .dark-green {background-color: #007f00; border-color: #007f00; color: white}
 .green {background-color: #00b300; border-color: #00b300; color: white}
-.transparent-green {background-color: #00b30033; border-color: #00b300; color: #00b300}
+.transparent-green {background-color: #00b3004d; border-color: #00b300; color: #00b300}
 
 .dark-yellow {background-color: #cc9900; border-color: #cc9900; color: white}
 .yellow {background-color: #ffbf00; border-color: #ffbf00; color: white}
-.transparent-yellow {background-color: #ffbf0033; border-color: #ffbf00; color: #ffbf00}
+.transparent-yellow {background-color: #ffbf004d; border-color: #ffbf00; color: #ffbf00}
 
 .dark-red {background-color: #b30000; border-color: #b30000; color: white}
 .red {background-color: #e60000; border-color: #e60000; color: white}
-.transparent-red {background-color: #e6000033; border-color: #e60000; color: #e60000}
+.transparent-red {background-color: #e600004d; border-color: #e60000; color: #e60000}
 
 /* hover colors */
 
