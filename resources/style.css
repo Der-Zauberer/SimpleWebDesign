@@ -443,6 +443,10 @@ input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
     margin-bottom: var(--theme-element-spacing);
 }
 
+.input {
+    width: 100%;
+}
+
 .dropdown > *:first-child {
     margin-bottom: 0px;
 }
