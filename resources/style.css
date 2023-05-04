@@ -58,7 +58,7 @@ body {
     .only-lightmode:not(.lightmode, .lightmode *) {display: none}
 }
 
-.lightmode, .lightmode > *{
+.lightmode {
     --theme-background: #ffffff;
     --theme-grey-primary: #e6e6e6;
     --theme-grey-secondary: #cccccc;
@@ -68,7 +68,7 @@ body {
 }
 .lightmode .only-darkmode {display: none}
 
-.darkmode, .darkmode > * {
+.darkmode {
     --theme-background: #000000;
     --theme-grey-primary: #1a1a1a;
     --theme-grey-secondary: #333333;
@@ -903,106 +903,82 @@ ol li:last-child {padding-bottom: 0px}
     background-color: transparent;
 }
 
-.white {background-color: white;  border-color: white; color: black}
-.white-text {color: white}
-.black {background-color: black; border-color: black; color: white}
-.black-text {color: black}
+.white {background-color: white;  border-color: white; color: black} @media (prefers-color-scheme: dark) {.white {background-color: black; border-color: black; color: white}} .lightmode .white {background-color: white; border-color: white; color: black} .darkmode .white {background-color: black; border-color: black; color: white}
+.black {background-color: black; border-color: black; color: white} @media (prefers-color-scheme: dark) {.black {background-color: white; border-color: white; color: black}} .lightmode .black {background-color: black; border-color: black; color: white} .darkmode .black {background-color: white; border-color: white; color: black}
 
-@media (prefers-color-scheme: dark) {
-    .white {background-color: black; border-color: black; color: white}
-    .white-text {color: black}
-    .black {background-color: white; border-color: white; color: black}
-    .black-text {color: white}
-}
-
-.lightmode .white {background-color: white; border-color: white; color: black}
-.lightmode .white-text {color: white}
-.lightmode .black {background-color: black; border-color: black; color: white}
-.lightmode .black-text {color: black}
-
-.darkmode .white {background-color: black; border-color: black; color: white}
-.darkmode .white-text {color: black}
-.darkmode .black {background-color: white; border-color: white; color: black}
-.darkmode .black-text {color: white}
-
-.dark-grey {background-color: #cccccc; border-color: #cccccc; color: black}
-.grey {background-color: #e6e6e6; border-color: #e6e6e6; color: black}
-.grey-border {border-color: #e6e6e6}
-.grey-text {color: #808080}
-
-@media (prefers-color-scheme: dark) {
-    .dark-grey {background-color: #333333; border-color: #333333; color: white}
-    .grey {background-color: #1a1a1a; border-color: #1a1a1a; color: white}
-    .grey-border {border-color: #1a1a1a}
-}
-
-.lightmode .dark-grey {background-color: #cccccc; border-color: #cccccc; color: black}
-.lightmode .grey {background-color: #e6e6e6; border-color: #e6e6e6; color: black}
-.lightmode .grey-border {border-color: #e6e6e6}
-
-.darkmode .dark-grey {background-color: #333333; border-color: #333333; color: white}
-.darkmode .grey {background-color: #1a1a1a; border-color: #1a1a1a; color: white}
-.darkmode .grey-border {border-color: #1a1a1a}
+.dark-grey {background-color: #cccccc; border-color: #cccccc; color: black} @media (prefers-color-scheme: dark) {.dark-grey {background-color: #333333; border-color: #333333; color: white}} .lightmode .dark-grey {background-color: #cccccc; border-color: #cccccc; color: black} .darkmode .dark-grey {background-color: #333333; border-color: #333333; color: white}
+.grey {background-color: #e6e6e6; border-color: #e6e6e6; color: black} @media (prefers-color-scheme: dark) {.grey {background-color: #1a1a1a; border-color: #1a1a1a; color: white}} .lightmode .grey {background-color: #e6e6e6; border-color: #e6e6e6; color: black} .darkmode .grey {background-color: #1a1a1a; border-color: #1a1a1a; color: white}
 
 .dark-blue {background-color: #003ecc; border-color: #003ecc; color: white}
 .blue {background-color: #004dff; border-color: #004dff; color: white}
 .transparent-blue {background-color: #004dff33; border-color: #004dff; color: #004dff}
-.blue-border {border-color: #004dff}
-.blue-text {color: #004dff}
 
 .dark-green {background-color: #007f00; border-color: #007f00; color: white}
 .green {background-color: #00b300; border-color: #00b300; color: white}
 .transparent-green {background-color: #00b30033; border-color: #00b300; color: #00b300}
-.green-border {border-color: #00b300}
-.green-text {color: #00b300}
 
 .dark-yellow {background-color: #cc9900; border-color: #cc9900; color: white}
 .yellow {background-color: #ffbf00; border-color: #ffbf00; color: white}
 .transparent-yellow {background-color: #ffbf0033; border-color: #ffbf00; color: #ffbf00}
-.yellow-border {border-color: #ffbf00}
-.yellow-text {color: #ffbf00}
 
 .dark-red {background-color: #b30000; border-color: #b30000; color: white}
 .red {background-color: #e60000; border-color: #e60000; color: white}
 .transparent-red {background-color: #e6000033; border-color: #e60000; color: #e60000}
-.red-border {border-color: #e60000}
-.red-text {color: #e60000}
 
 /* hover colors */
 
-.white-hover:hover {background-color: white;  border-color: white; color: black}
-.black-hover:hover {background-color: black; border-color: black; color: white}
+.white-hover:hover {background-color: white} @media (prefers-color-scheme: dark) {.white-hover:hover {background-color: black}} .lightmode .white-hover:hover {background-color: white} .darkmode .white-hover:hover {background-color: black}
+.black-hover:hover {background-color: black} @media (prefers-color-scheme: dark) {.black-hover:hover {background-color: white}} .lightmode .black-hover:hover {background-color: black} .darkmode .black-hover:hover {background-color: white}
+.grey-hover:hover {background-color: #e6e6e6} @media (prefers-color-scheme: dark) {.grey-hover:hover {background-color: #1a1a1a}} .lightmode .grey-hover:hover {background-color: #e6e6e6} .darkmode .grey-hover:hover {background-color: #1a1a1a}
+.dark-grey-hover:hover {background-color: #cccccc} @media (prefers-color-scheme: dark) {.dark-grey-hover:hover {background-color: #333333}} .lightmode .dark-grey-hover:hover {background-color: #cccccc} .darkmode .white-hover:hover {background-color: #333333}
+.dark-blue-hover:hover {background-color: #003ecc}
+.blue-hover:hover {background-color: #004dff}
+.dark-green-hover:hover {background-color: #007f00}
+.green-hover:hover {background-color: #00b300}
+.dark-yellow-hover:hover {background-color: #cc9900}
+.yellow-hover:hover {background-color: #ffbf00}
+.dark-red-hover:hover {background-color: #b30000}
+.red-hover:hover {background-color: #e60000}
 
-@media (prefers-color-scheme: dark) {
-    .white-hover:hover {background-color: black; border-color: black; color: white}
-    .black-hover:hover {background-color: white; border-color: white; color: black}
-}
-.lightmode .white-hover:hover {background-color: white; border-color: white; color: black}
-.lightmode .black-hover:hover {background-color: black; border-color: black; color: white}
-.darkmode .white-hover:hover {background-color: black; border-color: black; color: white}
-.darkmode .black-hover:hover {background-color: white; border-color: white; color: black}
+/* border colors */
 
-.dark-grey-hover:hover {background-color: #cccccc; border-color: #cccccc; color: black}
-.grey-hover:hover {background-color: #e6e6e6; border-color: #e6e6e6; color: black}
+.white-border {border-color: white} @media (prefers-color-scheme: dark) {.white-border {border-color: black}} .lightmode .white-border {border-color: white} .darkmode .white-border {border-color: black}
+.black-border {border-color: black} @media (prefers-color-scheme: dark) {.black-border {border-color: white}} .lightmode .black-border {border-color: black} .darkmode .black-border {border-color: white}
+.grey-border {border-color: #e6e6e6} @media (prefers-color-scheme: dark) {.grey-border {border-color: #1a1a1a}} .lightmode .grey-border {border-color: #e6e6e6} .darkmode .grey-border {border-color: #1a1a1a}
+.dark-grey-border {border-color: #cccccc} @media (prefers-color-scheme: dark) {.dark-grey-border {border-color: #333333}} .lightmode .dark-grey-border {border-color: #cccccc} .darkmode .white-border {border-color: #333333}
+.dark-blue-border {border-color: #003ecc}
+.blue-border {border-color: #004dff}
+.dark-green-border {border-color: #007f00}
+.green-border {border-color: #00b300}
+.dark-yellow-border {border-color: #cc9900}
+.yellow-border {border-color: #ffbf00}
+.dark-red-border {border-color: #b30000}
+.red-border {border-color: #e60000}
 
-@media (prefers-color-scheme: dark) {
-    .dark-grey-hover:hover {background-color: #333333; border-color: #333333; color: white}
-    .grey-hover:hover {background-color: #1a1a1a; border-color: #1a1a1a; color: white}
-}
+/* border hover colors */
 
-.lightmode .dark-grey-hover:hover {background-color: #cccccc; border-color: #cccccc; color: black}
-.lightmode .grey-hover:hover {background-color: #e6e6e6; border-color: #e6e6e6; color: black}
-.darkmode .dark-grey-hover:hover {background-color: #333333; border-color: #333333; color: white}
-.darkmode .grey-hover:hover {background-color: #1a1a1a; border-color: #1a1a1a; color: white}
+.white-border:hover {border-color: white} @media (prefers-color-scheme: dark) {.white-border:hover {border-color: black}} .lightmode .white-border:hover {border-color: white} .darkmode .white-border:hover {border-color: black}
+.black-border:hover {border-color: black} @media (prefers-color-scheme: dark) {.black-border:hover {border-color: white}} .lightmode .black-border:hover {border-color: black} .darkmode .black-border:hover {border-color: white}
+.grey-border:hover {border-color: #e6e6e6} @media (prefers-color-scheme: dark) {.grey-border:hover {border-color: #1a1a1a}} .lightmode .grey-border:hover {border-color: #e6e6e6} .darkmode .grey-border:hover {border-color: #1a1a1a}
+.dark-grey-border:hover {border-color: #cccccc} @media (prefers-color-scheme: dark) {.dark-grey-border:hover {border-color: #333333}} .lightmode .dark-grey-border:hover {border-color: #cccccc} .darkmode .white-border:hover {border-color: #333333}
+.dark-blue-border:hover {border-color: #003ecc}
+.blue-border:hover {border-color: #004dff}
+.dark-green-border:hover {border-color: #007f00}
+.green-border:hover {border-color: #00b300}
+.dark-yellow-border:hover {border-color: #cc9900}
+.yellow-border:hover {border-color: #ffbf00}
+.dark-red-border:hover {border-color: #b30000}
+.red-border:hover {border-color: #e60000}
 
-.dark-blue-hover:hover {background-color: #003ecc; border-color: #003ecc; color: white}
-.blue-hover:hover {background-color: #004dff; border-color: #004dff; color: white}
-.dark-green-hover:hover {background-color: #007f00; border-color: #007f00; color: white}
-.green-hover:hover {background-color: #00b300; border-color: #00b300; color: white}
-.dark-yellow-hover:hover {background-color: #cc9900; border-color: #cc9900; color: white}
-.yellow-hover:hover {background-color: #ffbf00; border-color: #ffbf00; color: white}
-.dark-red-hover:hover {background-color: #b30000; border-color: #b30000; color: white}
-.red-hover:hover {background-color: #e60000; border-color: #e60000; color: white}
+/* text colors */
+
+.white-text {color: white} @media (prefers-color-scheme: dark) {.white-text {color: black}} .lightmode .white-text {color: white} .darkmode .white-text {color: black}
+.black-text {color: black} @media (prefers-color-scheme: dark) {.white-text {color: white}} .lightmode .black-text {color: black} .darkmode .black-text {color: white}
+.grey-text {color: #808080}
+.blue-text {color: #004dff}
+.green-text {color: #00b300}
+.yellow-text {color: #ffbf00}
+.red-text {color: #e60000}
 
 /* utility classes */
 
