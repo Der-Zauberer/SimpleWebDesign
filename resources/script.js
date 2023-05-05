@@ -17,7 +17,7 @@ let submitions = [];
 
 function onLoad(root) {
     for (const element of root.getElementsByTagName('*')) {
-        if (element.classList.contains('table-of-contents')) addOnPostLoad(() => { element.innerHTML = '';  generateTableOfContents(element) });
+        if (element.classList.contains('table-of-contents')) doOnPostLoad(() => { element.innerHTML = '';  generateTableOfContents(element) });
         else if (!menu && element.classList.contains('menu')) menu = element;
         else if (!navigation && element.classList.contains('navigation')) navigation = element;
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
@@ -38,7 +38,7 @@ function onLoad(root) {
     for (let submition of submitions) submition.call();
 }
 
-function addOnPostLoad(submission) {
+function doOnPostLoad(submission) {
     submitions.push(submission);
 }
 

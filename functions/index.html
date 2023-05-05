@@ -28,6 +28,14 @@
 
         <div class="navigation-content">
             <div class="container">
+
+                <h2 id="on_load">On Load</h2>
+
+                <code class="html">
+                    &lt;script&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;doOnPostLoad(() => doWhatYouWant());<br>
+                    &lt;/script&gt;
+                </code>
                 
                 <h2 id="includes">Includes</h2>
 
@@ -35,6 +43,8 @@
                     &lt;div include="/path/to/index.html"&gt;&lt;/div&gt;<br>
                     &lt;div replace="/path/to/index.html"&gt;&lt;/div&gt;
                 </code>
+
+                <h2 id="on_load">Change Visibiliy</h2>
 
                 <div class="flex flex-wrap">
                     <a class="button" onclick="expose('toggle')">Expose</a>
