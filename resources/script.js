@@ -26,8 +26,8 @@ function onLoad(root) {
         else if (element.classList.contains('input')) initializeInputObject(element);
         else if (element.classList.contains('input-buttons')) initializeInputButtons(element);
         else if (element.nodeName == 'CODE') {
-            if (element.classList.contains("html")) highlightHtml(element);
-            else if (element.classList.contains("css")) highlightCss(element);
+            if (element.classList.contains("code-html")) highlightHtml(element);
+            else if (element.classList.contains("code-css")) highlightCss(element);
         }
         if (element.nodeName === 'INPUT') initializeInput(element);
         if (element.hasAttribute('localization')) localizations.push(element);
