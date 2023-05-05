@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#003ecc">
+        <link href="/SimpleWebDesign/resources/style.css" rel="stylesheet">
+        <script src="/SimpleWebDesign/resources/script.js"></script>
+        <link href="/SimpleWebDesign/resources/favicon.png" rel="icon">
+        <title>Simple Web Design</title>
+    </head>
+    <body>
+        
+        <div class="menu mobile-menu">
+            <img src="/SimpleWebDesign/resources/icons/hamburger_white.svg" class="only-mobile" onclick="toggleMobileNavigationMenu()">
+            <a class="menu-title" href="/SimpleWebDesign/">Simple Web Design</a>
+            <a href="/SimpleWebDesign/" class="only-mobile">Home</a>
+            <a href="/SimpleWebDesign/components/">Components</a>
+            <a class="menu-active">Functions</a>
+            <a href="/SimpleWebDesign/colors">Colors</a>
+            <a href="/SimpleWebDesign/icons">Icons</a>
+        </div>
+        
+        <div id="navigation" class="navigation">
+            <h2>Navigation</h2>
+            <div class="table-of-contents"></div>
+        </div>
+
+        <div class="navigation-content">
+            <div class="container">
+                
+                <h2 id="includes">Includes</h2>
+
+                <code class="html">
+                    &lt;div include="/path/to/index.html"&gt;&lt;/div&gt;<br>
+                    &lt;div replace="/path/to/index.html"&gt;&lt;/div&gt;
+                </code>
+
+                <div class="flex flex-wrap">
+                    <a class="button" onclick="expose('toggle')">Expose</a>
+                    <a class="button" onclick="cover('toggle')">Cover</a>
+                    <a class="button" onclick="toggle('toggle')">Toggle</a>
+                </div>
+                <div class="box" id="toggle">Content to toggle</div>
+
+                <code class="html">
+                    &lt;a class="button" onclick="expose('toggle')"&gt;Expose&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="cover('toggle')"&gt;Cover&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="toggle('toggle')"&gt;Toggle&lt;/a&gt;<br>
+                    &lt;div class="box" id="toggle"&gt;Content to toggle&lt;/div&gt;<br>
+                </code>
+
+            </div>
+            <div class="grey">
+                <div class="container mg-b-0 flex overflow" style="padding-top: var(--theme-element-spacing); padding-bottom: var(--theme-element-spacing);">
+                    <div class="width-100 nowrap grey-text" style="align-self: flex-end;">
+                        &copy; 2023 Der Zauberer
+                    </div>
+                    <div>
+                        <strong class="grey-text" style="text-transform: uppercase; letter-spacing: 1px;">English</strong><br>
+                        <a href="/SimpleWebDesign/imprint/" class="grey-text">Imprint</a><br>
+                        <a href="/SimpleWebDesign/privacy-policy/" class="grey-text nowrap">Privacy policy</a>
+                    </div>
+                    <div>
+                        <strong class="grey-text" style="text-transform: uppercase; letter-spacing: 1px;">German</strong><br>
+                        <a href="/SimpleWebDesign/impressum/" class="grey-text">Impressum</a><br>
+                        <a href="/SimpleWebDesign/datenschutzerklaerung/" class="grey-text">Datenschutzerklaerung</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
