@@ -60,6 +60,79 @@
                     &lt;div class="box" id="toggle"&gt;Content to toggle&lt;/div&gt;<br>
                 </code>
 
+                <h2 id="localization">Localization</h2>
+
+                <script>
+                    addLanguage('en', 'localization_en.properties');
+                    addLanguage('de', 'localization_de.properties');
+                    addLanguage('es', 'localization_es.properties');
+                </script>
+                
+                <div class="flex flex-wrap">
+                    <a class="button" onclick="setLanguage('en')">English</a>
+                    <a class="button" onclick="setLanguage('de')">German</a>
+                    <a class="button" onclick="setLanguage('es')">Español</a>
+                </div>
+                
+                <div class="box">
+                    <p><span localization="hello">Hello</span> ... <span localization="bye">Bye</span></p>
+                    <input class="dark-grey" localization-placeholder="placeholder" placeholder="Placeholder">
+                </div>
+
+                <code class="html">
+                    &lt;script&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('en', '/localization/localization_en.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('de', '/localization/localization_de.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('es', '/localization/localization_es.properties');<br>
+                    &lt;/script&gt;<br>
+                    <br>
+                    &lt;div class="flex flex-wrap"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" onclick="setLanguage('en')">English&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" onclick="setLanguage('de')">German&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" onclick="setLanguage('es')">Español&lt;/a&gt;<br>
+                    &lt;/div&gt;<br>
+                    <br>
+                    &lt;div class="box"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;span localization="hello">Hello&lt;/span&gt; ... &lt;span localization="bye"&gt;Bye&lt;/span&gt;&lt;/p&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input class="dark-grey" localization-placeholder="placeholder" placeholder="Placeholder"&gt;<br>
+                    &lt;/div&gt;<br>
+                </code>
+
+                <code class="html">
+                    &lt;script&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('en', '/localization/localization_en.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('de', '/localization/localization_de.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('es', '/localization/localization_es.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;setDefaultLanguage('/localization/localization_en.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;doOnPostLoad(() => setBrowserLanguage());<br>
+                    &lt;/script&gt;
+                </code>
+
+                <div>
+                    <samp>/localization/localization_en.properties</samp>
+                    <code>
+                        hello=Hello<br>
+                        bye=Bye<br>
+                        placeholder=Placeholder
+                    </code>
+                </div>
+                <div>
+                    <samp>/localization/localization_de.properties</samp>
+                    <code>
+                        hello=Hallo<br>
+                        bye=Auf Wiedersehen<br>
+                        placeholder=Platzhalter
+                    </code>
+                </div>
+                <div>
+                    <samp>/localization/localization_es.properties</samp>
+                    <code>
+                        hello=Hola<br>
+                        bye=Adios<br>
+                        placeholder=Marcador de posición
+                    </code>
+                </div>
+
             </div>
             <div class="grey">
                 <div class="container mg-b-0 flex overflow" style="padding-top: var(--theme-element-spacing); padding-bottom: var(--theme-element-spacing);">

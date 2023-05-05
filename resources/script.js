@@ -30,6 +30,12 @@ function onLoad(root) {
             else if (element.classList.contains("css")) highlightCss(element);
         }
         if (element.nodeName === 'INPUT') initializeInput(element);
+        if (element.hasAttribute('localization')) localizations.push(element);
+        else {
+            for (const attribute of element.attributes) {
+                if (attribute.name.startsWith('localization-')) attributeLocalizations.push(element);
+            }
+        }
         if (element.hasAttribute('include')) include(element, element.getAttribute('include'));
         else if (element.hasAttribute('replace')) replace(element, element.getAttribute('replace'));
     }
@@ -79,6 +85,57 @@ function toggle(id) {
     if (element.classList.contains('hide')) expose(id)
     else cover(id);
 }
+
+// *********************
+// * Localization      *
+// *********************
+
+const localizations = [];
+const attributeLocalizations=[];
+let defaultLanguage;
+const languages = new Map();
+
+function setBrowserLanguage() {
+    setLanguage(navigator.language || navigator.userLanguage);
+}
+
+function setLanguage(locale) {
+    const src = languages.has(locale) ? languages.get(locale) : defaultLanguage;
+    if (src == undefined) return;
+    const translations = new Map();
+    fetch(src).then(response => response.text()).then(text => {
+        const lines = text.split(/\r?\n/gm);
+        for (const line of lines) {
+            const translation = line.split('=');
+            translations.set(translation[0], translation[1]);
+        }
+        for (const localization of localizations) {
+            const value = translations.get(localization.getAttribute('localization'));
+            if (value == undefined) continue;
+            localization.innerText = value;
+        }
+        for (const localization of attributeLocalizations) {
+            for (const attribute of localization.attributes) {
+                if (attribute.name.startsWith('localization-')) {
+                    const name = attribute.name.substring(13);
+                    const value = translations.get(attribute.value);
+                    if (value == undefined) continue;
+                    localization.setAttribute(name, value);
+                }
+            }
+        }
+    });
+}
+
+function setDefaultLanguage(src) {
+    defaultLanguage = src;
+}
+
+function addLanguage(locale, src) {
+    languages.set(locale, src)
+}
+
+
 
 // *********************
 // * Table of Contents *
