@@ -346,7 +346,8 @@ function translateDropdown(dropdown, content) {
 // * Dialog            *
 // *********************
 
-function toggleDialog(dialog) {
+function toggleDialog(dialogId) {
+    const dialog = document.getElementById(dialogId);
     if (!dialog.classList.contains('show')) {
         hideAllDropdowns();
         dialog.classList.add('show');
