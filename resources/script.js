@@ -13,15 +13,13 @@ document.addEventListener('readystatechange', event => {
 });
 
 let loaded = false;
-let submitions = [];
+const submitions = [];
 
 function onLoad(root) {
     for (const element of root.getElementsByTagName('*')) {
-        if (element.classList.contains('table-of-contents')) doOnPostLoad(() => { element.innerHTML = '';  generateTableOfContents(element) });
-        else if (!menu && element.classList.contains('menu')) menu = element;
+        if (!menu && element.classList.contains('menu')) menu = element;
         else if (!navigation && element.classList.contains('navigation')) navigation = element;
         else if (!navigationContent && element.classList.contains('navigation-content')) navigationContent = element;
-        else if (element.nodeName == 'H2' && element.id != '') headlines.push(element);
         else if (element.classList.contains('dropdown')) initializeDropdown(element);
         else if (element.classList.contains('input')) initializeInputObject(element);
         else if (element.classList.contains('input-buttons')) initializeInputButtons(element);
@@ -40,6 +38,7 @@ function onLoad(root) {
         else if (element.hasAttribute('replace')) replace(element, element.getAttribute('replace'));
     }
     initializeNavigation();
+    initializeTableOfContents();
     loaded = true;
     for (let submition of submitions) submition.call();
 }
@@ -78,6 +77,7 @@ function cover(id) {
     if (element.classList.contains('hide')) return;
     element.classList.add('hide');
     element.innerHTML = '<!--' + element.innerHTML + '-->';
+    initializeTableOfContents();
 }
 
 function toggle(id) {
@@ -135,19 +135,24 @@ function addLanguage(locale, src) {
     languages.set(locale, src)
 }
 
-
-
 // *********************
 // * Table of Contents *
 // *********************
 
-function generateTableOfContents(element) {
-    for (let headline of headlines) {
-        const link = document.createElement('a');
-        link.href = '#' + headline.id;
-        link.innerText = headline.innerText;
-        link.addEventListener('click', () => toggleMobileNavigationMenu());
-        element.appendChild(link);
+function initializeTableOfContents() {
+    const headlines = [];
+    for (const headline of document.getElementsByTagName('H2')) {
+        if (headline.id != '') headlines.push(headline);
+    }
+    for (const tableOfContent of document.getElementsByClassName('table-of-contents')) {
+        tableOfContent.innerHTML = '';
+        for (let headline of headlines) {
+            const link = document.createElement('a');
+            link.href = '#' + headline.id;
+            link.innerText = headline.innerText;
+            link.addEventListener('click', () => toggleMobileNavigationMenu());
+            tableOfContent.appendChild(link);
+        }
     }
 }
 
@@ -181,7 +186,7 @@ function setMenuFocus(string) {
 let navigation;
 let mobileNavigationMenu;
 let navigationContent;
-let headlines = [];
+const mobileNavigationMenuItems = [];
 
 function initializeNavigation() {
     if (!navigation && menu && menu.classList.contains('mobile-menu')) {
@@ -202,12 +207,16 @@ function initializeNavigation() {
         }
         mobileNavigationMenu.classList.add('only-mobile');
         mobileNavigationMenu.innerHTML = '';
+        for (element of mobileNavigationMenuItems) {
+            element.classList.remove('not-mobile');
+        }
         for (let element of menu.children) {
             if (element.nodeName != 'A' || element.classList.contains('not-mobile') || element.classList.contains('menu-title')) continue;
             const menuItem = element.cloneNode(true);
             menuItem.addEventListener('click', () => toggleMobileNavigationMenu());
             mobileNavigationMenu.appendChild(menuItem);
             element.classList.add('not-mobile');
+            mobileNavigationMenuItems.push(element);
         }
     }
 }
@@ -290,7 +299,7 @@ function decrementInput(element) {
 // * Dropdown          *
 // *********************
 
-let dropdowns = [];
+const dropdowns = [];
 
 function initializeDropdown(dropdown) {
     const content = dropdown.getElementsByClassName('dropdown-content')[0];
