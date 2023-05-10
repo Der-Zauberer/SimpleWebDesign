@@ -12,7 +12,7 @@
     <body>
         
         <div class="menu mobile-menu">
-            <img src="/SimpleWebDesign/resources/icons/hamburger_white.svg" class="only-mobile" onclick="toggleMobileNavigationMenu()">
+            <img src="/SimpleWebDesign/resources/icons/hamburger_white.svg" class="only-mobile" onclick="swd.toggleMobileNavigationMenu()">
             <a class="menu-title" href="/SimpleWebDesign/">Simple Web Design</a>
             <a href="/SimpleWebDesign/" class="only-mobile">Home</a>
             <a class="menu-active">Components</a>
@@ -32,7 +32,7 @@
                 <h2 id="getstarted">Get started</h2>
                 
                 <p>Download the <a href="/SimpleWebDesign/resources/style.css" download>Stylesheet</a> and the <a href="/SimpleWebDesign/resources/script.js" download>Javascript</a> file. Then create a .html file, using the following template!</p>
-                
+
                 <code class="code-html">
                     &lt;!DOCTYPE html&gt;<br>
                     &lt;html&gt;<br>
@@ -121,7 +121,7 @@
 
                 <code class="code-html">
                     &lt;div class="menu mobile-menu"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="/resources/icons/hamburger_white.svg" class="only-mobile" onclick="toggleMobileMenu()"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="/resources/icons/hamburger_white.svg" class="only-mobile" onclick="swd.toggleMobileMenu()"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-title"&gt;Menu&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-active"&gt;Menu1&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Menu2&lt;/a&gt;<br>
@@ -130,7 +130,7 @@
                 </code>
 
                 <code class="code-html">
-                    &lt;script&gt;setMenuFocus('Menu3')&lt;/script&gt;
+                    &lt;script&gt;swd.setMenuFocus('Menu3')&lt;/script&gt;
                 </code>
                 
                 <h2 id="_navigation">Navigation</h2>
@@ -385,13 +385,13 @@
                     </div>
 
                     <div class="input-buttons">
-                        <a class="button button-left dark-grey" onclick="decrementInput(this)">-</a>
+                        <a class="button button-left dark-grey" onclick="swd.decrementInput(this)">-</a>
                         <div class="input">
                             <input type="number" value="0" min="0" class="button-middle">
                             <span class="input-name">Age</span>
                             <span class="input-error"></span>
                         </div>
-                        <a class="button button-right dark-grey" onclick="incrementInput(this)">+</a>
+                        <a class="button button-right dark-grey" onclick="swd.incrementInput(this)">+</a>
                     </div>
 
                     <div class="input dropdown">
@@ -587,29 +587,29 @@
 
                 <h2 id="dialog">Dialog</h2>
 
-                <a class="button" onclick="toggleDialog('test-dialog')">Dialog</a>
+                <a class="button" onclick="swd.toggleDialog('test-dialog')">Dialog</a>
                 
                 <div class="dialog" id="test-dialog">
                     <div class="dialog-content">
                         <h3>Test</h3>
                         <p>Test</p>
                         <div class="dialog-button">
-                            <a class="button width-100 red" onclick="toggleDialog('test-dialog')">Cancel</a>
-                            <a class="button width-100" onclick="toggleDialog('test-dialog')">Confirm</a>
+                            <a class="button width-100 red" onclick="swd.toggleDialog('test-dialog')">Cancel</a>
+                            <a class="button width-100" onclick="swd.toggleDialog('test-dialog')">Confirm</a>
                         </div>
                     </div>
                 </div>
                 
                 <code class="code-html">
-                    &lt;a class="button" onclick="toggleDialog('test-dialog')"&gt;Dialog&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="swd.toggleDialog('test-dialog')"&gt;Dialog&lt;/a&gt;<br>
                 
                     &lt;div class="dialog" id="test-dialog"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dialog-content"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="swd.dialog-content"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Dialog&lt;/h3&gt;&lt;br&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Test&lt;/p&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dialog-button"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&lt;a class="button width-100" onclick="toggleDialog('test-dialog')">Confirm&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&lt;a class="button width-100 red" onclick="toggleDialog('test-dialog')">Cancel&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&lt;a class="button width-100" onclick="swd.toggleDialog('test-dialog')">Confirm&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&lt;a class="button width-100 red" onclick="swd.toggleDialog('test-dialog')">Cancel&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
                     &lt;/div&gt;
@@ -649,7 +649,7 @@
 
                 <div class="box" id="youtube-button">
                     <p>We've embedded content from YouTube here. As YouTube may collect personal data and track your viewing behaviour, we'll only load the video after you consent to their use of cookies and similar technologies as described in their <a href="https://www.youtube.com/t/privacy">privacy policy</a>.</p>
-                    <a class="button" style="margin-left: auto;" onclick="expose('youtube-video'); cover('youtube-button')">Allow content from YouTube</a>
+                    <a class="button" style="margin-left: auto;" onclick="swd.expose('youtube-video'); swd.cover('youtube-button')">Allow content from YouTube</a>
                 </div>
                 <div class="youtube hide" id="youtube-video">
                     <!--<iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
@@ -663,7 +663,7 @@
                     &lt;!-- privacy-protection video --&gt;<br>
                     &lt;div class="box" id="youtube-button"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;p>We've embedded content from YouTube here. As YouTube may collect personal data and track your viewing behaviour, we'll only load the video after you consent to their use of cookies and similar technologies as described in their &lt;a href="https://www.youtube.com/t/privacy">privacy policy&lt;/a&gt;.&lt;/p&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" style="display: block; margin-left: auto;" onclick="expose('youtube-video'); cover('youtube-button')">Allow content from YouTube&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" style="display: block; margin-left: auto;" onclick="swd.expose('youtube-video'); swd.cover('youtube-button')">Allow content from YouTube&lt;/a&gt;<br>
                     &lt;/div><br>
                     &lt;div class="youtube hide" id="youtube-video"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&lt;iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&lt;--&gt;<br>

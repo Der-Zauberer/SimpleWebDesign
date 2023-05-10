@@ -12,7 +12,7 @@
     <body>
         
         <div class="menu mobile-menu">
-            <img src="/SimpleWebDesign/resources/icons/hamburger_white.svg" class="only-mobile" onclick="toggleMobileNavigationMenu()">
+            <img src="/SimpleWebDesign/resources/icons/hamburger_white.svg" class="only-mobile" onclick="swd.toggleMobileNavigationMenu()">
             <a class="menu-title" href="/SimpleWebDesign/">Simple Web Design</a>
             <a href="/SimpleWebDesign/" class="only-mobile">Home</a>
             <a href="/SimpleWebDesign/components/">Components</a>
@@ -33,7 +33,7 @@
 
                 <code class="code-html">
                     &lt;script&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;doOnPostLoad(() => doWhatYouWant());<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;swd.doOnPostLoad(() => doWhatYouWant());<br>
                     &lt;/script&gt;
                 </code>
                 
@@ -47,31 +47,31 @@
                 <h2 id="visibility">Change Visibility</h2>
 
                 <div class="flex flex-wrap">
-                    <a class="button" onclick="expose('toggle')">Expose</a>
-                    <a class="button" onclick="cover('toggle')">Cover</a>
-                    <a class="button" onclick="toggle('toggle')">Toggle</a>
+                    <a class="button" onclick="swd.expose('toggle')">Expose</a>
+                    <a class="button" onclick="swd.cover('toggle')">Cover</a>
+                    <a class="button" onclick="swd.toggle('toggle')">Toggle</a>
                 </div>
                 <div class="box" id="toggle">Content to toggle</div>
 
                 <code class="code-html">
-                    &lt;a class="button" onclick="expose('toggle')"&gt;Expose&lt;/a&gt;<br>
-                    &lt;a class="button" onclick="cover('toggle')"&gt;Cover&lt;/a&gt;<br>
-                    &lt;a class="button" onclick="toggle('toggle')"&gt;Toggle&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="swd.expose('toggle')"&gt;Expose&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="swd.cover('toggle')"&gt;Cover&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="swd.toggle('toggle')"&gt;Toggle&lt;/a&gt;<br>
                     &lt;div class="box" id="toggle"&gt;Content to toggle&lt;/div&gt;<br>
                 </code>
 
                 <h2 id="localization">Localization</h2>
 
                 <script>
-                    addLanguage('en', 'localization_en.properties');
-                    addLanguage('de', 'localization_de.properties');
-                    addLanguage('es', 'localization_es.properties');
+                    swd.addLanguage('en', 'localization_en.properties');
+                    swd.addLanguage('de', 'localization_de.properties');
+                    swd.addLanguage('es', 'localization_es.properties');
                 </script>
                 
                 <div class="flex flex-wrap">
-                    <a class="button" onclick="setLanguage('en')">English</a>
-                    <a class="button" onclick="setLanguage('de')">German</a>
-                    <a class="button" onclick="setLanguage('es')">Español</a>
+                    <a class="button" onclick="swd.setLanguage('en')">English</a>
+                    <a class="button" onclick="swd.setLanguage('de')">German</a>
+                    <a class="button" onclick="swd.setLanguage('es')">Español</a>
                 </div>
                 
                 <div class="box">
@@ -81,15 +81,15 @@
 
                 <code class="code-html">
                     &lt;script&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('en', '/localization/localization_en.properties');<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('de', '/localization/localization_de.properties');<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('es', '/localization/localization_es.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;swd.addLanguage('en', '/localization/localization_en.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;swd.addLanguage('de', '/localization/localization_de.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;swd.addLanguage('es', '/localization/localization_es.properties');<br>
                     &lt;/script&gt;<br>
                     <br>
                     &lt;div class="flex flex-wrap"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" onclick="setLanguage('en')">English&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" onclick="setLanguage('de')">German&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" onclick="setLanguage('es')">Español&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" onclick="swd.setLanguage('en')">English&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" onclick="swd.setLanguage('de')">German&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" onclick="swd.setLanguage('es')">Español&lt;/a&gt;<br>
                     &lt;/div&gt;<br>
                     <br>
                     &lt;div class="box"&gt;<br>
@@ -100,11 +100,11 @@
 
                 <code class="code-html">
                     &lt;script&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('en', '/localization/localization_en.properties');<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('de', '/localization/localization_de.properties');<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;addLanguage('es', '/localization/localization_es.properties');<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;setDefaultLanguage('/localization/localization_en.properties');<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;doOnPostLoad(() => setBrowserLanguage());<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;swd.addLanguage('en', '/localization/localization_en.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;swd.addLanguage('de', '/localization/localization_de.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;swd.addLanguage('es', '/localization/localization_es.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;swd.setDefaultLanguage('/localization/localization_en.properties');<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;swd.doOnPostLoad(() => setBrowserLanguage());<br>
                     &lt;/script&gt;
                 </code>
 
