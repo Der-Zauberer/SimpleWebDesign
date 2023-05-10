@@ -435,7 +435,7 @@ function highlightHtml(element) {
     let comment = false;
     let lastAddedIndex = 0;
     for (let i = 0; i < string.length; i++) {
-        if (!tag && i + 3 < string.length && string.substring(i, i + 4) == '&lt;' && !(i + 7 < string.length && string.substring(i, i + 7) == '&lt;!--')) {
+        if (!tag && !comment && i + 3 < string.length && string.substring(i, i + 4) == '&lt;' && !(i + 7 < string.length && string.substring(i, i + 7) == '&lt;!--')) {
             codeString += string.substring(lastAddedIndex, i) + '<span class="blue-text">&lt;';
             tag = true;
             i += 4;
@@ -448,11 +448,11 @@ function highlightHtml(element) {
             attribute = false;
             i += 3;
             lastAddedIndex = i + 1;
-        } else if (tag && !attribute && string.charAt(i) == ' ') {
+        } else if (tag && !comment && !attribute && string.charAt(i) == ' ') {
             codeString += string.substring(lastAddedIndex, i) + '<span class="green-text">';
             attribute = true;
             lastAddedIndex = i;
-        } else if (tag && attribute && string.charAt(i) == '"') {
+        } else if (tag && !comment && attribute && string.charAt(i) == '"') {
             codeString += value ? string.substring(lastAddedIndex, i) + '"</span>' : string.substring(lastAddedIndex, i) + '<span class="red-text">"';
             value = !value;
             lastAddedIndex = i + 1;
