@@ -89,6 +89,17 @@ body {
     background-color: var(--theme-secondary);
 }
 
+/* footer */
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--theme-element-spacing); 
+    padding-top: var(--theme-element-spacing); 
+    padding-bottom: var(--theme-element-spacing);
+    margin-bottom: 0px;
+}
+
 /* menu */
 
 .menu {
@@ -1001,6 +1012,11 @@ ol li:last-child {padding-bottom: 0px}
 .fit-content {width: fit-content}
 .show {display: block !important}
 .hide {display: none !important}
+
+.uppercase {text-transform: uppercase}
+.lowercase {text-transform: lowercase}
+.underline {text-decoration: underline}
+.line-through {text-decoration: line-through}
 
 @media screen and (max-width: 768px) {.not-mobile {display: none !important}}
 @media screen and (min-width: 769px) {.only-mobile {display: none !important}}
