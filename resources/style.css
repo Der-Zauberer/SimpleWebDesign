@@ -93,7 +93,7 @@ body {
 
 .footer {
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
     gap: var(--theme-element-spacing); 
     padding-top: var(--theme-element-spacing); 
     padding-bottom: var(--theme-element-spacing);
