@@ -207,6 +207,22 @@ body {
     margin-bottom: 0px;
 }
 
+.footer-spacer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-wrap: wrap-reverse;
+    }
+    .footer > * {
+        width: 100%;
+    }
+}
+
 /* menu */
 
 .menu {
