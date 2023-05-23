@@ -129,19 +129,19 @@ body {
 .grid-11 {grid-template-columns: repeat(11, minmax(0, 1fr))}
 .grid-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
 
-@media only screen and (max-width: 599px) {
-    .grid-sm-1 {grid-template-columns: repeat(1, minmax(0, 1fr))}
-    .grid-sm-2 {grid-template-columns: repeat(2, minmax(0, 1fr))}
-    .grid-sm-3 {grid-template-columns: repeat(3, minmax(0, 1fr))}
-    .grid-sm-4 {grid-template-columns: repeat(4, minmax(0, 1fr))}
-    .grid-sm-5 {grid-template-columns: repeat(5, minmax(0, 1fr))}
-    .grid-sm-6 {grid-template-columns: repeat(6, minmax(0, 1fr))}
-    .grid-sm-7 {grid-template-columns: repeat(7, minmax(0, 1fr))}
-    .grid-sm-8 {grid-template-columns: repeat(8, minmax(0, 1fr))}
-    .grid-sm-9 {grid-template-columns: repeat(9, minmax(0, 1fr))}
-    .grid-sm-10 {grid-template-columns: repeat(10, minmax(0, 1fr))}
-    .grid-sm-11 {grid-template-columns: repeat(11, minmax(0, 1fr))}
-    .grid-sm-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
+@media only screen and (max-width: 1023px) {
+    .grid-xl-1 {grid-template-columns: repeat(1, minmax(0, 1fr))}
+    .grid-xl-2 {grid-template-columns: repeat(2, minmax(0, 1fr))}
+    .grid-xl-3 {grid-template-columns: repeat(3, minmax(0, 1fr))}
+    .grid-xl-4 {grid-template-columns: repeat(4, minmax(0, 1fr))}
+    .grid-xl-5 {grid-template-columns: repeat(5, minmax(0, 1fr))}
+    .grid-xl-6 {grid-template-columns: repeat(6, minmax(0, 1fr))}
+    .grid-xl-7 {grid-template-columns: repeat(7, minmax(0, 1fr))}
+    .grid-xl-8 {grid-template-columns: repeat(8, minmax(0, 1fr))}
+    .grid-xl-9 {grid-template-columns: repeat(9, minmax(0, 1fr))}
+    .grid-xl-10 {grid-template-columns: repeat(10, minmax(0, 1fr))}
+    .grid-xl-11 {grid-template-columns: repeat(11, minmax(0, 1fr))}
+    .grid-xl-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
 }
 
 @media only screen and (max-width: 767px) {
@@ -159,19 +159,19 @@ body {
     .grid-md-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
 }
 
-@media only screen and (max-width: 1023px) {
-    .grid-xl-1 {grid-template-columns: repeat(1, minmax(0, 1fr))}
-    .grid-xl-2 {grid-template-columns: repeat(2, minmax(0, 1fr))}
-    .grid-xl-3 {grid-template-columns: repeat(3, minmax(0, 1fr))}
-    .grid-xl-4 {grid-template-columns: repeat(4, minmax(0, 1fr))}
-    .grid-xl-5 {grid-template-columns: repeat(5, minmax(0, 1fr))}
-    .grid-xl-6 {grid-template-columns: repeat(6, minmax(0, 1fr))}
-    .grid-xl-7 {grid-template-columns: repeat(7, minmax(0, 1fr))}
-    .grid-xl-8 {grid-template-columns: repeat(8, minmax(0, 1fr))}
-    .grid-xl-9 {grid-template-columns: repeat(9, minmax(0, 1fr))}
-    .grid-xl-10 {grid-template-columns: repeat(10, minmax(0, 1fr))}
-    .grid-xl-11 {grid-template-columns: repeat(11, minmax(0, 1fr))}
-    .grid-xl-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
+@media only screen and (max-width: 599px) {
+    .grid-sm-1 {grid-template-columns: repeat(1, minmax(0, 1fr))}
+    .grid-sm-2 {grid-template-columns: repeat(2, minmax(0, 1fr))}
+    .grid-sm-3 {grid-template-columns: repeat(3, minmax(0, 1fr))}
+    .grid-sm-4 {grid-template-columns: repeat(4, minmax(0, 1fr))}
+    .grid-sm-5 {grid-template-columns: repeat(5, minmax(0, 1fr))}
+    .grid-sm-6 {grid-template-columns: repeat(6, minmax(0, 1fr))}
+    .grid-sm-7 {grid-template-columns: repeat(7, minmax(0, 1fr))}
+    .grid-sm-8 {grid-template-columns: repeat(8, minmax(0, 1fr))}
+    .grid-sm-9 {grid-template-columns: repeat(9, minmax(0, 1fr))}
+    .grid-sm-10 {grid-template-columns: repeat(10, minmax(0, 1fr))}
+    .grid-sm-11 {grid-template-columns: repeat(11, minmax(0, 1fr))}
+    .grid-sm-12 {grid-template-columns: repeat(12, minmax(0, 1fr))}
 }
 
 /* flex */
