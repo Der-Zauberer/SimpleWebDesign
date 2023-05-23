@@ -8,13 +8,13 @@
     scroll-behavior: smooth;
     font-size: 18px;
     line-height: 30px;
-    --theme-primary: #004dff;
-    --theme-secondary: #003ecc;
+    --theme-primary: #0033ff;
+    --theme-secondary: #0024b3;
     --theme-background: #ffffff;
-    --theme-grey-primary: #e6e6e6;
-    --theme-grey-secondary: #cccccc;
+    --theme-grey-primary: #e0e0e0;
+    --theme-grey-secondary: #c2c2c2;
     --theme-text-color: #000000;
-    --theme-text-grey-color: #808080;
+    --theme-text-grey-color: #666666;
     --theme-error-color: #e60000;
     --theme-border-radius: 5px;
     --theme-border-width: 3px;
@@ -24,7 +24,7 @@
 }
 
 ::selection {
-    background: #004dff;
+    background: #0033ff;
     color: #ffffff;
 }
 
@@ -41,9 +41,10 @@ body {
 @media (prefers-color-scheme: light) {
     :root {
         --theme-background: #ffffff;
-        --theme-grey-primary: #e6e6e6;
-        --theme-grey-secondary: #cccccc;
+        --theme-grey-primary: #e0e0e0;
+        --theme-grey-secondary: #c2c2c2;
         --theme-text-color: #000000;
+        --theme-text-grey-color: #666666;
     }
     .only-darkmode:not(.darkmode, .darkmode *) {display: none}
 }
@@ -51,18 +52,20 @@ body {
 @media (prefers-color-scheme: dark) {
     :root {
         --theme-background: #000000;
-        --theme-grey-primary: #1a1a1a;
-        --theme-grey-secondary: #333333;
+        --theme-grey-primary: #1f1f1f;
+        --theme-grey-secondary: #3d3d3d;
         --theme-text-color: #ffffff;
+        --theme-text-grey-color: #999999;
     }
     .only-lightmode:not(.lightmode, .lightmode *) {display: none}
 }
 
 .lightmode {
     --theme-background: #ffffff;
-    --theme-grey-primary: #e6e6e6;
-    --theme-grey-secondary: #cccccc;
+    --theme-grey-primary: #e0e0e0;
+    --theme-grey-secondary: #c2c2c2;
     --theme-text-color: #000000;
+    --theme-text-grey-color: #666666;
     background-color: var(--theme-background);
     color: var(--theme-text-color);
 }
@@ -70,9 +73,10 @@ body {
 
 .darkmode {
     --theme-background: #000000;
-    --theme-grey-primary: #1a1a1a;
-    --theme-grey-secondary: #333333;
+    --theme-grey-primary: #1f1f1f;
+    --theme-grey-secondary: #3d3d3d;
     --theme-text-color: #ffffff;
+    --theme-text-grey-color: #999999;
     background-color: var(--theme-background);
     color: var(--theme-text-color);
 }
@@ -754,7 +758,7 @@ pre {
     line-height: 25px;
     display: block;
     color: white;
-    background-color: #1a1a1a;
+    background-color: #1f1f1f;
     padding: 15px;
     margin-bottom: var(--theme-element-spacing);
     border-radius: var(--theme-border-radius);
@@ -942,79 +946,79 @@ ol li:last-child {padding-bottom: 0px}
 .white {background-color: white;  border-color: white; color: black} @media (prefers-color-scheme: dark) {.white {background-color: black; border-color: black; color: white}} .lightmode .white {background-color: white; border-color: white; color: black} .darkmode .white {background-color: black; border-color: black; color: white}
 .black {background-color: black; border-color: black; color: white} @media (prefers-color-scheme: dark) {.black {background-color: white; border-color: white; color: black}} .lightmode .black {background-color: black; border-color: black; color: white} .darkmode .black {background-color: white; border-color: white; color: black}
 
-.dark-grey {background-color: #cccccc; border-color: #cccccc; color: black} @media (prefers-color-scheme: dark) {.dark-grey {background-color: #333333; border-color: #333333; color: white}} .lightmode .dark-grey {background-color: #cccccc; border-color: #cccccc; color: black} .darkmode .dark-grey {background-color: #333333; border-color: #333333; color: white}
-.grey {background-color: #e6e6e6; border-color: #e6e6e6; color: black} @media (prefers-color-scheme: dark) {.grey {background-color: #1a1a1a; border-color: #1a1a1a; color: white}} .lightmode .grey {background-color: #e6e6e6; border-color: #e6e6e6; color: black} .darkmode .grey {background-color: #1a1a1a; border-color: #1a1a1a; color: white}
+.dark-grey {background-color: #c2c2c2; border-color: #c2c2c2; color: black} @media (prefers-color-scheme: dark) {.dark-grey {background-color: #3d3d3d; border-color: #3d3d3d; color: white}} .lightmode .dark-grey {background-color: #c2c2c2; border-color: #c2c2c2; color: black} .darkmode .dark-grey {background-color: #3d3d3d; border-color: #3d3d3d; color: white}
+.grey {background-color: #e0e0e0; border-color: #e0e0e0; color: black} @media (prefers-color-scheme: dark) {.grey {background-color: #1f1f1f; border-color: #1f1f1f; color: white}} .lightmode .grey {background-color: #e0e0e0; border-color: #e0e0e0; color: black} .darkmode .grey {background-color: #1f1f1f; border-color: #1f1f1f; color: white}
 
-.dark-blue {background-color: #003ecc; border-color: #003ecc; color: white}
-.blue {background-color: #004dff; border-color: #004dff; color: white}
-.transparent-blue {background-color: #004dff4d; border-color: #004dff; color: #004dff}
+.dark-blue {background-color: #0024b3; border-color: #0024b3; color: white}
+.blue {background-color: #0033ff; border-color: #0033ff; color: white}
+.transparent-blue {background-color: #0033ff66; border-color: #0033ff; color: #0033ff}
 
-.dark-green {background-color: #007f00; border-color: #007f00; color: white}
-.green {background-color: #00b300; border-color: #00b300; color: white}
-.transparent-green {background-color: #00b3004d; border-color: #00b300; color: #00b300}
+.dark-green {background-color: #0f4d00; border-color: #0f4d00; color: white}
+.green {background-color: #1f9900; border-color: #1f9900; color: white}
+.transparent-green {background-color: #1f990066; border-color: #1f9900; color: #1f9900}
 
-.dark-yellow {background-color: #cc9900; border-color: #cc9900; color: white}
-.yellow {background-color: #ffbf00; border-color: #ffbf00; color: white}
-.transparent-yellow {background-color: #ffbf004d; border-color: #ffbf00; color: #ffbf00}
+.dark-yellow {background-color: #997a00; border-color: #997a00; color: white}
+.yellow {background-color: #e5b800; border-color: #e5b800; color: white}
+.transparent-yellow {background-color: #e5b80066; border-color: #e5b800; color: #e5b800}
 
-.dark-red {background-color: #b30000; border-color: #b30000; color: white}
+.dark-red {background-color: #990000; border-color: #990000; color: white}
 .red {background-color: #e60000; border-color: #e60000; color: white}
-.transparent-red {background-color: #e600004d; border-color: #e60000; color: #e60000}
+.transparent-red {background-color: #e6000066; border-color: #e60000; color: #e60000}
 
 /* hover colors */
 
 .white-hover:hover {background-color: white} @media (prefers-color-scheme: dark) {.white-hover:hover {background-color: black}} .lightmode .white-hover:hover {background-color: white} .darkmode .white-hover:hover {background-color: black}
 .black-hover:hover {background-color: black} @media (prefers-color-scheme: dark) {.black-hover:hover {background-color: white}} .lightmode .black-hover:hover {background-color: black} .darkmode .black-hover:hover {background-color: white}
-.grey-hover:hover {background-color: #e6e6e6} @media (prefers-color-scheme: dark) {.grey-hover:hover {background-color: #1a1a1a}} .lightmode .grey-hover:hover {background-color: #e6e6e6} .darkmode .grey-hover:hover {background-color: #1a1a1a}
-.dark-grey-hover:hover {background-color: #cccccc} @media (prefers-color-scheme: dark) {.dark-grey-hover:hover {background-color: #333333}} .lightmode .dark-grey-hover:hover {background-color: #cccccc} .darkmode .white-hover:hover {background-color: #333333}
-.dark-blue-hover:hover {background-color: #003ecc}
-.blue-hover:hover {background-color: #004dff}
-.dark-green-hover:hover {background-color: #007f00}
-.green-hover:hover {background-color: #00b300}
-.dark-yellow-hover:hover {background-color: #cc9900}
-.yellow-hover:hover {background-color: #ffbf00}
-.dark-red-hover:hover {background-color: #b30000}
+.grey-hover:hover {background-color: #e0e0e0} @media (prefers-color-scheme: dark) {.grey-hover:hover {background-color: #1f1f1f}} .lightmode .grey-hover:hover {background-color: #e0e0e0} .darkmode .grey-hover:hover {background-color: #1f1f1f}
+.dark-grey-hover:hover {background-color: #c2c2c2} @media (prefers-color-scheme: dark) {.dark-grey-hover:hover {background-color: #3d3d3d}} .lightmode .dark-grey-hover:hover {background-color: #c2c2c2} .darkmode .white-hover:hover {background-color: #3d3d3d}
+.dark-blue-hover:hover {background-color: #0024b3}
+.blue-hover:hover {background-color: #0033ff}
+.dark-green-hover:hover {background-color: #0f4d00}
+.green-hover:hover {background-color: #1f9900}
+.dark-yellow-hover:hover {background-color: #997a00}
+.yellow-hover:hover {background-color: #e5b800}
+.dark-red-hover:hover {background-color: #990000}
 .red-hover:hover {background-color: #e60000}
 
 /* border colors */
 
 .white-border {border-color: white} @media (prefers-color-scheme: dark) {.white-border {border-color: black}} .lightmode .white-border {border-color: white} .darkmode .white-border {border-color: black}
 .black-border {border-color: black} @media (prefers-color-scheme: dark) {.black-border {border-color: white}} .lightmode .black-border {border-color: black} .darkmode .black-border {border-color: white}
-.grey-border {border-color: #e6e6e6} @media (prefers-color-scheme: dark) {.grey-border {border-color: #1a1a1a}} .lightmode .grey-border {border-color: #e6e6e6} .darkmode .grey-border {border-color: #1a1a1a}
-.dark-grey-border {border-color: #cccccc} @media (prefers-color-scheme: dark) {.dark-grey-border {border-color: #333333}} .lightmode .dark-grey-border {border-color: #cccccc} .darkmode .white-border {border-color: #333333}
-.dark-blue-border {border-color: #003ecc}
-.blue-border {border-color: #004dff}
-.dark-green-border {border-color: #007f00}
-.green-border {border-color: #00b300}
-.dark-yellow-border {border-color: #cc9900}
-.yellow-border {border-color: #ffbf00}
-.dark-red-border {border-color: #b30000}
+.grey-border {border-color: #e0e0e0} @media (prefers-color-scheme: dark) {.grey-border {border-color: #1f1f1f}} .lightmode .grey-border {border-color: #e0e0e0} .darkmode .grey-border {border-color: #1f1f1f}
+.dark-grey-border {border-color: #c2c2c2} @media (prefers-color-scheme: dark) {.dark-grey-border {border-color: #3d3d3d}} .lightmode .dark-grey-border {border-color: #c2c2c2} .darkmode .white-border {border-color: #3d3d3d}
+.dark-blue-border {border-color: #0024b3}
+.blue-border {border-color: #0033ff}
+.dark-green-border {border-color: #0f4d00}
+.green-border {border-color: #1f9900}
+.dark-yellow-border {border-color: #997a00}
+.yellow-border {border-color: #e5b800}
+.dark-red-border {border-color: #990000}
 .red-border {border-color: #e60000}
 
 /* border hover colors */
 
 .white-border:hover {border-color: white} @media (prefers-color-scheme: dark) {.white-border:hover {border-color: black}} .lightmode .white-border:hover {border-color: white} .darkmode .white-border:hover {border-color: black}
 .black-border:hover {border-color: black} @media (prefers-color-scheme: dark) {.black-border:hover {border-color: white}} .lightmode .black-border:hover {border-color: black} .darkmode .black-border:hover {border-color: white}
-.grey-border:hover {border-color: #e6e6e6} @media (prefers-color-scheme: dark) {.grey-border:hover {border-color: #1a1a1a}} .lightmode .grey-border:hover {border-color: #e6e6e6} .darkmode .grey-border:hover {border-color: #1a1a1a}
-.dark-grey-border:hover {border-color: #cccccc} @media (prefers-color-scheme: dark) {.dark-grey-border:hover {border-color: #333333}} .lightmode .dark-grey-border:hover {border-color: #cccccc} .darkmode .white-border:hover {border-color: #333333}
-.dark-blue-border:hover {border-color: #003ecc}
-.blue-border:hover {border-color: #004dff}
-.dark-green-border:hover {border-color: #007f00}
-.green-border:hover {border-color: #00b300}
-.dark-yellow-border:hover {border-color: #cc9900}
-.yellow-border:hover {border-color: #ffbf00}
-.dark-red-border:hover {border-color: #b30000}
+.grey-border:hover {border-color: #e0e0e0} @media (prefers-color-scheme: dark) {.grey-border:hover {border-color: #1f1f1f}} .lightmode .grey-border:hover {border-color: #e0e0e0} .darkmode .grey-border:hover {border-color: #1f1f1f}
+.dark-grey-border:hover {border-color: #c2c2c2} @media (prefers-color-scheme: dark) {.dark-grey-border:hover {border-color: #3d3d3d}} .lightmode .dark-grey-border:hover {border-color: #c2c2c2} .darkmode .white-border:hover {border-color: #3d3d3d}
+.dark-blue-border:hover {border-color: #0024b3}
+.blue-border:hover {border-color: #0033ff}
+.dark-green-border:hover {border-color: #0f4d00}
+.green-border:hover {border-color: #1f9900}
+.dark-yellow-border:hover {border-color: #997a00}
+.yellow-border:hover {border-color: #e5b800}
+.dark-red-border:hover {border-color: #990000}
 .red-border:hover {border-color: #e60000}
 
 /* text colors */
 
 .white-text {color: white} @media (prefers-color-scheme: dark) {.white-text {color: black}} .lightmode .white-text {color: white} .darkmode .white-text {color: black}
 .black-text {color: black} @media (prefers-color-scheme: dark) {.black-text {color: white}} .lightmode .black-text {color: black} .darkmode .black-text {color: white}
-.grey-text {color: #808080}
-.blue-text {color: #004dff}
-.green-text {color: #00b300}
-.yellow-text {color: #ffbf00}
-.red-text {color: #e60000}
+.grey-text {color: #666666} @media (prefers-color-scheme: dark) {.grey-text {color: #999999}} .lightmode .grey-text {color: #666666} .darkmode .grey-text {color: #999999}
+.blue-text {color: #002ee5} @media (prefers-color-scheme: dark) {.blue-text {color: #335bff}} .lightmode .blue-text {color: #002ee5} .darkmode .blue-text {color: #335bff}
+.green-text {color: #156600} @media (prefers-color-scheme: dark) {.green-text {color: #29cc00}} .lightmode .green-text {color: #156600} .darkmode .green-text {color: #29cc00}
+.yellow-text {color: #cca300} @media (prefers-color-scheme: dark) {.yellow-text {color: #ffd21a}} .lightmode .yellow-text {color: #cca300} .darkmode .yellow-text {color: #ffd21a}
+.red-text {color: #cc0000} @media (prefers-color-scheme: dark) {.red-text {color: #ff1919}} .lightmode .red-text {color: #cc0000} .darkmode .red-text {color: #ff1919}
 
 /* utility classes */
 
