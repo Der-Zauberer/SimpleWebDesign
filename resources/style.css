@@ -13,14 +13,13 @@
     --theme-background: #ffffff;
     --theme-grey-primary: #e0e0e0;
     --theme-grey-secondary: #c2c2c2;
-    --theme-text-color: #000000;
-    --theme-text-grey-color: #666666;
-    --theme-error-color: #e60000;
+    --theme-text: #000000;
+    --theme-text-grey: #666666;
     --theme-border-radius: 5px;
     --theme-border-width: 3px;
     --theme-element-spacing: 30px;
     background-color: var(--theme-background);
-    color: var(--theme-text-color);
+    color: var(--theme-text);
 }
 
 ::selection {
@@ -43,8 +42,8 @@ body {
         --theme-background: #ffffff;
         --theme-grey-primary: #e0e0e0;
         --theme-grey-secondary: #c2c2c2;
-        --theme-text-color: #000000;
-        --theme-text-grey-color: #666666;
+        --theme-text: #000000;
+        --theme-text-grey: #666666;
     }
     .only-darkmode:not(.darkmode, .darkmode *) {display: none}
 }
@@ -54,8 +53,8 @@ body {
         --theme-background: #000000;
         --theme-grey-primary: #1f1f1f;
         --theme-grey-secondary: #3d3d3d;
-        --theme-text-color: #ffffff;
-        --theme-text-grey-color: #999999;
+        --theme-text: #ffffff;
+        --theme-text-grey: #999999;
     }
     .only-lightmode:not(.lightmode, .lightmode *) {display: none}
 }
@@ -64,10 +63,10 @@ body {
     --theme-background: #ffffff;
     --theme-grey-primary: #e0e0e0;
     --theme-grey-secondary: #c2c2c2;
-    --theme-text-color: #000000;
-    --theme-text-grey-color: #666666;
+    --theme-text: #000000;
+    --theme-text-grey: #666666;
     background-color: var(--theme-background);
-    color: var(--theme-text-color);
+    color: var(--theme-text);
 }
 .lightmode .only-darkmode {display: none}
 
@@ -75,10 +74,10 @@ body {
     --theme-background: #000000;
     --theme-grey-primary: #1f1f1f;
     --theme-grey-secondary: #3d3d3d;
-    --theme-text-color: #ffffff;
-    --theme-text-grey-color: #999999;
+    --theme-text: #ffffff;
+    --theme-text-grey: #999999;
     background-color: var(--theme-background);
-    color: var(--theme-text-color);
+    color: var(--theme-text);
 }
 .darkmode .only-lightmode {display: none}
 
@@ -286,7 +285,7 @@ body {
 }
 
 .menu input {
-    color: var(--theme-text-color);
+    color: var(--theme-text);
     border: 0px;
     max-height: 35px;
     min-height: 35px;
@@ -307,7 +306,7 @@ body {
     height: calc(100% - 130px);
     padding: 40px 20px;
     width: 210px;
-    color: var(--theme-text-color);
+    color: var(--theme-text);
     background-color: var(--theme-grey-primary);
     z-index: 1;
     transition: left 0.2s;
@@ -331,7 +330,7 @@ body {
     text-decoration: none;
     white-space: nowrap;
     overflow-x: hidden;
-    color: var(--theme-text-color);
+    color: var(--theme-text);
 }
 
 .navigation  > *:first-child {
@@ -360,7 +359,7 @@ body {
 }
 
 .navigation a:active, .navigation a:visited {
-    color: var(--theme-text-color);
+    color: var(--theme-text);
     text-decoration: none;
 }
 
@@ -432,7 +431,7 @@ input, select, textarea {
     box-sizing: border-box;
     font-family: Roboto;
     background-color: var(--theme-grey-primary);
-    color: var(--theme-text-color);
+    color: var(--theme-text);
     min-height: 40px;
     font-size: 16px;
     padding: 8px 10px;
@@ -525,7 +524,7 @@ input[type=number] {appearance: textfield;}
     top: 0px;
     left: 10px;
     font-size: 13px;
-    color: var(--theme-text-grey-color);
+    color: var(--theme-text-grey);
 }
 
 input:focus + .input-name, textarea:focus + .input-name {
@@ -551,7 +550,7 @@ input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
     font-size: 13px;
     line-height: 12px;
     right: 0;
-    color: var(--theme-text-grey-color);
+    color: var(--theme-text-grey);
 }
 
 .input-buttons {
@@ -642,12 +641,12 @@ input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
     padding: 0px 10px;
     line-height: 40px;
     font-size: 18px;
-    color: var(--theme-text-color);
+    color: var(--theme-text);
 }
 
 .dropdown .dropdown-content a:hover, .dropdown-active {
     background-color: var(--theme-grey-secondary);
-    color: var(--theme-text-color);
+    color: var(--theme-text);
     text-decoration: none;
 }
 
@@ -709,7 +708,7 @@ input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
 /* labels */
 
 label {
-    color: var(--theme-text-color);
+    color: var(--theme-text);
     background-color: var(--theme-primary);
     font-weight: 500;
     border-radius: var(--theme-border-radius);
