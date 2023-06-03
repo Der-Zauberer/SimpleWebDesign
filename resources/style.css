@@ -469,7 +469,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 input:invalid[dirty], select:invalid[dirty], textarea:invalid[dirty] {
-    border-color: var(--theme-error-color);
+    border-color: #e60000;
 }
 
 .button {
@@ -532,7 +532,7 @@ input:focus + .input-name, textarea:focus + .input-name {
 }
 
 input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
-    color: var(--theme-error-color);
+    color: #e60000;
 }
 
 .input-error {
@@ -541,7 +541,7 @@ input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
     font-size: 12px;
     line-height: 12px;
     max-width: calc(100% - 20px);
-    color: var(--theme-error-color);
+    color: #e60000;
 }
 
 .input-range {
@@ -950,19 +950,19 @@ ol li:last-child {padding-bottom: 0px}
 
 .dark-blue {background-color: #0024b3; border-color: #0024b3; color: white}
 .blue {background-color: #0033ff; border-color: #0033ff; color: white}
-.transparent-blue {background-color: #0033ff66; border-color: #0033ff; color: #0033ff}
+.blue-transparent {background-color: #0033ff66; border-color: #0033ff}
 
 .dark-green {background-color: #0f4d00; border-color: #0f4d00; color: white}
 .green {background-color: #1f9900; border-color: #1f9900; color: white}
-.transparent-green {background-color: #1f990066; border-color: #1f9900; color: #1f9900}
+.green-transparent {background-color: #1f990066; border-color: #1f9900}
 
 .dark-yellow {background-color: #997a00; border-color: #997a00; color: white}
 .yellow {background-color: #e5b800; border-color: #e5b800; color: white}
-.transparent-yellow {background-color: #e5b80066; border-color: #e5b800; color: #e5b800}
+.yellow-transparent {background-color: #e5b80066; border-color: #e5b800}
 
 .dark-red {background-color: #990000; border-color: #990000; color: white}
 .red {background-color: #e60000; border-color: #e60000; color: white}
-.transparent-red {background-color: #e6000066; border-color: #e60000; color: #e60000}
+.red-transparent {background-color: #e6000066; border-color: #e60000;}
 
 /* hover colors */
 
@@ -1014,10 +1014,10 @@ ol li:last-child {padding-bottom: 0px}
 .white-text {color: white} @media (prefers-color-scheme: dark) {.white-text {color: black}} .lightmode .white-text {color: white} .darkmode .white-text {color: black}
 .black-text {color: black} @media (prefers-color-scheme: dark) {.black-text {color: white}} .lightmode .black-text {color: black} .darkmode .black-text {color: white}
 .grey-text {color: #666666} @media (prefers-color-scheme: dark) {.grey-text {color: #999999}} .lightmode .grey-text {color: #666666} .darkmode .grey-text {color: #999999}
-.blue-text {color: #002ee5} @media (prefers-color-scheme: dark) {.blue-text {color: #335bff}} .lightmode .blue-text {color: #002ee5} .darkmode .blue-text {color: #335bff}
-.green-text {color: #156600} @media (prefers-color-scheme: dark) {.green-text {color: #29cc00}} .lightmode .green-text {color: #156600} .darkmode .green-text {color: #29cc00}
-.yellow-text {color: #cca300} @media (prefers-color-scheme: dark) {.yellow-text {color: #ffd21a}} .lightmode .yellow-text {color: #cca300} .darkmode .yellow-text {color: #ffd21a}
-.red-text {color: #cc0000} @media (prefers-color-scheme: dark) {.red-text {color: #ff1919}} .lightmode .red-text {color: #cc0000} .darkmode .red-text {color: #ff1919}
+.blue-text, .blue-transparent {color: #002ee5} @media (prefers-color-scheme: dark) {.blue-text, .blue-transparent {color: #335bff}} .lightmode .blue-text, .lightmode .blue-transparent {color: #002ee5} .darkmode .blue-text, .darkmode .blue-transparent {color: #335bff}
+.green-text, .green-transparent {color: #156600} @media (prefers-color-scheme: dark) {.green-text, .green-transparent {color: #29cc00}} .lightmode .green-text, .lightmode .green-transparent {color: #156600} .darkmode .green-text, .darkmode .green-transparent {color: #29cc00}
+.yellow-text, .yellow-transparent {color: #cca300} @media (prefers-color-scheme: dark) {.yellow-text, .yellow-transparent {color: #ffd21a}} .lightmode .yellow-text, .lightmode .yellow-transparent {color: #cca300} .darkmode .yellow-text, .darkmode .yellow-transparent {color: #ffd21a}
+.red-text, .red-transparent {color: #cc0000} @media (prefers-color-scheme: dark) {.red-text, .red-transparent {color: #ff1919}} .lightmode .red-text, .lightmode .red-transparent {color: #cc0000} .darkmode .red-text, .darkmode .red-transparent {color: #ff1919}
 
 /* utility classes */
 
