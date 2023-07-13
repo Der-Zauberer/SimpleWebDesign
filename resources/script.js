@@ -172,7 +172,7 @@ class SWD {
         }
         if (!this.#mobileNavigationMenu) return;
         for (const element of this.#mobileNavigationMenu.getElementsByTagName('A')) {
-            if (element.innerText == string) element.classList.add('menu-active');
+            if (element.innerText == string || (element.hasAttribute('value') && element.getAttribute('value') == string)) element.classList.add('menu-active');
             else element.classList.remove('menu-active');
         }
     }
@@ -227,7 +227,7 @@ class SWD {
         if (string == undefined || string == '' || !this.#navigation) return;
         for (const element of this.#navigation.getElementsByTagName('A')) {
             if (element.parentElement.classList.contains('navigation-menu')) continue;
-            if (element.innerText == string) element.classList.add('navigation-active');
+            if (element.innerText == string  || (element.hasAttribute('value') && element.getAttribute('value') == string)) element.classList.add('navigation-active');
             else element.classList.remove('menu-active');
         }
     }
