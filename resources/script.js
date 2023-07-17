@@ -142,7 +142,7 @@ class SWD {
 		if (currentUrl.includes('?')) {
 			const parameterString = '?' + currentUrl.split('?')[1];
 			if (parameterString.includes('?' + param + '=') || parameterString.includes('&' + param + '=')) {
-				currentUrl = currentUrl.replace(new RegExp('((\?|\&)' + param + '=)([^&]+)', 'gm'), '$1' + value);
+				currentUrl = currentUrl.replace(new RegExp('((\\?|&)' + param + '=)[^&]+', 'gm'), '$1' + value);
 			} else {
                 if (currentUrl.substring(currentUrl.length - 1) != '?' && currentUrl.substring(currentUrl.length - 1) != '&') currentUrl += '&';
 				currentUrl += param + '=' + value;
@@ -160,8 +160,9 @@ class SWD {
 			const parameterString = '?' + currentUrl.split('?')[1];
 			if (parameterString.includes('?' + param + '=') || parameterString.includes('&' + param + '=')) {
 				currentUrl = currentUrl.replace(new RegExp('&?' + param + '=[^&]+', 'gm'), '');
-                if (currentUrl.substring(currentUrl.length - 1) == '&') currentUrl += currentUrl.substring(0, currentUrl.length - 1);
+                if (currentUrl.substring(currentUrl.length - 1) == '&') currentUrl = currentUrl.substring(0, currentUrl.length - 1);
                 currentUrl = currentUrl.replace('?&', '?');
+                if (currentUrl.substring(currentUrl.length - 1) == '?') currentUrl = currentUrl.substring(0, currentUrl.length - 1);
 			}
 		}
 		window.location.href = currentUrl;
