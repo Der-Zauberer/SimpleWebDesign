@@ -743,6 +743,34 @@ img.input-icon:hover {
     .dialog { background-color: rgba(0, 0, 0, 0.8)}
 }
 
+/* notification */
+
+.notification {
+    display: none;
+    position: fixed;
+    box-sizing: border-box;
+    z-index: 3;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    padding: calc(var(--theme-element-spacing) / 2);
+    margin: var(--theme-element-spacing);
+    max-width: calc(100% - var(--theme-element-spacing));
+    background-color: var(--theme-grey-primary);
+    border-radius: var(--theme-border-radius);
+}
+
+.notification > *:first-child {margin-top: 0px}
+.notification > *:last-child {margin-bottom: 0px}
+
+@media (max-width: 768px) {
+    .notification {
+        width: 100%;
+        padding: calc(var(--theme-element-spacing) / 2);
+        margin: calc(var(--theme-element-spacing) / 2);
+    }
+}
+
 /* labels */
 
 label {

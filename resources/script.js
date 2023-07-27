@@ -458,6 +458,20 @@ class SWD {
             dialog.classList.remove('show');
         }
     }
+
+    // *********************
+    // * Notification      *
+    // *********************
+    
+    toggleNotification(notificationId) {
+        const Notification = document.getElementById(notificationId);
+        if (!Notification.classList.contains('show')) {
+            this.hideAllDropdowns();
+            Notification.classList.add('show');
+        } else {
+            Notification.classList.remove('show');
+        }
+    }
     
     // *********************
     // * Code Highlighting *
