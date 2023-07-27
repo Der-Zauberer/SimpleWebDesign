@@ -621,7 +621,7 @@
                 </div>
                 
                 <code class="code-html">
-                    &lt;a class="button" onclick="swd.toggleDialog('test-dialog')"&gt;Dialog&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="swd.toggleDialog('test-dialog')"&gt;Dialog&lt;/a&gt;<br><br>
                 
                     &lt;div class="dialog" id="test-dialog"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="swd.dialog-content"&gt;<br>
@@ -649,11 +649,15 @@
                 </div>
 
                 <code class="code-html">
-                    &lt;div class="flex"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;span>This is a notification!&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a onclick="swd.toggleNotification('test-notification')" style="margin-left: auto;"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img class="icon" src="/SimpleWebDesign/resources/icons/close.svg"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;<br>
+                    &lt;a class="button" onclick="swd.toggleNotification('test-notification')"&gt;Notification&lt;/a&gt;<br><br>
+                
+                    &lt;div class="notification" id="test-notification"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="flex"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span>This is a notification!&lt;/span&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a onclick="swd.toggleNotification('test-notification')" style="margin-left: auto;"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img class="icon" src="/SimpleWebDesign/resources/icons/close.svg"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
                     &lt;/div&gt;
                 </code>
 
