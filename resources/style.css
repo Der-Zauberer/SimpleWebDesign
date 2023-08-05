@@ -712,9 +712,7 @@ img.input-icon:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--theme-grey-primary);
-    border-color: var(--theme-grey-secondary);
-    border-style: solid;
-    border-width: 3px;
+    border: solid 3px var(--theme-grey-secondary);
     border-radius: var(--theme-border-radius);
 }
 
@@ -758,6 +756,7 @@ img.input-icon:hover {
     max-width: calc(100% - var(--theme-element-spacing));
     background-color: var(--theme-grey-primary);
     border-radius: var(--theme-border-radius);
+    border: solid 3px var(--theme-grey-secondary);
 }
 
 .notification > *:first-child {margin-top: 0px}
