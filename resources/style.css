@@ -590,6 +590,7 @@ input:invalid[dirty] + .input-name, textarea:invalid[dirty] + .input-name {
 .input-buttons .button {
     display: flex;
     align-items: center;
+    background-color: var(--theme-grey-secondary);
 }
 
 .input-buttons .button.active {
