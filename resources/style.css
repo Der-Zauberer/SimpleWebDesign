@@ -34,8 +34,6 @@ body {
     background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 768px) {:root {font-size: 15px; line-height: 25px; --theme-element-spacing: 25px;}}
-
 /* darkmode and lightmode */
 
 @media (prefers-color-scheme: light) {
