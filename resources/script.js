@@ -44,6 +44,12 @@ class SWD {
         if (this.#navigation && this.#navigation.classList.contains('show') && event.clientX > 250) this.toggleMobileNavigationMenu();
         if (!event.target.parentNode.classList || !event.target.parentNode.classList.contains('dropdown')) this.hideAllDropdowns();
     }
+
+    onKeyDown(event) {
+        if (event.keyCode == 27) {
+            this.hideAllDropdowns();
+        }
+    }
     
     // *********************
     // * Include Replace   *
@@ -560,6 +566,9 @@ document.addEventListener('readystatechange', event => {
         });
         window.addEventListener('resize', (event) => {
             swd.onPageResize(event);
+        });
+        window.addEventListener('keydown', (event) => {
+            swd.onKeyDown(event);
         });
         swd.onLoad(document);
     }
