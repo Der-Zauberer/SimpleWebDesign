@@ -1051,6 +1051,10 @@ ol li:last-child {padding-bottom: 0px}
 .blue, .blue:hover {background-color: #0033ff; border-color: #0033ff; color: white}
 .blue-transparent, .blue-transparent:hover {background-color: #0033ff66; border-color: #0033ff}
 
+.dark-aqua, .dark-aqua:hover {background-color: #006c99; border-color: #006c99; color: white}
+.aqua, .aqua:hover {background-color: #00a2e6; border-color: #00a2e6; color: white}
+.aqua-transparent, .aqua-transparent:hover {background-color: #00a2e666; border-color: #00a2e6}
+
 .dark-green, .dark-green:hover {background-color: #0f4d00; border-color: #0f4d00; color: white}
 .green, .green:hover {background-color: #1f9900; border-color: #1f9900; color: white}
 .green-transparent, .green-transparent:hover {background-color: #1f990066; border-color: #1f9900}
@@ -1058,6 +1062,10 @@ ol li:last-child {padding-bottom: 0px}
 .dark-yellow, .dark-yellow:hover {background-color: #997a00; border-color: #997a00; color: white}
 .yellow, .yellow:hover {background-color: #e5b800; border-color: #e5b800; color: white}
 .yellow-transparent, .yellow-transparent:hover {background-color: #e5b80066; border-color: #e5b800}
+
+.dark-orange, .dark-orange:hover {background-color: #992e00; border-color: #992e00; color: white}
+.orange, .orange:hover {background-color: #e64500; border-color: #e64500; color: white}
+.orange-transparent, .orange-transparent:hover {background-color: #e6450066; border-color: #e64500}
 
 .dark-red, .dark-red:hover {background-color: #990000; border-color: #990000; color: white}
 .red, .red:hover {background-color: #e60000; border-color: #e60000; color: white}
@@ -1071,10 +1079,14 @@ ol li:last-child {padding-bottom: 0px}
 .dark-grey-hover:hover {background-color: #c2c2c2} @media (prefers-color-scheme: dark) {.dark-grey-hover:hover {background-color: #3d3d3d}} .lightmode .dark-grey-hover:hover {background-color: #c2c2c2} .darkmode .white-hover:hover {background-color: #3d3d3d}
 .dark-blue-hover:hover {background-color: #0024b3}
 .blue-hover:hover {background-color: #0033ff}
+.dark-aqua-hover:hover {background-color: #006c99}
+.aqua-hover:hover {background-color: #00a2e6}
 .dark-green-hover:hover {background-color: #0f4d00}
 .green-hover:hover {background-color: #1f9900}
 .dark-yellow-hover:hover {background-color: #997a00}
 .yellow-hover:hover {background-color: #e5b800}
+.dark-orange-hover:hover {background-color: #992e00}
+.orange-hover:hover {background-color: #e64500}
 .dark-red-hover:hover {background-color: #990000}
 .red-hover:hover {background-color: #e60000}
 
@@ -1086,10 +1098,14 @@ ol li:last-child {padding-bottom: 0px}
 .dark-grey-border {border-color: #c2c2c2} @media (prefers-color-scheme: dark) {.dark-grey-border {border-color: #3d3d3d}} .lightmode .dark-grey-border {border-color: #c2c2c2} .darkmode .white-border {border-color: #3d3d3d}
 .dark-blue-border {border-color: #0024b3}
 .blue-border {border-color: #0033ff}
+.dark-aqua-border {border-color: #006c99}
+.aqua-border {border-color: #00a2e6}
 .dark-green-border {border-color: #0f4d00}
 .green-border {border-color: #1f9900}
 .dark-yellow-border {border-color: #997a00}
 .yellow-border {border-color: #e5b800}
+.dark-orange-border {border-color: #992e00}
+.orange-border {border-color: #e64500}
 .dark-red-border {border-color: #990000}
 .red-border {border-color: #e60000}
 
@@ -1101,10 +1117,14 @@ ol li:last-child {padding-bottom: 0px}
 .dark-grey-border:hover {border-color: #c2c2c2} @media (prefers-color-scheme: dark) {.dark-grey-border:hover {border-color: #3d3d3d}} .lightmode .dark-grey-border:hover {border-color: #c2c2c2} .darkmode .white-border:hover {border-color: #3d3d3d}
 .dark-blue-border:hover {border-color: #0024b3}
 .blue-border:hover {border-color: #0033ff}
+.dark-aqua-border:hover {border-color: #006c99}
+.aqua-border:hover {border-color: #00a2e6}
 .dark-green-border:hover {border-color: #0f4d00}
 .green-border:hover {border-color: #1f9900}
 .dark-yellow-border:hover {border-color: #997a00}
 .yellow-border:hover {border-color: #e5b800}
+.dark-orange-border:hover {border-color: #992e00}
+.orange-border:hover {border-color: #e64500}
 .dark-red-border:hover {border-color: #990000}
 .red-border:hover {border-color: #e60000}
 
@@ -1114,8 +1134,10 @@ ol li:last-child {padding-bottom: 0px}
 .black-text {color: black} @media (prefers-color-scheme: dark) {.black-text {color: white}} .lightmode .black-text {color: black} .darkmode .black-text {color: white}
 .grey-text {color: #666666} @media (prefers-color-scheme: dark) {.grey-text {color: #999999}} .lightmode .grey-text {color: #666666} .darkmode .grey-text {color: #999999}
 .blue-text, .blue-transparent {color: #002ee5} @media (prefers-color-scheme: dark) {.blue-text, .blue-transparent {color: #335bff}} .lightmode .blue-text, .lightmode .blue-transparent {color: #002ee5} .darkmode .blue-text, .darkmode .blue-transparent {color: #335bff}
-.green-text, .green-transparent {color: #156600} @media (prefers-color-scheme: dark) {.green-text, .green-transparent {color: #29cc00}} .lightmode .green-text, .lightmode .green-transparent {color: #156600} .darkmode .green-text, .darkmode .green-transparent {color: #29cc00}
+.aqua-text, .aqua-transparent {color: #0090cc} @media (prefers-color-scheme: dark) {.aqua-text, .aqua-transparent {color: #19bbff}} .lightmode .aqua-text, .lightmode .aqua-transparent {color: #0090cc} .darkmode .aqua-text, .darkmode .aqua-transparent {color: #19bbff}
+.green-text, .green-transparent {color: #1a8000} @media (prefers-color-scheme: dark) {.green-text, .green-transparent {color: #29cc00}} .lightmode .green-text, .lightmode .green-transparent {color: #1a8000} .darkmode .green-text, .darkmode .green-transparent {color: #29cc00}
 .yellow-text, .yellow-transparent {color: #cca300} @media (prefers-color-scheme: dark) {.yellow-text, .yellow-transparent {color: #ffd21a}} .lightmode .yellow-text, .lightmode .yellow-transparent {color: #cca300} .darkmode .yellow-text, .darkmode .yellow-transparent {color: #ffd21a}
+.orange-text, .orange-transparent {color: #cc3d00} @media (prefers-color-scheme: dark) {.orange-text, .orange-transparent {color: #ff5e19}} .lightmode .orange-text, .lightmode .orange-transparent {color: #cc3d00} .darkmode .orange-text, .darkmode .orange-transparent {color: #ff5e19}
 .red-text, .red-transparent {color: #cc0000} @media (prefers-color-scheme: dark) {.red-text, .red-transparent {color: #ff1919}} .lightmode .red-text, .lightmode .red-transparent {color: #cc0000} .darkmode .red-text, .darkmode .red-transparent {color: #ff1919}
 
 /* utility classes */
