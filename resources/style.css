@@ -88,7 +88,6 @@ body {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    margin-bottom: 50px;
     transition: width .2s;
 }
 
@@ -214,6 +213,10 @@ body {
     min-height: 100vh;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.footer-spacer-with-menu {
+    min-height: calc(100vh - 50px);
 }
 
 @media (max-width: 768px) {
