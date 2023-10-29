@@ -304,9 +304,8 @@ body {
 /* navigation */
 
 .navigation {
-    position: absolute;
-    display: block;
     position: fixed;
+    display: block;
     left: 0;
     height: calc(100% - 130px);
     padding: 40px 20px;
@@ -314,9 +313,9 @@ body {
     color: var(--theme-text);
     background-color: var(--theme-grey-primary);
     box-shadow: var(--theme-box-shadow);
-    z-index: 1;
+    z-index: 2;
     transition: left 0.2s;
-    overflow-y: hidden;
+    overflow-y: scroll;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;

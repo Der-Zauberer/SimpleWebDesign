@@ -40,6 +40,10 @@ class SWD {
         this.hideAllDropdowns();
     }
 
+    onPageScroll(event) {
+        if (this.#navigation && this.#navigation.classList.contains('show')) this.toggleMobileNavigationMenu();
+    }
+
     onPageClick(event) {
         if (this.#navigation && this.#navigation.classList.contains('show') && event.clientX > 250) this.toggleMobileNavigationMenu();
         if (!event.target.parentNode.classList || !event.target.parentNode.classList.contains('dropdown')) this.hideAllDropdowns();
@@ -566,6 +570,9 @@ document.addEventListener('readystatechange', event => {
         });
         window.addEventListener('resize', (event) => {
             swd.onPageResize(event);
+        });
+        document.addEventListener("scroll", (event) => {
+            swd.onPageScroll(event);
         });
         window.addEventListener('keydown', (event) => {
             swd.onKeyDown(event);
