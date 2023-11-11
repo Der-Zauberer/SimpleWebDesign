@@ -372,6 +372,7 @@ class SWD {
             else content.classList.remove('hide');
         });
         input.addEventListener('keydown', event => {
+            if (event.keyCode == 9) nextElementByTabIndex.focus();
             if (!content.classList.contains('show')) {
                 visibleElemnts = valueElements;
                 activeElement = -1;
