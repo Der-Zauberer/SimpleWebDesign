@@ -318,7 +318,7 @@ body {
     box-shadow: var(--theme-box-shadow);
     z-index: 2;
     transition: left 0.2s;
-    
+    overflow-y: none;
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
