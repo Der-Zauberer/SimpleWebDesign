@@ -99,9 +99,6 @@ body {
     margin: 0px auto;
 }
 
-[class*="container-"] > :first-child { margin-top: 0 }
-[class*="container-"] > :last-child { margin-bottom: 0 }
-
 .container-sm { max-width: 576px }
 .container-md { max-width: 768px }
 .container-lg { max-width: 992px }
@@ -122,9 +119,6 @@ body {
 [class*="grid-"].grid-auto-height {
     height: auto;
 }
-
-[class*="grid-"] > :first-child { margin-top: 0 }
-[class*="grid-"] > :last-child { margin-bottom: 0 }
 
 .grid-1 { grid-template-columns: repeat(1, minmax(0, 1fr)) }
 .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) }
@@ -228,9 +222,6 @@ body {
 .flex.flex-wrap {
     flex-wrap: wrap;
 }
-
-.flex > :first-child { margin-top: 0 }
-.flex > :last-child { margin-bottom: 0 }
 
 /****************
 *   Headlines   *
@@ -560,6 +551,26 @@ swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidde
 swd-navigation-content {
     display: block;
     margin-left: var(--theme-navigation-width);
+}
+
+/***********************
+*   Group Selections   *
+***********************/
+
+swd-router {
+    display: contents;
+}
+
+[class*="grid-"] > :first-child,
+[class*="container-"] > :first-child,
+.flex > :first-child { 
+    margin-top: 0 
+}
+
+[class*="grid-"] > :last-child,
+[class*="container-"] > :last-child,
+.flex > :last-child {
+    margin-bottom: 0
 }
 
 /*************

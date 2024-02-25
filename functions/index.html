@@ -14,26 +14,19 @@
         <swd-menu>
             <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
             <a href="/SimpleWebDesign/customization">Customization</a>
-            <a selected>Components</a>
-            <a href="/SimpleWebDesign/functions">Functions</a>
+            <a href="/SimpleWebDesign/components">Components</a>
+            <a selected>Functions</a>
         </swd-menu>
 
         <swd-navigation>
-            <a class="swd-navigation-title">Navigation</a>
-            <a>Layout</a>
-            <a>Layout...</a>
-            <a>Layout...</a>
-            <a>Layout...</a>
-            <a>Layout...</a>
-            <a>Layoutttttttttttttttttttttttttttttttttttttttttttttt</a>
-            <a>Layout...</a>
-            <a class="swd-navigation-title"></a>
-            <a>Layout...</a>
+            <a onclick="swd.setAttribute('router', 'src', 'functions/router.html')">Router</a>
+            <a onclick="swd.setAttribute('router', 'src', 'functions/else.html')">Else</a>
+            
         </swd-navigation>
 
         <swd-navigation-content>
-            <div class="container-xxl">
-                lala
+            <div>
+                <swd-router id="router" src="functions/router.html"></swd-router>
             </div>
         </swd-navigation-content>
 
