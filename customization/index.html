@@ -10,193 +10,122 @@
         <title>Simple Web Design</title>
     </head>
     <body>
+
+        <div class="container-xxl">
+            
+            <div class="grid-1 grid-md-2 grid-xl-3">
+                <div>
+                   
+                    <h1 class="margin-0 margin-bottom">Headline 1</h1>
+                    <h2 class="margin-0 margin-bottom">Headline 2</h2>
+                    <h3 class="margin-0 margin-bottom">Headline 3</h3>
+                    <h4 class="margin-0 margin-bottom">Headline 4</h4>
+                    <h5 class="margin-0 margin-bottom">Headline 5</h5>
+                    <h6 class="margin-0 margin-bottom">Headline 6</h6>
+
+                </div>
+                <div>
+                    
+                    <p>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    </p>
+
+                    <ol>
+                        <li>Ordered List 1</li>
+                        <li>Ordered List 2</li>
+                        <li>Ordered List 3</li>
+                    </ol>
+
+                    <ul>
+                        <li>Unordered List 1</li>
+                        <li>Unordered List 2</li>
+                        <li>Unordered List 3</li>
+                    </ul>
+            
+
+                </div>
+                <div>
+
+                    Default Button
+                    <div class="flex flex-wrap">
+                        <button>Button</button>
+                        <button selected>Active</button>
+                        <button disabled>Disabled</button>
+                    </div>
+
+                    Outline Button
+                    <div class="flex flex-wrap">
+                        <button class="outline">Button</button>
+                        <button class="outline" selected>Active</button>
+                        <button class="outline" disabled>Disabled</button>
+                    </div>
+
+                    Ghost Button
+                    <div class="flex flex-wrap">
+                        <button class="ghost">Button</button>
+                        <button class="ghost" selected>Active</button>
+                        <button class="ghost" disabled>Disabled</button>
+                    </div>
+
+                </div>
+
+                <div class="grid-1">
+                    <input value="Default">
+                    <input value="Default" selected>
+                    <input value="Default" disabled>
+                </div>
+
+                <div class="grid-1">
+                    <input value="Outline" class="outline">
+                    <input value="Outline" class="outline" selected>
+                    <input value="Outline" class="outline" disabled>
+                </div>
+
+                <div class="grid-1">
+                    <input value="Ghost" class="ghost">
+                    <input value="Ghost" class="ghost" selected>
+                    <input value="Ghost" class="ghost" disabled>
+                </div>
+
+                <div>
+                    <label>Label</label>
+                    <label>Label</label>
+                    <label>Label</label>
+                    <samp>Code</samp>
+                    <kbd>Key</kbd>
+                </div>
+
+                <div>
+                    <code>Code</code>
+                </div>
+
+                <div>
+                    <var>Var</var>
+                </div>
+
+                <div>
+                    <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Author</th>
+                                <th>Parts</th>
+                            </tr>
+                            <tr>
+                                <td>Harry Potter</td>
+                                <td>J. K. Rowling</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>Lord of the Rings</td>
+                                <td>J. R. Tolkien</td>
+                                <td>3</td>
+                            </tr>
+                        </table>
+                </div>
+
+            </div>
+
+        </div>
         
-        <div class="menu mobile-menu">
-            <img class="icon icon-white only-mobile" src="/SimpleWebDesign/resources/icons/hamburger.svg" onclick="swd.toggleMobileNavigationMenu()">
-            <a class="menu-title" href="/SimpleWebDesign/">Simple Web Design</a>
-            <a href="/SimpleWebDesign/" class="only-mobile">Home</a>
-            <a href="/SimpleWebDesign/components">Components</a>
-            <a href="/SimpleWebDesign/functions">Functions</a>
-            <a href="/SimpleWebDesign/colors">Colors</a>
-            <a href="/SimpleWebDesign/icons">Icons</a>
-            <a class="menu-active">Customization</a>
-        </div>
-
-        <div class="customization-settings pd-30">
-            
-            <h2 class="mg-t-0">Customization (Beta)</h2>
-            
-            <div class="input">
-                <input id="primary-color-input" type="text">
-                <span class="input-name">Primary Color</span>
-                <span class="input-error"></span>
-            </div>
-
-            <div class="input">
-                <input id="secondary-color-input" type="text">
-                <span class="input-name">Secondary Color</span>
-                <span class="input-error"></span>
-            </div>
-
-            <div class="input-buttons">
-                <a class="button button-left button-decrement">-</a>
-                <div class="input">
-                    <input id="border-radius-input" type="number" min="0" class="button-middle">
-                    <span class="input-name">Border Radius</span>
-                    <span class="input-error"></span>
-                </div>
-                <a class="button button-right button-increment">+</a>
-            </div>
-
-            <div class="input-buttons">
-                <a class="button button-left button-decrement">-</a>
-                <div class="input">
-                    <input id="border-width-input" type="number" min="0" class="button-middle">
-                    <span class="input-name">Border Width</span>
-                    <span class="input-error"></span>
-                </div>
-                <a class="button button-right button-increment">+</a>
-            </div>
-
-            <div class="input-buttons">
-                <a class="button button-left button-decrement">-</a>
-                <div class="input">
-                    <input id="element-spacing-input" type="number" min="0" class="button-middle">
-                    <span class="input-name">Element Spacing</span>
-                    <span class="input-error"></span>
-                </div>
-                <a class="button button-right button-increment">+</a>
-            </div>
-
-            <h2>Output</h2>
-
-            <code class="code-css" id="css-output"></code>
-
-        </div>
-
-        <div class="customization-content">
-            
-            <div class="footer-spacer footer-spacer-with-menu">
-
-                <div class="container">
-                
-                    <h1>Welcome to the customization page!</h1>
-
-                    <p><i>You can customize this page to see how your own style looks with the SWD framework.</i></p>
-    
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-                    <div class="grid-2 grid-sm-1">
-                        <div class="box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
-                        <div class="box box-border">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
-                    </div>
-
-                </div>
-
-                <div class="grey">
-                    <div class="container footer">
-                        <div class="nowrap grey-text width-100" style="align-self: flex-end;">
-                            &copy; 2023 Der Zauberer
-                            <div class="width-100"></div>
-                        </div>
-                        <div>
-                            <strong class="grey-text uppercase" style="letter-spacing: 1px;">English</strong><br>
-                            <a href="/SimpleWebDesign/imprint/" class="grey-text">Imprint</a><br>
-                            <a href="/SimpleWebDesign/privacy-policy/" class="grey-text nowrap">Privacy policy</a>
-                        </div>
-                        <div>
-                            <strong class="grey-text uppercase" style="letter-spacing: 1px;">German</strong><br>
-                            <a href="/SimpleWebDesign/impressum/" class="grey-text">Impressum</a><br>
-                            <a href="/SimpleWebDesign/datenschutzerklaerung/" class="grey-text">Datenschutzerklaerung</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <style>
-
-            .customization-content {
-                width: calc(100% - 350px);
-            }
-
-            .customization-settings {
-                position: fixed;
-                box-sizing: border-box;
-                right: 0px;
-                width: 350px;
-                height: calc(100% - 50px);
-                border-left: solid var(--theme-border-width) var(--theme-grey-primary);
-                overflow-y: auto;
-            }
-
-            @media (max-width: 768px) {
-
-                .customization-content {
-                    width: initial;
-                }
-
-                .customization-settings {
-                    position: initial;
-                    width: 100%;
-                    border-bottom: solid var(--theme-border-width) var(--theme-grey-primary);
-                    border-left: none;
-                    height: initial;
-                }
-
-            }
-
-        </style>
-
-        <style id="css"></style>
-
-        <script>
-
-            const css = ':root {\n\t--theme-primary: {{primary-color}};\n\t--theme-secondary: {{secondary-color}};\n\t--theme-border-radius: {{border-radius}};\n\t--theme-border-width: {{border-width}};\n\t--theme-element-spacing: {{element-spacing}};\n}\t';
-
-            const cssElement = document.getElementById('css');
-            const cssOutputElement = document.getElementById('css-output');
-
-            let primaryColor = '#0033ff';
-            let secondaryColor = '#0024b3';
-            let borderRadius = 5;
-            let borderWidth = 3;
-            let elementSpacing = 30;
-
-            const primaryColorInput = document.getElementById('primary-color-input');
-            const secondaryColorInput = document.getElementById('secondary-color-input');
-            const borderRadiusInput = document.getElementById('border-radius-input');
-            const borderWidthInput = document.getElementById('border-width-input');
-            const elementSpacingInput = document.getElementById('element-spacing-input');
-
-            primaryColorInput.addEventListener('input', event => { primaryColor = event.target.value; updateSytle() });
-            secondaryColorInput.addEventListener('input', event => { secondaryColor = event.target.value; updateSytle() });
-            borderRadiusInput.addEventListener('input', event => { borderRadius = event.target.value; updateSytle() });
-            borderWidthInput.addEventListener('input', event => { borderWidth = event.target.value; updateSytle() });
-            elementSpacingInput.addEventListener('input', event => { elementSpacing = event.target.value; updateSytle() });
-
-            updateSytle()
-
-            function updateSytle() {
-                primaryColorInput.value = primaryColor;
-                secondaryColorInput.value = secondaryColor;
-                borderRadiusInput.value = borderRadius;
-                borderWidthInput.value = borderWidth;
-                elementSpacingInput.value = elementSpacing;
-                let newCss = css
-                    .replace('{{primary-color}}', primaryColor)
-                    .replace('{{secondary-color}}', secondaryColor)
-                    .replace('{{border-radius}}', borderRadius + 'px')
-                    .replace('{{border-width}}', borderWidth + 'px')
-                    .replace('{{element-spacing}}', elementSpacing + 'px');
-                cssElement.innerHTML = newCss;
-                cssOutputElement.innerText = newCss;
-                swd.highlightCss(cssOutputElement);
-            }
-
-        </script>
-            
     </body>
 </html>
