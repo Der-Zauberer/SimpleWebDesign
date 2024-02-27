@@ -297,6 +297,7 @@ kbd {
 ***********/
 
 code, pre {
+    display: block;
     font-family: 'Roboto Mono', monospace;
     font-size: 14px;
     line-height: 25px;
@@ -308,7 +309,7 @@ code, pre {
     margin-bottom: var(--theme-element-spacing);
 }
 
-code:hover {
+code:hover, pre:hover {
     overflow: auto;
 }
 
@@ -467,6 +468,7 @@ swd-menu {
     position: sticky;
     position: -webkit-sticky;
     box-sizing: border-box;
+    top: 0px;
     padding: 5px 10px;
     height: var(--theme-menu-height);
     background-color: var(--theme-primary-color);
@@ -493,8 +495,6 @@ swd-menu a:active:not(.swd-menu-title),
 swd-menu a[selected]:not(.swd-menu-title) {
     color: #ffffff;
 }
-
-swd-menu[hidden], swd-menu swd-title[hidden], swd-menu a[hidden] { display: none }
 
 /*****************
 *   Navigation   *
@@ -546,8 +546,6 @@ swd-navigation a[selected]:not(.swd-navigation-title) {
     background-color: var(--theme-secondary-grey-color);
 }
 
-swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidden] { display: none }
-
 swd-navigation-content {
     display: block;
     margin-left: var(--theme-navigation-width);
@@ -573,12 +571,18 @@ swd-router {
     margin-bottom: 0
 }
 
+code[hidden], pre[hidden],
+swd-menu[hidden], swd-menu swd-title[hidden], swd-menu a[hidden],
+swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidden] {
+    display: none;
+}
+
 /*************
 *   Margin   *
 *************/
 
 .margin { margin: var(--theme-element-spacing) }
-.margin-0 { margin: 0px }
+.margin-0 { margin: 0 }
 
 .margin-top { margin-top: var(--theme-element-spacing) }
 .margin-left { margin-left: var(--theme-element-spacing) }
