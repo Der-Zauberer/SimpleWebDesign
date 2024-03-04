@@ -65,12 +65,12 @@
                 </table>
 
                 <div class="grid-md-3 grid-sm-2 grid-1 margin-bottom">
-                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
-                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
-                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
-                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
-                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
-                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
+                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 1</div>
+                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 2</div>
+                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 3</div>
+                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 4</div>
+                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 5</div>
+                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 6</div>
                 </div>
 
                 <code>
@@ -104,8 +104,64 @@
                     &lt;swd-menu&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &lt;/swd-menu&gt;
+                </code>
+
+                <swd-menu class="margin-bottom" style="position: initial; z-index: initial;">
+                    <a class="swd-menu-title">Page Title</a>
+                    <div class="width-100"></div>
+                    <a>Item 1</a>
+                    <a selected>item 2</a>
+                    <a>Item 3</a>
+                </swd-menu>
+
+                <code>
+                    &lt;swd-menu&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &lt;/swd-menu&gt;
+                </code>
+
+                <swd-menu class="margin-bottom" style="position: initial; z-index: initial;">
+                    <a class="swd-menu-title">Page Title</a>
+                    <a>Item 1</a>
+                    <a selected>item 2</a>
+                    <a>Item 3</a>
+                    <div class="width-100"></div>
+                    <a>Item 4</a>
+                    <a>Item 5</a>
+                </swd-menu>
+
+                <code>
+                    &lt;swd-menu&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 4&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 5&lt;/a&gt;<br>
+                    &lt;/swd-menu&gt;
+                </code>
+
+                <swd-menu centered class="margin-bottom" style="position: initial; z-index: initial;">
+                    <a>Item 1</a>
+                    <a selected>item 2</a>
+                    <a>Item 3</a>
+                    <a>Item 4</a>
+                </swd-menu>
+
+                <code>
+                    &lt;swd-menu centered&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 4&lt;/a&gt;<br>
                     &lt;/swd-menu&gt;
                 </code>
 

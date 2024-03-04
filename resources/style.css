@@ -335,14 +335,14 @@ table {
 
 table tr th {
     background-color: var(--theme-primary-grey-color);
-    padding: 7px;
+    padding: 6px 8px;
     min-width: 60px;
     font-weight: normal;
     border-color: var(--theme-primary-grey-color);
 }
 
 table td, th {
-    padding: 7px;
+    padding: 6px 8px;
     text-align: left;
     border: solid var(--theme-border-width) var(--theme-primary-grey-color);
 }
@@ -547,6 +547,8 @@ swd-menu a[selected]:not(.swd-menu-title) {
     color: #ffffff;
 }
 
+swd-menu[centered] { justify-content: space-between }
+
 /*****************
 *   Navigation   *
 *****************/
@@ -651,6 +653,8 @@ swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidde
 /**********************
 *   Utility classes   *
 **********************/
+
+.width-100 { width: 100%; }
 
 @media screen and (max-width: 768px) {.not-mobile {display: none !important}}
 @media screen and (min-width: 769px) {.only-mobile {display: none !important}}
