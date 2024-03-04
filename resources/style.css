@@ -97,6 +97,7 @@ body {
     box-sizing: border-box;
     padding: calc(var(--theme-element-spacing) * 2);
     margin: 0px auto;
+    width: 100%;
 }
 
 .container-sm { max-width: 576px }
@@ -347,6 +348,55 @@ table td, th {
 }
 
 /************
+*   Media   *
+************/
+
+img {
+    display: block;
+    margin: 0px auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: scale-down;
+    margin-bottom: var(--theme-element-spacing);
+}
+
+video {
+    display: block;
+    margin: 0px auto;
+    max-width: 100%;
+    width: 100%;;
+    object-fit: scale-down;
+    margin-bottom: var(--theme-element-spacing);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.youtube {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 0;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: var(--theme-element-spacing);
+}
+
+.youtube iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+audio {
+    width: 100%;
+    margin-bottom: var(--theme-element-spacing);
+}
+
+/************
 *   Input   *
 ************/
 
@@ -472,6 +522,7 @@ swd-menu {
     padding: 5px 10px;
     height: var(--theme-menu-height);
     background-color: var(--theme-primary-color);
+    z-index: 3;
     overflow: hidden;
 }
 
@@ -509,6 +560,7 @@ swd-navigation {
     width: 250px;
     height: calc(100% - var(--theme-menu-height));
     background-color: var(--theme-primary-grey-color);
+    z-index: 2;
     overflow: hidden;
 }
 
@@ -594,7 +646,7 @@ swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidde
 .margin-right-0 { margin-right: 0 }
 .margin-bottom-0 { margin-bottom: 0 }
 
-.mg-center { margin-left: auto; margin-right: auto }
+.margin-center { margin-left: auto; margin-right: auto }
 
 /**********************
 *   Utility classes   *

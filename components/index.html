@@ -35,12 +35,101 @@
         </swd-navigation>
 
         <swd-navigation-content>
+
             <div class="container-xl">
                 
                 <h2>Get started</h2>
                 <h2>Layout</h2>
+
+                <div class="margin-bottom" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius); padding: var(--theme-element-spacing);">
+                    <div class="container-sm" style="background-color: var(--theme-secondary-grey-color); border-radius: var(--theme-border-radius);">container</div>
+                </div>
+
+                <code>
+                    &lt;div class="container-sm"&gt;container-sm&lt;/div&gt;<br>
+                    &lt;div class="container-md"&gt;container-md&lt;/div&gt;<br>
+                    &lt;div class="container-lg"&gt;container-lg&lt;/div&gt;<br>
+                    &lt;div class="container-xl"&gt;container-xl&lt;/div&gt;<br>
+                    &lt;div class="container-xxl"&gt;container-xxl&lt;/div&gt;<br>
+                    &lt;div class="container-fluid"&gt;container&lt;/div&gt; 
+                </code>
+
+                <table>
+                    <tr><th>Class</th><th>Size</th></tr>
+                    <tr><td><samp>container-sm</samp></td><td><samp>576px</samp></td></tr>
+                    <tr><td><samp>container-md</samp></td><td><samp>768px</samp></td></tr>
+                    <tr><td><samp>container-lg</samp></td><td><samp>992px</samp></td></tr>
+                    <tr><td><samp>container-xl</samp></td><td><samp>1200px</samp></td></tr>
+                    <tr><td><samp>container-xxl</samp></td><td><samp>1400px</samp></td></tr>
+                    <tr><td><samp>container-fluid</samp></td><td><samp>100%</samp></td></tr>
+                </table>
+
+                <div class="grid-md-3 grid-sm-2 grid-1 margin-bottom">
+                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
+                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
+                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
+                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
+                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
+                    <div class="container-fluid" style="background-color: var( --theme-primary-grey-color); border-radius: var(--theme-border-radius);">grid-item</div>
+                </div>
+
+                <code>
+                    &lt;div class="grid-md-3 grid-sm-2, grid-1"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-item&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-item&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-item&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
+                <table>
+                    <tr><th>Class</th><th>Breakpoint</th></tr>
+                    <tr><td><samp>grid-[1-12]</samp></td><td><samp>Always</samp></td></tr>
+                    <tr><td><samp>grid-sm-[1-12]</samp></td><td><samp>min-width: 576px</samp></td></tr>
+                    <tr><td><samp>grid-md-[1-12]</samp></td><td><samp>min-width: 768px</samp></td></tr>
+                    <tr><td><samp>grid-lg-[1-12]</samp></td><td><samp>min-width: 992px</samp></td></tr>
+                    <tr><td><samp>grid-xl-[1-12]</samp></td><td><samp>min-width: 1200px</samp></td></tr>
+                    <tr><td><samp>grid-xxl-[1-12]</samp></td><td><samp>min-width: 1400px</samp></td></tr>
+                </table>
+
                 <h2>Menu</h2>
+
+                <swd-menu class="margin-bottom" style="position: initial; z-index: initial;">
+                    <a class="swd-menu-title">Page Title</a>
+                    <a>Item 1</a>
+                    <a selected>item 2</a>
+                    <a>Item 3</a>
+                </swd-menu>
+
+                <code>
+                    &lt;swd-menu&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &lt;/swd-menu&gt;
+                </code>
+
                 <h2>Navigation</h2>
+
+                <swd-navigation class="margin-bottom" style="position: initial; z-index: initial; max-height: 400px;">
+                    <a class="swd-navigation-title">Navigation</a>
+                    <a>Item 1</a>
+                    <a selected>Item 2</a>
+                    <a>Item 3</a>
+                </swd-navigation>
+
+                <code>
+                    &lt;swd-navigation&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-navigation-title"&gt;Navigation&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &lt;/swd-navigation&gt;<br>
+                    &lt;swd-navigation-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Page content here --&gt;<br>
+                    &lt;/swd-navigation-content&gt;
+                </code>
+
                 <h2>Headline</h2>
 
                 <table>
@@ -63,6 +152,43 @@
                 </code>
 
                 <h2>Text</h2>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                </p>
+
+                <ol>
+                    <li>Ordered List 1</li>
+                    <li>Ordered List 2</li>
+                    <li>Ordered List 3</li>
+                </ol>
+
+                <ul>
+                    <li>Unordered List 1</li>
+                    <li>Unordered List 2</li>
+                    <li>Unordered List 3</li>
+                </ul>
+
+                <code>
+                    &lt;p&gt;Paragraph&lt;/p&gt;
+                </code>
+
+                <code>
+                    &lt;ol&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Ordered List 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Ordered List 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Ordered List 1&lt;/li&gt;<br>
+                    &lt;/ol&gt;
+                </code>
+
+                <code>
+                    &lt;ul&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Unordered List 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Unordered List 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Unordered List 1&lt;/li&gt;<br>
+                    &lt;/ul&gt;
+                </code>
+
                 <h2>Label</h2>
 
                 <div class="margin-bottom">
@@ -82,11 +208,117 @@
                 </code>
 
                 <h2>Button</h2>
+
+                <div class="grid-1 grid-1 grid-md-3">
+                    <div class="flex flex-wrap">
+                        <button>Button</button>
+                        <button selected>Active</button>
+                        <button disabled>Disabled</button>
+                    </div>
+
+                    <div class="flex flex-wrap">
+                        <button class="outline">Button</button>
+                        <button class="outline" selected>Active</button>
+                        <button class="outline" disabled>Disabled</button>
+                    </div>
+
+                    <div class="flex flex-wrap margin-bottom">
+                        <button class="ghost">Button</button>
+                        <button class="ghost" selected>Active</button>
+                        <button class="ghost" disabled>Disabled</button>
+                    </div>
+                </div>
+
                 <h2>Dropdown</h2>
                 <h2>Input</h2>
+
+                <div class="grid-1 grid-md-3">
+                    <div class="grid-1">
+                        <input value="Default">
+                        <input value="Default" selected>
+                        <input value="Default" disabled>
+                    </div>
+    
+                    <div class="grid-1">
+                        <input value="Outline" class="outline">
+                        <input value="Outline" class="outline" selected>
+                        <input value="Outline" class="outline" disabled>
+                    </div>
+    
+                    <div class="grid-1">
+                        <input value="Ghost" class="ghost">
+                        <input value="Ghost" class="ghost" selected>
+                        <input value="Ghost" class="ghost" disabled>
+                    </div>
+                </div>
+
                 <h2>Card</h2>
                 <h2>Table</h2>
+
+                <table>
+                    <tr><th>Name</th><th>Author</th><th>Parts</th></tr>
+                    <tr><td>Harry Potter</td><td>J. K. Rowling</td><td>7</td></tr>
+                    <tr><td>Lord of the Rings</td><td>J. R. Tolkien</td><td>3</td></tr>
+                </table>
+
+                <code>
+                    &lt;table&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Author&lt;/th&gt;&lt;th&gt;Parts&lt;/th&gt;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;Harry Potter&lt;/td&gt;&lt;td&gt;J. K. Rowling&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;Lord of the Rings&lt;/td&gt;&lt;td&gt;J. R. Tolkien&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;<br>
+                    &lt;/table&gt;
+                </code>
+
                 <h2>Media</h2>
+
+                <h3>Image</h3>
+
+                <img src="/SimpleWebDesign/resources/image.jpg" alt="image">
+
+                <img src="/SimpleWebDesign/resources/icon.jpg" alt="icon">
+
+                <code class="code-html">
+                    &lt;img src="image.jpg" alt="image"&gt;
+                </code>
+
+                <h3>Video</h3>
+
+                <video width="100%" controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+
+                <code>
+                    &lt;video width="100%" controls&gt; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;source src="video.mp4" type="video/mp4"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Your browser does not support HTML5 video.<br>
+                    &lt;/video&gt;
+                </code>
+
+                <div class="youtube">
+                    <iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <code>
+                    &lt;div class="youtube"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
+                <h3>Audio</h3>
+
+                <audio controls>
+                    <source src="music.mp3" type="audio/mpeg">
+                    Your browser does not support HTML5 audio.
+                </audio>
+
+                <code>
+                    &lt;audio controls&gt; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;source src="audio.mp3" type="video/mp3"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Your browser does not support HTML5 audio.<br>
+                    &lt;/audio&gt;
+                </code>
+
                 <h2>Dialog</h2>
                 <h2>Notification</h2>
                 <h2>Code</h2>
@@ -130,14 +362,15 @@
                     <tr><th>Class</th><th>Property</th></tr>
                     <tr><td><samp>margin</pre></td><td><samp>margin: var(--theme-element-spacing)</samp></td></tr>
                     <tr><td><samp>margin-0</pre></td><td><samp>margin: 0</samp></td></tr>
-                    <tr><td><samp>margin-0</pre></td><td><samp>margin-top: var(--theme-element-spacing)</samp></td></tr>
-                    <tr><td><samp>margin-top</pre></td><td><samp>margin-left: var(--theme-element-spacing)</samp></td></tr>
-                    <tr><td><samp>margin-left</pre></td><td><samp>margin-right: var(--theme-element-spacing)</samp></td></tr>
-                    <tr><td><samp>margin-right</pre></td><td><samp>margin-bottom: var(--theme-element-spacing)</samp></td></tr>
-                    <tr><td><samp>margin-bottom</pre></td><td><samp>margin-top: 0</samp></td></tr>
-                    <tr><td><samp>margin-top-0</pre></td><td><samp>margin-left: 0</samp></td></tr>
-                    <tr><td><samp>margin-left-0</pre></td><td><samp>margin-right: 0</samp></td></tr>
-                    <tr><td><samp>margin-right-0</pre></td><td><samp>margin-bottom: 0</samp></td></tr>
+                    <tr><td><samp>margin-top</pre></td><td><samp>margin-top: var(--theme-element-spacing)</samp></td></tr>
+                    <tr><td><samp>margin-left</pre></td><td><samp>margin-left: var(--theme-element-spacing)</samp></td></tr>
+                    <tr><td><samp>margin-right</pre></td><td><samp>margin-right: var(--theme-element-spacing)</samp></td></tr>
+                    <tr><td><samp>margin-bottom</pre></td><td><samp>margin-bottom: var(--theme-element-spacing)</samp></td></tr>
+                    <tr><td><samp>margin-top-0</pre></td><td><samp>margin-top: 0</samp></td></tr>
+                    <tr><td><samp>margin-left-0</pre></td><td><samp>margin-left: 0</samp></td></tr>
+                    <tr><td><samp>margin-right-0</pre></td><td><samp>margin-right: 0</samp></td></tr>
+                    <tr><td><samp>margin-bottom-0</pre></td><td><samp>margin-bottom: 0</samp></td></tr>
+                    <tr><td><samp>margin-center</pre></td><td><samp>margin-left: auto; margin-right: auto</samp></td></tr>
                 </table>
 
             </div>
