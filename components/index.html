@@ -20,7 +20,7 @@
 
         <swd-navigation>
             <a class="swd-navigation-title">Navigation</a>
-            <div>
+            <div class="margin-bottom">
                 <a>Layout</a>
                 <a>Layout...</a>
                 <a>Layout...</a>
@@ -41,8 +41,8 @@
                 <h2>Get started</h2>
                 <h2>Layout</h2>
 
-                <div class="margin-bottom" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius); padding: var(--theme-element-spacing);">
-                    <div class="container-sm" style="background-color: var(--theme-secondary-grey-color); border-radius: var(--theme-border-radius);">container</div>
+                <div class="card" style="padding-left: 15%; padding-right: 15%;">
+                    <div class="card margin-0" style="background-color: var(--theme-secondary-grey-color)">container</div>
                 </div>
 
                 <code>
@@ -64,13 +64,13 @@
                     <tr><td><samp>container-fluid</samp></td><td><samp>100%</samp></td></tr>
                 </table>
 
-                <div class="grid-md-3 grid-sm-2 grid-1 margin-bottom">
-                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 1</div>
-                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 2</div>
-                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 3</div>
-                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 4</div>
-                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 5</div>
-                    <div class="container-fluid" style="background-color: var(--theme-primary-grey-color); border-radius: var(--theme-border-radius);">Item 6</div>
+                <div class="grid-md-3 grid-sm-2 grid-1">
+                    <div class="card">Item 1</div>
+                    <div class="card">Item 2</div>
+                    <div class="card">Item 3</div>
+                    <div class="card">Item 4</div>
+                    <div class="card">Item 5</div>
+                    <div class="card">Item 6</div>
                 </div>
 
                 <code>
@@ -247,12 +247,13 @@
 
                 <h2>Label</h2>
 
-                <div class="margin-bottom">
+                <div class="flex flex-wrap">
                     <label>Label</label>
                     <label>Label</label>
                     <label>Label</label>
                     <samp>Code</samp>
                     <kbd>Key</kbd>
+                    <label class="tooltip">Tooltip</label>
                 </div>
 
                 <code>
@@ -260,12 +261,13 @@
                     &lt;label&gt;Label&lt;/label&gt;<br>
                     &lt;label&gt;Label&lt;/label&gt;<br>
                     &lt;samp&gt;Code&lt;/samp&gt;<br>
-                    &lt;kbd&gt;Key&lt;/kbd&gt;
+                    &lt;kbd&gt;Key&lt;/kbd&gt;<br>
+                    &lt;label class="tooltip"&gt;Tooltip&lt;/label&gt;
                 </code>
 
                 <h2>Button</h2>
 
-                <div class="grid-1 grid-1 grid-md-3">
+                <div class="grid-1 grid-sm-1 grid-md-3">
                     <div class="flex flex-wrap">
                         <button>Button</button>
                         <button selected>Active</button>
@@ -278,12 +280,40 @@
                         <button class="outline" disabled>Disabled</button>
                     </div>
 
-                    <div class="flex flex-wrap margin-bottom">
+                    <div class="flex flex-wrap">
                         <button class="ghost">Button</button>
                         <button class="ghost" selected>Active</button>
                         <button class="ghost" disabled>Disabled</button>
                     </div>
                 </div>
+
+                <code>
+                    &lt;button&gt;Button&lt;/button&gt;<br>
+                    &lt;button selected&gt;Active&lt;/button&gt;<br>
+                    &lt;button disabled&gt;Disabled&lt;/button&gt;<br><br>
+                    &lt;button class="outline"&gt;Button&lt;/button&gt;<br>
+                    &lt;button class="outline" selected&gt;Active&lt;/button&gt;<br>
+                    &lt;button class="outline" disabled&gt;Disabled&lt;/button&gt;<br><br>
+                    &lt;button class="ghost"&gt;Button&lt;/button&gt;<br>
+                    &lt;button class="ghost" selected&gt;Active&lt;/button&gt;<br>
+                    &lt;button class="ghost" disabled&gt;Disabled&lt;/button&gt;<br>
+                </code>
+
+                <div class="flex no-gap">
+                    <a class="button left-item">1</a>
+                    <a class="button center-item">2</a>
+                    <a class="button center-item" selected>3</a>
+                    <a class="button right-item">4</a>
+                </div>
+
+                <code>
+                    &lt;div class="flex no-gap"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button left-item"&gt;1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button center-item"&gt;2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button center-item" selected&gt;3&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button right-item"&gt;4&lt;/a&gt;<br>
+                    &lt;/div&gt;
+                </code>
 
                 <h2>Dropdown</h2>
                 <h2>Input</h2>
@@ -308,7 +338,79 @@
                     </div>
                 </div>
 
+                <code>
+                    &lt;input value="Default"&gt;<br>
+                    &lt;input value="Default" selected&gt;<br>
+                    &lt;input value="Default" disabled&gt;<br><br>
+                    &lt;input value="Outline" class="outline"&gt;<br>
+                    &lt;input value="Outline" class="outline" selected&gt;<br>
+                    &lt;input value="Outline" class="outline" disabled&gt;<br><br>
+                    &lt;input value="Ghost" class="ghost"&gt;<br>
+                    &lt;input value="Ghost" class="ghost" selected&gt;<br>
+                    &lt;input value="Ghost" class="ghost" disabled&gt;<br>
+                </code>
+
                 <h2>Card</h2>
+
+                <div class="grid-1 grid-sm-1 grid-md-3">
+
+                    <div class="card">
+                        Default card
+                    </div>
+
+                    <div class="card card-hover">
+                        Default card with hover
+                    </div>
+
+                    <div class="card outline">
+                        Outline card
+                    </div>
+
+                    <div class="card">
+                        <h2>Some Title</h2>
+                        <p>Some text</p>
+                        <div class="flex flex-end"><a class="button">Some action</a></div>
+                    </div>
+
+                    <div>
+                        <img class="card top-item" src="/SimpleWebDesign/resources/image.jpg">
+                        <div class="card bottom-item margin-bottom-0">
+                            <p>Some image</p>
+                        </div>
+                    </div>
+
+                    <div class="overlay-bottom-left">
+                        <img class="card" src="/SimpleWebDesign/resources/image.jpg">
+                        <label class="tooltip">Some image</label>
+                    </div>
+
+                </div>
+
+                <code>
+                    &lt;div class="card"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Default card<br>
+                    &lt;/div&gt;<br><br>
+                    &lt;div class="card card-hover"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Default card with hover<br>
+                    &lt;/div&gt;<br><br>
+                    &lt;div class="card outline"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Outline card<br>
+                    &lt;/div&gt;<br><br>
+                    &lt;div class="card"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Some Title&lt;/h2&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Some text&lt;/p&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="flex flex-end"&gt;&lt;a class="button"&gt;Some action&lt;/a&gt;<br>
+                    &lt;/div&gt;<br><br>
+                    &lt;img class="card top-item" src="/SimpleWebDesign/resources/image.jpg"&gt;<br>
+                    &lt;div class="card bottom-item margin-bottom-0"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Some image&lt;/p&gt;<br>
+                    &lt;/div&gt;<br><br>
+                    &lt;div class="overlay-bottom-left"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img class="card" src="/SimpleWebDesign/resources/image.jpg"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="tooltip"&gt;Some image&lt;/label&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
                 <h2>Table</h2>
 
                 <table>
@@ -401,18 +503,14 @@
                     <tr><td><samp>--theme-line-height</pre></td><td><samp>30px</samp></td></tr>
                     <tr><td><samp>--theme-border-radius</pre></td><td><samp>5px</samp></td></tr>
                     <tr><td><samp>--theme-border-width</pre></td><td><samp>3px</samp></td></tr>
+                    <tr><td><samp>--theme-box-shadow</pre></td><td><samp>none</samp></td></tr>
+                    <tr><td><samp>--theme-element-spacing</pre></td><td><samp>30px</samp></td></tr>
+                    <tr><td><samp>--theme-inner-element-spacing</pre></td><td><samp>20px</samp></td></tr>
                     <tr><td><samp>--theme-menu-height</pre></td><td><samp>50px</samp></td></tr>
                     <tr><td><samp>--theme-navigation-width</pre></td><td><samp>250px</samp></td></tr>
-                    <tr><td><samp>--theme-box-shadow</pre></td><td><samp>none</samp></td></tr>
                 </table>
 
                 <h2>Utillity Classes</h2>
-
-                <table>
-                    <tr><th>Class</th><th>Property</th></tr>
-                    <tr><td><samp>not-mobile</pre></td><td>Only displays with maximum size of 768px</td></tr>
-                    <tr><td><samp>only-mobile</pre></td><td>Only displays with minimum size of 769px</td></tr>
-                </table>
 
                 <table>
                     <tr><th>Class</th><th>Property</th></tr>
@@ -427,6 +525,21 @@
                     <tr><td><samp>margin-right-0</pre></td><td><samp>margin-right: 0</samp></td></tr>
                     <tr><td><samp>margin-bottom-0</pre></td><td><samp>margin-bottom: 0</samp></td></tr>
                     <tr><td><samp>margin-center</pre></td><td><samp>margin-left: auto; margin-right: auto</samp></td></tr>
+                </table>
+
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>not-mobile</pre></td><td>Only displays with maximum size of 768px</td></tr>
+                    <tr><td><samp>only-mobile</pre></td><td>Only displays with minimum size of 769px</td></tr>
+                </table>
+
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>left-item</pre></td><td><samp>border-top-right-radius: 0; border-bottom-right-radius: 0; margin-right: 0;</samp></td></tr>
+                    <tr><td><samp>right-item</pre></td><td><samp>border-top-left-radius: 0; border-bottom-left-radius: 0; margin-left: 0;</samp></td></tr>
+                    <tr><td><samp>top-item</pre></td><td><samp>border-bottom-left-radius: 0; border-bottom-right-radius: 0; margin-bottom: 0;</samp></td></tr>
+                    <tr><td><samp>bottom-item</pre></td><td><samp>border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;</samp></td></tr>
+                    <tr><td><samp>center-item</pre></td><td><samp>border-radius: 0px; margin: 0;</samp></td></tr>
                 </table>
 
             </div>
