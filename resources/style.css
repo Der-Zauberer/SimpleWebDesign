@@ -14,8 +14,6 @@
     --theme-text-color: #000000;
     --theme-text-grey-color: #666666;
     --theme-font-family: Roboto, sans-serif;
-    --theme-font-size: 18px;
-    --theme-line-height: 30px;
     --theme-border-radius: 5px;
     --theme-border-width: 3px;
     --theme-box-shadow: none;
@@ -26,8 +24,8 @@
     background-color: var(--theme-background-color);
     color: var(--theme-text-color);
     font-family: var(--theme-font-family);
-    font-size: var(--theme-font-size);
-    line-height: var(--theme-line-height);
+    font-size: 18px;
+    line-height: round(1.7em, 2px);
     scroll-behavior: smooth;
 }
 
@@ -345,31 +343,39 @@ ol li:last-child, ul li:last-child { padding-bottom: 0 }
 ************/
 
 label {
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 0 0.75em;
     background-color: var(--theme-primary-grey-color);
-    border-radius: var(--theme-line-height);
-    padding: 3px 15px;
+    border-radius: 0.75em;
 }
 
 samp {
-    background-color: var(--theme-primary-grey-color);
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 0 0.4em;
     font-family: 'Roboto Mono', monospace;
-    padding: 2px 7px;
+    background-color: var(--theme-primary-grey-color);
     border-radius: var(--theme-border-radius);
 }
 
 kbd {
     font-family: 'Roboto Mono', monospace;
     box-sizing: border-box;
-    padding: 0px 3px;
+    height: fit-content;
+    line-height: calc(round(1.7em, 2px) - 2px);
+    padding: 0px 0.2em;
+    font-family: 'Roboto Mono', monospace;
     border-radius: var(--theme-border-radius);
     border: solid 1px var(--theme-text-color)
 }
 
 .tooltip {
-    background-color: var(--theme-text-color);
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 0 0.4em;
+    background-color: color-mix(in srgb, var(--theme-text-color) 70%, transparent);
     color: var(--theme-background-color);
-    padding: 2px 7px;
-    opacity: 70%;
     border-radius: var(--theme-border-radius);
 }
 
