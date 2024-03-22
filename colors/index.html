@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#003ecc">
+        <link href="/SimpleWebDesign/resources/style.css" rel="stylesheet">
+        <script src="/SimpleWebDesign/resources/script.js"></script>
+        <link href="/SimpleWebDesign/resources/favicon.png" rel="icon">
+        <title>Simple Web Design</title>
+    </head>
+    <body>
+
+        <swd-menu>
+            <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
+            <a href="/SimpleWebDesign/customization">Customization</a>
+            <a href="/SimpleWebDesign/components">Components</a>
+            <a href="/SimpleWebDesign/functions">Functions</a>
+            <a selected>Colors</a>
+        </swd-menu>
+
+        <div class="container-xl">
+
+            <div class="color-row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <style>
+                .color-row {
+                    display: grid;
+                    grid-template-columns: repeat(5, auto);
+                    justify-content: space-between;
+                }
+                .color-row > * {
+                    box-sizing: border-box;
+                    padding: var(--theme-inner-element-spacing);
+                    height: 10vw;
+                    width: 10vw;
+                    max-height: 120px;
+                    max-width: 120px;
+                    background-color: var(--theme-primary-grey-color);
+                    border-radius: var(--theme-border-radius);
+                }
+            </style>
+
+
+        </div>
+
+    </body>
+</html>
