@@ -438,6 +438,7 @@ table td, th {
 ***********/
 
 .card {
+    display: block;
     box-sizing: border-box;
     height: fit-content;
     padding: var(--theme-inner-element-spacing);
@@ -746,6 +747,28 @@ swd-navigation-content {
     margin-left: var(--theme-navigation-width);
 }
 
+/*************
+*   Dialog   *
+*************/
+
+.dialog {
+    display: flex;
+    position: fixed;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: calc(var(--theme-element-spacing) / 2);
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 4;
+}
+
+.dialog > * { max-width: 400px; }
+.dialog:not([shown]) { display: none }
+
 /***********************
 *   Group Selections   *
 ***********************/
@@ -781,9 +804,10 @@ swd-navigation *,
 }
 
 a.button[hidden], button[hidden], input[type="submit"][hidden],
-code[hidden], pre[hidden],
+.card[hidden], code[hidden], pre[hidden],
 swd-menu[hidden], swd-menu swd-title[hidden], swd-menu a[hidden],
-swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidden] {
+swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidden],
+.dialog [hidden] {
     display: none;
 }
 

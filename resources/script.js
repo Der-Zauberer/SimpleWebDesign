@@ -19,6 +19,8 @@ class SwdRouter extends HTMLElement {
 
 class Swd {
 
+    #openDialog;
+
     setAttribute(id, attribute, value) {
         const target = document.querySelector(`#${id}`)
         if (target) target.setAttribute(attribute, value)
@@ -40,18 +42,34 @@ class Swd {
         }
     }
 
+    openDialog(element) {
+        this.closeDialog()
+        element.setAttribute('shown', 'shown')
+        this.#openDialog = element;
+    }
+
+    closeDialog() {
+        if (this.#openDialog) this.#openDialog.removeAttribute('shown')
+    }
+
     trigger(target) {
         if (!target) return
-        [...target.attributes].filter(attribute => attribute.name.startsWith('swd-') && attribute.value.length !== 0).forEach(attribute => {
+        [...target.attributes].filter(attribute => attribute.name.startsWith('swd-')).forEach(attribute => {
             switch (attribute.name) {
                 case 'swd-hide': 
-                    this.#forIds(attribute.value, element => this.hide(element))
+                    this.#forEachElementById(attribute.value, element => this.hide(element))
                     break
                 case 'swd-show': 
-                    this.#forIds(attribute.value, element => this.show(element))
+                    this.#forEachElementById(attribute.value, element => this.show(element))
                     break
                 case 'swd-toggle': 
-                    this.#forIds(attribute.value, element => this.toggle(element))
+                    this.#forEachElementById(attribute.value, element => this.toggle(element))
+                    break
+                case 'swd-open-dialog': 
+                    this.#forEachElementById(attribute.value, element => this.openDialog(element))
+                    break
+                case 'swd-close-dialog': 
+                    this.closeDialog()
                     break
                 default: 
                     break
@@ -59,7 +77,7 @@ class Swd {
         })
     }
 
-    #forIds(string, action) {
+    #forEachElementById(string, action) {
         return [...string.split(' ')]
             .map(id => document.querySelector(`#${id}`))
             .forEach(element => action(element))
