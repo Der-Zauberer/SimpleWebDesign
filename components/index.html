@@ -20,19 +20,29 @@
         </swd-menu>
 
         <swd-navigation>
-            
             <div class="margin-bottom">
-                <a class="swd-navigation-title">Navigation</a>
-                <a>Layout</a>
-                <a>Layout...</a>
-                <a>Layout...</a>
-                <a>Layout...</a>
-                <a>Layout...</a>
-                <a>Layoutttttttttttttttttttttttttttttttttttttttttttttt</a>
-                <a>Layout...</a>
+                <a class="swd-navigation-title">Elements</a>
+                <a href="#get-started">Get started</a>
+                <a href="#layout">Layout</a>
+                <a href="#menu">Menu</a>
+                <a href="#navigation">Navigation</a>
+                <a href="#headline">Headline</a>
+                <a href="#text">Text</a>
+                <a href="#label">Label</a>
+                <a href="#button">Button</a>
+                <a href="#dropdown">Dropdown</a>
+                <a href="#input">Input</a>
+                <a href="#card">Card</a>
+                <a href="#table">Table</a>
+                <a href="#media">Media</a>
+                <a href="#dialog">Dialog</a>
+                <a href="#notification">Notification</a>
+                <a href="#code">Code</a>
             </div>
-            <div>
-                <a>Layout...</a>
+            <div class="margin-bottom">
+                <a class="swd-navigation-title">Interfaces</a>
+                <a href="#variables">Variables</a>
+                <a href="#utility-classes">Utility Classes</a>
             </div>
         </swd-navigation>
 
@@ -40,8 +50,8 @@
 
             <div class="container-xl">
                 
-                <h2>Get started</h2>
-                <h2>Layout</h2>
+                <h2 id="get-started">Get started</h2>
+                <h2 id="layout">Layout</h2>
 
                 <div class="card" style="padding-left: 15%; padding-right: 15%;">
                     <div class="card margin-0" style="background-color: var(--theme-secondary-grey-color)">container</div>
@@ -93,7 +103,7 @@
                     <tr><td><samp>grid-xxl-[1-12]</samp></td><td><samp>min-width: 1400px</samp></td></tr>
                 </table>
 
-                <h2>Menu</h2>
+                <h2 id="menu">Menu</h2>
 
                 <swd-menu class="margin-bottom" style="position: initial; z-index: initial;">
                     <a class="swd-menu-title">Page Title</a>
@@ -167,7 +177,7 @@
                     &lt;/swd-menu&gt;
                 </code>
 
-                <h2>Navigation</h2>
+                <h2 id="navigation">Navigation</h2>
 
                 <swd-navigation class="margin-bottom" style="position: initial; z-index: initial; max-height: 400px;">
                     <a class="swd-navigation-title">Navigation</a>
@@ -188,7 +198,7 @@
                     &lt;/swd-navigation-content&gt;
                 </code>
 
-                <h2>Headline</h2>
+                <h2 id="headline">Headline</h2>
 
                 <table>
                     <tr><th>Headlines</th></tr>
@@ -209,7 +219,7 @@
                     &lt;h6&gt;Headline 6&lt;/h6&gt;
                 </code>
 
-                <h2>Text</h2>
+                <h2 id="text">Text</h2>
 
                 <p>
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
@@ -247,7 +257,7 @@
                     &lt;/ul&gt;
                 </code>
 
-                <h2>Label</h2>
+                <h2 id="label">Label</h2>
 
                 <div class="flex flex-wrap">
                     <label>Label</label>
@@ -267,7 +277,7 @@
                     &lt;label class="tooltip"&gt;Tooltip&lt;/label&gt;
                 </code>
 
-                <h2>Button</h2>
+                <h2 id="button">Button</h2>
 
                 <div class="grid-1 grid-sm-1 grid-md-3">
                     <div class="flex flex-wrap">
@@ -317,8 +327,8 @@
                     &lt;/div&gt;
                 </code>
 
-                <h2>Dropdown</h2>
-                <h2>Input</h2>
+                <h2 id="dropdown">Dropdown</h2>
+                <h2 id="input">Input</h2>
 
                 <div class="grid-1 grid-md-3">
                     <div class="grid-1">
@@ -352,7 +362,7 @@
                     &lt;input value="Ghost" class="ghost" disabled&gt;<br>
                 </code>
 
-                <h2>Card</h2>
+                <h2 id="card">Card</h2>
 
                 <div class="grid-1 grid-sm-1 grid-md-3">
 
@@ -413,7 +423,7 @@
                     &lt;/div&gt;
                 </code>
 
-                <h2>Table</h2>
+                <h2 id="table">Table</h2>
 
                 <table>
                     <tr><th>Name</th><th>Author</th><th>Parts</th></tr>
@@ -429,7 +439,7 @@
                     &lt;/table&gt;
                 </code>
 
-                <h2>Media</h2>
+                <h2 id="media">Media</h2>
 
                 <h3>Image</h3>
 
@@ -479,13 +489,13 @@
                     &lt;/audio&gt;
                 </code>
 
-                <h2>Dialog</h2>
+                <h2 id="dialog">Dialog</h2>
 
                 <div class="flex"><button swd-open-dialog="swd-dialog">Click to open dialog</button></div>
 
                 <div id="swd-dialog" class="dialog">
                     <div class="card">
-                        <h2>Dialog</h2>
+                        <h3>Dialog</h3>
                         <p>Really interesting text for the dialog to see how the dialog works</p>
                         <div class="grid-sm-2 grid-1">
                             <button swd-close-dialog>Cancel</button>
@@ -506,9 +516,9 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
                     &lt;/div&gt;
                 </code>
-
-                <h2>Notification</h2>
-                <h2>Code</h2>
+                
+                <h2 id="notification">Notification</h2>
+                <h2 id="code">Code</h2>
 
                 <code>
                     @Override<br>
@@ -523,7 +533,7 @@
                     &lt;pre&gt;&lt;!-- Insert code here --&gt;&lt;/pre&gt;
                 </code>
 
-                <h2>Variables</h2>
+                <h2 id="variables">Variables</h2>
 
                 <table>
                     <tr><th>Variable</th><th>Default</th></tr>
@@ -539,7 +549,7 @@
                     <tr><td><samp>--theme-navigation-width</pre></td><td><samp>250px</samp></td></tr>
                 </table>
 
-                <h2>Utillity Classes</h2>
+                <h2 id="utility-classes">Utility Classes</h2>
 
                 <table>
                     <tr><th>Class</th><th>Property</th></tr>
