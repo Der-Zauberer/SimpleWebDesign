@@ -478,11 +478,11 @@ img.card {
     box-sizing: border-box;
 }
 
-.overlay-top-left > :last-child {top: var(--theme-inner-element-spacing); left: var(--theme-inner-element-spacing);;}
-.overlay-top-right > :last-child {top: var(--theme-inner-element-spacing); right: var(--theme-inner-element-spacing);}
-.overlay-bottom-left > :last-child {bottom: var(--theme-inner-element-spacing); left: var(--theme-inner-element-spacing);}
-.overlay-bottom-right > :last-child {bottom: var(--theme-inner-element-spacing); right: var(--theme-inner-element-spacing);}
-.overlay-center > :last-child {top: 50%; left: 50%; transform: translate(-50%, -50%);}
+.overlay-top-left > :last-child { top: var(--theme-inner-element-spacing); left: var(--theme-inner-element-spacing) }
+.overlay-top-right > :last-child { top: var(--theme-inner-element-spacing); right: var(--theme-inner-element-spacing) }
+.overlay-bottom-left > :last-child { bottom: var(--theme-inner-element-spacing); left: var(--theme-inner-element-spacing) }
+.overlay-bottom-right > :last-child { bottom: var(--theme-inner-element-spacing); right: var(--theme-inner-element-spacing) }
+.overlay-center > :last-child { top: 50%; left: 50%; transform: translate(-50%, -50%) }
 
 /************
 *   Media   *
