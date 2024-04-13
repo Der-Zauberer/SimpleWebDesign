@@ -227,58 +227,6 @@ table td, th {
     border: solid var(--theme-border-width) var(--theme-primary-grey-color);
 }
 
-/***********
-*   Card   *
-***********/
-
-.card {
-    display: block;
-    box-sizing: border-box;
-    height: fit-content;
-    padding: var(--theme-inner-element-spacing);
-    gap: var(--theme-inner-element-spacing);
-    background-color: var(--theme-primary-grey-color);
-    color: var(--theme-text-color);
-    border-radius: var(--theme-border-radius);
-    margin-bottom: var(--theme-element-spacing);
-}
-
-.card.card-hover {
-    cursor: pointer;
-}
-
-.card.card-hover:hover, .card.card-hover:active, .card.card-hover[selected] {
-    background-color: var(--theme-secondary-grey-color);
-}
-
-.card.outline {
-    padding: calc(var(--theme-inner-element-spacing) - var(--theme-border-width));
-    background-color: var(--theme-background-color);
-    border: solid var(--theme-border-width) var(--theme-primary-grey-color);
-}
-
-img.card {
-    padding: 0px;
-}
-
-[class*="overlay-"] {
-    color: white;
-    position: relative;
-    height: fit-content;
-    width: fit-content;
-}
-
-[class*="overlay-"] > :last-child {
-    position: absolute;
-    box-sizing: border-box;
-}
-
-.overlay-top-left > :last-child { top: var(--theme-inner-element-spacing); left: var(--theme-inner-element-spacing) }
-.overlay-top-right > :last-child { top: var(--theme-inner-element-spacing); right: var(--theme-inner-element-spacing) }
-.overlay-bottom-left > :last-child { bottom: var(--theme-inner-element-spacing); left: var(--theme-inner-element-spacing) }
-.overlay-bottom-right > :last-child { bottom: var(--theme-inner-element-spacing); right: var(--theme-inner-element-spacing) }
-.overlay-center > :last-child { top: 50%; left: 50%; transform: translate(-50%, -50%) }
-
 /************
 *   Media   *
 ************/
@@ -543,11 +491,63 @@ swd-navigation-content {
     margin-left: var(--theme-navigation-width);
 }
 
+/***********
+*   Card   *
+***********/
+
+.card {
+    display: block;
+    box-sizing: border-box;
+    height: fit-content;
+    padding: var(--theme-inner-element-spacing);
+    gap: var(--theme-inner-element-spacing);
+    background-color: var(--theme-primary-grey-color);
+    color: var(--theme-text-color);
+    border-radius: var(--theme-border-radius);
+    margin-bottom: var(--theme-element-spacing);
+}
+
+.card.card-hover {
+    cursor: pointer;
+}
+
+.card.card-hover:hover, .card.card-hover:active, .card.card-hover[selected] {
+    background-color: var(--theme-secondary-grey-color);
+}
+
+.card.outline {
+    padding: calc(var(--theme-inner-element-spacing) - var(--theme-border-width));
+    background-color: var(--theme-background-color);
+    border: solid var(--theme-border-width) var(--theme-primary-grey-color);
+}
+
+img.card {
+    padding: 0px;
+}
+
+[class*="overlay-"] {
+    color: white;
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+}
+
+[class*="overlay-"] > :last-child {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.overlay-top-left > :last-child { top: var(--theme-inner-element-spacing); left: var(--theme-inner-element-spacing) }
+.overlay-top-right > :last-child { top: var(--theme-inner-element-spacing); right: var(--theme-inner-element-spacing) }
+.overlay-bottom-left > :last-child { bottom: var(--theme-inner-element-spacing); left: var(--theme-inner-element-spacing) }
+.overlay-bottom-right > :last-child { bottom: var(--theme-inner-element-spacing); right: var(--theme-inner-element-spacing) }
+.overlay-center > :last-child { top: 50%; left: 50%; transform: translate(-50%, -50%) }
+
 /*************
 *   Dialog   *
 *************/
 
-.dialog {
+swd-dialog {
     display: flex;
     position: fixed;
     box-sizing: border-box;
@@ -562,8 +562,8 @@ swd-navigation-content {
     z-index: 4;
 }
 
-.dialog > * { max-width: 400px; }
-.dialog:not([shown]) { display: none }
+swd-dialog > * { max-width: 400px; }
+swd-dialog:not([shown]) { display: none }
 
 /****************
 *   Container   *
@@ -809,7 +809,7 @@ a.button[hidden], button[hidden], input[type="submit"][hidden],
 .card[hidden], code[hidden], pre[hidden],
 swd-menu[hidden], swd-menu swd-title[hidden], swd-menu a[hidden],
 swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidden],
-.dialog [hidden] {
+swd-dialog [hidden] {
     display: none;
 }
 
