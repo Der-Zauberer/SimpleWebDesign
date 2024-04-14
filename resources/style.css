@@ -94,9 +94,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
-    line-height: round(1.5em, 1px);
+    line-height: 1.2em;
     margin: calc(var(--theme-element-spacing) * 2) 0 var(--theme-element-spacing) 0;
-    scroll-margin-top: calc(50px + var(--theme-element-spacing));
+    scroll-margin-top: calc(var(--theme-menu-height) + var(--theme-element-spacing));
 }
 
 h1 { font-size: 2.5em }
@@ -105,6 +105,12 @@ h3 { font-size: 1.5em }
 h4 { font-size: 1.2em }
 h5 { font-size: 1em; font-weight: bold }
 h6 { font-size: 0.8em; letter-spacing: 1px; font-weight: bold; text-transform: uppercase }
+
+swd-subtitle {
+    display: block;
+    font-size: 0.6em;
+    color: var(--theme-text-grey-color);
+}
 
 /********************
 *   Text Elements   *
@@ -799,7 +805,7 @@ swd-card *, swd-card-outline *, swd-card-frame *,
 }
 
 a.button[hidden], button[hidden], input[type="submit"][hidden],
-code[hidden], pre[hidden],
+code[hidden], pre[hidden], swd-subtitle[hidden],
 swd-menu[hidden], swd-menu swd-title[hidden], swd-menu a[hidden],
 swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidden],
 swd-card[hidden], swd-card-outline[hidden], .swd-card-frame[hidden],
