@@ -75,7 +75,7 @@
                     <tr><td><samp>container-fluid</samp></td><td><samp>100%</samp></td></tr>
                 </table>
 
-                <swd-card-outline class="grid-md-3 grid-sm-2 grid-1 top-item">
+                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 top-item">
                     <swd-card>Item 1</swd-card>
                     <swd-card>Item 2</swd-card>
                     <swd-card>Item 3</swd-card>
@@ -84,21 +84,21 @@
                     <swd-card>Item 6</swd-card>
                 </swd-card-outline>
                 <code class="bottom-item">
-                    &lt;div class="grid-md-3 grid-sm-2, grid-1"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-item&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-item&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-item&lt;/div&gt;<br>
+                    &lt;div class="grid-cols-md-3 grid-cols-sm-2, grid-cols-1"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-cols-item&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-cols-item&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-cols-item&lt;/div&gt;<br>
                     &lt;/div&gt;
                 </code>
 
                 <table>
                     <tr><th>Class</th><th>Breakpoint</th></tr>
-                    <tr><td><samp>grid-[1-12]</samp></td><td><samp>Always</samp></td></tr>
-                    <tr><td><samp>grid-sm-[1-12]</samp></td><td><samp>min-width: 576px</samp></td></tr>
-                    <tr><td><samp>grid-md-[1-12]</samp></td><td><samp>min-width: 768px</samp></td></tr>
-                    <tr><td><samp>grid-lg-[1-12]</samp></td><td><samp>min-width: 992px</samp></td></tr>
-                    <tr><td><samp>grid-xl-[1-12]</samp></td><td><samp>min-width: 1200px</samp></td></tr>
-                    <tr><td><samp>grid-xxl-[1-12]</samp></td><td><samp>min-width: 1400px</samp></td></tr>
+                    <tr><td><samp>grid-cols-[1-12]</samp></td><td><samp>Always</samp></td></tr>
+                    <tr><td><samp>grid-cols-sm-[1-12]</samp></td><td><samp>min-width: 576px</samp></td></tr>
+                    <tr><td><samp>grid-cols-md-[1-12]</samp></td><td><samp>min-width: 768px</samp></td></tr>
+                    <tr><td><samp>grid-cols-lg-[1-12]</samp></td><td><samp>min-width: 992px</samp></td></tr>
+                    <tr><td><samp>grid-cols-xl-[1-12]</samp></td><td><samp>min-width: 1200px</samp></td></tr>
+                    <tr><td><samp>grid-cols-xxl-[1-12]</samp></td><td><samp>min-width: 1400px</samp></td></tr>
                 </table>
 
                 <h2 id="menu">Menu</h2>
@@ -293,7 +293,7 @@
 
                 <h2 id="button">Button</h2>
 
-                <swd-card-outline class="grid-1 grid-sm-1 grid-md-3 top-item">
+                <swd-card-outline class="grid-cols-1 grid-cols-sm-1 grid-cols-md-3 top-item">
                     <div class="flex flex-wrap">
                         <button>Button</button>
                         <button selected>Active</button>
@@ -339,7 +339,7 @@
                 <h2 id="dropdown">Dropdown</h2>
                 <h2 id="input">Input</h2>
 
-                <swd-card-outline class="grid-1 grid-md-3 top-item">
+                <swd-card-outline class="grid-cols-1 grid-cols-md-3 top-item">
                     <input value="Default">
                     <input value="Default" selected>
                     <input value="Default" disabled>
@@ -364,7 +364,7 @@
 
                 <h2 id="card">Card</h2>
 
-                <swd-card-outline class="grid-1 grid-xl-2 top-item">
+                <swd-card-outline class="grid-cols-1 grid-cols-xl-2 top-item">
 
                     <swd-card>
                         Default card
@@ -398,7 +398,7 @@
                     &lt;/swd-card-outline&gt;
                 </code>
 
-                <swd-card-outline class="grid-1 grid-xl-3 top-item">
+                <swd-card-outline class="grid-cols-1 grid-cols-xl-3 top-item">
 
                     <swd-card>
                         <h2>Some Title</h2>
@@ -514,7 +514,7 @@
                         <swd-card>
                             <h3>Dialog</h3>
                             <p>Really interesting text for the dialog to see how the dialog works</p>
-                            <div class="grid-sm-2 grid-1">
+                            <div class="grid-cols-sm-2 grid-cols-1">
                                 <button swd-close-dialog>Cancel</button>
                                 <button swd-close-dialog>Save</button>
                             </div>
@@ -528,7 +528,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Dialog&lt;/h2&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Really interesting text for the dialog to see how the dialog works&lt;/p&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="grid-sm-2 grid-1"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="grid-cols-sm-2 grid-cols-1"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-close-dialog&gt;Cancel&lt;/button&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-close-dialog&gt;Save&lt;/button&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
