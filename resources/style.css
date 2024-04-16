@@ -337,6 +337,7 @@ a.button, button, input[type="submit"] {
     box-sizing: border-box;
     cursor: pointer;
     height: fit-content;
+    min-width: 2em;
     line-height: initial;
     white-space: nowrap;
     text-decoration: none;
