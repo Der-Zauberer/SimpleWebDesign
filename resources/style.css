@@ -145,7 +145,7 @@ ol li:last-child, ul li:last-child { padding-bottom: 0 }
 
 label {
     height: fit-content;
-    line-height: initial;
+    line-height: round(1.2em, 1px);
     padding: round(0.2em, 1px) round(0.8em, 1px);
     background-color: var(--theme-primary-grey-color);
     border-radius: 1em;
@@ -153,7 +153,7 @@ label {
 
 samp {
     height: fit-content;
-    line-height: initial;
+    line-height: round(1.2em, 1px);
     padding: round(0.2em, 1px) round(0.4em, 1px);
     font-family: 'Roboto Mono', monospace;
     background-color: var(--theme-primary-grey-color);
@@ -163,8 +163,8 @@ samp {
 kbd {
     font-family: 'Roboto Mono', monospace;
     height: fit-content;
-    line-height: initial;
-    padding: calc(round(0.2em, 1px) - 2px) round(0.2em, 1px);
+    line-height: round(1.2em, 1px);
+    padding: calc(round(0.2em, 1px) - 1px) round(0.2em, 1px);
     font-family: 'Roboto Mono', monospace;
     border-radius: var(--theme-border-radius);
     border: solid 1px var(--theme-text-color);
@@ -172,7 +172,7 @@ kbd {
 
 .tooltip {
     height: fit-content;
-    line-height: initial;
+    line-height: round(1.2em, 1px);
     padding: round(0.2em, 1px) round(0.4em, 1px);
     background-color: color-mix(in srgb, var(--theme-text-color) 70%, transparent);
     color: var(--theme-background-color);
@@ -288,7 +288,7 @@ audio {
 
 input, select, textarea {
     box-sizing: border-box;
-    line-height: initial;
+    line-height: round(1.2em, 1px);
     padding: round(0.5em, 1px) round(0.5em, 1px) calc(round(0.5em, 1px) - var(--theme-border-width)) round(0.5em, 1px);
     font-family: var(--theme-font-family);
     font-size: var(--theme-font-size);
@@ -337,8 +337,8 @@ a.button, button, input[type="submit"] {
     box-sizing: border-box;
     cursor: pointer;
     height: fit-content;
-    min-width: 2em;
-    line-height: initial;
+    min-width: round(2.2em, 1px);
+    line-height: round(1.2em, 1px);
     white-space: nowrap;
     text-decoration: none;
     user-select: none;
@@ -422,7 +422,7 @@ swd-menu {
 swd-menu:hover { overflow: auto }
 
 swd-menu a {
-    line-height: initial;
+    line-height: round(1.2em, 1px);
     padding: round(0.5em, 1px) round(0.6em, 1px);
     text-decoration: none !important;
     user-select: none;
@@ -475,7 +475,7 @@ swd-navigation a {
     overflow-x: hidden;
     text-overflow: ellipsis;
     color: var(--theme-text-color);
-    line-height: initial;
+    line-height: round(1.2em, 1px);
     padding: round(0.5em, 1px) round(0.6em, 1px);
     width: 100%;
     border-radius: var(--theme-border-radius);
