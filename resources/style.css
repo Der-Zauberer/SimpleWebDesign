@@ -443,8 +443,6 @@ swd-menu a[selected]:not(.swd-menu-title) {
     color: #ffffff;
 }
 
-swd-menu[centered] { justify-content: space-between }
-
 /*****************
 *   Navigation   *
 *****************/
@@ -634,18 +632,18 @@ swd-dialog:not([shown]) { display: none }
     .grid-cols-sm-10 { grid-template-columns: repeat(10, minmax(0, 1fr)) }
     .grid-cols-sm-11 { grid-template-columns: repeat(11, minmax(0, 1fr)) }
     .grid-cols-sm-12 { grid-template-columns: repeat(12, minmax(0, 1fr)) }
-    .grid-col-span-sm-1 {grid-column: span 1 }
-    .grid-col-span-sm-2 {grid-column: span 2 }
-    .grid-col-span-sm-3 {grid-column: span 3 }
-    .grid-col-span-sm-4 {grid-column: span 4 }
-    .grid-col-span-sm-5 {grid-column: span 5 }
-    .grid-col-span-sm-6 {grid-column: span 6 }
-    .grid-col-span-sm-7 {grid-column: span 7 }
-    .grid-col-span-sm-8 {grid-column: span 8 }
-    .grid-col-span-sm-9 {grid-column: span 9 }
-    .grid-col-span-sm-10 {grid-column: span 10 }
-    .grid-col-span-sm-11 {grid-column: span 11 }
-    .grid-col-span-sm-12 {grid-column: span 12 }
+    .grid-span-sm-1 {grid-column: span 1 }
+    .grid-span-sm-2 {grid-column: span 2 }
+    .grid-span-sm-3 {grid-column: span 3 }
+    .grid-span-sm-4 {grid-column: span 4 }
+    .grid-span-sm-5 {grid-column: span 5 }
+    .grid-span-sm-6 {grid-column: span 6 }
+    .grid-span-sm-7 {grid-column: span 7 }
+    .grid-span-sm-8 {grid-column: span 8 }
+    .grid-span-sm-9 {grid-column: span 9 }
+    .grid-span-sm-10 {grid-column: span 10 }
+    .grid-span-sm-11 {grid-column: span 11 }
+    .grid-span-sm-12 {grid-column: span 12 }
 }
 
 @media only screen and (min-width: 768px) {
@@ -768,8 +766,10 @@ swd-dialog:not([shown]) { display: none }
     margin-bottom: var(--theme-element-spacing);
 }
 
-.flex.flex-wrap { flex-wrap: wrap }
-.flex.flex-end { justify-content: flex-end; }
+.flex-wrap { flex-wrap: wrap }
+.flex-end { justify-content: flex-end }
+.flex-space-around { justify-content: space-around }
+.flex-space-between { justify-content: space-between }
 
 /***********************
 *   Group Selections   *
@@ -814,27 +814,8 @@ swd-dialog [hidden] {
     display: none;
 }
 
-/*************
-*   Margin   *
-*************/
-
-.margin { margin: var(--theme-element-spacing) }
-.margin-0 { margin: 0 }
-
-.margin-top { margin-top: var(--theme-element-spacing) }
-.margin-left { margin-left: var(--theme-element-spacing) }
-.margin-right { margin-right: var(--theme-element-spacing) }
-.margin-bottom { margin-bottom: var(--theme-element-spacing) }
-
-.margin-top-0 { margin-top: 0 }
-.margin-left-0 { margin-left: 0 }
-.margin-right-0 { margin-right: 0 }
-.margin-bottom-0 { margin-bottom: 0 }
-
-.margin-center { margin-left: auto; margin-right: auto }
-
 /**********************
-*   Utility classes   *
+*   Utility Classes   *
 **********************/
 
 .width-100 { width: 100% }
@@ -847,3 +828,37 @@ swd-dialog [hidden] {
 .top-item { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; margin-bottom: 0 !important; }
 .bottom-item { border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; margin-top: 0 !important; }
 .center-item { border-radius: 0px !important; margin: 0; }
+
+/*********************
+*   Margin Utility   *
+*********************/
+
+.margin { margin: var(--theme-element-spacing) }
+.margin-top { margin-top: var(--theme-element-spacing) }
+.margin-left { margin-left: var(--theme-element-spacing) }
+.margin-right { margin-right: var(--theme-element-spacing) }
+.margin-bottom { margin-bottom: var(--theme-element-spacing) }
+
+.margin-0 { margin: 0 }
+.margin-top-0 { margin-top: 0 }
+.margin-left-0 { margin-left: 0 }
+.margin-right-0 { margin-right: 0 }
+.margin-bottom-0 { margin-bottom: 0 }
+
+.margin-auto { margin-left: auto; margin-right: auto }
+.margin-left-auto { margin-left: auto }
+.margin-right-auto { margin-right: auto }
+
+/*******************
+*   Text Utility   *
+*******************/
+
+.text-left { text-align: start }
+.text-right { text-align: end }
+.text-center { text-align: center }
+.text-uppercase { text-transform: uppercase }
+.text-lowercase { text-transform: lowercase }
+.text-underline { text-decoration: underline }
+.text-line-through { text-decoration: line-through }
+.text-nowrap { white-space: nowrap }
+.text-overflow { overflow: hidden; text-overflow: ellipsis; white-space: nowrap }

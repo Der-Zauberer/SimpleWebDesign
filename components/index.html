@@ -54,7 +54,7 @@
                 <h2 id="layout">Layout</h2>
 
                 <swd-card-outline class="top-item" style="padding-left: 15%; padding-right: 15%;">
-                    <swd-card class="margin-0" style="background-color: var(--theme-primary-grey-color)">container</swd-card>
+                    <swd-card class="margin-0 text-center" style="background-color: var(--theme-primary-grey-color)">container</swd-card>
                 </swd-card-outline>
                 <code class="bottom-item">
                     &lt;div class="container-sm"&gt;container-sm&lt;/div&gt;<br>
@@ -75,7 +75,7 @@
                     <tr><td><samp>container-fluid</samp></td><td><samp>100%</samp></td></tr>
                 </table>
 
-                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 top-item">
+                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 text-center top-item">
                     <swd-card>Item 1</swd-card>
                     <swd-card>Item 2</swd-card>
                     <swd-card>Item 3</swd-card>
@@ -85,20 +85,123 @@
                 </swd-card-outline>
                 <code class="bottom-item">
                     &lt;div class="grid-cols-md-3 grid-cols-sm-2, grid-cols-1"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-cols-item&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-cols-item&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;grid-cols-item&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 5&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 6&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
+                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 text-center top-item">
+                    <swd-card class="grid-span-sm-2">Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card class="grid-span-sm-2">Item 4</swd-card>
+                </swd-card-outline>
+                <code class="bottom-item">
+                    &lt;div class="grid-cols-md-3 grid-cols-sm-2, grid-cols-1"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="grid-span-sm-2"&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="grid-span-sm-2"&gt;Item 4&lt;/div&gt;<br>
                     &lt;/div&gt;
                 </code>
 
                 <table>
                     <tr><th>Class</th><th>Breakpoint</th></tr>
-                    <tr><td><samp>grid-cols-[1-12]</samp></td><td><samp>Always</samp></td></tr>
-                    <tr><td><samp>grid-cols-sm-[1-12]</samp></td><td><samp>min-width: 576px</samp></td></tr>
-                    <tr><td><samp>grid-cols-md-[1-12]</samp></td><td><samp>min-width: 768px</samp></td></tr>
-                    <tr><td><samp>grid-cols-lg-[1-12]</samp></td><td><samp>min-width: 992px</samp></td></tr>
-                    <tr><td><samp>grid-cols-xl-[1-12]</samp></td><td><samp>min-width: 1200px</samp></td></tr>
-                    <tr><td><samp>grid-cols-xxl-[1-12]</samp></td><td><samp>min-width: 1400px</samp></td></tr>
+                    <tr><td><samp>grid-cols-[1-12]</samp><br><samp>grid-span-[1-12]</samp></td><td><samp>Always</samp></td></tr>
+                    <tr><td><samp>grid-cols-sm-[1-12]</samp><br><samp>grid-span-sm-[1-12]</samp></td><td><samp>min-width: 576px</samp></td></tr>
+                    <tr><td><samp>grid-cols-md-[1-12]</samp><br><samp>grid-span-mg-[1-12]</samp></td><td><samp>min-width: 768px</samp></td></tr>
+                    <tr><td><samp>grid-cols-lg-[1-12]</samp><br><samp>grid-span-lg-[1-12]</samp></td><td><samp>min-width: 992px</samp></td></tr>
+                    <tr><td><samp>grid-cols-xl-[1-12]</samp><br><samp>grid-span-xl-[1-12]</samp></td><td><samp>min-width: 1200px</samp></td></tr>
+                    <tr><td><samp>grid-cols-xxl-[1-12]</samp><br><samp>grid-span-xxl-[1-12]</samp></td><td><samp>min-width: 1400px</samp></td></tr>
+                </table>
+
+                <swd-card-outline class="flex top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card>Item 4</swd-card>
+                </swd-card-outline>
+                <code class="bottom-item">
+                    &lt;div class="flex"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
+                <swd-card-outline class="flex flex-end top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card>Item 4</swd-card>
+                </swd-card-outline>
+                <code class="bottom-item">
+                    &lt;div class="flex flex-end"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card>Item 4</swd-card>
+                </swd-card-outline>
+                <code class="bottom-item">
+                    &lt;div class="flex flex-space-around"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
+                <swd-card-outline class="flex flex-space-between top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card>Item 4</swd-card>
+                </swd-card-outline>
+                <code class="bottom-item">
+                    &lt;div class="flex flex-space-between"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
+                <swd-card-outline class="flex text-nowrap top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <div class="width-100"></div>
+                    <swd-card>Item 4</swd-card>
+                </swd-card-outline>
+                <code class="bottom-item">
+                    &lt;div class="flex text-nowrap"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </code>
+
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>flex-wrap</samp></td><td><samp>flex-wrap: wrap</samp></td></tr>
+                    <tr><td><samp>flex-end</samp></td><td><samp>justify-content: flex-end</samp></td></tr>
+                    <tr><td><samp>flex-space-around</samp></td><td><samp>justify-content: space-around</samp></td></tr>
+                    <tr><td><samp>flex-space-between</samp></td><td><samp>justify-content: space-between</samp></td></tr>
                 </table>
 
                 <h2 id="menu">Menu</h2>
@@ -163,7 +266,7 @@
                 </code>
 
                 <swd-card-outline class="top-item">
-                    <swd-menu centered class="margin-bottom" style="position: initial; z-index: initial;">
+                    <swd-menu class="flex-space-between margin-bottom" style="position: initial; z-index: initial;">
                         <a>Item 1</a>
                         <a selected>item 2</a>
                         <a>Item 3</a>
@@ -171,7 +274,7 @@
                     </swd-menu>
                 </swd-card-outline>
                 <code class="bottom-item">
-                    &lt;swd-menu centered&gt;<br>
+                    &lt;swd-menu flex-space-between&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
@@ -575,16 +678,31 @@
                 <table>
                     <tr><th>Class</th><th>Property</th></tr>
                     <tr><td><samp>margin</pre></td><td><samp>margin: var(--theme-element-spacing)</samp></td></tr>
-                    <tr><td><samp>margin-0</pre></td><td><samp>margin: 0</samp></td></tr>
                     <tr><td><samp>margin-top</pre></td><td><samp>margin-top: var(--theme-element-spacing)</samp></td></tr>
                     <tr><td><samp>margin-left</pre></td><td><samp>margin-left: var(--theme-element-spacing)</samp></td></tr>
                     <tr><td><samp>margin-right</pre></td><td><samp>margin-right: var(--theme-element-spacing)</samp></td></tr>
                     <tr><td><samp>margin-bottom</pre></td><td><samp>margin-bottom: var(--theme-element-spacing)</samp></td></tr>
+                    <tr><td><samp>margin-0</pre></td><td><samp>margin: 0</samp></td></tr>
                     <tr><td><samp>margin-top-0</pre></td><td><samp>margin-top: 0</samp></td></tr>
                     <tr><td><samp>margin-left-0</pre></td><td><samp>margin-left: 0</samp></td></tr>
                     <tr><td><samp>margin-right-0</pre></td><td><samp>margin-right: 0</samp></td></tr>
                     <tr><td><samp>margin-bottom-0</pre></td><td><samp>margin-bottom: 0</samp></td></tr>
-                    <tr><td><samp>margin-center</pre></td><td><samp>margin-left: auto; margin-right: auto</samp></td></tr>
+                    <tr><td><samp>margin-auto</pre></td><td><samp>margin-left: auto; margin-right: auto</samp></td></tr>
+                    <tr><td><samp>margin-left-auto</pre></td><td><samp>margin-left: auto</samp></td></tr>
+                    <tr><td><samp>margin-right-auto</pre></td><td><samp>margin-right: auto</samp></td></tr>
+                </table>
+
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>text-left</pre></td><td><samp>text-align: start</samp></td></tr>
+                    <tr><td><samp>text-right</pre></td><td><samp>text-align: end</samp></td></tr>
+                    <tr><td><samp>text-center</pre></td><td><samp>text-align: center</samp></td></tr>
+                    <tr><td><samp>text-uppercase</pre></td><td><samp>text-transform: uppercase</samp></td></tr>
+                    <tr><td><samp>text-lowercase</pre></td><td><samp>text-transform: lowercase</samp></td></tr>
+                    <tr><td><samp>text-underline</pre></td><td><samp>text-decoration: underline</samp></td></tr>
+                    <tr><td><samp>text-line-through</pre></td><td><samp>ext-decoration: line-through</samp></td></tr>
+                    <tr><td><samp>text-nowrap</pre></td><td><samp>white-space: nowrap</samp></td></tr>
+                    <tr><td><samp>text-overflow</pre></td><td><samp>overflow: hidden; text-overflow: ellipsis; white-space: nowrap</samp></td></tr>
                 </table>
 
                 <table>
