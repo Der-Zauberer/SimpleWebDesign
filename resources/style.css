@@ -500,7 +500,7 @@ swd-navigation-content {
 *   Card   *
 ***********/
 
-swd-card, swd-card-outline, .swd-card-frame {
+swd-card, swd-card-outline, swd-card-ghost .swd-card-frame {
     display: block;
     box-sizing: border-box;
     height: fit-content;
@@ -519,6 +519,8 @@ swd-card-outline {
     padding: calc(var(--theme-inner-element-spacing) - var(--theme-border-width));
     border: solid var(--theme-border-width) var(--theme-primary-grey-color);
 }
+
+swd-card-ghost { padding: var(--theme-element-spacing) }
 
 swd-card.swd-card-hover:hover { cursor: pointer; background-color: var(--theme-secondary-grey-color) }
 swd-card-outline.swd-card-hover:hover { cursor: pointer; border-color: var(--theme-secondary-grey-color) }
@@ -790,17 +792,17 @@ swd-router {
 }
 
 [class*="container-"] > :first-child,
-swd-card > :first-child, swd-card-outline > :first-child, swd-card-frame > :first-child {
+swd-card > :first-child, swd-card-outline > :first-child, swd-card-ghost > :first-child, swd-card-frame > :first-child {
     margin-top: 0 
 }
 
 [class*="container-"] > :last-child,
-swd-card > :last-child, swd-card-outline > :last-child, swd-card-frame > :last-child {
+swd-card > :last-child, swd-card-outline > :last-child,swd-card-ghost > :last-child, swd-card-frame > :last-child {
     margin-bottom: 0
 }
 
 swd-navigation *,
-swd-card *, swd-card-outline *, swd-card-frame *,
+swd-card *, swd-card-outline *, swd-card-ghost *, swd-card-frame *,
 [class*="overlay-"] * {
     --theme-element-spacing: var(--theme-inner-element-spacing);
 }
@@ -809,9 +811,13 @@ a.button[hidden], button[hidden], input[type="submit"][hidden],
 code[hidden], pre[hidden], swd-subtitle[hidden],
 swd-menu[hidden], swd-menu swd-title[hidden], swd-menu a[hidden],
 swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidden],
-swd-card[hidden], swd-card-outline[hidden], .swd-card-frame[hidden],
+swd-card[hidden], swd-card-outline[hidden], swd-card-ghost[hidden], .swd-card-frame[hidden],
 swd-dialog [hidden] {
     display: none;
+}
+
+swd-card * {
+    --theme-primary-grey-color: var(--theme-secondary-grey-color)
 }
 
 /**********************
