@@ -26,6 +26,7 @@
     font-family: var(--theme-font-family);
     font-size: 18px;
     line-height: round(1.7em, 1px);
+    letter-spacing: 0.01em;
     scroll-behavior: smooth;
 }
 
@@ -583,6 +584,8 @@ swd-dialog:not([shown]) { display: none }
 .container-xxl { max-width: 1400px }
 .container-fluid { max-width: 100% }
 
+@media only screen and (max-width: 575px) { [class*="container-"] { padding: calc(var(--theme-element-spacing)) }}
+
 /***********
 *   Grid   *
 ************/
@@ -816,8 +819,8 @@ swd-dialog [hidden] {
     display: none;
 }
 
-swd-card * {
-    --theme-primary-grey-color: var(--theme-secondary-grey-color)
+swd-navigation *, swd-card * {
+    --theme-primary-grey-color: var(--theme-secondary-grey-color);
 }
 
 /**********************

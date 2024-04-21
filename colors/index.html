@@ -21,57 +21,138 @@
 
         <div class="container-xl">
 
-            <div class="color-row">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <h2>Color Scheme</h2>
+
+            <p>
+                The css applies the systems color scheme by default. If you want to force a scheme for an element, you can add the <samp>lightmode</samp> or <samp>darkmode</samp> class to your element. You can put this class in your <samp>&lt;body&gt;</samp> tag if you want to force the scheme to the whole webseite.
+            </p>
+
+            <div class="grid-cols-sm-2 grid-cols-1">
+                <swd-card-outline class="lightmode">
+                    <h3>
+                        Lightmode Example
+                        <swd-subtitle>This card is displayed for lightmode</swd-subtitle>
+                    </h3>
+                    <div class="flex flex-wrap"><label>Color Scheme</label><label>Lightmode</label></div>
+                    <code>&lt;div class="lightmode"&gt;...&lt;/div&gt;</code>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                    <button class="width-100">Button</button>
+                </swd-card-outline>
+                <swd-card-outline class="darkmode">
+                    <h3>
+                        Darkmode Example
+                        <swd-subtitle>This card is displayed for darkmode</swd-subtitle>
+                    </h3>
+                    <div class="flex flex-wrap"><label>Color Scheme</label><label>Darkmode</label></div>
+                    <code>&lt;div class="darkmode"&gt;...&lt;/div&gt;</code>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                    <button class="width-100">Button</button>
+                </swd-card-outline>
             </div>
 
-            <style>
-                .color-row {
-                    display: grid;
-                    grid-template-columns: repeat(5, auto);
-                    justify-content: space-between;
-                }
-                .color-row > * {
-                    box-sizing: border-box;
-                    padding: var(--theme-inner-element-spacing);
-                    height: 10vw;
-                    width: 10vw;
-                    max-height: 120px;
-                    max-width: 120px;
-                    background-color: var(--theme-primary-grey-color);
-                    border-radius: var(--theme-border-radius);
-                }
-            </style>
+            <h2>Greyscale</h2>
 
-            <h2>Neutral Colors</h2>
+            <p>
+                Elements with grey background in front of element with grey background can adjust their grey value based on the primary and secondary grey value.
+            </p>
 
             <div class="grid-cols-sm-2 grid-cols-1">
                 <swd-card-outline>
                     <h3>
-                        Card Title 
+                        Black Background
                         <swd-subtitle>A card to compare the colors</swd-subtitle>
                     </h3>
+                    <div class="flex flex-wrap"><label>Background</label><label>Black</label></div>
                     <swd-card>Inner Card</swd-card>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
                     <button class="width-100">Button</button>
                 </swd-card-outline>
                 <swd-card>
                     <h3>
-                        Card Title 
+                        Grey Background
                         <swd-subtitle>A card to compare the colors</swd-subtitle>
                     </h3>
+                    <div class="flex flex-wrap"><label>Background</label><label>Grey</label></div>
                     <swd-card>Inner Card</swd-card>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
                     <button class="width-100">Button</button>
                 </swd-card>
             </div>
 
+            <p>You can implement this behavior for your own elements by overwriting the grey variable for child elements while using the primary grey variable as background.</p>
+
+            <code>
+                .grey-element {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--theme-primary-grey-color);<br>
+                }<br><br>
+                .grey-element * {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-grey-color: var(--theme-secondary-grey-color);<br>
+                }
+            </code>
+
+            <h2>Define Your Own Color</h2>
+
+            <p>
+                You can simply redefine the theme color variables. The secondary color is used as hover color by the most components. You can create your own class like <samp>.color-magenta</samp> for some elements or overrite the <samp>:root</samp> pseudoclass to set the color for the whole theme.
+            </p>
+
+            <swd-card-outline class="flex flex-space-around top-item">
+                <button class="color-magenta">Magenta Button</button>
+                <button class="outline color-magenta">Magenta Button</button>
+                <style>
+                    .color-magenta {
+                        --theme-primary-color: hsl(320, 100%, 45%);
+                        --theme-secondary-color: hsl(320, 100%, 35%);
+                    }
+                </style>
+            </swd-card-outline>
+            <code class="bottom-item">
+                &lt;button class="color-magenta"&gt;Magenta Button&lt;/button&gt;<br>
+                &lt;button class="outline color-magenta"&gt;Magenta Button&lt;/button&gt;<br><br>
+                &lt;style&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;.color-magenta {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-color: hsl(320, 100%, 45%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-color: hsl(320, 100%, 35%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &lt;/style&gt;
+            </code>
+
+            <h2>Default colors</h2>
+
+            <table>
+                <tr><th>Variables</th><th>Default</th></tr>
+                <tr><td><samp>--theme-primary-color</samp></td><td><div class="swd-color-preview" style="background-color: #0033ff; color: white;">#0033ff</div></td></tr>
+                <tr><td><samp>--theme-secondary-color</samp></td><td><div class="swd-color-preview" style="background-color: #0024b3; color: white;">#0024b3</div></td></tr>
+            </table>
+
+            <table>
+                <tr><th>Color Scheme Dependent Variables</th><th>Lightmode</th><th>Darkmode</th></tr>
+                <tr><td><samp>--theme-background-color</samp></td><td><div class="swd-color-preview" style="background-color: #ffffff; color: black;">#ffffff</div></td><td><div class="swd-color-preview" style="background-color: #000000; color: white;">#000000</div></td></tr>
+                <tr><td><samp>--theme-primary-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: #e0e0e0; color: black;">#e0e0e0</div></td><td><div class="swd-color-preview" style="background-color: #1f1f1f; color: white;">#1f1f1f</div></td></tr>
+                <tr><td><samp>--theme-secondary-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: #c2c2c2; color: black;">#c2c2c2</div></td><td><div class="swd-color-preview" style="background-color: #3d3d3d; color: white;">#3d3d3d</div></td></tr>
+            </table>
+
+            <table>
+                <tr><th>Color Scheme Dependent Text Variables</th><th>Lightmode</th><th>Darkmode</th></tr>
+                <tr><td><samp>--theme-text-color</samp></td><td><div class="swd-color-preview" style="background-color: white; color: #000000;">#000000</div></td><td><div class="swd-color-preview" style="background-color: black; color: #ffffff;">#ffffff</div></td></tr>
+                <tr><td><samp>--theme-text-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: white; color: #666666;">#666666</div></td><td><div class="swd-color-preview" style="background-color: black; color: #999999;">#999999</div></td></tr>
+            </table>
 
         </div>
+
+        <style>
+
+            .swd-color-preview {
+                display: inline-block;
+                box-sizing: border-box;
+                line-height: round(1.2em, 1px);
+                width: 100%;
+                text-align: center;
+                padding: round(0.5em, 1px) round(0.6em, 1px);
+                border-radius: var(--theme-border-radius);
+            }
+
+        </style>
 
     </body>
 </html>
