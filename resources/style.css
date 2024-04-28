@@ -287,10 +287,10 @@ audio {
 *   Button & Input   *
 *********************/
 
-button, input, select, textarea {
+a.button, button, input, select, textarea {
     box-sizing: border-box;
     height: fit-content;
-    line-height: round(1.2em, 1px);
+    min-height: round(2.2em, 1px);
     min-width: round(2.2em, 1px);
     line-height: round(1.2em, 1px);
     padding: calc(round(0.5em, 1px) - var(--theme-border-width)) calc(round(0.6em, 1px) - var(--theme-border-width));
@@ -304,7 +304,12 @@ button, input, select, textarea {
     border-radius: var(--theme-border-radius);
 }
 
-button:disabled, input:disabled, select:disabled, textarea:disabled {
+a.button {
+    display: inline-block;
+    text-decoration: none;
+}
+
+a.button:disabled, button:disabled, input:disabled, select:disabled, textarea:disabled {
     --theme-primary-color: var(--theme-primary-grey-color) !important;
     --theme-text-color: var(--theme-text-grey-color) !important;
     cursor: no-drop;
@@ -314,38 +319,44 @@ button:disabled, input:disabled, select:disabled, textarea:disabled {
 *   Button   *
 *************/
 
-button, input[type="submit"] {
+a.button, button, input[type="submit"] {
     cursor: pointer;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
 }
 
-button:not(.outline, .ghost), input[type="submit"]:not(.outline, .ghost) {
+a.button:not(.outline, .ghost), button:not(.outline, .ghost), input[type="submit"]:not(.outline, .ghost) {
     background-color: var(--theme-primary-color);
     --theme-text-color: white;
     color: var(--theme-text-color);
 }
 
-button:not(.outline, .ghost, :disabled):hover, button:not(.outline, .ghost, :disabled):focus, button:not(.outline, .ghost, :disabled):active, button:not(.outline, .ghost, :disabled)[selected], 
+a.button:not(.outline, .ghost, :disabled):hover, a.button:not(.outline, .ghost, :disabled):focus, a.button:not(.outline, .ghost, :disabled):active, a.button:not(.outline, .ghost, :disabled)[selected],
+button:not(.outline, .ghost, :disabled):hover, button:not(.outline, .ghost, :disabled):focus, button:not(.outline, .ghost, :disabled):active, button:not(.outline, .ghost, :disabled)[selected],
 input[type="submit"]:not(.outline, .ghost, :disabled):hover, input[type="submit"]:not(.outline, .ghost, :disabled):focus, input[type="submit"]:not(.outline, .ghost, :disabled):active, input[type="submit"]:not(.outline, .ghost, :disabled)[selected] {
     background-color: var(--theme-secondary-color);
 }
 
-button.outline, input[type="submit"].outline {
+a.button.outline, button.outline, input[type="submit"].outline {
     background-color: transparent;
     color: var(--theme-text-color);
     border-color: var(--theme-primary-color);
 }
 
-button.outline:not(:disabled):hover, button.outline:not(:disabled):focus, button.outline:not(:disabled):active, button.outline:not(:disabled)[selected], 
+a.button.outline:not(:disabled):hover, a.button.outline:not(:disabled):focus, a.button.outline:not(:disabled):active, a.button.outline:not(:disabled)[selected],
+button.outline:not(:disabled):hover, button.outline:not(:disabled):focus, button.outline:not(:disabled):active, button.outline:not(:disabled)[selected],
 input[type="submit"].outline:not(:disabled):hover, input[type="submit"].outline:not(:disabled):focus, input[type="submit"].outline:not(:disabled):active, input[type="submit"].outline:not(:disabled)[selected] {
     background-color: var(--theme-primary-color);
     --theme-text-color: white;
 }
 
-button.ghost, input[type="submit"].ghost {
+a.button.ghost, button.ghost, input[type="submit"].ghost {
     background-color: transparent;
     color: var(--theme-text-color);
 }
 
+a.button.ghost:not(:disabled):hover, a.button.ghost:not(:disabled):focus, a.button.ghost:not(:disabled):active, a.button:not(:disabled).ghost[selected],
 button.ghost:not(:disabled):hover, button.ghost:not(:disabled):focus, button.ghost:not(:disabled):active, button:not(:disabled).ghost[selected], 
 input[type="submit"].ghost:not(:disabled):hover, input[type="submit"].ghost:not(:disabled):focus, input[type="submit"].ghost:not(:disabled):active, input[type="submit"].ghost:not(:disabled)[selected] {
     background-color: var(--theme-primary-grey-color);
@@ -781,6 +792,7 @@ swd-card *, swd-card-outline *, swd-card-ghost *, swd-card-frame *,
     --theme-element-spacing: var(--theme-inner-element-spacing);
 }
 
+a.button[hidden],
 code[hidden], pre[hidden], swd-subtitle[hidden],
 swd-menu[hidden], swd-menu swd-title[hidden], swd-menu a[hidden],
 swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidden],
