@@ -21,7 +21,7 @@
 
         <swd-navigation>
             <div class="margin-bottom">
-                <a class="swd-navigation-title">Elements</a>
+                <b>Elements</b>
                 <a href="#get-started">Get started</a>
                 <a href="#layout">Layout</a>
                 <a href="#menu">Menu</a>
@@ -40,7 +40,7 @@
                 <a href="#code">Code</a>
             </div>
             <div class="margin-bottom">
-                <a class="swd-navigation-title">Interfaces</a>
+                <b>Interfaces</b>
                 <a href="#variables">Variables</a>
                 <a href="#utility-classes">Utility Classes</a>
             </div>
@@ -207,7 +207,7 @@
                 <h2 id="menu">Menu</h2>
 
                 <swd-card-outline class="top-item">
-                    <swd-menu class="margin-bottom" style="position: initial; z-index: initial;">
+                    <swd-menu style="position: initial; z-index: initial;">
                         <a class="swd-menu-title">Page Title</a>
                         <a>Item 1</a>
                         <a selected>item 2</a>
@@ -224,7 +224,7 @@
                 </code>
                 
                 <swd-card-outline class="top-item">
-                    <swd-menu class="margin-bottom" style="position: initial; z-index: initial;">
+                    <swd-menu style="position: initial; z-index: initial;">
                         <a class="swd-menu-title">Page Title</a>
                         <div class="width-100"></div>
                         <a>Item 1</a>
@@ -243,7 +243,7 @@
                 </code>
 
                 <swd-card-outline class="top-item">
-                    <swd-menu class="margin-bottom" style="position: initial; z-index: initial;">
+                    <swd-menu style="position: initial; z-index: initial;">
                         <a class="swd-menu-title">Page Title</a>
                         <a>Item 1</a>
                         <a selected>item 2</a>
@@ -285,8 +285,8 @@
                 <h2 id="navigation">Navigation</h2>
 
                 <swd-card-outline class="top-item">
-                    <swd-navigation class="margin-bottom" style="position: initial; z-index: initial; max-height: 400px;">
-                        <a class="swd-navigation-title">Navigation</a>
+                    <swd-navigation style="position: initial; z-index: initial; max-height: 400px;">
+                        <b>Navigation</b>
                         <a>Item 1</a>
                         <a selected>Item 2</a>
                         <a>Item 3</a>
@@ -294,10 +294,42 @@
                 </swd-card-outline>
                 <code class="bottom-item">
                     &lt;swd-navigation&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-navigation-title"&gt;Navigation&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;Navigation&lt;/b&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &lt;/swd-navigation&gt;<br>
+                    &lt;swd-navigation-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Page content here --&gt;<br>
+                    &lt;/swd-navigation-content&gt;
+                </code>
+
+                <swd-card-outline class="top-item">
+                    <swd-navigation style="position: initial; z-index: initial; max-height: 400px;">
+                        <div class="margin-bottom">
+                            <b>Navigation</b>
+                            <a>Item 1</a>
+                            <a selected>Item 2</a>
+                            <a>Item 3</a>
+                        </div>
+                        <swd-card>
+                            <span>Some Card</span>
+                            <swd-subtitle>with some Information</swd-subtitle>
+                        </swd-card>
+                    </swd-navigation>
+                </swd-card-outline>
+                <code class="bottom-item">
+                    &lt;swd-navigation&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="margin-bottom"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;Navigation&lt;/b&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Some Card&lt;/span&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-subtitle&gt;with some Information&lt;/swd-subtitle&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-card&gt;<br>
                     &lt;/swd-navigation&gt;<br>
                     &lt;swd-navigation-content&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Page content here --&gt;<br>
@@ -440,6 +472,18 @@
                 </code>
 
                 <h2 id="dropdown">Dropdown</h2>
+
+                <swd-dropdown>
+                    <button>Test</button>
+                    <swd-dropdown-content shown>
+                        <swd-selection>
+                            <a>Option</a>
+                            <a selected>Selections</a>
+                            <a>Something</a>
+                        </swd-selection>
+                    </swd-dropdown-content>
+                </swd-dropdown>
+
                 <h2 id="input">Input</h2>
 
                 <swd-card-outline class="grid-cols-1 grid-cols-md-3 top-item">

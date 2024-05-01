@@ -287,7 +287,7 @@ audio {
 *   Button & Input   *
 *********************/
 
-a.button, button, input, select, textarea {
+a.button, button, input, select, textarea, swd-navigation a, swd-selection a {
     box-sizing: border-box;
     height: fit-content;
     min-height: round(2.2em, 1px);
@@ -304,12 +304,7 @@ a.button, button, input, select, textarea {
     border-radius: var(--theme-border-radius);
 }
 
-a.button {
-    display: inline-block;
-    text-decoration: none;
-}
-
-a.button:disabled, button:disabled, input:disabled, select:disabled, textarea:disabled {
+a.button:disabled, button:disabled, input:disabled, select:disabled, textarea:disabled, swd-selection a:disabled {
     --theme-primary-color: var(--theme-primary-grey-color) !important;
     --theme-text-color: var(--theme-text-grey-color) !important;
     cursor: no-drop;
@@ -319,7 +314,9 @@ a.button:disabled, button:disabled, input:disabled, select:disabled, textarea:di
 *   Button   *
 *************/
 
-a.button, button, input[type="submit"] {
+a.button, button, input[type="submit"], swd-navigation a, swd-selection a {
+    display: inline-block;
+    text-decoration: none !important;
     cursor: pointer;
     white-space: nowrap;
     overflow-x: hidden;
@@ -329,7 +326,6 @@ a.button, button, input[type="submit"] {
 a.button:not(.outline, .ghost), button:not(.outline, .ghost), input[type="submit"]:not(.outline, .ghost) {
     background-color: var(--theme-primary-color);
     --theme-text-color: white;
-    color: var(--theme-text-color);
 }
 
 a.button:not(.outline, .ghost, :disabled):hover, a.button:not(.outline, .ghost, :disabled):focus, a.button:not(.outline, .ghost, :disabled):active, a.button:not(.outline, .ghost, :disabled)[selected],
@@ -340,7 +336,6 @@ input[type="submit"]:not(.outline, .ghost, :disabled):hover, input[type="submit"
 
 a.button.outline, button.outline, input[type="submit"].outline {
     background-color: transparent;
-    color: var(--theme-text-color);
     border-color: var(--theme-primary-color);
 }
 
@@ -353,12 +348,13 @@ input[type="submit"].outline:not(:disabled):hover, input[type="submit"].outline:
 
 a.button.ghost, button.ghost, input[type="submit"].ghost {
     background-color: transparent;
-    color: var(--theme-text-color);
 }
 
 a.button.ghost:not(:disabled):hover, a.button.ghost:not(:disabled):focus, a.button.ghost:not(:disabled):active, a.button:not(:disabled).ghost[selected],
 button.ghost:not(:disabled):hover, button.ghost:not(:disabled):focus, button.ghost:not(:disabled):active, button:not(:disabled).ghost[selected], 
-input[type="submit"].ghost:not(:disabled):hover, input[type="submit"].ghost:not(:disabled):focus, input[type="submit"].ghost:not(:disabled):active, input[type="submit"].ghost:not(:disabled)[selected] {
+input[type="submit"].ghost:not(:disabled):hover, input[type="submit"].ghost:not(:disabled):focus, input[type="submit"].ghost:not(:disabled):active, input[type="submit"].ghost:not(:disabled)[selected],
+swd-navigation a:not(:disabled):hover, swd-navigation a:not(:disabled):focus, swd-navigation a:not(:disabled):active, swd-navigation a:not(:disabled)[selected],
+swd-selection a:not(:disabled):hover, swd-selection a:not(:disabled):focus, swd-selection a:not(:disabled):active, swd-selection a:not(:disabled)[selected] {
     background-color: var(--theme-primary-grey-color);
 }
 
@@ -436,7 +432,6 @@ swd-navigation {
     flex-direction: column;
     box-sizing: border-box;
     padding: var(--theme-inner-element-spacing);
-    gap: var(--theme-inner-element-spacing);
     width: 250px;
     height: calc(100% - var(--theme-menu-height));
     background-color: var(--theme-primary-grey-color);
@@ -445,34 +440,6 @@ swd-navigation {
 }
 
 swd-navigation:hover { overflow-y: auto }
-
-swd-navigation a {
-    display: block;
-    box-sizing: border-box;
-    text-decoration: none !important;
-    user-select: none;
-    -webkit-user-select: none;
-    white-space: nowrap;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    color: var(--theme-text-color);
-    line-height: round(1.2em, 1px);
-    padding: round(0.5em, 1px) round(0.6em, 1px);
-    width: 100%;
-    border-radius: var(--theme-border-radius);
-}
-
-swd-navigation a.swd-navigation-title {
-    padding: round(0.25em, 1px) 0;
-    font-weight: bold;
-    cursor: default;
-}
-
-swd-navigation a:hover:not(.swd-navigation-title), 
-swd-navigation a:active:not(.swd-navigation-title), 
-swd-navigation a[selected]:not(.swd-navigation-title) {
-    background-color: var(--theme-secondary-grey-color);
-}
 
 swd-navigation-content {
     display: block;
@@ -526,6 +493,32 @@ swd-card-outline.swd-card-hover:hover { cursor: pointer; border-color: var(--the
 .overlay-bottom-right > :last-child { bottom: var(--theme-inner-element-spacing); right: var(--theme-inner-element-spacing) }
 .overlay-center > :last-child { top: 50%; left: 50%; transform: translate(-50%, -50%) }
 
+/****************
+*   Selection   *
+****************/
+
+swd-selection {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    background-color: var(--theme-primary-grey-color);
+    border-radius: var(--theme-border-radius);
+}
+
+/***************
+*   Dropdown   *
+***************/
+
+swd-dropdown {
+    position: relative;
+}
+
+swd-dropdown-content {
+    display: block;
+    position: absolute;
+    z-index: 4;
+}
+
 /*************
 *   Dialog   *
 *************/
@@ -546,7 +539,6 @@ swd-dialog {
 }
 
 swd-dialog > * { max-width: 400px; }
-swd-dialog:not([shown]) { display: none }
 
 /****************
 *   Container   *
@@ -770,40 +762,36 @@ swd-router {
     gap: 0px;
 }
 
-[class*="grid-cols-"] > *,
-.flex > *,
-[class*="overlay-"] > * { 
+[class*="grid-cols-"] > *, .flex > *, [class*="overlay-"] > * {
     margin: 0 
 }
 
-[class*="container-"] > :first-child,
+[class*="container-"] > :first-child, swd-navigation > :first-child, swd-selection > :first-child,
 swd-card > :first-child, swd-card-outline > :first-child, swd-card-ghost > :first-child, swd-card-frame > :first-child {
     margin-top: 0 
 }
 
-[class*="container-"] > :last-child,
+[class*="container-"] > :last-child, swd-navigation > :last-child, swd-selection > :last-child,
 swd-card > :last-child, swd-card-outline > :last-child,swd-card-ghost > :last-child, swd-card-frame > :last-child {
     margin-bottom: 0
 }
 
-swd-navigation *,
-swd-card *, swd-card-outline *, swd-card-ghost *, swd-card-frame *,
-[class*="overlay-"] * {
-    --theme-element-spacing: var(--theme-inner-element-spacing);
-}
+swd-navigation *, swd-card *, swd-card-outline *, swd-card-ghost *, swd-card-frame *, [class*="overlay-"] * { --theme-element-spacing: var(--theme-inner-element-spacing) } 
 
-a.button[hidden],
+a.button[hidden], button[hidden], input[type="submit"][hidden], swd-menu a[hidden], swd-navigation a[hidden], swd-selection a[hidden]
 code[hidden], pre[hidden], swd-subtitle[hidden],
-swd-menu[hidden], swd-menu swd-title[hidden], swd-menu a[hidden],
-swd-navigation[hidden], swd-navigation swd-title[hidden], swd-navigation a[hidden],
+swd-menu[hidden], swd-menu swd-title[hidden],
+swd-navigation[hidden], swd-navigation swd-title[hidden],
 swd-card[hidden], swd-card-outline[hidden], swd-card-ghost[hidden], .swd-card-frame[hidden],
 swd-dialog [hidden] {
-    display: none;
+    display: none
 }
 
-swd-navigation *, swd-card * {
-    --theme-primary-grey-color: var(--theme-secondary-grey-color);
-}
+swd-navigation a, swd-select a { display: block }
+
+swd-dialog:not([shown]), swd-dropdown-content:not([shown]) { display: none }
+
+swd-navigation *, swd-card *, swd-selection * { --theme-primary-grey-color: var(--theme-secondary-grey-color) }
 
 /**********************
 *   Utility Classes   *
