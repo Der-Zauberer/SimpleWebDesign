@@ -509,6 +509,44 @@
                     &lt;input value="Ghost" class="ghost" disabled&gt;<br>
                 </code>
 
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-input>
+                        <swd-input-label>Name</swd-input-label>
+                        <input type="text">
+                    </swd-input>
+                    <swd-input class="outline">
+                        <swd-input-label>Name</swd-input-label>
+                        <input type="text">
+                    </swd-input>
+                </swd-card-outline>
+                <code class="bottom-item">
+                    &lt;swd-input&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-label&gt;Name&lt;/swd-input-label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text"&gt;<br>
+                    &lt;/swd-input&gt;<br><br>
+                    &lt;swd-input class="outline"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-label&gt;Name&lt;/swd-input-label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text"&gt;<br>
+                    &lt;/swd-input&gt;
+                </code>
+
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-input>
+                        <swd-input-label>Username (only letters and numbers)</swd-input-label>
+                        <input type="text" maxlength="10" pattern="(\w|\d)+">
+                        <swd-input-range></swd-input-range>
+                        <swd-input-error></swd-input-error>
+                    </swd-input>
+                </swd-card-outline>
+                <code class="bottom-item">
+                    &lt;swd-input&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-label&gt;Username (only letters and numbers)&lt;/swd-input-label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" maxlength="10" pattern="(\w|\d)+"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-range&gt;&lt;/swd-input-range&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-error&gt;&lt;/swd-input-error&gt;<br>
+                    &lt;/swd-input&gt;
+                </code>
+
                 <h2 id="card">Card</h2>
 
                 <swd-card-outline class="grid-cols-1 grid-cols-xl-2 top-item">
