@@ -109,7 +109,8 @@ h6 { font-size: 0.8em; letter-spacing: 1px; font-weight: bold; text-transform: u
 
 swd-subtitle {
     display: block;
-    font-size: 0.6em;
+    font-size: round(0.6em, 1px);
+    line-height: round(2em, 1px);
     color: var(--theme-text-grey-color);
 }
 
