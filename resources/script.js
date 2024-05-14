@@ -1,3 +1,39 @@
+class SwdComponent extends HTMLElement {
+
+    #events = []
+    #observer;
+
+    constructor() {
+        super()
+        this.#observer = new MutationObserver((mutationList, observer) => {
+            [...mutationList].forEach(mutation => this.swdOnUpdate(mutation))
+        })
+        this.#observer.observe(this, { attributes: true, childList: true, subtree: true })
+    }
+
+    connectedCallback() {
+        this.swdOnInit()
+    }
+
+    disconnectedCallback() {
+        this.swdOnDestroy()
+        for (eventHolder in this.#events) {
+            eventHolder.target.removeEventListener(eventHolder.event, eventHolder.action)
+        }
+        this.#observer.disconnect()
+    }
+
+    swdOnInit() {}
+    swdOnUpdate(mutation) {}
+    swdOnDestroy() {}
+
+    swdRegisterManagedEvent(target, event, action) {
+        this.#events.push({ target, event, action })
+        target.addEventListener(event, action)
+    }
+
+}
+
 class SwdRouter extends HTMLElement {
 
     static get observedAttributes() {
@@ -17,6 +53,19 @@ class SwdRouter extends HTMLElement {
 
 }
 
+class SwdTestComponent extends SwdComponent {
+
+    swdOnInit() {
+        this.swdRegisterManagedEvent(this, 'click', event => console.log(event))
+        console.log('Loaded')
+    }
+
+    swdOnUpdate(mutation) {
+        console.log(mutation)
+    }
+
+}
+
 class Swd {
 
     #openDialog;
@@ -27,18 +76,18 @@ class Swd {
     }
 
     hide(element) {
-        element.setAttribute('hidden', 'true');
+        element.setAttribute('hidden', 'true')
     }
 
     show(element) {
-        element.removeAttribute('hidden');
+        element.removeAttribute('hidden')
     }
 
     toggle(element) {
         if (element.hasAttribute('hidden')) {
-            element.removeAttribute('hidden');
+            element.removeAttribute('hidden')
         } else {
-            element.setAttribute('hidden', 'true');
+            element.setAttribute('hidden', 'true')
         }
     }
 
@@ -85,7 +134,8 @@ class Swd {
 
 }
 
-customElements.define('swd-router', SwdRouter)
 swd = new Swd()
+document.addEventListener('click', (event) => swd.trigger(event.target))
 
-document.addEventListener('click', (event) => swd.trigger(event.target));
+customElements.define('swd-router', SwdRouter)
+customElements.define('swd-test', SwdTestComponent)
