@@ -474,7 +474,7 @@
                 <h2 id="dropdown">Dropdown</h2>
 
                 <swd-dropdown>
-                    <button>Test</button>
+                    <button swd-dropdown-toggle>Test</button>
                     <swd-dropdown-content>
                         <swd-selection>
                             <a>Option</a>
@@ -700,29 +700,29 @@
 
                 <swd-card-outline class="flex top-item flex-space-around">
 
-                    <button swd-open-dialog="swd-dialog">Click to open dialog</button>
+                    <button swd-dialog-open="swd-dialog">Click to open dialog</button>
 
                     <swd-dialog id="swd-dialog">
                         <swd-card>
                             <h3>Dialog</h3>
                             <p>Really interesting text for the dialog to see how the dialog works</p>
                             <div class="grid-cols-sm-2 grid-cols-1">
-                                <button swd-close-dialog>Cancel</button>
-                                <button swd-close-dialog>Save</button>
+                                <button swd-dialog-close>Cancel</button>
+                                <button swd-dialog-close>Save</button>
                             </div>
                         </swd-card>
                     </swd-dialog>
 
                 </swd-card-outline>
                 <code class="bottom-item">
-                    &lt;button swd-open-dialog="swd-dialog"&gt;Click to open dialog&lt;/button&gt;<br><br>
+                    &lt;button swd-dialog-open="swd-dialog"&gt;Click to open dialog&lt;/button&gt;<br><br>
                     &lt;swd-dialog id="swd-dialog"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Dialog&lt;/h2&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Really interesting text for the dialog to see how the dialog works&lt;/p&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="grid-cols-sm-2 grid-cols-1"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-close-dialog&gt;Cancel&lt;/button&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-close-dialog&gt;Save&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-dialog-close&gt;Cancel&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-dialog-close&gt;Save&lt;/button&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-card&gt;<br>
                     &lt;/swd-dialog&gt;

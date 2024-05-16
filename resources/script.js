@@ -63,10 +63,10 @@ class Swd {
                 case 'swd-toggle': 
                     this.#forEachElementById(attribute.value, element => this.toggle(element))
                     break
-                case 'swd-open-dialog': 
+                case 'swd-dialog-open': 
                     this.#forEachElementById(attribute.value, element => this.openDialog(element))
                     break
-                case 'swd-close-dialog': 
+                case 'swd-dialog-close': 
                     this.closeDialog()
                     break
                 default: 
@@ -146,18 +146,34 @@ class SwdRouter extends HTMLElement {
 
 }
 
-class SwdTestComponent extends SwdComponent {
+class SwdDropdown extends SwdComponent {
 
-    swdOnInit() {
-        this.swdRegisterManagedEvent(this, 'click', event => console.log(event))
-        console.log('Loaded')
+    #contentElement;
+
+    swdAfterRendered() {
+        const toggleElement = this.querySelector('[swd-dropdown-toggle]');
+        if (!toggleElement) return;
+        this.#contentElement = this.querySelector('swd-dropdown-content');
+        if (!this.#contentElement) return;
+        this.swdRegisterManagedEvent(toggleElement, 'click', event => {
+            this.toggleDropdown()
+        })
     }
 
-    swdOnUpdate(mutation) {
-        console.log(mutation)
+    openDropdown() {
+        this.#contentElement.setAttribute('shown', 'true')
+    }
+
+    closeDropdown() {
+        this.#contentElement.removeAttribute('shown')
+    }
+
+    toggleDropdown() {
+        if (this.#contentElement.hasAttribute('shown')) this.#contentElement.removeAttribute('shown')
+        else this.#contentElement.setAttribute('shown', 'true')
     }
 
 }
 
 customElements.define('swd-router', SwdRouter)
-customElements.define('swd-test', SwdTestComponent)
+customElements.define('swd-dropdown', SwdDropdown)
