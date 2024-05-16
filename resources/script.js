@@ -1,74 +1,23 @@
-class SwdComponent extends HTMLElement {
-
-    #events = []
-    #observer;
-
-    constructor() {
-        super()
-        this.#observer = new MutationObserver((mutationList, observer) => {
-            [...mutationList].forEach(mutation => this.swdOnUpdate(mutation))
-        })
-        this.#observer.observe(this, { attributes: true, childList: true, subtree: true })
-    }
-
-    connectedCallback() {
-        this.swdOnInit()
-    }
-
-    disconnectedCallback() {
-        this.swdOnDestroy()
-        for (eventHolder in this.#events) {
-            eventHolder.target.removeEventListener(eventHolder.event, eventHolder.action)
-        }
-        this.#observer.disconnect()
-    }
-
-    swdOnInit() {}
-    swdOnUpdate(mutation) {}
-    swdOnDestroy() {}
-
-    swdRegisterManagedEvent(target, event, action) {
-        this.#events.push({ target, event, action })
-        target.addEventListener(event, action)
-    }
-
-}
-
-class SwdRouter extends HTMLElement {
-
-    static get observedAttributes() {
-        return ['src']
-    }
-
-    attributeChangedCallback(property, oldValue, newValue) {
-        if (oldValue === newValue) return
-        this[property] = newValue
-        if (property == 'src') this.route(newValue);
-    }
-
-    route(src) {
-        if (src === null || src === undefined || src === '') return
-        fetch(src).then(response => response.text()).then(text => this.innerHTML = text)
-    }
-
-}
-
-class SwdTestComponent extends SwdComponent {
-
-    swdOnInit() {
-        this.swdRegisterManagedEvent(this, 'click', event => console.log(event))
-        console.log('Loaded')
-    }
-
-    swdOnUpdate(mutation) {
-        console.log(mutation)
-    }
-
-}
-
 class Swd {
 
+    #loaded = false;
+    #afterRenderedActions = [];
     #openDialog;
+
+    constructor() {
+        document.addEventListener('readystatechange', event => { 
+            if (event.target.readyState === 'interactive') {
+                console.log('interactive')
+                this.#loaded = true;
+                this.#afterRenderedActions.forEach(action => action.call())
+            }
+        })
+    }
+
+    doAfterRendered(action) {
+        if (this.#loaded) action.call()
+        else this.#afterRenderedActions.push(action)
+    }
 
     setAttribute(id, attribute, value) {
         const target = document.querySelector(`#${id}`)
@@ -136,6 +85,79 @@ class Swd {
 
 swd = new Swd()
 document.addEventListener('click', (event) => swd.trigger(event.target))
+
+class SwdComponent extends HTMLElement {
+
+    #events = []
+    #observer;
+
+    constructor() {
+        super()
+        this.#observer = new MutationObserver((mutationList, observer) => {
+            [...mutationList].forEach(mutation => {
+                
+                this.swdOnUpdate(mutation)
+            })
+        })
+        this.#observer.observe(this, { attributes: true, childList: true, subtree: true })
+        swd.doAfterRendered(() => this.swdAfterRendered())
+    }
+
+    connectedCallback() {
+        this.swdOnInit()
+    }
+
+    disconnectedCallback() {
+        this.swdOnDestroy()
+        for (eventHolder in this.#events) {
+            eventHolder.target.removeEventListener(eventHolder.event, eventHolder.action)
+        }
+        this.#observer.disconnect()
+    }
+
+    swdOnInit() {}
+    swdAfterRendered() {}
+    swdOnUpdate(mutation) {}
+    swdOnDestroy() {}
+
+    swdRegisterManagedEvent(target, event, action) {
+        this.#events.push({ target, event, action })
+        target.addEventListener(event, action)
+    }
+
+}
+
+class SwdRouter extends HTMLElement {
+
+    static get observedAttributes() {
+        return ['src']
+    }
+
+    attributeChangedCallback(property, oldValue, newValue) {
+        if (oldValue === newValue) return
+        this[property] = newValue
+        if (property == 'src') this.route(newValue);
+    }
+
+    route(src) {
+        if (src === null || src === undefined || src === '') return
+        fetch(src).then(response => response.text()).then(text => this.innerHTML = text)
+    }
+
+}
+
+class SwdTestComponent extends SwdComponent {
+
+    swdOnInit() {
+        this.swdRegisterManagedEvent(this, 'click', event => console.log(event))
+        console.log('Loaded')
+    }
+
+    swdOnUpdate(mutation) {
+        console.log(mutation)
+    }
+
+}
 
 customElements.define('swd-router', SwdRouter)
 customElements.define('swd-test', SwdTestComponent)
