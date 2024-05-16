@@ -543,6 +543,16 @@ swd-selection {
     border-radius: var(--theme-border-radius);
 }
 
+swd-selection a:not(:first-child) {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+swd-selection a:not(:last-child) {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
 /***************
 *   Dropdown   *
 ***************/
