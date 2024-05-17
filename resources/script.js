@@ -127,36 +127,22 @@ class SwdComponent extends HTMLElement {
 
 }
 
-class SwdRouter extends HTMLElement {
-
-    static get observedAttributes() {
-        return ['src']
-    }
-
-    attributeChangedCallback(property, oldValue, newValue) {
-        if (oldValue === newValue) return
-        this[property] = newValue
-        if (property == 'src') this.route(newValue);
-    }
-
-    route(src) {
-        if (src === null || src === undefined || src === '') return
-        fetch(src).then(response => response.text()).then(text => this.innerHTML = text)
-    }
-
-}
-
 class SwdDropdown extends SwdComponent {
 
     #contentElement;
+    #selection;
 
     swdAfterRendered() {
         const toggleElement = this.querySelector('[swd-dropdown-toggle]');
         if (!toggleElement) return;
         this.#contentElement = this.querySelector('swd-dropdown-content');
         if (!this.#contentElement) return;
+        this.#selection = this.querySelector('swd-selection')
         this.swdRegisterManagedEvent(toggleElement, 'click', event => {
             this.toggleDropdown()
+        })
+        this.swdRegisterManagedEvent(toggleElement, 'keydown', event => {
+            if (this.#selection) this.#selection.dispatchEvent(event)
         })
     }
 
@@ -175,5 +161,30 @@ class SwdDropdown extends SwdComponent {
 
 }
 
-customElements.define('swd-router', SwdRouter)
+class SwdSelection extends SwdComponent {
+
+    #selected
+    value
+
+    swdAfterRendered() {
+        this.#selected = this.querySelector('[selected]')
+        this.swdRegisterManagedEvent(this, 'click', event => {
+            this.#select(event.target)
+        })
+        this.swdRegisterManagedEvent(this, 'keydown', event => {
+            console.log(event)
+        })
+    }
+
+    #select(target) {
+        if (this.#select === target) return
+        if (this.#selected) this.#selected.removeAttribute('selected')
+        this.#selected = target;
+        this.#selected.setAttribute('selected', 'true')
+        this.value = this.#selected.getAttribute('value') || this.#selected.innerText
+    }
+
+}
+
 customElements.define('swd-dropdown', SwdDropdown)
+customElements.define('swd-selection', SwdSelection)
