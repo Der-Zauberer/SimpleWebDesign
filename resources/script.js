@@ -7,7 +7,6 @@ class Swd {
     constructor() {
         document.addEventListener('readystatechange', event => { 
             if (event.target.readyState === 'interactive') {
-                console.log('interactive')
                 this.#loaded = true;
                 this.#afterRenderedActions.forEach(action => action.call())
             }
@@ -40,34 +39,40 @@ class Swd {
         }
     }
 
-    openDialog(element) {
-        this.closeDialog()
-        element.setAttribute('shown', 'shown')
-        this.#openDialog = element;
-    }
-
-    closeDialog() {
-        if (this.#openDialog) this.#openDialog.removeAttribute('shown')
-    }
-
     trigger(target) {
         if (!target) return
         [...target.attributes].filter(attribute => attribute.name.startsWith('swd-')).forEach(attribute => {
             switch (attribute.name) {
-                case 'swd-hide': 
-                    this.#forEachElementById(attribute.value, element => this.hide(element))
+                case 'swd-hide':
+                    this.#asElement(attribute.value, element => this.hide(element))
                     break
-                case 'swd-show': 
-                    this.#forEachElementById(attribute.value, element => this.show(element))
+                case 'swd-show':
+                    this.#asElement(attribute.value, element => this.show(element))
                     break
-                case 'swd-toggle': 
-                    this.#forEachElementById(attribute.value, element => this.toggle(element))
+                case 'swd-toggle':
+                    this.#asElement(attribute.value, element => this.toggle(element))
                     break
-                case 'swd-dialog-open': 
-                    this.#forEachElementById(attribute.value, element => this.openDialog(element))
+                case 'swd-navigation-open': this.#asElement(attribute.value, navigation => navigation.open()) 
                     break
-                case 'swd-dialog-close': 
-                    this.closeDialog()
+                case 'swd-navigation-close': this.#asElement(attribute.value, navigation => navigation.close())
+                    break
+                case 'swd-navigation-toggle': this.#asElement(attribute.value, navigation => navigation.toggle())
+                    break
+                case 'swd-dialog-open': this.#asElement(attribute.value, dialog => dialog.open()) 
+                    break
+                case 'swd-dialog-close': SwdDialog.close()
+                    break
+                case 'swd-dialog-toggle': this.#asElement(attribute.value, dialog => dialog.toggle())
+                    break
+                case 'swd-dropdown-open':
+                    if (target.parentNode instanceof SwdDropdown) target.parentNode.open()
+                    else this.#asElement(attribute.value, dropdown => dropdown.open())
+                    break
+                case 'swd-dropdown-close': this.#asElement(attribute.value, dropdown => dropdown.toggle())
+                    break
+                case 'swd-dropdown-toggle': 
+                    if (target.parentNode instanceof SwdDropdown) target.parentNode.toggle()
+                    else this.#asElement(attribute.value, dropdown => dropdown.toggle())
                     break
                 default: 
                     break
@@ -75,10 +80,9 @@ class Swd {
         })
     }
 
-    #forEachElementById(string, action) {
-        return [...string.split(' ')]
-            .map(id => document.querySelector(`#${id}`))
-            .forEach(element => action(element))
+    #asElement(id, action) {
+        const element = document.querySelector(`#${id}`)
+        if (element) action(element)
     }
 
 }
@@ -127,6 +131,19 @@ class SwdComponent extends HTMLElement {
 
 }
 
+class SwdNavigation extends SwdComponent {
+
+    open() { this.setAttribute('shown', 'true') }
+    close() { this.removeAttribute('shown') }
+    isOpen() { this.hasAttribute('shown') }
+
+    toggle() {
+        if (this.isOpen()) this.close()
+        else this.open()
+    }
+
+}
+
 class SwdDropdown extends SwdComponent {
 
     #contentElement;
@@ -138,25 +155,18 @@ class SwdDropdown extends SwdComponent {
         this.#contentElement = this.querySelector('swd-dropdown-content');
         if (!this.#contentElement) return;
         this.#selection = this.querySelector('swd-selection')
-        this.swdRegisterManagedEvent(toggleElement, 'click', event => {
-            this.toggleDropdown()
-        })
         this.swdRegisterManagedEvent(toggleElement, 'keydown', event => {
             if (this.#selection) this.#selection.dispatchEvent(event)
         })
     }
 
-    openDropdown() {
-        this.#contentElement.setAttribute('shown', 'true')
-    }
+    open() { this.#contentElement.setAttribute('shown', 'true') }
+    close() { this.#contentElement.removeAttribute('shown') }
+    isOpen() { return this.#contentElement.hasAttribute('shown') }
 
-    closeDropdown() {
-        this.#contentElement.removeAttribute('shown')
-    }
-
-    toggleDropdown() {
-        if (this.#contentElement.hasAttribute('shown')) this.#contentElement.removeAttribute('shown')
-        else this.#contentElement.setAttribute('shown', 'true')
+    toggle() {
+        if (this.isOpen()) this.close() 
+        else this.open()
     }
 
 }
@@ -186,5 +196,37 @@ class SwdSelection extends SwdComponent {
 
 }
 
+class SwdDialog extends SwdComponent {
+
+    static #openDialog
+    
+    open() {
+        if (SwdDialog.#openDialog) SwdDialog.#openDialog.close()
+        SwdDialog.#openDialog = this
+        this.setAttribute('shown', 'true') 
+    }
+
+    close() {
+        SwdDialog.#openDialog = undefined
+        this.removeAttribute('shown') 
+    }
+
+    isOpen() {
+        return this.hasAttribute('shown')
+    }
+
+    toggle() {
+        if (this.isOpen()) this.close()
+        else this.open()
+    }
+
+    static close() {
+        SwdDialog.#openDialog.close()
+    }
+
+}
+
+customElements.define('swd-navigation', SwdNavigation)
 customElements.define('swd-dropdown', SwdDropdown)
 customElements.define('swd-selection', SwdSelection)
+customElements.define('swd-dialog', SwdDialog)

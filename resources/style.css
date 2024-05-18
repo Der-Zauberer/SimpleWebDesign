@@ -315,7 +315,7 @@ a.button:disabled, button:disabled, input:disabled, select:disabled, textarea:di
 *   Button   *
 *************/
 
-a.button, button, input[type="submit"], swd-navigation a, swd-selection a{
+a.button, button, input[type="submit"], swd-navigation a, swd-selection a {
     display: inline-block;
     text-decoration: none !important;
     cursor: pointer;
