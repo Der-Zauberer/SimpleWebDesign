@@ -2,7 +2,6 @@ class Swd {
 
     #loaded = false;
     #afterRenderedActions = [];
-    #openDialog;
 
     constructor() {
         document.addEventListener('readystatechange', event => { 
@@ -23,20 +22,32 @@ class Swd {
         if (target) target.setAttribute(attribute, value)
     }
 
-    hide(element) {
-        element.setAttribute('hidden', 'true')
-    }
-
-    show(element) {
-        element.removeAttribute('hidden')
-    }
+    hide(element) { element.setAttribute('hidden', 'true') }
+    show(element) { element.removeAttribute('hidden') }
+    isHidden(element) { return element.hasAttribute('hidden') }
 
     toggle(element) {
-        if (element.hasAttribute('hidden')) {
-            element.removeAttribute('hidden')
-        } else {
-            element.setAttribute('hidden', 'true')
+        if (this.isHidden(element)) this.show(element)
+        else this.hide(element)
+    }
+
+    commentExpose(element) { 
+        if (this.isHidden(element))  {
+            element.innerHTML = element.innerHTML.replace('<!--', '').replace('-->', '');
+            this.show(element);
         }
+    }
+
+    commentCover(element) {
+        if (!this.isHidden(element))  {
+            this.hide(element)
+            element.innerHTML = '<!--' + element.innerHTML + '-->';
+        }
+    }
+
+    commentToggle(element) {
+        if (this.isHidden(element)) this.commentExpose(element) 
+        else this.commentCover(element)
     }
 
     trigger(target) {
@@ -73,6 +84,12 @@ class Swd {
                 case 'swd-dropdown-toggle': 
                     if (target.parentNode instanceof SwdDropdown) target.parentNode.toggle()
                     else this.#asElement(attribute.value, dropdown => dropdown.toggle())
+                    break
+                case 'swd-comment-expose': this.#asElement(attribute.value, element => swd.commentExpose(element))
+                    break
+                case 'swd-comment-cover': this.#asElement(attribute.value, element => swd.commentCover(element))
+                        break
+                case 'swd-comment-toggle': this.#asElement(attribute.value, element => swd.commentToggle(element))
                     break
                 default: 
                     break
