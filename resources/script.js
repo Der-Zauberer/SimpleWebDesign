@@ -106,6 +106,7 @@ class Swd {
 
 swd = new Swd()
 document.addEventListener('click', (event) => swd.trigger(event.target))
+document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'))
 
 class SwdComponent extends HTMLElement {
 
@@ -157,6 +158,32 @@ class SwdNavigation extends SwdComponent {
     toggle() {
         if (this.isOpen()) this.close()
         else this.open()
+    }
+
+}
+
+class SwdInput extends SwdComponent {
+
+    #input
+
+    swdAfterRendered() {
+        this.#input = this.querySelector('input')
+        this.#updateValidation()
+        this.swdRegisterManagedEvent(this.#input, 'input', event => this.#updateValidation())
+    }
+
+    #updateValidation() {
+        const inputRange = this.querySelector('swd-input-range')
+        if (inputRange) {
+            inputRange.innerText = `${this.#input.value.length}`
+            const maxLength = this.#input.getAttribute('maxlength')
+            if (maxLength) inputRange.innerText += `/${maxLength}`
+        }
+        const inputError = this.querySelector('swd-input-error')
+        if (inputError) {
+            if (this.#input.checkValidity()) inputError.innerText = ''
+            else inputError.innerText = this.#input.validationMessage
+        }
     }
 
 }
@@ -244,6 +271,7 @@ class SwdDialog extends SwdComponent {
 }
 
 customElements.define('swd-navigation', SwdNavigation)
+customElements.define('swd-input', SwdInput)
 customElements.define('swd-dropdown', SwdDropdown)
 customElements.define('swd-selection', SwdSelection)
 customElements.define('swd-dialog', SwdDialog)
