@@ -20,6 +20,114 @@
 
         <div class="container-xl">
 
+            <h2>Theme Colors</h2>
+
+            <div class="grid-cols-sm-3 grid-cols-2">
+
+                <swd-card class="blue">
+                    Blue <b class="hex">.blue #0033ff</b>
+                </swd-card>
+
+                <swd-card class="aqua">
+                    Aqua <b class="hex">.aqua #0090cc</b>
+                </swd-card>
+
+                <swd-card class="green">
+                    Green <b class="hex">.green #1f9900</b>
+                </swd-card>
+
+                <swd-card class="yellow">
+                    Yellow <b class="hex">.yellow #e5b800</b>
+                </swd-card>
+
+                <swd-card class="orange">
+                    Orange <b class="hex">.orange #e64500</b>
+                </swd-card>
+
+                <swd-card class="red">
+                    Red <b class="hex">.red #e60000</b>
+                </swd-card>
+
+                <swd-card class="grey">
+                    Grey <b class="hex">.grey (sceme dependent)</b>
+                </swd-card>
+
+            </div>
+
+            <swd-card-outline class="flex flex-space-around flex-wrap top-item">
+                <button class="blue">Blue</button>
+                <button class="aqua">Aqua</button>
+                <button class="green">Green</button>
+                <button class="yellow">Yellow</button>
+                <button class="orange">Orange</button>
+                <button class="red">Red</button>
+                <button class="grey">Grey</button>
+            </swd-card-outline>
+            <code class="bottom-item">
+                &lt;button class="blue"&gt;Blue&lt;/button&gt;<br>
+                &lt;button class="aqua"&gt;Aqua&lt;/button&gt;<br>
+                &lt;button class="green"&gt;Green&lt;/button&gt;<br>
+                &lt;button class="yellow"&gt;Yellow&lt;/button&gt;<br>
+                &lt;button class="orange"&gt;Orange&lt;/buttond&gt;<br>
+                &lt;button class="red"&gt;Red&lt;/button&gt;<br>
+                &lt;button class="grey"&gt;Grey&lt;/button&gt;
+            </code>
+
+            <swd-card-outline class="top-item">
+                <span class="blue-text">Blue</span>
+                <span class="aqua-text">Aqua</span>
+                <span class="green-text">Green</span>
+                <span class="yellow-text">Yellow</span>
+                <span class="orange-text">Orange</span>
+                <span class="red-text">Red</span>
+                <span class="grey-text">Grey</span>
+                Default
+            </swd-card-outline>
+            <code class="bottom-item">
+                &lt;span class="blue-text"&gt;Blue&lt;/span&gt;<br>
+                &lt;span class="aqua-text"&gt;Aqua&lt;/span&gt;<br>
+                &lt;span class="green-text"&gt;Green&lt;/span&gt;<br>
+                &lt;span class="yellow-text"&gt;Yellow&lt;/span&gt;<br>
+                &lt;span class="orange-text"&gt;Orange&lt;/span&gt;<br>
+                &lt;span class="red-text"&gt;Red&lt;/span&gt;<br>
+                &lt;span class="grey-text"&gt;Grey&lt;/span&gt;<br>
+                Default
+            </code>
+
+            <style>
+                .hex { font-size: 0.8em; color: #ffffffC0; }
+            </style>
+
+            <h2>Define Your Own Color</h2>
+
+            <p>
+                You can simply redefine the theme color variables. The secondary color is used as hover color by the most components. You can create your own class like <samp>.magenta</samp> for some elements or overrite the <samp>:root</samp> pseudoclass to set the color for the whole theme.
+            </p>
+
+            <swd-card-outline class="flex flex-space-around top-item">
+                <button class="color-magenta">Magenta Button</button>
+                <button class="outline color-magenta">Magenta Button</button>
+                <style>
+                    .color-magenta {
+                        --theme-primary-color: hsl(320, 100%, 45%);
+                        --theme-secondary-color: hsl(320, 100%, 35%);
+                    }
+                </style>
+            </swd-card-outline>
+            <code class="bottom-item">
+                &lt;button class="magenta"&gt;Magenta Button&lt;/button&gt;<br>
+                &lt;button class="outline magenta"&gt;Magenta Button&lt;/button&gt;<br><br>
+                &lt;style&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;.magenta {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-color: hsl(320, 100%, 45%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-color: hsl(320, 100%, 35%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--theme-text-color: #ffffff;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--theme-primary-color); /* Required depending on usecase */<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: var(--theme-text-color); /* Required depending on usecase */<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &lt;/style&gt;
+            </code>
+
             <h2>Color Scheme</h2>
 
             <p>
@@ -87,33 +195,6 @@
                 .grey-element * {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-grey-color: var(--theme-secondary-grey-color);<br>
                 }
-            </code>
-
-            <h2>Define Your Own Color</h2>
-
-            <p>
-                You can simply redefine the theme color variables. The secondary color is used as hover color by the most components. You can create your own class like <samp>.color-magenta</samp> for some elements or overrite the <samp>:root</samp> pseudoclass to set the color for the whole theme.
-            </p>
-
-            <swd-card-outline class="flex flex-space-around top-item">
-                <button class="color-magenta">Magenta Button</button>
-                <button class="outline color-magenta">Magenta Button</button>
-                <style>
-                    .color-magenta {
-                        --theme-primary-color: hsl(320, 100%, 45%);
-                        --theme-secondary-color: hsl(320, 100%, 35%);
-                    }
-                </style>
-            </swd-card-outline>
-            <code class="bottom-item">
-                &lt;button class="color-magenta"&gt;Magenta Button&lt;/button&gt;<br>
-                &lt;button class="outline color-magenta"&gt;Magenta Button&lt;/button&gt;<br><br>
-                &lt;style&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;.color-magenta {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-color: hsl(320, 100%, 45%);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-color: hsl(320, 100%, 35%);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                &lt;/style&gt;
             </code>
 
             <h2>Default colors</h2>
