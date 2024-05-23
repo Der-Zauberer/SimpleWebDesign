@@ -149,7 +149,6 @@ swd-subtitle {
 ********************/
 
 a {
-    cursor: pointer;
     color: var(--theme-primary-color);
 }
 
@@ -512,6 +511,37 @@ swd-navigation:hover { overflow-y: auto }
 swd-navigation-content {
     display: block;
     margin-left: var(--theme-navigation-width);
+}
+
+/*************
+*   Footer   *
+*************/
+
+swd-footer {
+    display: flex;
+    box-sizing: border-box;
+    padding: round(0.25em, 1px) round(0.6em, 1px);
+    background-color: var(--theme-primary-grey-color);
+    overflow: hidden;
+}
+
+swd-footer:hover { overflow: auto }
+
+swd-footer a {
+    line-height: round(1.2em, 1px);
+    padding: round(0.5em, 1px) round(0.6em, 1px);
+    text-decoration: none !important;
+    user-select: none;
+    -webkit-user-select: none;
+    white-space: nowrap;
+    color: var(--theme-text-grey-color);
+    border-radius: var(--theme-border-radius);
+}
+
+swd-footer a:hover:not(.swd-menu-title), 
+swd-footer a:active:not(.swd-menu-title), 
+swd-footer a[selected]:not(.swd-menu-title) {
+    color: var(--theme-text-color);
 }
 
 /***********

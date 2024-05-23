@@ -15,7 +15,7 @@
             <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
             <a href="/SimpleWebDesign/customization">Customization</a>
             <a href="/SimpleWebDesign/components">Components</a>
-            <a selected>Colors</a>
+            <a href="/SimpleWebDesign/colors" selected>Colors</a>
         </swd-menu>
 
         <div class="container-xl">
@@ -222,21 +222,26 @@
                 <tr><td><samp>--theme-text-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: white; color: #666666;">#666666</div></td><td><div class="swd-color-preview" style="background-color: black; color: #999999;">#999999</div></td></tr>
             </table>
 
+            <style>
+                .swd-color-preview {
+                    display: inline-block;
+                    box-sizing: border-box;
+                    line-height: round(1.2em, 1px);
+                    width: 100%;
+                    text-align: center;
+                    padding: round(0.5em, 1px) round(0.6em, 1px);
+                    border-radius: var(--theme-border-radius);
+                }
+            </style>
+
         </div>
 
-        <style>
-
-            .swd-color-preview {
-                display: inline-block;
-                box-sizing: border-box;
-                line-height: round(1.2em, 1px);
-                width: 100%;
-                text-align: center;
-                padding: round(0.5em, 1px) round(0.6em, 1px);
-                border-radius: var(--theme-border-radius);
-            }
-
-        </style>
+        <swd-footer>
+            <a class="text-nowrap">&copy; 2024 Der Zauberer</a>
+            <div class="width-100"></div>
+            <a href="/SimpleWebDesign/imprint">Imprint</a>
+            <a href="/SimpleWebDesign/privacy-policy">Privacy policy</a>
+        </swd-footer>
 
     </body>
 </html>

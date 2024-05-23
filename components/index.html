@@ -14,7 +14,7 @@
         <swd-menu>
             <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
             <a href="/SimpleWebDesign/customization">Customization</a>
-            <a selected>Components</a>
+            <a href="/SimpleWebDesign/components/" selected>Components</a>
             <a href="/SimpleWebDesign/colors">Colors</a>
         </swd-menu>
 
@@ -25,6 +25,7 @@
                 <a href="#layout">Layout</a>
                 <a href="#menu">Menu</a>
                 <a href="#navigation">Navigation</a>
+                <a href="#footer">Footer</a>
                 <a href="#headline">Headline</a>
                 <a href="#text">Text</a>
                 <a href="#label">Label</a>
@@ -206,10 +207,10 @@
 
                 <swd-card-outline class="top-item">
                     <swd-menu style="position: initial; z-index: initial;">
-                        <a class="swd-menu-title">Page Title</a>
-                        <a>Item 1</a>
-                        <a selected>item 2</a>
-                        <a>Item 3</a>
+                        <a class="swd-menu-title" href="#">Page Title</a>
+                        <a href="#">Item 1</a>
+                        <a href="#" selected>item 2</a>
+                        <a href="#">Item 3</a>
                     </swd-menu>
                 </swd-card-outline>
                 <code class="bottom-item">
@@ -223,11 +224,11 @@
                 
                 <swd-card-outline class="top-item">
                     <swd-menu style="position: initial; z-index: initial;">
-                        <a class="swd-menu-title">Page Title</a>
+                        <a class="swd-menu-title" href="#">Page Title</a>
                         <div class="width-100"></div>
-                        <a>Item 1</a>
-                        <a selected>item 2</a>
-                        <a>Item 3</a>
+                        <a href="#">Item 1</a>
+                        <a href="#" selected>item 2</a>
+                        <a href="#">Item 3</a>
                     </swd-menu>
                 </swd-card-outline>
                 <code class="bottom-item">
@@ -242,13 +243,13 @@
 
                 <swd-card-outline class="top-item">
                     <swd-menu style="position: initial; z-index: initial;">
-                        <a class="swd-menu-title">Page Title</a>
-                        <a>Item 1</a>
-                        <a selected>item 2</a>
-                        <a>Item 3</a>
+                        <a class="swd-menu-title" href="#">Page Title</a>
+                        <a href="#">Item 1</a>
+                        <a href="#" selected>item 2</a>
+                        <a href="#" >Item 3</a>
                         <div class="width-100"></div>
-                        <a>Item 4</a>
-                        <a>Item 5</a>
+                        <a href="#">Item 4</a>
+                        <a href="#">Item 5</a>
                     </swd-menu>
                 </swd-card-outline>
                 <code class="bottom-item">
@@ -265,10 +266,10 @@
 
                 <swd-card-outline class="top-item">
                     <swd-menu class="flex-space-between margin-bottom" style="position: initial; z-index: initial;">
-                        <a>Item 1</a>
-                        <a selected>item 2</a>
-                        <a>Item 3</a>
-                        <a>Item 4</a>
+                        <a href="#">Item 1</a>
+                        <a href="#" selected>item 2</a>
+                        <a href="#">Item 3</a>
+                        <a href="#">Item 4</a>
                     </swd-menu>
                 </swd-card-outline>
                 <code class="bottom-item">
@@ -332,6 +333,25 @@
                     &lt;swd-navigation-content&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Page content here --&gt;<br>
                     &lt;/swd-navigation-content&gt;
+                </code>
+
+                <h2 id="footer">Footer</h2>
+
+                <swd-card-outline class="top-item">
+                    <swd-footer>
+                        <a class="text-nowrap">&copy; 2023 Someone</a>
+                        <div class="width-100"></div>
+                        <a href="#">Imprint</a>
+                        <a href="#">Privacy policy</a>
+                    </swd-footer>
+                </swd-card-outline>
+                <code class="bottom-item">
+                    &lt;swd-footer&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="text-nowrap"&gt;&amp;copy; 2023 Someone&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Imprint&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Privacy policy&lt;/a&gt;<br>
+                    &lt;/swd-footer&gt;
                 </code>
 
                 <h2 id="headline">Headline</h2>
@@ -823,6 +843,14 @@
                 </table>
 
             </div>
+
+            <swd-footer>
+                <a class="text-nowrap">&copy; 2024 Der Zauberer</a>
+                <div class="width-100"></div>
+                <a href="/SimpleWebDesign/imprint">Imprint</a>
+                <a href="/SimpleWebDesign/privacy-policy">Privacy policy</a>
+            </swd-footer>
+
         </swd-navigation-content>
 
     </body>
