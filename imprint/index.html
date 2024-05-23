@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#003ecc">
+        <link href="/SimpleWebDesign/resources/style.css" rel="stylesheet">
+        <script src="/SimpleWebDesign/resources/script.js"></script>
+        <link href="/SimpleWebDesign/resources/favicon.png" rel="icon">
+        <title>Simple Web Design</title>
+    </head>
+    <body>
+
+        <swd-menu>
+            <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
+            <a href="/SimpleWebDesign/customization">Customization</a>
+            <a href="/SimpleWebDesign/components">Components</a>
+            <a href="/SimpleWebDesign/colors">Colors</a>
+        </swd-menu>
+
+        <div class="container-md">
+
+            <h2>Data according to §5 TMG</h2>
+            <p>
+                André Sommer<br>
+                Poststraße 23A<br>
+                78239 Rielasingen-Worblingen<br>
+                Germany
+            </p>
+            <span id="email"></span>
+            <button onclick="revealEmailAdress(this)">Reveal email</button>
+
+            <script>
+                function revealEmailAdress(element) {
+                    element.setAttribute('hidden', 'true');
+                    const email = document.querySelector('#email');
+                    email.innerText = decodeURIComponent(escape(window.atob('YW5kLnNvbTI4MkBnbWFpbC5jb20=')));
+                }
+            </script>
+
+            <h2>Scope of the imprint</h2>
+            <p>The imprint applies to the following pages:</p>
+
+            <ul>
+                <li>SimpleWebDesign GitHub Pages <a href="https://der-zauberer.github.io/SimpleWebDesign">https://der-zauberer.github.io/SimpleWebDesign</a></li>
+            </ul>
+
+            <h2>Responsibility for contents</h2>
+            <p>As a service provider, we are responsible for our own content on these pages in accordance with general legislation pursuant to Section 7 (1) of the German Telemedia Act (TMG). According to §§ 8 to 10 TMG, however, we are not obligated as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.</p>
+            <p>Obligations to remove or block the use of information according to general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a concrete infringement. If we become aware of such infringements, we will remove this content immediately.</p>
+
+            <h2>Copyright</h2>
+            <p>This page is licensed as <a target="_blank" href="https://github.com/Der-Zauberer/SimpleWebDesign/tree/master?tab=Apache-2.0-1-ov-file#readme">Apache 2.0</a>.</p>
+            <p>If content on this page was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such. Should you nevertheless become aware of a copyright infringement, we request that you notify us accordingly. If we become aware of any infringements, we will remove such content immediately.</p>
+
+        </div>
+
+        <swd-footer>
+            <a class="text-nowrap">&copy; 2024 Der Zauberer</a>
+            <div class="width-100"></div>
+            <a href="/SimpleWebDesign/imprint">Imprint</a>
+            <a href="/SimpleWebDesign/privacy-policy">Privacy policy</a>
+        </swd-footer>
+
+    </body>
+</html>
