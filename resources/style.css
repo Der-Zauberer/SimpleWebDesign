@@ -150,6 +150,7 @@ swd-subtitle {
 
 a {
     color: var(--theme-primary-color);
+    text-decoration: none;
 }
 
 a:hover, a[selected] {
