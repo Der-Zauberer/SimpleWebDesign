@@ -215,7 +215,7 @@ kbd {
 *   Code   *
 ***********/
 
-code, pre {
+code, pre, swd-code {
     display: block;
     font-family: 'Roboto Mono', monospace;
     font-size: 14px;
@@ -228,7 +228,7 @@ code, pre {
     margin-bottom: var(--theme-element-spacing);
 }
 
-code:hover, pre:hover {
+code:hover, pre:hover, swd-code {
     overflow: auto;
 }
 

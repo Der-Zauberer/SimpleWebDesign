@@ -63,7 +63,7 @@
                 <button class="red">Red</button>
                 <button class="grey">Grey</button>
             </swd-card-outline>
-            <code class="bottom-item">
+            <swd-code swd-code-language="html"  class="bottom-item">
                 &lt;button class="blue"&gt;Blue&lt;/button&gt;<br>
                 &lt;button class="aqua"&gt;Aqua&lt;/button&gt;<br>
                 &lt;button class="green"&gt;Green&lt;/button&gt;<br>
@@ -71,7 +71,7 @@
                 &lt;button class="orange"&gt;Orange&lt;/buttond&gt;<br>
                 &lt;button class="red"&gt;Red&lt;/button&gt;<br>
                 &lt;button class="grey"&gt;Grey&lt;/button&gt;
-            </code>
+            </swd-code>
 
             <swd-card-outline class="top-item">
                 <span class="blue-text">Blue</span>
@@ -83,7 +83,7 @@
                 <span class="grey-text">Grey</span>
                 Default
             </swd-card-outline>
-            <code class="bottom-item">
+            <swd-code swd-code-language="html"  class="bottom-item">
                 &lt;span class="blue-text"&gt;Blue&lt;/span&gt;<br>
                 &lt;span class="aqua-text"&gt;Aqua&lt;/span&gt;<br>
                 &lt;span class="green-text"&gt;Green&lt;/span&gt;<br>
@@ -92,7 +92,7 @@
                 &lt;span class="red-text"&gt;Red&lt;/span&gt;<br>
                 &lt;span class="grey-text"&gt;Grey&lt;/span&gt;<br>
                 Default
-            </code>
+            </swd-code>
 
             <style>
                 .hex { font-size: 0.8em; color: #ffffffC0; }
@@ -114,19 +114,19 @@
                     }
                 </style>
             </swd-card-outline>
-            <code class="bottom-item">
+            <swd-code swd-code-language="html" class="center-item">
                 &lt;button class="magenta"&gt;Magenta Button&lt;/button&gt;<br>
-                &lt;button class="outline magenta"&gt;Magenta Button&lt;/button&gt;<br><br>
-                &lt;style&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;.magenta {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-color: hsl(320, 100%, 45%);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-color: hsl(320, 100%, 35%);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--theme-text-color: #ffffff;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--theme-primary-color); /* Required depending on usecase */<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: var(--theme-text-color); /* Required depending on usecase */<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                &lt;/style&gt;
-            </code>
+                &lt;button class="outline magenta"&gt;Magenta Button&lt;/button&gt;
+            </swd-code>
+            <swd-code swd-code-language="css" class="bottom-item">
+                .magenta {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-color: hsl(320, 100%, 45%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-color: hsl(320, 100%, 35%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-text-color: #ffffff;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--theme-primary-color); /* Required depending on usecase */<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color: var(--theme-text-color); /* Required depending on usecase */<br>
+                }
+            </swd-code>
 
             <h2>Color Scheme</h2>
 
@@ -188,14 +188,14 @@
 
             <p>You can implement this behavior for your own elements by overwriting the grey variable for child elements while using the primary grey variable as background.</p>
 
-            <code>
+            <swd-code swd-code-language="css" >
                 .grey-element {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--theme-primary-grey-color);<br>
                 }<br><br>
                 .grey-element * {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-grey-color: var(--theme-secondary-grey-color);<br>
                 }
-            </code>
+            </swd-code>
 
             <h2>Default colors</h2>
 

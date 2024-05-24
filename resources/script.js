@@ -1,7 +1,7 @@
 class Swd {
 
-    #loaded = false;
-    #afterRenderedActions = [];
+    #loaded = false
+    #afterRenderedActions = []
 
     constructor() {
         document.addEventListener('readystatechange', event => { 
@@ -270,8 +270,119 @@ class SwdDialog extends SwdComponent {
 
 }
 
+class SwdCode extends SwdComponent {
+
+    #shadowDom
+
+    constructor() { 
+        super()
+        this.#shadowDom = this.attachShadow({ mode: 'closed' })
+    }
+
+    swdOnUpdate() { this.#highlight() }
+
+    #highlight() {
+        switch (this.getAttribute('swd-code-language')) {
+            case 'html': this.#shadowDom.innerHTML = this.#highlightHtml(this.innerHTML)
+                break
+            case 'css': this.#shadowDom.innerHTML = this.#highlightCss(this.innerHTML)
+                break
+            default: this.#shadowDom.innerHTML = this.innerHTML
+        }
+        this.#shadowDom.innerHTML = this.#shadowDom.innerHTML + '<style>@import "/SimpleWebDesign/resources/style.css"</style>'
+    }
+
+    #highlightHtml(string) {
+        let codeString = ''
+        let tag = false
+        let attribute = false
+        let value = false
+        let comment = false
+        let lastAddedIndex = 0
+        for (let i = 0; i < string.length; i++) {
+            if (!tag && !comment && i + 3 < string.length && string.substring(i, i + 4) == '&lt;' && !(i + 7 < string.length && string.substring(i, i + 7) == '&lt;!--')) {
+                codeString += string.substring(lastAddedIndex, i) + '<span class="blue-text">&lt;'
+                tag = true
+                i += 4
+                lastAddedIndex = i
+            } else if (tag && i + 3 < string.length && string.substring(i, i + 4) == '&gt;') {
+                codeString += string.substring(lastAddedIndex, i)
+                if (attribute) codeString += '</span>'
+                codeString += '&gt;</span>'
+                tag = false
+                attribute = false
+                i += 3
+                lastAddedIndex = i + 1;
+            } else if (tag && !comment && !attribute && string.charAt(i) == ' ') {
+                codeString += string.substring(lastAddedIndex, i) + '<span class="aqua-text">'
+                attribute = true
+                lastAddedIndex = i
+            } else if (tag && !comment && attribute && string.charAt(i) == '"') {
+                codeString += value ? string.substring(lastAddedIndex, i) + '"</span>' : string.substring(lastAddedIndex, i) + '<span class="green-text">"'
+                value = !value
+                lastAddedIndex = i + 1
+            } else if (!tag && !comment && i + 7 < string.length && string.substring(i, i + 7) == '&lt;!--') {
+                codeString += string.substring(lastAddedIndex, i) + '<span class="grey-text">&lt;!--'
+                comment = true
+                i += 7
+                lastAddedIndex = i
+            } else if (comment && i + 6 < string.length && string.substring(i, i + 6) == '--&gt;') {
+                codeString += string.substring(lastAddedIndex, i) + '--&gt;</span>'
+                comment = false
+                i += 6
+                lastAddedIndex = i
+            }
+        }
+        codeString += string.substring(lastAddedIndex, string.length)
+        return codeString
+    }
+
+    #highlightCss(string) {
+        let codeString = ''
+        let key = false
+        let value = false
+        let comment = false
+        let lastAddedIndex = 0
+        for (let i = 0; i < string.length; i++) {
+            if (!comment && !key && string.charAt(i) == '{') {
+                codeString += string.substring(lastAddedIndex, i) + '</span>{<span class="aqua-text">'
+                key = true
+                lastAddedIndex = ++i
+            } else if (!comment && key && string.charAt(i) == ':') {
+                codeString += string.substring(lastAddedIndex, i) + '</span>:<span class="green-text">'
+                value = true
+                lastAddedIndex = ++i
+            } else if (!comment && key && string.charAt(i) == '}') {
+                codeString += string.substring(lastAddedIndex, i) + '</span>}<span class="blue-text">'
+                key = false
+                value = false
+                lastAddedIndex = ++i
+            } else if (!comment && value && string.charAt(i) == ';') {
+                codeString += string.substring(lastAddedIndex, i) + '</span>;<span class="aqua-text">'
+                key = true
+                value = false
+                lastAddedIndex = ++i
+            } else if (!comment && i + 1 < string.length && string.substring(i, i + 2) == '/*') {
+                codeString += string.substring(lastAddedIndex, i) + '<span class="grey-text">/*'
+                comment = true
+                i += 2
+                lastAddedIndex = i
+            } else if (comment && i + 1 < string.length && string.substring(i, i + 2) == '*/') {
+                codeString += string.substring(lastAddedIndex, i) + '*/</span>'
+                comment = false
+                i += 2
+                lastAddedIndex = i
+            }
+        }
+        codeString += string.substring(lastAddedIndex, string.length - 1)
+        return '<span class="blue-text">' + codeString + '</span>'
+    }
+
+}
+
 customElements.define('swd-navigation', SwdNavigation)
 customElements.define('swd-input', SwdInput)
 customElements.define('swd-dropdown', SwdDropdown)
 customElements.define('swd-selection', SwdSelection)
 customElements.define('swd-dialog', SwdDialog)
+customElements.define('swd-code', SwdCode)
