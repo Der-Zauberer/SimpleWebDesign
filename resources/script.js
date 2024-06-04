@@ -276,7 +276,7 @@ class SwdCode extends SwdComponent {
 
     constructor() { 
         super()
-        this.#shadowDom = this.attachShadow({ mode: 'closed' })
+        this.#shadowDom = this.attachShadow({ mode: 'open' })
     }
 
     swdOnUpdate() { this.#highlight() }
