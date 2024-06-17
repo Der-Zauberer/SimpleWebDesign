@@ -480,7 +480,7 @@
                 <swd-card-outline class="flex no-gap top-item">
                     <button class="left-item">1</button><button class="center-item">2</button><button class="center-item" selected>3</button><button class="right-item">4</button>
                 </swd-card-outline>
-                <swd-code swd-code-language="html"class="bottom-item">
+                <swd-code swd-code-language="html" class="bottom-item">
                     &lt;div class="flex no-gap"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="left-item"&gt;1&lt;/button&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="center-item"&gt;2&lt;/button&gt;<br>
@@ -491,16 +491,50 @@
 
                 <h2 id="dropdown">Dropdown</h2>
 
-                <swd-dropdown>
-                    <button swd-dropdown-toggle>Test</button>
-                    <swd-dropdown-content>
-                        <swd-selection>
-                            <a>Option</a>
-                            <a selected>Selections</a>
-                            <a>Something</a>
-                        </swd-selection>
-                    </swd-dropdown-content>
-                </swd-dropdown>
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-dropdown>
+                        <button swd-dropdown-toggle>Test</button>
+                        <swd-dropdown-content>
+                            <swd-selection>
+                                <a>Option</a>
+                                <a selected>Selections</a>
+                                <a>Something</a>
+                            </swd-selection>
+                        </swd-dropdown-content>
+                    </swd-dropdown>
+                    <swd-dropdown>
+                        <input swd-dropdown-toggle value="test">
+                        <swd-dropdown-content>
+                            <swd-selection>
+                                <a>Option</a>
+                                <a selected>Selections</a>
+                                <a>Something</a>
+                            </swd-selection>
+                        </swd-dropdown-content>
+                    </swd-dropdown>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-dropdown&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-dropdown-toggle&gt;Test&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Selections&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
+                    &lt;/swd-dropdown&gt;<br><br>
+                    &lt;swd-dropdown&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input swd-dropdown-toggle value="test"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Selections&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
+                    &lt;/swd-dropdown&gt;
+                </swd-code>
 
                 <h2 id="input">Input</h2>
 
