@@ -586,7 +586,7 @@ swd-footer a[selected]:not(.swd-menu-title) {
 *   Card   *
 ***********/
 
-swd-card, swd-card-outline, swd-card-ghost .swd-card-frame {
+swd-card, swd-card-outline, swd-card-ghost, .swd-card-frame {
     display: block;
     box-sizing: border-box;
     height: fit-content;
