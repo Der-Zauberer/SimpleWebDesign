@@ -20,7 +20,7 @@
 
         <div class="container-xl">
 
-            <h2>Theme Colors</h2>
+            <h2>Predefined Colors</h2>
 
             <div class="grid-cols-sm-3 grid-cols-2">
 
@@ -49,19 +49,45 @@
                 </swd-card>
 
                 <swd-card class="grey">
-                    Grey <b class="hex">.grey (sceme dependent)</b>
+                    Grey <b class="hex">.grey (scheme dependent)</b>
+                </swd-card>
+
+                <swd-card class="light">
+                    Light <b class="hex">.dark (scheme dependent)</b>
+                </swd-card>
+
+                <swd-card class="dark">
+                    Dark <b class="hex">.light (scheme dependent)</b>
+                </swd-card>
+
+                <swd-card class="white">
+                    White <b class="hex">.white</b>
+                </swd-card>
+
+                <swd-card class="black">
+                    Black <b class="hex">.black</b>
                 </swd-card>
 
             </div>
 
-            <swd-card-outline class="flex flex-space-around flex-wrap top-item">
-                <button class="blue">Blue</button>
-                <button class="aqua">Aqua</button>
-                <button class="green">Green</button>
-                <button class="yellow">Yellow</button>
-                <button class="orange">Orange</button>
-                <button class="red">Red</button>
-                <button class="grey">Grey</button>
+            <p>The colors for <samp>.light</samp> and <samp>.dark</samp> gets changed to thier opposite if darkmode is enabled.</p>
+
+            <swd-card-outline class="top-item">
+                <div class="flex flex-space-around flex-wrap">
+                    <button class="blue">Blue</button>
+                    <button class="aqua">Aqua</button>
+                    <button class="green">Green</button>
+                    <button class="yellow">Yellow</button>
+                    <button class="orange">Orange</button>
+                    <button class="red">Red</button>
+                </div>
+                <div  class="flex flex-space-around flex-wrap">
+                    <button class="grey">Grey</button>
+                    <button class="light">Light</button>
+                    <button class="dark">Dark</button>
+                    <button class="white">White</button>
+                    <button class="black">Black</button>
+                </div>
             </swd-card-outline>
             <swd-code swd-code-language="html" class="bottom-item">
                 &lt;button class="blue"&gt;Blue&lt;/button&gt;<br>
@@ -70,18 +96,29 @@
                 &lt;button class="yellow"&gt;Yellow&lt;/button&gt;<br>
                 &lt;button class="orange"&gt;Orange&lt;/buttond&gt;<br>
                 &lt;button class="red"&gt;Red&lt;/button&gt;<br>
-                &lt;button class="grey"&gt;Grey&lt;/button&gt;
+                &lt;button class="grey"&gt;Grey&lt;/button&gt;<br>
+                &lt;button class="light"&gt;Light&lt;/button&gt;<br>
+                &lt;button class="dark"&gt;Dark&lt;/button&gt;<br>
+                &lt;button class="white"&gt;White&lt;/button&gt;<br>
+                &lt;button class="black"&gt;Black&lt;/button&gt;
             </swd-code>
 
-            <swd-card-outline class="flex flex-space-around flex-wrap top-item">
-                <span class="blue-text">Blue</span>
-                <span class="aqua-text">Aqua</span>
-                <span class="green-text">Green</span>
-                <span class="yellow-text">Yellow</span>
-                <span class="orange-text">Orange</span>
-                <span class="red-text">Red</span>
-                <span class="grey-text">Grey</span>
-                Default
+            <swd-card-outline class="top-item">
+                <div class="flex flex-space-around flex-wrap">
+                    <span class="blue-text">Blue</span>
+                    <span class="aqua-text">Aqua</span>
+                    <span class="green-text">Green</span>
+                    <span class="yellow-text">Yellow</span>
+                    <span class="orange-text">Orange</span>
+                    <span class="red-text">Red</span>
+                </div>
+                <div class="flex flex-space-around flex-wrap">
+                    <span class="grey-text">Grey</span>
+                    <span class="light-text">Light</span>
+                    <span class="dark-text">Dark</span>
+                    <span class="white-text">White</span>
+                    <span class="black-text">Black</span>
+                </div>
             </swd-card-outline>
             <swd-code swd-code-language="html"  class="bottom-item">
                 &lt!-- scheme dependent --&gt;<br>
@@ -92,11 +129,15 @@
                 &lt;span class="orange-text"&gt;Orange&lt;/span&gt;<br>
                 &lt;span class="red-text"&gt;Red&lt;/span&gt;<br>
                 &lt;span class="grey-text"&gt;Grey&lt;/span&gt;<br>
+                &lt;span class="light-text"&gt;Light&lt;/span&gt;<br>
+                &lt;span class="dark-text"&gt;Dark&lt;/span&gt;<br>
+                &lt;span class="white-text"&gt;White&lt;/span&gt;<br>
+                &lt;span class="black-text"&gt;Black&lt;/span&gt;<br>
                 Default
             </swd-code>
 
             <style>
-                .hex { font-size: 0.8em; color: #ffffffC0; }
+                .hex { font-size: 0.8em; opacity: 0.7; }
             </style>
 
             <h2>Define Your Own Color</h2>
@@ -189,12 +230,23 @@
 
             <p>You can implement this behavior for your own elements by overwriting the grey variable for child elements while using the primary grey variable as background.</p>
 
-            <swd-code swd-code-language="css" >
+            <swd-code swd-code-language="css">
                 .grey-element {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--theme-primary-grey-color);<br>
                 }<br><br>
                 .grey-element * {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-grey-color: var(--theme-secondary-grey-color);<br>
+                }
+            </swd-code>
+
+            <h2>Theme Colors</h2>
+
+            <p>You can define yor own main color for the theme by overriding the theme variables in the <samp>:root</samp> class. The theme color applies to menu, buttons, inputs and other elemnts.</p>
+
+            <swd-code swd-code-language="css">
+                :root {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-grey-color: hsl(320, 100%, 45%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-grey-color: hsl(320, 100%, 35%);<br>
                 }
             </swd-code>
 
@@ -213,6 +265,8 @@
             <table>
                 <tr><th>Color Scheme Dependent Variables</th><th>Lightmode</th><th>Darkmode</th></tr>
                 <tr><td><samp>--theme-background-color</samp></td><td><div class="swd-color-preview" style="background-color: #ffffff; color: black;">#ffffff</div></td><td><div class="swd-color-preview" style="background-color: #000000; color: white;">#000000</div></td></tr>
+                <tr><td><samp>--theme-light-color</samp></td><td><div class="swd-color-preview" style="background-color: #ffffff; color: black;">#ffffff</div></td><td><div class="swd-color-preview" style="background-color: #000000; color: white;">#000000</div></td></tr>
+                <tr><td><samp>--theme-dark-color</samp></td><td><div class="swd-color-preview" style="background-color: #000000; color: white;">#000000</div></td><td><div class="swd-color-preview" style="background-color: #ffffff; color: black;">#ffffff</div></td></tr>
                 <tr><td><samp>--theme-primary-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: #e0e0e0; color: black;">#e0e0e0</div></td><td><div class="swd-color-preview" style="background-color: #1f1f1f; color: white;">#1f1f1f</div></td></tr>
                 <tr><td><samp>--theme-secondary-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: #c2c2c2; color: black;">#c2c2c2</div></td><td><div class="swd-color-preview" style="background-color: #3d3d3d; color: white;">#3d3d3d</div></td></tr>
             </table>
