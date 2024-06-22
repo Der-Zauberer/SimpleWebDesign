@@ -75,16 +75,6 @@ class Swd {
                     break
                 case 'swd-dialog-toggle': this.#asElement(attribute.value, dialog => dialog.toggle())
                     break
-                case 'swd-dropdown-open':
-                    if (target.parentNode instanceof SwdDropdown) target.parentNode.open()
-                    else this.#asElement(attribute.value, dropdown => dropdown.open())
-                    break
-                case 'swd-dropdown-close': this.#asElement(attribute.value, dropdown => dropdown.toggle())
-                    break
-                case 'swd-dropdown-toggle': 
-                    if (target.parentNode instanceof SwdDropdown) target.parentNode.toggle()
-                    else this.#asElement(attribute.value, dropdown => dropdown.toggle())
-                    break
                 case 'swd-comment-expose': this.#asElement(attribute.value, element => swd.commentExpose(element))
                     break
                 case 'swd-comment-cover': this.#asElement(attribute.value, element => swd.commentCover(element))
@@ -165,24 +155,40 @@ class SwdNavigation extends SwdComponent {
 class SwdInput extends SwdComponent {
 
     #input
+    #selfUpdateQueue = 0
 
-    swdAfterRendered() {
-        this.#input = this.querySelector('input')
+    swdOnUpdate() {
+        if (this.#selfUpdateQueue-- > 0) return
+        const input = this.querySelector('input')
+        if (input !== this.input) {
+            if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation())
+            if (input) input.addEventListener('input', event => this.#updateValidation())
+            this.#input = input
+        }
         this.#updateValidation()
-        this.swdRegisterManagedEvent(this.#input, 'input', event => this.#updateValidation())
+    }
+
+    swdOnDestroy() {
+        if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation())
     }
 
     #updateValidation() {
+        if (!this.#input) return
         const inputRange = this.querySelector('swd-input-range')
         if (inputRange) {
             inputRange.innerText = `${this.#input.value.length}`
+            this.#selfUpdateQueue++;
             const maxLength = this.#input.getAttribute('maxlength')
-            if (maxLength) inputRange.innerText += `/${maxLength}`
+            if (maxLength) {
+                inputRange.innerText += `/${maxLength}`
+                this.#selfUpdateQueue++;
+            }
         }
         const inputError = this.querySelector('swd-input-error')
         if (inputError) {
             if (this.#input.checkValidity()) inputError.innerText = ''
             else inputError.innerText = this.#input.validationMessage
+            this.#selfUpdateQueue++;
         }
     }
 
@@ -190,26 +196,57 @@ class SwdInput extends SwdComponent {
 
 class SwdDropdown extends SwdComponent {
 
-    #contentElement;
+    #dropdownContent;
     #selection;
 
+    swdOnInit() {
+        this.swdRegisterManagedEvent(this, 'click', event => {
+            this.#dropdownContent = this.querySelector('swd-dropdown-content');
+            if (!this.#dropdownContent) return
+            if (event.target.hasAttribute('swd-dropdown-open')) this.open()
+            else if (event.target.hasAttribute('swd-dropdown-close')) this.close()
+            else if (event.target.hasAttribute('swd-dropdown-toggle')) this.toggle()
+        })
+        this.swdRegisterManagedEvent(this, 'keydown', event => {
+            if (!this.#selection) return
+            if (event.key === 'ArrowUp') { 
+                this.#selection.previous()
+                event.preventDefault()
+            } else if (event.key === 'ArrowDown') {
+                this.#selection.next()
+                event.preventDefault()
+            } else if (event.key === 'Enter') {
+                this.#selection.select()
+                event.preventDefault()
+            }
+        })
+    }
+
+    swdOnUpdate() {
+        this.#dropdownContent = this.querySelector('swd-dropdown-content');
+        if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection')
+    }
+
+    /*
     swdAfterRendered() {
+        this.swdRegisterManagedEvent(this, 'keydown', event => console.log(event))
         const toggleElement = this.querySelector('[swd-dropdown-toggle]');
         if (!toggleElement) return;
-        this.#contentElement = this.querySelector('swd-dropdown-content');
-        if (!this.#contentElement) return;
+        this.#dropdownContent = this.querySelector('swd-dropdown-content');
+        if (!this.#dropdownContent) return;
         this.#selection = this.querySelector('swd-selection')
         this.swdRegisterManagedEvent(toggleElement, 'keydown', event => {
             if (this.#selection) this.#selection.dispatchEvent(event)
         })
     }
+        */
 
-    open() { this.#contentElement.setAttribute('shown', 'true') }
-    close() { this.#contentElement.removeAttribute('shown') }
-    isOpen() { return this.#contentElement.hasAttribute('shown') }
+    open() { this.#dropdownContent.setAttribute('shown', 'true') }
+    close() { this.#dropdownContent.removeAttribute('shown') }
+    isOpen() { return this.#dropdownContent.hasAttribute('shown') }
 
     toggle() {
-        if (this.isOpen()) this.close() 
+        if (this.isOpen()) this.close()
         else this.open()
     }
 
@@ -217,25 +254,45 @@ class SwdDropdown extends SwdComponent {
 
 class SwdSelection extends SwdComponent {
 
-    #selected
     value
 
-    swdAfterRendered() {
-        this.#selected = this.querySelector('[selected]')
+    swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
-            this.#select(event.target)
+            if (event.target != this) this.select(event.target)
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
-            console.log(event)
+            if (event.key === 'ArrowUp') { 
+                this.previous()
+                event.preventDefault()
+            } else if (event.key === 'ArrowDown') {
+                this.next()
+                event.preventDefault()
+            } else if (event.key === 'Enter') {
+                this.select()
+                event.preventDefault()
+            }
         })
     }
 
-    #select(target) {
-        if (this.#select === target) return
-        if (this.#selected) this.#selected.removeAttribute('selected')
-        this.#selected = target;
-        this.#selected.setAttribute('selected', 'true')
-        this.value = this.#selected.getAttribute('value') || this.#selected.innerText
+    #lightSelect(target) {
+        const selected = this.querySelector('[selected]')
+        if (selected === target) return
+        if (selected) selected.removeAttribute('selected')
+        target.setAttribute('selected', 'true')
+    }
+
+    #nextOrPrevious(next) {
+        const selected = this.querySelector('[selected]')
+        const target = selected ? (next ? selected.nextElementSibling : selected.previousElementSibling) : (next ? this.firstChild : this.lastChild)
+        if (target && target.nodeName === 'A') this.#lightSelect(target)
+    }
+
+    next() { this.#nextOrPrevious(true) }
+    previous() { this.#nextOrPrevious(false) }
+
+    select() {
+        const selected = this.querySelector('[selected]')
+        this.value = selected ? selected.getAttribute('value') || selected.innerText : undefined
     }
 
 }
@@ -247,7 +304,7 @@ class SwdDialog extends SwdComponent {
     open() {
         if (SwdDialog.#openDialog) SwdDialog.#openDialog.close()
         SwdDialog.#openDialog = this
-        this.setAttribute('shown', 'true') 
+        this.setAttribute('shown', 'true')
     }
 
     close() {
