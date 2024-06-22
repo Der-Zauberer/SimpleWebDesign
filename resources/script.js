@@ -96,6 +96,7 @@ class Swd {
 
 swd = new Swd()
 document.addEventListener('click', (event) => swd.trigger(event.target))
+document.addEventListener('scroll', (event) => SwdDropdown.closeAllDropdowns())
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'))
 
 class SwdComponent extends HTMLElement {
@@ -106,12 +107,9 @@ class SwdComponent extends HTMLElement {
     constructor() {
         super()
         this.#observer = new MutationObserver((mutationList, observer) => {
-            [...mutationList].forEach(mutation => {
-                
-                this.swdOnUpdate(mutation)
-            })
+            this.swdOnUpdate([...mutationList])
         })
-        this.#observer.observe(this, { attributes: true, childList: true, subtree: true })
+        this.#observer.observe(this, { attributes: true, childList: true, subtree: false })
         swd.doAfterRendered(() => this.swdAfterRendered())
     }
 
@@ -196,7 +194,10 @@ class SwdInput extends SwdComponent {
 
 class SwdDropdown extends SwdComponent {
 
+    static #openDropdowns = []
+
     #dropdownContent;
+    #dropdownValue;
     #selection;
 
     swdOnInit() {
@@ -208,41 +209,48 @@ class SwdDropdown extends SwdComponent {
             else if (event.target.hasAttribute('swd-dropdown-toggle')) this.toggle()
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
-            if (!this.#selection) return
-            if (event.key === 'ArrowUp') { 
-                this.#selection.previous()
-                event.preventDefault()
-            } else if (event.key === 'ArrowDown') {
-                this.#selection.next()
-                event.preventDefault()
-            } else if (event.key === 'Enter') {
-                this.#selection.select()
-                event.preventDefault()
+            if (!this.#selection || !this.isOpen()) return
+            switch (event.key) {
+                case 'ArrowUp': case 'ArrowLeft':
+                    this.#selection.previous()
+                    event.preventDefault()
+                    break
+                case 'ArrowDown': case 'ArrowRight':
+                    this.#selection.next()
+                    event.preventDefault()
+                    break
+                case 'Enter':
+                    this.#selection.select()
+                    event.preventDefault()
+                    this.close()
+                    break
+                case 'Escape':
+                    this.close()
+                    break
             }
         })
     }
 
-    swdOnUpdate() {
+    swdOnUpdate(event) {
         this.#dropdownContent = this.querySelector('swd-dropdown-content');
+        this.#dropdownValue = this.querySelector('[swd-dropdown-value]')
         if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection')
+        if (this.#selection) {
+            this.#selection.setParentDropdown(this)
+            this.#selection.setOnSelect((value) => { if (this.#dropdownValue) this.#dropdownValue.value = value })
+        }
     }
 
-    /*
-    swdAfterRendered() {
-        this.swdRegisterManagedEvent(this, 'keydown', event => console.log(event))
-        const toggleElement = this.querySelector('[swd-dropdown-toggle]');
-        if (!toggleElement) return;
-        this.#dropdownContent = this.querySelector('swd-dropdown-content');
-        if (!this.#dropdownContent) return;
-        this.#selection = this.querySelector('swd-selection')
-        this.swdRegisterManagedEvent(toggleElement, 'keydown', event => {
-            if (this.#selection) this.#selection.dispatchEvent(event)
-        })
+    open() { 
+        this.#dropdownContent.setAttribute('shown', 'true') 
+        SwdDropdown.#openDropdowns.push(this)
     }
-        */
 
-    open() { this.#dropdownContent.setAttribute('shown', 'true') }
-    close() { this.#dropdownContent.removeAttribute('shown') }
+    close() { 
+        this.#dropdownContent.removeAttribute('shown')
+        SwdDropdown.#openDropdowns = SwdDropdown.#openDropdowns.filter(entry => entry !== this);
+    }
+
     isOpen() { return this.#dropdownContent.hasAttribute('shown') }
 
     toggle() {
@@ -250,26 +258,44 @@ class SwdDropdown extends SwdComponent {
         else this.open()
     }
 
+    static closeAllDropdowns() {
+        for (const dropdown of SwdDropdown.#openDropdowns) dropdown.close()
+    }
+
 }
 
 class SwdSelection extends SwdComponent {
 
+    #dropdown
+    #selectionChangeAction
     value
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
-            if (event.target != this) this.select(event.target)
+            if (event.target != this) {
+                this.#lightSelect(event.target)
+                this.select(event.target)
+            }
+            if (this.#dropdown) this.#dropdown.close()
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
-            if (event.key === 'ArrowUp') { 
-                this.previous()
-                event.preventDefault()
-            } else if (event.key === 'ArrowDown') {
-                this.next()
-                event.preventDefault()
-            } else if (event.key === 'Enter') {
-                this.select()
-                event.preventDefault()
+            switch (event.key) {
+                case 'ArrowUp': case 'ArrowLeft':
+                    this.previous()
+                    event.preventDefault()
+                    break
+                case 'ArrowDown': case 'ArrowRight':
+                    this.next()
+                    event.preventDefault()
+                    break
+                case 'Enter':
+                    this.select()
+                    event.preventDefault()
+                    if (this.#dropdown) this.#dropdown.close()
+                    break
+                case 'Escape':
+                    if (this.#dropdown) this.#dropdown.close()
+                    break
             }
         })
     }
@@ -293,6 +319,15 @@ class SwdSelection extends SwdComponent {
     select() {
         const selected = this.querySelector('[selected]')
         this.value = selected ? selected.getAttribute('value') || selected.innerText : undefined
+        if (this.#selectionChangeAction) this.#selectionChangeAction(this.value)
+    }
+
+    setParentDropdown(dropdown) {
+        this.#dropdown = dropdown
+    }
+
+    setOnSelect(action) {
+        this.#selectionChangeAction = action
     }
 
 }
