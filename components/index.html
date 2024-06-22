@@ -563,37 +563,37 @@
 
                 <swd-card-outline class="flex flex-space-around top-item">
                     <swd-input>
-                        <swd-input-label>Default</swd-input-label>
-                        <input type="text">
+                        <label for="example-input-1">Default</label>
+                        <input id="example-input-1" type="text">
                     </swd-input>
                     <swd-input class="outline">
-                        <swd-input-label>Outline</swd-input-label>
-                        <input type="text">
+                        <label for="example-input-2">Outline</label>
+                        <input id="example-input-2" type="text">
                     </swd-input>
                 </swd-card-outline>
                 <swd-code swd-code-language="html"class="bottom-item">
-                    &lt;swd-input&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-label&gt;Default&lt;/swd-input-label&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text"&gt;<br>
-                    &lt;/swd-input&gt;<br><br>
-                    &lt;swd-input class="outline"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-label&gt;Outline&lt;/swd-input-label&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text"&gt;<br>
-                    &lt;/swd-input&gt;
+                    &lt;#swd-input&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;#label for="example-input-1"&gt;Default&lt;#/label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;#input id="example-input-1" type="text"&gt;<br>
+                    &lt;#/swd-input&gt;<br>
+                    &lt;#swd-input class="outline"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;#label for="example-input-2"&gt;Outline&lt;#/label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;#input id="example-input-2" type="text"&gt;<br>
+                    &lt;#/swd-input&gt;
                 </swd-code>
 
                 <swd-card-outline class="flex flex-space-around top-item">
                     <swd-input class="width-100">
-                        <swd-input-label>Username (only letters and numbers)</swd-input-label>
-                        <input type="text" maxlength="10" pattern="(\w|\d)+">
+                        <label for="example-input-3">Username (only letters and numbers)</label>
+                        <input id="example-input-3" type="text" maxlength="10" pattern="(\w|\d)+">
                         <swd-input-range></swd-input-range>
                         <swd-input-error></swd-input-error>
                     </swd-input>
                 </swd-card-outline>
                 <swd-code swd-code-language="html"class="bottom-item">
                     &lt;swd-input&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-label&gt;Username (only letters and numbers)&lt;/swd-input-label&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" maxlength="10" pattern="(\w|\d)+"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input"&gt;Username (only letters and numbers)&lt;/label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input" type="text" maxlength="10" pattern="(\w|\d)+"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-range&gt;&lt;/swd-input-range&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-error&gt;&lt;/swd-input-error&gt;<br>
                     &lt;/swd-input&gt;
