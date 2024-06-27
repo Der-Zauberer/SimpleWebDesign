@@ -188,6 +188,7 @@ swd-subtitle {
 a {
     color: var(--theme-primary-color);
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:hover, a[selected] {
@@ -664,6 +665,7 @@ swd-dropdown-content {
     display: block;
     position: absolute;
     z-index: 4;
+    min-width: 100%;
 }
 
 /*************

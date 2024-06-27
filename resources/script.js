@@ -50,6 +50,10 @@ class Swd {
         else this.commentCover(element)
     }
 
+    clearPopups() {
+        SwdDropdown.closeAllDropdowns()
+    }
+
     trigger(target) {
         if (!target) return
         [...target.attributes].filter(attribute => attribute.name.startsWith('swd-')).forEach(attribute => {
@@ -95,8 +99,11 @@ class Swd {
 }
 
 swd = new Swd()
-document.addEventListener('click', (event) => swd.trigger(event.target))
-document.addEventListener('scroll', (event) => SwdDropdown.closeAllDropdowns())
+document.addEventListener('click', (event) => {
+    if (!event.target.matches('swd-dropdown *')) swd.clearPopups()
+    swd.trigger(event.target)
+})
+document.addEventListener('resize', (event) => swd.clearPopups())
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'))
 
 class SwdComponent extends HTMLElement {
@@ -196,19 +203,25 @@ class SwdDropdown extends SwdComponent {
 
     static #openDropdowns = []
 
+    #dropdownInput;
     #dropdownContent;
-    #dropdownValue;
     #selection;
+
+    #FOCUS_EVENT = event => this.open()
+    #BLUR_EVENT = event => this.close()
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
-            this.#dropdownContent = this.querySelector('swd-dropdown-content');
             if (!this.#dropdownContent) return
-            if (event.target.hasAttribute('swd-dropdown-open')) this.open()
-            else if (event.target.hasAttribute('swd-dropdown-close')) this.close()
-            else if (event.target.hasAttribute('swd-dropdown-toggle')) this.toggle()
+            if (this.isOpen() && !this.#dropdownInput) this.close()
+            else if (!this.isOpen()) this.open()
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
+            if (this.#selection && this.#dropdownInput && !this.isOpen() && event.key === 'Enter') {
+                event.preventDefault()
+                this.open()
+                return
+            }
             if (!this.#selection || !this.isOpen()) return
             switch (event.key) {
                 case 'ArrowUp': case 'ArrowLeft':
@@ -232,26 +245,38 @@ class SwdDropdown extends SwdComponent {
     }
 
     swdOnUpdate(event) {
+        if (this.#dropdownInput) {
+            this.#dropdownInput.removeEventListener('focus', this.#FOCUS_EVENT)
+            this.#dropdownInput.removeEventListener('blur', this.#BLUR_EVENT)
+        }
         this.#dropdownContent = this.querySelector('swd-dropdown-content');
-        this.#dropdownValue = this.querySelector('[swd-dropdown-value]')
+        this.#dropdownInput = this.querySelector('swd-dropdown input:not(swd-dropdown-content *)')
+        if (this.#dropdownInput) {
+            this.#dropdownInput.addEventListener('focus', this.#FOCUS_EVENT)
+            this.#dropdownInput.addEventListener('blur', this.#BLUR_EVENT)
+        }
         if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection')
         if (this.#selection) {
-            this.#selection.setParentDropdown(this)
-            this.#selection.setOnSelect((value) => { if (this.#dropdownValue) this.#dropdownValue.value = value })
+            this.#selection.setOnSelect((value) => { if (this.#dropdownInput) this.#dropdownInput.value = value })
         }
     }
 
     open() { 
+        if (!this.#dropdownContent) return
         this.#dropdownContent.setAttribute('shown', 'true') 
         SwdDropdown.#openDropdowns.push(this)
     }
 
     close() { 
+        if (!this.#dropdownContent) return
         this.#dropdownContent.removeAttribute('shown')
         SwdDropdown.#openDropdowns = SwdDropdown.#openDropdowns.filter(entry => entry !== this);
     }
 
-    isOpen() { return this.#dropdownContent.hasAttribute('shown') }
+    isOpen() { 
+        if (!this.#dropdownContent) return false
+        return this.#dropdownContent.hasAttribute('shown')
+    }
 
     toggle() {
         if (this.isOpen()) this.close()
@@ -266,7 +291,6 @@ class SwdDropdown extends SwdComponent {
 
 class SwdSelection extends SwdComponent {
 
-    #dropdown
     #selectionChangeAction
     value
 
@@ -275,27 +299,6 @@ class SwdSelection extends SwdComponent {
             if (event.target != this) {
                 this.#lightSelect(event.target)
                 this.select(event.target)
-            }
-            if (this.#dropdown) this.#dropdown.close()
-        })
-        this.swdRegisterManagedEvent(this, 'keydown', event => {
-            switch (event.key) {
-                case 'ArrowUp': case 'ArrowLeft':
-                    this.previous()
-                    event.preventDefault()
-                    break
-                case 'ArrowDown': case 'ArrowRight':
-                    this.next()
-                    event.preventDefault()
-                    break
-                case 'Enter':
-                    this.select()
-                    event.preventDefault()
-                    if (this.#dropdown) this.#dropdown.close()
-                    break
-                case 'Escape':
-                    if (this.#dropdown) this.#dropdown.close()
-                    break
             }
         })
     }
@@ -309,7 +312,7 @@ class SwdSelection extends SwdComponent {
 
     #nextOrPrevious(next) {
         const selected = this.querySelector('[selected]')
-        const target = selected ? (next ? selected.nextElementSibling : selected.previousElementSibling) : (next ? this.firstChild : this.lastChild)
+        const target = selected ? (next ? selected.nextElementSibling : selected.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild)
         if (target && target.nodeName === 'A') this.#lightSelect(target)
     }
 
@@ -320,10 +323,6 @@ class SwdSelection extends SwdComponent {
         const selected = this.querySelector('[selected]')
         this.value = selected ? selected.getAttribute('value') || selected.innerText : undefined
         if (this.#selectionChangeAction) this.#selectionChangeAction(this.value)
-    }
-
-    setParentDropdown(dropdown) {
-        this.#dropdown = dropdown
     }
 
     setOnSelect(action) {
