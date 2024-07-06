@@ -666,7 +666,11 @@ swd-dropdown-content {
     position: absolute;
     z-index: 4;
     min-width: 100%;
+    overflow-y: auto;
 }
+
+swd-dropdown-content.swd-dropdown-content-up { bottom: 100% }
+swd-dropdown-content.swd-dropdown-content-right { right: 0 }
 
 /*************
 *   Dialog   *

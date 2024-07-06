@@ -266,6 +266,7 @@ class SwdDropdown extends SwdComponent {
     open() { 
         if (!this.#dropdownContent) return
         this.#dropdownContent.setAttribute('shown', 'true') 
+        this.#setDropdownDirectionAndSize()
         SwdDropdown.#openDropdowns.push(this)
     }
 
@@ -283,6 +284,25 @@ class SwdDropdown extends SwdComponent {
     toggle() {
         if (this.isOpen()) this.close()
         else this.open()
+    }
+
+    #setDropdownDirectionAndSize() {
+        this.#dropdownContent.style.maxHeight = ''
+        this.#dropdownContent.classList.remove('swd-dropdown-content-right')
+        this.#dropdownContent.classList.remove('swd-dropdown-content-up')
+        const dropdownRect = this.getBoundingClientRect()
+        const contentRect = this.#dropdownContent.getBoundingClientRect()
+        if (contentRect.right > window.innerWidth) this.#dropdownContent.classList.add('swd-dropdown-content-right')
+        if (contentRect.bottom > window.innerHeight) {
+            if (dropdownRect.top - contentRect.height > window.innerHeight - contentRect.bottom) {
+                if (dropdownRect.top - contentRect.height < 0) {
+                    this.#dropdownContent.style.maxHeight = `${dropdownRect.top}px`
+                }
+                this.#dropdownContent.classList.add('up')
+            } else {
+                this.#dropdownContent.style.maxHeight = `${window.innerHeight - contentRect.top}px`
+            }
+        }
     }
 
     static closeAllDropdowns() {
