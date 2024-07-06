@@ -213,8 +213,11 @@ class SwdDropdown extends SwdComponent {
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
             if (!this.#dropdownContent) return
-            if (this.isOpen() && !this.#dropdownInput) this.close()
-            else if (!this.isOpen()) this.open()
+            if (!this.#dropdownInput) {
+                if (!this.isOpen()) this.open()
+                else this.close()
+            }
+            if (this.#selection) this.#selection.select(event.target)
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
             if (this.#selection && this.#dropdownInput && !this.isOpen() && event.key === 'Enter') {
@@ -233,7 +236,6 @@ class SwdDropdown extends SwdComponent {
                     event.preventDefault()
                     break
                 case 'Enter':
-                    this.#selection.select()
                     event.preventDefault()
                     this.close()
                     break
@@ -296,32 +298,27 @@ class SwdSelection extends SwdComponent {
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
-            if (event.target != this) {
-                this.#lightSelect(event.target)
-                this.select(event.target)
-            }
+            this.select(event.target)
         })
-    }
-
-    #lightSelect(target) {
-        const selected = this.querySelector('[selected]')
-        if (selected === target) return
-        if (selected) selected.removeAttribute('selected')
-        target.setAttribute('selected', 'true')
-    }
-
-    #nextOrPrevious(next) {
-        const selected = this.querySelector('[selected]')
-        const target = selected ? (next ? selected.nextElementSibling : selected.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild)
-        if (target && target.nodeName === 'A') this.#lightSelect(target)
     }
 
     next() { this.#nextOrPrevious(true) }
     previous() { this.#nextOrPrevious(false) }
 
-    select() {
+    #nextOrPrevious(next) {
         const selected = this.querySelector('[selected]')
-        this.value = selected ? selected.getAttribute('value') || selected.innerText : undefined
+        const target = selected ? (next ? selected.nextElementSibling : selected.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild)
+        //TODO Nonvisible
+        this.select(target)
+    }
+
+    select(target) {
+        if (!target || target.nodeName !== 'A') return //TODO Nonvisible
+        const selected = this.querySelector('[selected]')
+        if (selected === target) return
+        if (selected) selected.removeAttribute('selected')
+        target.setAttribute('selected', 'true')
+        this.value = target ? target.getAttribute('value') || target.innerText : undefined
         if (this.#selectionChangeAction) this.#selectionChangeAction(this.value)
     }
 
