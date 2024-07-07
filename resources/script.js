@@ -263,14 +263,15 @@ class SwdDropdown extends SwdComponent {
         }
     }
 
-    open() { 
+    open() {
         if (!this.#dropdownContent) return
+        SwdDropdown.closeAllDropdowns()
         this.#dropdownContent.setAttribute('shown', 'true') 
         this.#setDropdownDirectionAndSize()
         SwdDropdown.#openDropdowns.push(this)
     }
 
-    close() { 
+    close() {
         if (!this.#dropdownContent) return
         this.#dropdownContent.removeAttribute('shown')
         SwdDropdown.#openDropdowns = SwdDropdown.#openDropdowns.filter(entry => entry !== this);
