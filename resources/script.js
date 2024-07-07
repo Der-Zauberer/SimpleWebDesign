@@ -50,10 +50,6 @@ class Swd {
         else this.commentCover(element)
     }
 
-    clearPopups() {
-        SwdDropdown.closeAllDropdowns()
-    }
-
     trigger(target) {
         if (!target) return
         [...target.attributes].filter(attribute => attribute.name.startsWith('swd-')).forEach(attribute => {
@@ -99,11 +95,9 @@ class Swd {
 }
 
 swd = new Swd()
-document.addEventListener('click', (event) => {
-    if (!event.target.matches('swd-dropdown *')) swd.clearPopups()
-    swd.trigger(event.target)
-})
-document.addEventListener('resize', (event) => swd.clearPopups())
+document.addEventListener('click', (event) => swd.trigger(event.target))
+document.addEventListener('resize', (event) => SwdDropdown.resizeAllDropdowns())
+document.addEventListener('scroll', (event) => SwdDropdown.resizeAllDropdowns())
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'))
 
 class SwdComponent extends HTMLElement {
@@ -204,11 +198,12 @@ class SwdDropdown extends SwdComponent {
     static #openDropdowns = []
 
     #dropdownInput;
+    #dropdownSecondaryInput;
     #dropdownContent;
     #selection;
 
-    #FOCUS_EVENT = event => this.open()
-    #BLUR_EVENT = event => this.close()
+    #FOCUS_EVENT = event => { this.open(); }
+    #BLUR_EVENT = event => { if (this.#selection) this.#selection.select(event.explicitOriginalTarget); this.close(); }
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
@@ -242,6 +237,10 @@ class SwdDropdown extends SwdComponent {
                 case 'Escape':
                     this.close()
                     break
+                case 'Delete':
+                case 'Backspace':
+                    if (this.#dropdownInput && this.#dropdownInput.hasAttribute('readonly')) this.#dropdownInput.value = ''
+                    break
             }
         })
     }
@@ -259,7 +258,9 @@ class SwdDropdown extends SwdComponent {
         }
         if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection')
         if (this.#selection) {
-            this.#selection.setOnSelect((value) => { if (this.#dropdownInput) this.#dropdownInput.value = value })
+            this.#selection.setOnSelect((text, value) => {
+                if (this.#dropdownInput) this.#dropdownInput.value = value
+            })
         }
     }
 
@@ -299,11 +300,15 @@ class SwdDropdown extends SwdComponent {
                 if (dropdownRect.top - contentRect.height < 0) {
                     this.#dropdownContent.style.maxHeight = `${dropdownRect.top}px`
                 }
-                this.#dropdownContent.classList.add('up')
+                this.#dropdownContent.classList.add('swd-dropdown-content-up')
             } else {
                 this.#dropdownContent.style.maxHeight = `${window.innerHeight - contentRect.top}px`
             }
         }
+    }
+
+    static resizeAllDropdowns() {
+        for (const dropdown of SwdDropdown.#openDropdowns) dropdown.#setDropdownDirectionAndSize()
     }
 
     static closeAllDropdowns() {
@@ -340,7 +345,7 @@ class SwdSelection extends SwdComponent {
         if (selected) selected.removeAttribute('selected')
         target.setAttribute('selected', 'true')
         this.value = target ? target.getAttribute('value') || target.innerText : undefined
-        if (this.#selectionChangeAction) this.#selectionChangeAction(this.value)
+        if (this.#selectionChangeAction) this.#selectionChangeAction(target.innerText.innerText, value)
     }
 
     setOnSelect(action) {
