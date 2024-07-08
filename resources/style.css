@@ -165,6 +165,34 @@ body {
 .lightmode .orange-text { --theme-text-color: #cc3d00; color: var(--theme-text-color); } .darkmode .orange-text { --theme-text-color: #ff5e19; color: var(--theme-text-color); }
 .lightmode .red-text { --theme-text-color: #cc0000; color: var(--theme-text-color); } .darkmode .red-text { --theme-text-color: #ff1919; color: var(--theme-text-color); }
 
+/************
+*   Icons   *
+************/
+
+swd-icon.hamburger { mask-image: url("/SimpleWebDesign/resources/icons/hamburger.svg") }
+swd-icon.arrow_left { mask-image: url("/SimpleWebDesign/resources/icons/arrow_left.svg") }
+swd-icon.arrow_right { mask-image: url("/SimpleWebDesign/resources/icons/arrow_right.svg") }
+swd-icon.arrow_up { mask-image: url("/SimpleWebDesign/resources/icons/arrow_up.svg") }
+swd-icon.arrow_down { mask-image: url("/SimpleWebDesign/resources/icons/arrow_down.svg") }
+swd-icon.more { mask-image: url("/SimpleWebDesign/resources/icons/more.svg") }
+swd-icon.more_down { mask-image: url("/SimpleWebDesign/resources/icons/more_down.svg") }
+swd-icon.done { mask-image: url("/SimpleWebDesign/resources/icons/done.svg") }
+swd-icon.close { mask-image: url("/SimpleWebDesign/resources/icons/close.svg") }
+swd-icon.search { mask-image: url("/SimpleWebDesign/resources/icons/search.svg") }
+swd-icon.add { mask-image: url("/SimpleWebDesign/resources/icons/add.svg") }
+swd-icon.delete { mask-image: url("/SimpleWebDesign/resources/icons/delete.svg") }
+
+swd-icon {
+    display: inline-block;
+    background-color: var(--theme-text-color);
+    height: 1em;
+    width: 1em;
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+}
+
+
 /****************
 *   Headlines   *
 ****************/

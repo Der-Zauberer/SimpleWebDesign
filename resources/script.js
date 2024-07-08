@@ -260,6 +260,7 @@ class SwdDropdown extends SwdComponent {
         if (this.#selection) {
             this.#selection.setOnSelect((text, value) => {
                 if (this.#dropdownInput) this.#dropdownInput.value = value
+                //TODO Input event
             })
         }
     }
