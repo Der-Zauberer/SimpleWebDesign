@@ -346,7 +346,7 @@ class SwdSelection extends SwdComponent {
         if (selected) selected.removeAttribute('selected')
         target.setAttribute('selected', 'true')
         this.value = target ? target.getAttribute('value') || target.innerText : undefined
-        if (this.#selectionChangeAction) this.#selectionChangeAction(target.innerText.innerText, value)
+        if (this.#selectionChangeAction) this.#selectionChangeAction(target.innerText.innerText, this.value)
     }
 
     setOnSelect(action) {
