@@ -170,12 +170,12 @@ body {
 ************/
 
 swd-icon.hamburger { mask-image: url("/SimpleWebDesign/resources/icons/hamburger.svg") }
-swd-icon.arrow_left { mask-image: url("/SimpleWebDesign/resources/icons/arrow_left.svg") }
-swd-icon.arrow_right { mask-image: url("/SimpleWebDesign/resources/icons/arrow_right.svg") }
-swd-icon.arrow_up { mask-image: url("/SimpleWebDesign/resources/icons/arrow_up.svg") }
-swd-icon.arrow_down { mask-image: url("/SimpleWebDesign/resources/icons/arrow_down.svg") }
+swd-icon.arrow-left { mask-image: url("/SimpleWebDesign/resources/icons/arrow-left.svg") }
+swd-icon.arrow-right { mask-image: url("/SimpleWebDesign/resources/icons/arrow-right.svg") }
+swd-icon.arrow-up { mask-image: url("/SimpleWebDesign/resources/icons/arrow-up.svg") }
+swd-icon.arrow-down { mask-image: url("/SimpleWebDesign/resources/icons/arrow-down.svg") }
 swd-icon.more { mask-image: url("/SimpleWebDesign/resources/icons/more.svg") }
-swd-icon.more_down { mask-image: url("/SimpleWebDesign/resources/icons/more_down.svg") }
+swd-icon.more-down { mask-image: url("/SimpleWebDesign/resources/icons/more-down.svg") }
 swd-icon.done { mask-image: url("/SimpleWebDesign/resources/icons/done.svg") }
 swd-icon.close { mask-image: url("/SimpleWebDesign/resources/icons/close.svg") }
 swd-icon.search { mask-image: url("/SimpleWebDesign/resources/icons/search.svg") }
@@ -192,7 +192,6 @@ swd-icon {
     mask-repeat: no-repeat;
     transform: translateY(10%);
 }
-
 
 /****************
 *   Headlines   *
