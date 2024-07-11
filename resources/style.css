@@ -698,10 +698,15 @@ swd-dropdown {
     position: relative;
 }
 
+swd-dropdown input[readonly] {
+    cursor: pointer;
+}
+
 swd-dropdown swd-icon {
     position: absolute;
     right: 0;
     top: 50%;
+    cursor: pointer;
     background-color: var(--theme-text-grey-color);
     transform: translateX(calc(round(0.5em, 1px) / -1)) translateY(-50%);
 }
