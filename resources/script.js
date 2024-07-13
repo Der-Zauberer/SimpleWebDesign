@@ -360,7 +360,7 @@ class SWD {
                 for (var i = 0; i < valueElements.length; i++) valueElements[i].classList.remove('hide');
             } else {
                 for (var i = 0; i < valueElements.length; i++) {
-                    if (input.value.includes(valueElements[i].getAttribute('value')) || valueElements[i].getAttribute('value').includes(input.value)) {
+                    if (input.value.toLowerCase().includes(valueElements[i].getAttribute('value').toLowerCase()) || valueElements[i].getAttribute('value').toLowerCase().includes(input.value.toLowerCase())) {
                         valueElements[i].classList.remove('hide');
                         visibleElemnts.push(valueElements[i]);
                     } else {
