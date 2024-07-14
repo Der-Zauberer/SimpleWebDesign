@@ -75,16 +75,6 @@ class Swd {
                     break
                 case 'swd-dialog-toggle': this.#asElement(attribute.value, dialog => dialog.toggle())
                     break
-                case 'swd-dropdown-open':
-                    if (target.parentNode instanceof SwdDropdown) target.parentNode.open()
-                    else this.#asElement(attribute.value, dropdown => dropdown.open())
-                    break
-                case 'swd-dropdown-close': this.#asElement(attribute.value, dropdown => dropdown.toggle())
-                    break
-                case 'swd-dropdown-toggle': 
-                    if (target.parentNode instanceof SwdDropdown) target.parentNode.toggle()
-                    else this.#asElement(attribute.value, dropdown => dropdown.toggle())
-                    break
                 case 'swd-comment-expose': this.#asElement(attribute.value, element => swd.commentExpose(element))
                     break
                 case 'swd-comment-cover': this.#asElement(attribute.value, element => swd.commentCover(element))
@@ -106,6 +96,8 @@ class Swd {
 
 swd = new Swd()
 document.addEventListener('click', (event) => swd.trigger(event.target))
+document.addEventListener('resize', (event) => SwdDropdown.resizeAllDropdowns())
+document.addEventListener('scroll', (event) => SwdDropdown.resizeAllDropdowns())
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'))
 
 class SwdComponent extends HTMLElement {
@@ -116,12 +108,9 @@ class SwdComponent extends HTMLElement {
     constructor() {
         super()
         this.#observer = new MutationObserver((mutationList, observer) => {
-            [...mutationList].forEach(mutation => {
-                
-                this.swdOnUpdate(mutation)
-            })
+            this.swdOnUpdate([...mutationList])
         })
-        this.#observer.observe(this, { attributes: true, childList: true, subtree: true })
+        this.#observer.observe(this, { attributes: true, childList: true, subtree: false })
         swd.doAfterRendered(() => this.swdAfterRendered())
     }
 
@@ -165,24 +154,40 @@ class SwdNavigation extends SwdComponent {
 class SwdInput extends SwdComponent {
 
     #input
+    #selfUpdateQueue = 0
 
-    swdAfterRendered() {
-        this.#input = this.querySelector('input')
+    swdOnUpdate() {
+        if (this.#selfUpdateQueue-- > 0) return
+        const input = this.querySelector('input')
+        if (input !== this.input) {
+            if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation())
+            if (input) input.addEventListener('input', event => this.#updateValidation())
+            this.#input = input
+        }
         this.#updateValidation()
-        this.swdRegisterManagedEvent(this.#input, 'input', event => this.#updateValidation())
+    }
+
+    swdOnDestroy() {
+        if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation())
     }
 
     #updateValidation() {
+        if (!this.#input) return
         const inputRange = this.querySelector('swd-input-range')
         if (inputRange) {
             inputRange.innerText = `${this.#input.value.length}`
+            this.#selfUpdateQueue++;
             const maxLength = this.#input.getAttribute('maxlength')
-            if (maxLength) inputRange.innerText += `/${maxLength}`
+            if (maxLength) {
+                inputRange.innerText += `/${maxLength}`
+                this.#selfUpdateQueue++;
+            }
         }
         const inputError = this.querySelector('swd-input-error')
         if (inputError) {
             if (this.#input.checkValidity()) inputError.innerText = ''
             else inputError.innerText = this.#input.validationMessage
+            this.#selfUpdateQueue++;
         }
     }
 
@@ -190,52 +195,162 @@ class SwdInput extends SwdComponent {
 
 class SwdDropdown extends SwdComponent {
 
-    #contentElement;
+    static #openDropdowns = []
+
+    #dropdownInput;
+    #dropdownSecondaryInput;
+    #dropdownContent;
     #selection;
 
-    swdAfterRendered() {
-        const toggleElement = this.querySelector('[swd-dropdown-toggle]');
-        if (!toggleElement) return;
-        this.#contentElement = this.querySelector('swd-dropdown-content');
-        if (!this.#contentElement) return;
-        this.#selection = this.querySelector('swd-selection')
-        this.swdRegisterManagedEvent(toggleElement, 'keydown', event => {
-            if (this.#selection) this.#selection.dispatchEvent(event)
+    #FOCUS_EVENT = event => { this.open(); }
+    #BLUR_EVENT = event => { if (this.#selection) this.#selection.select(event.explicitOriginalTarget); this.close(); }
+
+    swdOnInit() {
+        this.swdRegisterManagedEvent(this, 'click', event => {
+            if (!this.#dropdownContent) return
+            if (!this.#dropdownInput) {
+                if (!this.isOpen()) this.open()
+                else this.close()
+            }
+            if (this.#selection) this.#selection.select(event.target)
+        })
+        this.swdRegisterManagedEvent(this, 'keydown', event => {
+            if (this.#selection && this.#dropdownInput && !this.isOpen() && event.key === 'Enter') {
+                event.preventDefault()
+                this.open()
+                return
+            }
+            if (!this.#selection || !this.isOpen()) return
+            switch (event.key) {
+                case 'ArrowUp': case 'ArrowLeft':
+                    this.#selection.previous()
+                    event.preventDefault()
+                    break
+                case 'ArrowDown': case 'ArrowRight':
+                    this.#selection.next()
+                    event.preventDefault()
+                    break
+                case 'Enter':
+                    event.preventDefault()
+                    this.close()
+                    break
+                case 'Escape':
+                    this.close()
+                    break
+                case 'Delete':
+                case 'Backspace':
+                    if (this.#dropdownInput && this.#dropdownInput.hasAttribute('readonly')) this.#dropdownInput.value = ''
+                    break
+            }
         })
     }
 
-    open() { this.#contentElement.setAttribute('shown', 'true') }
-    close() { this.#contentElement.removeAttribute('shown') }
-    isOpen() { return this.#contentElement.hasAttribute('shown') }
+    swdOnUpdate(event) {
+        if (this.#dropdownInput) {
+            this.#dropdownInput.removeEventListener('focus', this.#FOCUS_EVENT)
+            this.#dropdownInput.removeEventListener('blur', this.#BLUR_EVENT)
+        }
+        this.#dropdownContent = this.querySelector('swd-dropdown-content');
+        this.#dropdownInput = this.querySelector('swd-dropdown input:not(swd-dropdown-content *)')
+        if (this.#dropdownInput) {
+            this.#dropdownInput.addEventListener('focus', this.#FOCUS_EVENT)
+            this.#dropdownInput.addEventListener('blur', this.#BLUR_EVENT)
+        }
+        if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection')
+        if (this.#selection) {
+            this.#selection.setOnSelect((text, value) => {
+                if (this.#dropdownInput) this.#dropdownInput.value = value
+                //TODO Input event
+            })
+        }
+    }
+
+    open() {
+        if (!this.#dropdownContent) return
+        SwdDropdown.closeAllDropdowns()
+        this.#dropdownContent.setAttribute('shown', 'true') 
+        this.#setDropdownDirectionAndSize()
+        SwdDropdown.#openDropdowns.push(this)
+    }
+
+    close() {
+        if (!this.#dropdownContent) return
+        this.#dropdownContent.removeAttribute('shown')
+        SwdDropdown.#openDropdowns = SwdDropdown.#openDropdowns.filter(entry => entry !== this);
+    }
+
+    isOpen() { 
+        if (!this.#dropdownContent) return false
+        return this.#dropdownContent.hasAttribute('shown')
+    }
 
     toggle() {
-        if (this.isOpen()) this.close() 
+        if (this.isOpen()) this.close()
         else this.open()
+    }
+
+    #setDropdownDirectionAndSize() {
+        this.#dropdownContent.style.maxHeight = ''
+        this.#dropdownContent.classList.remove('swd-dropdown-content-right')
+        this.#dropdownContent.classList.remove('swd-dropdown-content-up')
+        const dropdownRect = this.getBoundingClientRect()
+        const contentRect = this.#dropdownContent.getBoundingClientRect()
+        if (contentRect.right > window.innerWidth) this.#dropdownContent.classList.add('swd-dropdown-content-right')
+        if (contentRect.bottom > window.innerHeight) {
+            if (dropdownRect.top - contentRect.height > window.innerHeight - contentRect.bottom) {
+                if (dropdownRect.top - contentRect.height < 0) {
+                    this.#dropdownContent.style.maxHeight = `${dropdownRect.top}px`
+                }
+                this.#dropdownContent.classList.add('swd-dropdown-content-up')
+            } else {
+                this.#dropdownContent.style.maxHeight = `${window.innerHeight - contentRect.top}px`
+            }
+        }
+    }
+
+    static resizeAllDropdowns() {
+        for (const dropdown of SwdDropdown.#openDropdowns) dropdown.#setDropdownDirectionAndSize()
+    }
+
+    static closeAllDropdowns() {
+        for (const dropdown of SwdDropdown.#openDropdowns) dropdown.close()
     }
 
 }
 
 class SwdSelection extends SwdComponent {
 
-    #selected
+    #selectionChangeAction
     value
 
-    swdAfterRendered() {
-        this.#selected = this.querySelector('[selected]')
+    swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
-            this.#select(event.target)
-        })
-        this.swdRegisterManagedEvent(this, 'keydown', event => {
-            console.log(event)
+            this.select(event.target)
         })
     }
 
-    #select(target) {
-        if (this.#select === target) return
-        if (this.#selected) this.#selected.removeAttribute('selected')
-        this.#selected = target;
-        this.#selected.setAttribute('selected', 'true')
-        this.value = this.#selected.getAttribute('value') || this.#selected.innerText
+    next() { this.#nextOrPrevious(true) }
+    previous() { this.#nextOrPrevious(false) }
+
+    #nextOrPrevious(next) {
+        const selected = this.querySelector('[selected]')
+        const target = selected ? (next ? selected.nextElementSibling : selected.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild)
+        //TODO Nonvisible
+        this.select(target)
+    }
+
+    select(target) {
+        if (!target || target.nodeName !== 'A') return //TODO Nonvisible
+        const selected = this.querySelector('[selected]')
+        if (selected === target) return
+        if (selected) selected.removeAttribute('selected')
+        target.setAttribute('selected', 'true')
+        this.value = target ? target.getAttribute('value') || target.innerText : undefined
+        if (this.#selectionChangeAction) this.#selectionChangeAction(target.innerText.innerText, this.value)
+    }
+
+    setOnSelect(action) {
+        this.#selectionChangeAction = action
     }
 
 }
@@ -247,7 +362,7 @@ class SwdDialog extends SwdComponent {
     open() {
         if (SwdDialog.#openDialog) SwdDialog.#openDialog.close()
         SwdDialog.#openDialog = this
-        this.setAttribute('shown', 'true') 
+        this.setAttribute('shown', 'true')
     }
 
     close() {
