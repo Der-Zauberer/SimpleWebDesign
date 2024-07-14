@@ -185,8 +185,8 @@ swd-icon.delete { mask-image: url("/SimpleWebDesign/resources/icons/delete.svg")
 swd-icon {
     display: inline-block;
     background-color: var(--theme-text-color);
-    height: 1em;
-    width: 1em;
+    height: calc(1em - 1px);
+    width: calc(1em - 1px);
     mask-size: contain;
     mask-position: center;
     mask-repeat: no-repeat;
@@ -410,7 +410,7 @@ a.button, button, input, select, textarea, swd-navigation a, swd-selection a, sw
     border-radius: var(--theme-border-radius);
 }
 
-a.button:disabled, button:disabled, input:disabled, select:disabled, textarea:disabled, swd-selection a:disabled {
+a.button[disabled], button:disabled, input:disabled, select:disabled, textarea:disabled, swd-selection a:disabled {
     --theme-primary-color: var(--theme-primary-grey-color) !important;
     --theme-text-color: var(--theme-text-grey-color) !important;
     cursor: no-drop;
@@ -434,7 +434,7 @@ a.button:not(.outline, .ghost), button:not(.outline, .ghost), input[type="submit
     --theme-text-color: white;
 }
 
-a.button:not(.outline, .ghost, :disabled):hover, a.button:not(.outline, .ghost, :disabled):focus, a.button:not(.outline, .ghost, :disabled):active, a.button:not(.outline, .ghost, :disabled)[selected],
+a.button:not(.outline, .ghost, [disabled]):hover, a.button:not(.outline, .ghost, [disabled]):focus, a.button:not(.outline, .ghost, [disabled]):active, a.button:not(.outline, .ghost, [disabled])[selected],
 button:not(.outline, .ghost, :disabled):hover, button:not(.outline, .ghost, :disabled):focus, button:not(.outline, .ghost, :disabled):active, button:not(.outline, .ghost, :disabled)[selected],
 input[type="submit"]:not(.outline, .ghost, :disabled):hover, input[type="submit"]:not(.outline, .ghost, :disabled):focus, input[type="submit"]:not(.outline, .ghost, :disabled):active, input[type="submit"]:not(.outline, .ghost, :disabled)[selected] {
     background-color: var(--theme-secondary-color);
@@ -445,7 +445,7 @@ a.button.outline, button.outline, input[type="submit"].outline {
     border-color: var(--theme-primary-color);
 }
 
-a.button.outline:not(:disabled):hover, a.button.outline:not(:disabled):focus, a.button.outline:not(:disabled):active, a.button.outline:not(:disabled)[selected],
+a.button.outline:not([disabled]):hover, a.button.outline:not([disabled]):focus, a.button.outline:not([disabled]):active, a.button.outline:not([disabled])[selected],
 button.outline:not(:disabled):hover, button.outline:not(:disabled):focus, button.outline:not(:disabled):active, button.outline:not(:disabled)[selected],
 input[type="submit"].outline:not(:disabled):hover, input[type="submit"].outline:not(:disabled):focus, input[type="submit"].outline:not(:disabled):active, input[type="submit"].outline:not(:disabled)[selected] {
     background-color: var(--theme-primary-color);
@@ -456,7 +456,7 @@ a.button.ghost, button.ghost, input[type="submit"].ghost {
     background-color: transparent;
 }
 
-a.button.ghost:not(:disabled):hover, a.button.ghost:not(:disabled):focus, a.button.ghost:not(:disabled):active, a.button:not(:disabled).ghost[selected],
+a.button.ghost:not([disabled]):hover, a.button.ghost:not([disabled]):focus, a.button.ghost:not([disabled]):active, a.button:not([disabled]).ghost[selected],
 button.ghost:not(:disabled):hover, button.ghost:not(:disabled):focus, button.ghost:not(:disabled):active, button:not(:disabled).ghost[selected], 
 input[type="submit"].ghost:not(:disabled):hover, input[type="submit"].ghost:not(:disabled):focus, input[type="submit"].ghost:not(:disabled):active, input[type="submit"].ghost:not(:disabled)[selected],
 swd-navigation a:not(:disabled):hover, swd-navigation a:not(:disabled):focus, swd-navigation a:not(:disabled):active, swd-navigation a:not(:disabled)[selected],
@@ -970,7 +970,7 @@ swd-router {
 }
 
 [class*="grid-cols-"].no-gap, .flex.no-gap {
-    gap: 0px;
+    gap: 0
 }
 
 [class*="grid-cols-"] > *, .flex > *, [class*="overlay-"] > * {
