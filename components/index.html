@@ -9,7 +9,7 @@
         <link href="/SimpleWebDesign/resources/favicon.png" rel="icon">
         <title>Simple Web Design</title>
     </head>
-    <body>
+    <body class="lightmode">
 
         <swd-menu>
             <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
@@ -631,14 +631,14 @@
                     </swd-input>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
-                    &lt;#swd-input&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;#label for="example-input-1"&gt;Default&lt;#/label&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;#input id="example-input-1" type="text"&gt;<br>
-                    &lt;#/swd-input&gt;<br>
-                    &lt;#swd-input class="outline"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;#label for="example-input-2"&gt;Outline&lt;#/label&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;#input id="example-input-2" type="text"&gt;<br>
-                    &lt;#/swd-input&gt;
+                    &lt;swd-input&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-1"&gt;Default&lt;/label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-1" type="text"&gt;<br>
+                    &lt;/swd-input&gt;<br>
+                    &lt;swd-input class="outline"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-2"&gt;Outline&lt;/label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-2" type="text"&gt;<br>
+                    &lt;/swd-input&gt;
                 </swd-code>
 
                 <swd-card-outline class="flex flex-space-around top-item">
@@ -843,7 +843,7 @@
                         <button><swd-icon class="add"></swd-icon> Add</button>
                     </div>
                     <div>
-                        <a class="red-text button ghost"><swd-icon class="delete"></swd-icon> Remove</a>
+                        <a class="button ghost red-text"><swd-icon class="delete"></swd-icon> Test</a>
                     </div>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">

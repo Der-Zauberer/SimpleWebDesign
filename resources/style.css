@@ -32,6 +32,7 @@
     color: var(--theme-text-color);
     font-family: var(--theme-font-family);
     font-size: 18px;
+    font-weight: 500;
     line-height: round(1.7em, 1px);
     letter-spacing: 0.01em;
     scroll-behavior: smooth;
@@ -169,18 +170,18 @@ body {
 *   Icons   *
 ************/
 
-swd-icon.hamburger { mask-image: url("/SimpleWebDesign/resources/icons/hamburger.svg") }
-swd-icon.arrow-left { mask-image: url("/SimpleWebDesign/resources/icons/arrow-left.svg") }
-swd-icon.arrow-right { mask-image: url("/SimpleWebDesign/resources/icons/arrow-right.svg") }
-swd-icon.arrow-up { mask-image: url("/SimpleWebDesign/resources/icons/arrow-up.svg") }
-swd-icon.arrow-down { mask-image: url("/SimpleWebDesign/resources/icons/arrow-down.svg") }
-swd-icon.more { mask-image: url("/SimpleWebDesign/resources/icons/more.svg") }
-swd-icon.more-down { mask-image: url("/SimpleWebDesign/resources/icons/more-down.svg") }
-swd-icon.done { mask-image: url("/SimpleWebDesign/resources/icons/done.svg") }
-swd-icon.close { mask-image: url("/SimpleWebDesign/resources/icons/close.svg") }
-swd-icon.search { mask-image: url("/SimpleWebDesign/resources/icons/search.svg") }
-swd-icon.add { mask-image: url("/SimpleWebDesign/resources/icons/add.svg") }
-swd-icon.delete { mask-image: url("/SimpleWebDesign/resources/icons/delete.svg") }
+swd-icon.hamburger { mask-image: url("icons/hamburger.svg") }
+swd-icon.arrow-left { mask-image: url("icons/arrow-left.svg") }
+swd-icon.arrow-right { mask-image: url("icons/arrow-right.svg") }
+swd-icon.arrow-up { mask-image: url("icons/arrow-up.svg") }
+swd-icon.arrow-down { mask-image: url("icons/arrow-down.svg") }
+swd-icon.more { mask-image: url("icons/more.svg") }
+swd-icon.more-down { mask-image: url("icons/more-down.svg") }
+swd-icon.done { mask-image: url("icons/done.svg") }
+swd-icon.close { mask-image: url("icons/close.svg") }
+swd-icon.search { mask-image: url("icons/search.svg") }
+swd-icon.add { mask-image: url("icons/add.svg") }
+swd-icon.delete { mask-image: url("icons/delete.svg") }
 
 swd-icon {
     display: inline-block;
@@ -427,6 +428,7 @@ a.button, button, input[type="submit"], swd-navigation a, swd-selection a {
     white-space: nowrap;
     overflow-x: hidden;
     text-overflow: ellipsis;
+    vertical-align: bottom;
 }
 
 a.button:not(.outline, .ghost), button:not(.outline, .ghost), input[type="submit"]:not(.outline, .ghost) {
