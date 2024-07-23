@@ -163,8 +163,9 @@ class SwdDropdown extends SwdComponent {
     #dropdownContent;
     #selection;
 
-    #FOCUS_EVENT = event => { this.open(); }
-    #BLUR_EVENT = event => { if (this.#selection) this.#selection.select(event.explicitOriginalTarget); this.close(); }
+    #FOCUS_EVENT = event => { this.open() }
+    #BLUR_EVENT = event => { this.close() }
+    #INPUT_EVENT = event => { if (this.#selection) this.#selection.filter(event.target.value) }
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
@@ -193,9 +194,11 @@ class SwdDropdown extends SwdComponent {
                     break
                 case 'Enter':
                     event.preventDefault()
+                    this.#selection.select()
                     this.close()
                     break
                 case 'Escape':
+                    this.#selection.reset()
                     this.close()
                     break
                 case 'Delete':
@@ -210,12 +213,14 @@ class SwdDropdown extends SwdComponent {
         if (this.#dropdownInput) {
             this.#dropdownInput.removeEventListener('focus', this.#FOCUS_EVENT)
             this.#dropdownInput.removeEventListener('blur', this.#BLUR_EVENT)
+            this.#dropdownInput.removeEventListener('input', this.#INPUT_EVENT)
         }
         this.#dropdownContent = this.querySelector('swd-dropdown-content');
         this.#dropdownInput = this.querySelector('swd-dropdown input:not(swd-dropdown-content *)')
         if (this.#dropdownInput) {
             this.#dropdownInput.addEventListener('focus', this.#FOCUS_EVENT)
             this.#dropdownInput.addEventListener('blur', this.#BLUR_EVENT)
+            this.#dropdownInput.addEventListener('input', this.#INPUT_EVENT)
         }
         if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection')
         if (this.#selection) {
@@ -282,6 +287,7 @@ class SwdDropdown extends SwdComponent {
 class SwdSelection extends SwdComponent {
 
     #selectionChangeAction
+    #selected
     value
 
     swdOnInit() {
@@ -290,28 +296,62 @@ class SwdSelection extends SwdComponent {
         })
     }
 
-    next() { this.#nextOrPrevious(true) }
-    previous() { this.#nextOrPrevious(false) }
+    next() { this.#nextOrPrevious(true, false) }
+    previous() { this.#nextOrPrevious(false, false) }
 
-    #nextOrPrevious(next) {
-        const selected = this.querySelector('[selected]')
-        const target = selected ? (next ? selected.nextElementSibling : selected.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild)
-        //TODO Nonvisible
-        this.select(target)
+    #nextOrPrevious(next, first) {
+        if (this.children.length === 0) return
+        const original = this.querySelector('[selected]')
+        let target = first ? undefined : original
+        do {
+            const nextTarget = target ? (next ? target.nextElementSibling : target.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild)
+            if (!nextTarget) return
+            target = nextTarget
+        } while (target.nodeName !== 'A' || target.hasAttribute('hidden'))
+        if (original) original.removeAttribute('selected')
+        target.setAttribute('selected', 'true')
+    }
+
+    reset() {
+        const target = this.querySelector('[selected]')
+        if (!target || !this.#selected || target === this.#selected) return
+        target.removeAttribute('selected')
+        this.#selected.addAttribute('selected', 'true')
     }
 
     select(target) {
-        if (!target || target.nodeName !== 'A') return //TODO Nonvisible
-        const selected = this.querySelector('[selected]')
-        if (selected === target) return
-        if (selected) selected.removeAttribute('selected')
-        target.setAttribute('selected', 'true')
-        this.value = target ? target.getAttribute('value') || target.innerText : undefined
-        if (this.#selectionChangeAction) this.#selectionChangeAction(target.innerText.innerText, this.value)
+        const targetToSelect = target ? target : this.querySelector('[selected]')
+        if (!targetToSelect || targetToSelect.nodeName !== 'A' || targetToSelect.hasAttribute('hidden')) return
+        this.selected = targetToSelect
+        this.value = this.selected.getAttribute('value') || this.selected.innerText
+        if (this.#selectionChangeAction) this.#selectionChangeAction(this.selected.innerText, this.value)
     }
 
     setOnSelect(action) {
         this.#selectionChangeAction = action
+    }
+
+    filter(text) {
+        if (!text) {
+            Array.from(this.children).forEach(element => element.removeAttribute('hidden'))
+        }
+        const textParts = text.toLowerCase().split(' ')
+        for (const element of this.children) {
+            const elementText = element.innerText.toLowerCase();
+            const elementValue = element.hasAttribute('value') ? element.getAttribute('value').toLocaleLowerCase() : undefined
+            let elementStatus = false
+            for (const textPart of textParts) {
+                if (elementText.includes(textPart) || (elementValue && elementValue.includes(textPart))) {
+                    elementStatus = true
+                }
+            }
+            if (elementStatus) {
+                element.removeAttribute('hidden')
+            } else {
+                element.setAttribute('hidden', 'true')
+            }
+        }
+        this.#nextOrPrevious(true, true)
     }
 
 }
