@@ -542,7 +542,7 @@
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
                     &lt;swd-dropdown&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-dropdown-toggle&gt;Test&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Test&lt;/button&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option&lt;/a&gt;<br>
@@ -552,7 +552,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
                     &lt;/swd-dropdown&gt;<br><br>
                     &lt;swd-dropdown&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-dropdown-toggle&gt;Card Example&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Card Example&lt;/button&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h4 class="margin-bottom-0"&gt;John Doe&lt;/h4&gt;<br>
@@ -912,7 +912,7 @@
                             we'll only load the video after you consent to their use of cookies and similar technologies as described in their 
                             <a href="https://www.youtube.com/t/privacy">privacy policy</a>.
                         </p>
-                        <div class="flex flex-end"><button swd-hide="youtube-gdpr-question" swd-comment-expose="youtube-wrapper">Allow content from YouTube</button></div>
+                        <div class="flex flex-end"><button onclick="swd.hide(swd.query('#youtube-gdpr-question')); swd.commentExpose(swd.query('#youtube-wrapper'));">Allow content from YouTube</button></div>
                     </swd-card>
 
                     <div id="youtube-wrapper" class="youtube" hidden>
@@ -926,7 +926,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;we'll only load the video after you consent to their use of cookies and similar technologies as described in their <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="https://www.youtube.com/t/privacy"&gt;privacy policy&lt;/a&gt;.<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="flex flex-end"&gt;&lt;button swd-hide="youtube-gdpr-question" swd-comment-expose="youtube-wrapper"&gt;Allow content from YouTube&lt;/button&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="flex flex-end"&gt;&lt;button onclick="swd.hide(swd.query('#youtube-gdpr-question')); swd.commentExpose(swd.query('#youtube-wrapper'));"&gt;Allow content from YouTube&lt;/button&gt;&lt;/div&gt;<br>
                     &lt;/swd-card&gt;<br><br>
                     &lt;div id="youtube-wrapper" class="youtube" hidden&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- &lt;iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt; --&gt;<br>
@@ -952,29 +952,29 @@
 
                 <swd-card-outline class="flex top-item flex-space-around">
 
-                    <button swd-dialog-open="swd-dialog">Click to open dialog</button>
+                    <button onclick="swd.query('swd-dialog').open()">Click to open dialog</button>
 
                     <swd-dialog id="swd-dialog">
                         <swd-card>
                             <h3>Dialog</h3>
                             <p>Really interesting text for the dialog to see how the dialog works</p>
                             <div class="grid-cols-sm-2 grid-cols-1">
-                                <button swd-dialog-close class="red">Cancel</button>
-                                <button swd-dialog-close>Save</button>
+                                <button class="red" onclick="SwdDialog.close()">Cancel</button>
+                                <button onclick="SwdDialog.close()">Save</button>
                             </div>
                         </swd-card>
                     </swd-dialog>
 
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
-                    &lt;button swd-dialog-open="swd-dialog"&gt;Click to open dialog&lt;/button&gt;<br><br>
+                    &lt;button onclick="swd.query('swd-dialog').open()"&gt;Click to open dialog&lt;/button&gt;<br><br>
                     &lt;swd-dialog id="swd-dialog"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Dialog&lt;/h2&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Really interesting text for the dialog to see how the dialog works&lt;/p&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="grid-cols-sm-2 grid-cols-1"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-dialog-close class="red"&gt;Cancel&lt;/button&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button swd-dialog-close&gt;Save&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="SwdDialog.close()"&gt;Cancel&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="SwdDialog.close()"&gt;Save&lt;/button&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-card&gt;<br>
                     &lt;/swd-dialog&gt;

@@ -12,6 +12,10 @@ class Swd {
         })
     }
 
+    query(query) {
+        return document.querySelector(query)
+    }
+
     doAfterRendered(action) {
         if (this.#loaded) action.call()
         else this.#afterRenderedActions.push(action)
@@ -50,52 +54,9 @@ class Swd {
         else this.commentCover(element)
     }
 
-    trigger(target) {
-        if (!target) return
-        [...target.attributes].filter(attribute => attribute.name.startsWith('swd-')).forEach(attribute => {
-            switch (attribute.name) {
-                case 'swd-hide':
-                    this.#asElement(attribute.value, element => this.hide(element))
-                    break
-                case 'swd-show':
-                    this.#asElement(attribute.value, element => this.show(element))
-                    break
-                case 'swd-toggle':
-                    this.#asElement(attribute.value, element => this.toggle(element))
-                    break
-                case 'swd-navigation-open': this.#asElement(attribute.value, navigation => navigation.open()) 
-                    break
-                case 'swd-navigation-close': this.#asElement(attribute.value, navigation => navigation.close())
-                    break
-                case 'swd-navigation-toggle': this.#asElement(attribute.value, navigation => navigation.toggle())
-                    break
-                case 'swd-dialog-open': this.#asElement(attribute.value, dialog => dialog.open()) 
-                    break
-                case 'swd-dialog-close': SwdDialog.close()
-                    break
-                case 'swd-dialog-toggle': this.#asElement(attribute.value, dialog => dialog.toggle())
-                    break
-                case 'swd-comment-expose': this.#asElement(attribute.value, element => swd.commentExpose(element))
-                    break
-                case 'swd-comment-cover': this.#asElement(attribute.value, element => swd.commentCover(element))
-                        break
-                case 'swd-comment-toggle': this.#asElement(attribute.value, element => swd.commentToggle(element))
-                    break
-                default: 
-                    break
-            }
-        })
-    }
-
-    #asElement(id, action) {
-        const element = document.querySelector(`#${id}`)
-        if (element) action(element)
-    }
-
 }
 
 swd = new Swd()
-document.addEventListener('click', (event) => swd.trigger(event.target))
 document.addEventListener('resize', (event) => SwdDropdown.resizeAllDropdowns())
 document.addEventListener('scroll', (event) => SwdDropdown.resizeAllDropdowns())
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'))
