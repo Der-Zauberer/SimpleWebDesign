@@ -57,8 +57,8 @@ class Swd {
 }
 
 swd = new Swd()
-document.addEventListener('resize', (event) => SwdDropdown.resizeAllDropdowns())
-document.addEventListener('scroll', (event) => SwdDropdown.resizeAllDropdowns())
+document.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.close() })
+document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns())
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'))
 
 class SwdComponent extends HTMLElement {
@@ -101,13 +101,32 @@ class SwdComponent extends HTMLElement {
 
 class SwdNavigation extends SwdComponent {
 
-    open() { this.setAttribute('shown', 'true') }
-    close() { this.removeAttribute('shown') }
-    isOpen() { this.hasAttribute('shown') }
+    static #openNavigation = undefined
+
+    open() {
+        SwdNavigation.close()
+        SwdNavigation.#openNavigation = this;
+        this.setAttribute('shown', 'true')
+    }
+
+    close() {
+        this.removeAttribute('shown')
+        SwdNavigation.#openNavigation = undefined;
+    }
+
+    isOpen() { 
+        return this.hasAttribute('shown')
+    }
 
     toggle() {
         if (this.isOpen()) this.close()
         else this.open()
+    }
+
+    static close() {
+        if (!SwdNavigation.#openNavigation) return
+        SwdNavigation.#openNavigation.close()
+        SwdNavigation.#openNavigation = undefined;
     }
 
 }

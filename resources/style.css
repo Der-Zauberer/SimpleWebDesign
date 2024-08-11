@@ -633,6 +633,7 @@ swd-navigation {
     background-color: var(--theme-primary-grey-color);
     z-index: 2;
     overflow: hidden;
+    transition: left 0.2s;
 }
 
 swd-navigation:hover { overflow-y: auto }
@@ -641,6 +642,20 @@ swd-navigation-content {
     display: block;
     margin-left: var(--theme-navigation-width);
 }
+
+swd-navigation[navigation-collapse]{ left: calc(var(--theme-navigation-width) * -1)}
+@media only screen and (max-width: 575px) {swd-navigation[navigation-collapse-sm]{ left: calc(var(--theme-navigation-width) * -1)}}
+@media only screen and (max-width: 767px) {swd-navigation[navigation-collapse-md]{ left: calc(var(--theme-navigation-width) * -1)}}
+@media only screen and (max-width: 991px) {swd-navigation[navigation-collapse-lg]{ left: calc(var(--theme-navigation-width) * -1)}}
+@media only screen and (max-width: 1199px) {swd-navigation[navigation-collapse-xl]{ left: calc(var(--theme-navigation-width) * -1)}}
+@media only screen and (max-width: 1399px) {swd-navigation[navigation-collapse-xxl]{ left: calc(var(--theme-navigation-width) * -1)}}
+@media only screen and (max-width: 575px) {swd-navigation-content[navigation-collapse-sm]{ margin-left: 0 }}
+@media only screen and (max-width: 767px) {swd-navigation-content[navigation-collapse-md]{ margin-left: 0 }}
+@media only screen and (max-width: 991px) {swd-navigation-content[navigation-collapse-lg]{ margin-left: 0 }}
+@media only screen and (max-width: 1199px) {swd-navigation-content[navigation-collapse-xl]{ margin-left: 0 }}
+@media only screen and (max-width: 1399px) {swd-navigation-content[navigation-collapse-xxl]{ margin-left: 0 }}
+
+swd-navigation[shown] { left: 0 }
 
 /*************
 *   Footer   *
@@ -1031,7 +1046,7 @@ swd-router {
 
 [class*="container-"] > :first-child, swd-navigation > :first-child, swd-selection > :first-child,
 swd-card > :first-child, swd-card-outline > :first-child, swd-card-ghost > :first-child, swd-card-frame > :first-child {
-    margin-top: 0 
+    margin-top: 0
 }
 
 [class*="container-"] > :last-child, swd-navigation > :last-child, swd-selection > :last-child,
@@ -1054,6 +1069,7 @@ swd-navigation *, swd-card *, swd-selection * { --theme-primary-grey-color: var(
 **********************/
 
 .width-100 { width: 100% }
+.contents { display: contents }
 
 @media only screen and (max-width: 575px) {.only-bigger-sm { display: none }}
 @media only screen and (max-width: 767px) {.only-bigger-md { display: none }}

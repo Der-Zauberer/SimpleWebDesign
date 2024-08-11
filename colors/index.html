@@ -12,10 +12,19 @@
     <body>
 
         <swd-menu>
+            <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger"></swd-icon></a>
             <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
+            <div class="contents only-bigger-md">
+                <a href="/SimpleWebDesign/components">Components</a>
+                <a href="/SimpleWebDesign/colors" selected>Colors</a>
+            </div>
+        </swd-menu>
+        
+        <swd-navigation navigation-collapse>
+            <a href="/SimpleWebDesign">Home</a>
             <a href="/SimpleWebDesign/components">Components</a>
             <a href="/SimpleWebDesign/colors" selected>Colors</a>
-        </swd-menu>
+        </swd-navigation>
 
         <div class="container-xl">
 
