@@ -1,29 +1,29 @@
 class Swd {
 
-    #loaded = false
-    #afterRenderedActions = []
+    #loaded = false;
+    #afterRenderedActions = [];
 
     constructor() {
         document.addEventListener('readystatechange', event => { 
             if (event.target.readyState === 'interactive') {
                 this.#loaded = true;
-                this.#afterRenderedActions.forEach(action => action.call())
+                this.#afterRenderedActions.forEach(action => action.call());
             }
         })
     }
 
     query(query) {
-        return document.querySelector(query)
+        return document.querySelector(query);
     }
 
     doAfterRendered(action) {
-        if (this.#loaded) action.call()
-        else this.#afterRenderedActions.push(action)
+        if (this.#loaded) action.call();
+        else this.#afterRenderedActions.push(action);
     }
 
     setAttribute(id, attribute, value) {
-        const target = document.querySelector(`#${id}`)
-        if (target) target.setAttribute(attribute, value)
+        const target = document.querySelector(`#${id}`);
+        if (target) target.setAttribute(attribute, value);
     }
 
     hide(element) { element.setAttribute('hidden', 'true') }
@@ -31,60 +31,58 @@ class Swd {
     isHidden(element) { return element.hasAttribute('hidden') }
 
     toggle(element) {
-        if (this.isHidden(element)) this.show(element)
-        else this.hide(element)
+        if (this.isHidden(element)) this.show(element);
+        else this.hide(element);
     }
 
-    commentExpose(element) { 
-        if (this.isHidden(element))  {
-            element.innerHTML = element.innerHTML.replace('<!--', '').replace('-->', '');
-            this.show(element);
-        }
+    commentExpose(element) {
+        if (!this.isHidden(element)) return;
+        element.innerHTML = element.innerHTML.replace('<!--', '').replace('-->', '');
+        this.show(element);
     }
 
     commentCover(element) {
-        if (!this.isHidden(element))  {
-            this.hide(element)
-            element.innerHTML = '<!--' + element.innerHTML + '-->';
-        }
+        if (this.isHidden(element)) return;
+        this.hide(element);
+        element.innerHTML = '<!--' + element.innerHTML + '-->';
     }
 
     commentToggle(element) {
-        if (this.isHidden(element)) this.commentExpose(element) 
-        else this.commentCover(element)
+        if (this.isHidden(element)) this.commentExpose(element);
+        else this.commentCover(element);
     }
 
 }
 
-swd = new Swd()
-document.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.close() })
-document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns())
-document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'))
+swd = new Swd();
+document.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.close() });
+document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
+document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'));
 
 class SwdComponent extends HTMLElement {
 
-    #events = []
+    #events = [];
     #observer;
 
     constructor() {
-        super()
+        super();
         this.#observer = new MutationObserver((mutationList, observer) => {
-            this.swdOnUpdate([...mutationList])
+            this.swdOnUpdate([...mutationList]);
         })
-        this.#observer.observe(this, { attributes: true, childList: true, subtree: false })
-        swd.doAfterRendered(() => this.swdAfterRendered())
+        this.#observer.observe(this, { attributes: true, childList: true, subtree: false });
+        swd.doAfterRendered(() => this.swdAfterRendered());
     }
 
     connectedCallback() {
-        this.swdOnInit()
+        this.swdOnInit();
     }
 
     disconnectedCallback() {
-        this.swdOnDestroy()
+        this.swdOnDestroy();
         for (eventHolder in this.#events) {
-            eventHolder.target.removeEventListener(eventHolder.event, eventHolder.action)
+            eventHolder.target.removeEventListener(eventHolder.event, eventHolder.action);
         }
-        this.#observer.disconnect()
+        this.#observer.disconnect();
     }
 
     swdOnInit() {}
@@ -93,39 +91,39 @@ class SwdComponent extends HTMLElement {
     swdOnDestroy() {}
 
     swdRegisterManagedEvent(target, event, action) {
-        this.#events.push({ target, event, action })
-        target.addEventListener(event, action)
+        this.#events.push({ target, event, action });
+        target.addEventListener(event, action);
     }
 
 }
 
 class SwdNavigation extends SwdComponent {
 
-    static #openNavigation = undefined
+    static #openNavigation = undefined;
 
     open() {
-        SwdNavigation.close()
+        SwdNavigation.close();
         SwdNavigation.#openNavigation = this;
-        this.setAttribute('shown', 'true')
+        this.setAttribute('shown', 'true');
     }
 
     close() {
-        this.removeAttribute('shown')
+        this.removeAttribute('shown');
         SwdNavigation.#openNavigation = undefined;
     }
 
     isOpen() { 
-        return this.hasAttribute('shown')
+        return this.hasAttribute('shown');
     }
 
     toggle() {
-        if (this.isOpen()) this.close()
-        else this.open()
+        if (this.isOpen()) this.close();
+        else this.open();
     }
 
     static close() {
-        if (!SwdNavigation.#openNavigation) return
-        SwdNavigation.#openNavigation.close()
+        if (!SwdNavigation.#openNavigation) return;
+        SwdNavigation.#openNavigation.close();
         SwdNavigation.#openNavigation = undefined;
     }
 
@@ -133,40 +131,40 @@ class SwdNavigation extends SwdComponent {
 
 class SwdInput extends SwdComponent {
 
-    #input
-    #selfUpdateQueue = 0
+    #input;
+    #selfUpdateQueue = 0;
 
     swdOnUpdate() {
-        if (this.#selfUpdateQueue-- > 0) return
-        const input = this.querySelector('input')
+        if (this.#selfUpdateQueue-- > 0) return;
+        const input = this.querySelector('input');
         if (input !== this.input) {
-            if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation())
-            if (input) input.addEventListener('input', event => this.#updateValidation())
-            this.#input = input
+            if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation());
+            if (input) input.addEventListener('input', event => this.#updateValidation());
+            this.#input = input;
         }
-        this.#updateValidation()
+        this.#updateValidation();
     }
 
     swdOnDestroy() {
-        if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation())
+        if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation());
     }
 
     #updateValidation() {
-        if (!this.#input) return
-        const inputRange = this.querySelector('swd-input-range')
+        if (!this.#input) return;
+        const inputRange = this.querySelector('swd-input-range');
         if (inputRange) {
-            inputRange.innerText = `${this.#input.value.length}`
+            inputRange.innerText = `${this.#input.value.length}`;
             this.#selfUpdateQueue++;
-            const maxLength = this.#input.getAttribute('maxlength')
+            const maxLength = this.#input.getAttribute('maxlength');
             if (maxLength) {
-                inputRange.innerText += `/${maxLength}`
+                inputRange.innerText += `/${maxLength}`;
                 this.#selfUpdateQueue++;
             }
         }
-        const inputError = this.querySelector('swd-input-error')
+        const inputError = this.querySelector('swd-input-error');
         if (inputError) {
-            if (this.#input.checkValidity()) inputError.innerText = ''
-            else inputError.innerText = this.#input.validationMessage
+            if (this.#input.checkValidity()) inputError.innerText = '';
+            else inputError.innerText = this.#input.validationMessage;
             this.#selfUpdateQueue++;
         }
     }
@@ -175,7 +173,7 @@ class SwdInput extends SwdComponent {
 
 class SwdDropdown extends SwdComponent {
 
-    static #openDropdowns = []
+    static #openDropdowns = [];
 
     #dropdownInput;
     #dropdownSecondaryInput;
@@ -188,130 +186,130 @@ class SwdDropdown extends SwdComponent {
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
-            if (!this.#dropdownContent) return
+            if (!this.#dropdownContent) return;
             if (!this.#dropdownInput) {
-                if (!this.isOpen()) this.open()
-                else this.close()
+                if (!this.isOpen()) this.open();
+                else this.close();
             }
-            if (this.#selection) this.#selection.select(event.target)
+            if (this.#selection) this.#selection.select(event.target);
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
             if (this.#selection && this.#dropdownInput && !this.isOpen() && event.key === 'Enter') {
-                event.preventDefault()
-                this.open()
-                return
+                event.preventDefault();
+                this.open();
+                return;
             }
-            if (!this.#selection || !this.isOpen()) return
+            if (!this.#selection || !this.isOpen()) return;
             switch (event.key) {
                 case 'ArrowUp': case 'ArrowLeft':
-                    this.#selection.previous()
-                    event.preventDefault()
-                    break
+                    this.#selection.previous();
+                    event.preventDefault();
+                    break;
                 case 'ArrowDown': case 'ArrowRight':
-                    this.#selection.next()
-                    event.preventDefault()
-                    break
+                    this.#selection.next();
+                    event.preventDefault();
+                    break;
                 case 'Enter':
-                    event.preventDefault()
-                    this.#selection.select()
-                    this.close()
-                    break
+                    event.preventDefault();
+                    this.#selection.select();
+                    this.close();
+                    break;
                 case 'Escape':
-                    this.#selection.reset()
-                    this.close()
-                    break
+                    this.#selection.reset();
+                    this.close();
+                    break;
                 case 'Delete':
                 case 'Backspace':
-                    if (this.#dropdownInput && this.#dropdownInput.hasAttribute('readonly')) this.#dropdownInput.value = ''
-                    break
+                    if (this.#dropdownInput && this.#dropdownInput.hasAttribute('readonly')) this.#dropdownInput.value = '';
+                    break;
             }
         })
     }
 
     swdOnUpdate(event) {
         if (this.#dropdownInput) {
-            this.#dropdownInput.removeEventListener('focus', this.#FOCUS_EVENT)
-            this.#dropdownInput.removeEventListener('blur', this.#BLUR_EVENT)
-            this.#dropdownInput.removeEventListener('input', this.#INPUT_EVENT)
+            this.#dropdownInput.removeEventListener('focus', this.#FOCUS_EVENT);
+            this.#dropdownInput.removeEventListener('blur', this.#BLUR_EVENT);
+            this.#dropdownInput.removeEventListener('input', this.#INPUT_EVENT);
         }
         this.#dropdownContent = this.querySelector('swd-dropdown-content');
-        this.#dropdownInput = this.querySelector('swd-dropdown input:not(swd-dropdown-content *)')
+        this.#dropdownInput = this.querySelector('swd-dropdown input:not(swd-dropdown-content *)');
         if (this.#dropdownInput) {
-            this.#dropdownInput.addEventListener('focus', this.#FOCUS_EVENT)
-            this.#dropdownInput.addEventListener('blur', this.#BLUR_EVENT)
-            this.#dropdownInput.addEventListener('input', this.#INPUT_EVENT)
+            this.#dropdownInput.addEventListener('focus', this.#FOCUS_EVENT);
+            this.#dropdownInput.addEventListener('blur', this.#BLUR_EVENT);
+            this.#dropdownInput.addEventListener('input', this.#INPUT_EVENT);
         }
-        if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection')
+        if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection');
         if (this.#selection) {
             this.#selection.setOnSelect((text, value) => {
-                if (this.#dropdownInput) this.#dropdownInput.value = value
+                if (this.#dropdownInput) this.#dropdownInput.value = value;
                 //TODO Input event
             })
         }
     }
 
     open() {
-        if (!this.#dropdownContent) return
-        SwdDropdown.closeAllDropdowns()
-        this.#dropdownContent.setAttribute('shown', 'true') 
-        this.#setDropdownDirectionAndSize()
-        SwdDropdown.#openDropdowns.push(this)
+        if (!this.#dropdownContent) return;
+        SwdDropdown.closeAllDropdowns();
+        this.#dropdownContent.setAttribute('shown', 'true') ;
+        this.#setDropdownDirectionAndSize();
+        SwdDropdown.#openDropdowns.push(this);
     }
 
     close() {
-        if (!this.#dropdownContent) return
-        this.#dropdownContent.removeAttribute('shown')
+        if (!this.#dropdownContent) return;
+        this.#dropdownContent.removeAttribute('shown');
         SwdDropdown.#openDropdowns = SwdDropdown.#openDropdowns.filter(entry => entry !== this);
     }
 
     isOpen() { 
-        if (!this.#dropdownContent) return false
-        return this.#dropdownContent.hasAttribute('shown')
+        if (!this.#dropdownContent) return false;
+        return this.#dropdownContent.hasAttribute('shown');
     }
 
     toggle() {
-        if (this.isOpen()) this.close()
-        else this.open()
+        if (this.isOpen()) this.close();
+        else this.open();
     }
 
     #setDropdownDirectionAndSize() {
-        this.#dropdownContent.style.maxHeight = ''
-        this.#dropdownContent.classList.remove('swd-dropdown-content-right')
-        this.#dropdownContent.classList.remove('swd-dropdown-content-up')
-        const dropdownRect = this.getBoundingClientRect()
-        const contentRect = this.#dropdownContent.getBoundingClientRect()
-        if (contentRect.right > window.innerWidth) this.#dropdownContent.classList.add('swd-dropdown-content-right')
+        this.#dropdownContent.style.maxHeight = '';
+        this.#dropdownContent.classList.remove('swd-dropdown-content-right');
+        this.#dropdownContent.classList.remove('swd-dropdown-content-up');
+        const dropdownRect = this.getBoundingClientRect();
+        const contentRect = this.#dropdownContent.getBoundingClientRect();
+        if (contentRect.right > window.innerWidth) this.#dropdownContent.classList.add('swd-dropdown-content-right');
         if (contentRect.bottom > window.innerHeight) {
             if (dropdownRect.top - contentRect.height > window.innerHeight - contentRect.bottom) {
                 if (dropdownRect.top - contentRect.height < 0) {
-                    this.#dropdownContent.style.maxHeight = `${dropdownRect.top}px`
+                    this.#dropdownContent.style.maxHeight = `${dropdownRect.top}px`;
                 }
-                this.#dropdownContent.classList.add('swd-dropdown-content-up')
+                this.#dropdownContent.classList.add('swd-dropdown-content-up');
             } else {
-                this.#dropdownContent.style.maxHeight = `${window.innerHeight - contentRect.top}px`
+                this.#dropdownContent.style.maxHeight = `${window.innerHeight - contentRect.top}px`;
             }
         }
     }
 
     static resizeAllDropdowns() {
-        for (const dropdown of SwdDropdown.#openDropdowns) dropdown.#setDropdownDirectionAndSize()
+        for (const dropdown of SwdDropdown.#openDropdowns) dropdown.#setDropdownDirectionAndSize();
     }
 
     static closeAllDropdowns() {
-        for (const dropdown of SwdDropdown.#openDropdowns) dropdown.close()
+        for (const dropdown of SwdDropdown.#openDropdowns) dropdown.close();
     }
 
 }
 
 class SwdSelection extends SwdComponent {
 
-    #selectionChangeAction
-    #selected
-    value
+    #selectionChangeAction;
+    #selected;
+    value;
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
-            this.select(event.target)
+            this.select(event.target);
         })
     }
 
@@ -319,205 +317,205 @@ class SwdSelection extends SwdComponent {
     previous() { this.#nextOrPrevious(false, false) }
 
     #nextOrPrevious(next, first) {
-        if (this.children.length === 0) return
-        const original = this.querySelector('[selected]')
-        let target = first ? undefined : original
+        if (this.children.length === 0) return;
+        const original = this.querySelector('[selected]');
+        let target = first ? undefined : original;
         do {
-            const nextTarget = target ? (next ? target.nextElementSibling : target.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild)
-            if (!nextTarget) return
-            target = nextTarget
-        } while (target.nodeName !== 'A' || target.hasAttribute('hidden'))
-        if (original) original.removeAttribute('selected')
-        target.setAttribute('selected', 'true')
+            const nextTarget = target ? (next ? target.nextElementSibling : target.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild);
+            if (!nextTarget) return;
+            target = nextTarget;
+        } while (target.nodeName !== 'A' || target.hasAttribute('hidden'));
+        if (original) original.removeAttribute('selected');
+        target.setAttribute('selected', 'true');
     }
 
     reset() {
-        const target = this.querySelector('[selected]')
-        if (!target || !this.#selected || target === this.#selected) return
-        target.removeAttribute('selected')
-        this.#selected.addAttribute('selected', 'true')
+        const target = this.querySelector('[selected]');
+        if (!target || !this.#selected || target === this.#selected) return;
+        target.removeAttribute('selected');
+        this.#selected.addAttribute('selected', 'true');
     }
 
     select(target) {
-        const targetToSelect = target ? target : this.querySelector('[selected]')
-        if (!targetToSelect || targetToSelect.nodeName !== 'A' || targetToSelect.hasAttribute('hidden')) return
-        this.selected = targetToSelect
-        this.value = this.selected.getAttribute('value') || this.selected.innerText
-        if (this.#selectionChangeAction) this.#selectionChangeAction(this.selected.innerText, this.value)
+        const targetToSelect = target ? target : this.querySelector('[selected]');
+        if (!targetToSelect || targetToSelect.nodeName !== 'A' || targetToSelect.hasAttribute('hidden')) return;
+        this.selected = targetToSelect;
+        this.value = this.selected.getAttribute('value') || this.selected.innerText;
+        if (this.#selectionChangeAction) this.#selectionChangeAction(this.selected.innerText, this.value);
     }
 
     setOnSelect(action) {
-        this.#selectionChangeAction = action
+        this.#selectionChangeAction = action;
     }
 
     filter(text) {
         if (!text) {
-            Array.from(this.children).forEach(element => element.removeAttribute('hidden'))
+            Array.from(this.children).forEach(element => element.removeAttribute('hidden'));
         }
-        const textParts = text.toLowerCase().split(' ')
+        const textParts = text.toLowerCase().split(' ');
         for (const element of this.children) {
             const elementText = element.innerText.toLowerCase();
-            const elementValue = element.hasAttribute('value') ? element.getAttribute('value').toLocaleLowerCase() : undefined
-            let elementStatus = false
+            const elementValue = element.hasAttribute('value') ? element.getAttribute('value').toLocaleLowerCase() : undefined;
+            let elementStatus = false;
             for (const textPart of textParts) {
                 if (elementText.includes(textPart) || (elementValue && elementValue.includes(textPart))) {
-                    elementStatus = true
+                    elementStatus = true;
                 }
             }
             if (elementStatus) {
-                element.removeAttribute('hidden')
+                element.removeAttribute('hidden');
             } else {
-                element.setAttribute('hidden', 'true')
+                element.setAttribute('hidden', 'true');
             }
         }
-        this.#nextOrPrevious(true, true)
+        this.#nextOrPrevious(true, true);
     }
 
 }
 
 class SwdDialog extends SwdComponent {
 
-    static #openDialog
+    static #openDialog;
     
     open() {
-        if (SwdDialog.#openDialog) SwdDialog.#openDialog.close()
-        SwdDialog.#openDialog = this
-        this.setAttribute('shown', 'true')
+        if (SwdDialog.#openDialog) SwdDialog.#openDialog.close();
+        SwdDialog.#openDialog = this;
+        this.setAttribute('shown', 'true');
     }
 
     close() {
-        SwdDialog.#openDialog = undefined
-        this.removeAttribute('shown') 
+        SwdDialog.#openDialog = undefined;
+        this.removeAttribute('shown');
     }
 
     isOpen() {
-        return this.hasAttribute('shown')
+        return this.hasAttribute('shown');
     }
 
     toggle() {
-        if (this.isOpen()) this.close()
-        else this.open()
+        if (this.isOpen()) this.close();
+        else this.open();
     }
 
     static close() {
-        SwdDialog.#openDialog.close()
+        SwdDialog.#openDialog.close();
     }
 
 }
 
 class SwdCode extends SwdComponent {
 
-    #shadowDom
+    #shadowDom;
 
     constructor() { 
-        super()
-        this.#shadowDom = this.attachShadow({ mode: 'open' })
+        super();
+        this.#shadowDom = this.attachShadow({ mode: 'open' });
     }
 
     swdOnUpdate() { this.#highlight() }
 
     #highlight() {
         switch (this.getAttribute('swd-code-language')) {
-            case 'html': this.#shadowDom.innerHTML = this.#highlightHtml(this.innerHTML)
-                break
-            case 'css': this.#shadowDom.innerHTML = this.#highlightCss(this.innerHTML)
-                break
-            default: this.#shadowDom.innerHTML = this.innerHTML
+            case 'html': this.#shadowDom.innerHTML = this.#highlightHtml(this.innerHTML);
+                break;
+            case 'css': this.#shadowDom.innerHTML = this.#highlightCss(this.innerHTML);
+                break;
+            default: this.#shadowDom.innerHTML = this.innerHTML;
         }
-        this.#shadowDom.innerHTML = this.#shadowDom.innerHTML + '<style>@import "/SimpleWebDesign/resources/style.css"</style>'
+        this.#shadowDom.innerHTML = this.#shadowDom.innerHTML + '<style>@import "/SimpleWebDesign/resources/style.css"</style>';
     }
 
     #highlightHtml(string) {
-        let codeString = ''
-        let tag = false
-        let attribute = false
-        let value = false
-        let comment = false
-        let lastAddedIndex = 0
+        let codeString = '';
+        let tag = false;
+        let attribute = false;
+        let value = false;
+        let comment = false;
+        let lastAddedIndex = 0;
         for (let i = 0; i < string.length; i++) {
             if (!tag && !comment && i + 3 < string.length && string.substring(i, i + 4) == '&lt;' && !(i + 7 < string.length && string.substring(i, i + 7) == '&lt;!--')) {
-                codeString += string.substring(lastAddedIndex, i) + '<span class="blue-text">&lt;'
-                tag = true
-                i += 4
-                lastAddedIndex = i
+                codeString += string.substring(lastAddedIndex, i) + '<span class="blue-text">&lt;';
+                tag = true;
+                i += 4;
+                lastAddedIndex = i;
             } else if (tag && i + 3 < string.length && string.substring(i, i + 4) == '&gt;') {
-                codeString += string.substring(lastAddedIndex, i)
-                if (attribute) codeString += '</span>'
-                codeString += '&gt;</span>'
-                tag = false
-                attribute = false
-                i += 3
+                codeString += string.substring(lastAddedIndex, i);
+                if (attribute) codeString += '</span>';
+                codeString += '&gt;</span>';
+                tag = false;
+                attribute = false;
+                i += 3;
                 lastAddedIndex = i + 1;
             } else if (tag && !comment && !attribute && string.charAt(i) == ' ') {
-                codeString += string.substring(lastAddedIndex, i) + '<span class="aqua-text">'
-                attribute = true
-                lastAddedIndex = i
+                codeString += string.substring(lastAddedIndex, i) + '<span class="aqua-text">';
+                attribute = true;
+                lastAddedIndex = i;
             } else if (tag && !comment && attribute && string.charAt(i) == '"') {
-                codeString += value ? string.substring(lastAddedIndex, i) + '"</span>' : string.substring(lastAddedIndex, i) + '<span class="green-text">"'
-                value = !value
-                lastAddedIndex = i + 1
+                codeString += value ? string.substring(lastAddedIndex, i) + '"</span>' : string.substring(lastAddedIndex, i) + '<span class="green-text">"';
+                value = !value;
+                lastAddedIndex = i + 1;
             } else if (!tag && !comment && i + 7 < string.length && string.substring(i, i + 7) == '&lt;!--') {
-                codeString += string.substring(lastAddedIndex, i) + '<span class="grey-text">&lt;!--'
-                comment = true
-                i += 7
-                lastAddedIndex = i
+                codeString += string.substring(lastAddedIndex, i) + '<span class="grey-text">&lt;!--';
+                comment = true;
+                i += 7;
+                lastAddedIndex = i;
             } else if (comment && i + 6 < string.length && string.substring(i, i + 6) == '--&gt;') {
-                codeString += string.substring(lastAddedIndex, i) + '--&gt;</span>'
-                comment = false
-                i += 6
-                lastAddedIndex = i
+                codeString += string.substring(lastAddedIndex, i) + '--&gt;</span>';
+                comment = false;
+                i += 6;
+                lastAddedIndex = i;
             }
         }
-        codeString += string.substring(lastAddedIndex, string.length)
-        return codeString
+        codeString += string.substring(lastAddedIndex, string.length);
+        return codeString;
     }
 
     #highlightCss(string) {
-        let codeString = ''
-        let key = false
-        let value = false
-        let comment = false
-        let lastAddedIndex = 0
+        let codeString = '';
+        let key = false;
+        let value = false;
+        let comment = false;
+        let lastAddedIndex = 0;
         for (let i = 0; i < string.length; i++) {
             if (!comment && !key && string.charAt(i) == '{') {
-                codeString += string.substring(lastAddedIndex, i) + '</span>{<span class="aqua-text">'
-                key = true
-                lastAddedIndex = ++i
+                codeString += string.substring(lastAddedIndex, i) + '</span>{<span class="aqua-text">';
+                key = true;
+                lastAddedIndex = ++i;
             } else if (!comment && key && string.charAt(i) == ':') {
-                codeString += string.substring(lastAddedIndex, i) + '</span>:<span class="green-text">'
-                value = true
-                lastAddedIndex = ++i
+                codeString += string.substring(lastAddedIndex, i) + '</span>:<span class="green-text">';
+                value = true;
+                lastAddedIndex = ++i;
             } else if (!comment && key && string.charAt(i) == '}') {
-                codeString += string.substring(lastAddedIndex, i) + '</span>}<span class="blue-text">'
-                key = false
-                value = false
-                lastAddedIndex = ++i
+                codeString += string.substring(lastAddedIndex, i) + '</span>}<span class="blue-text">';
+                key = false;
+                value = false;
+                lastAddedIndex = ++i;
             } else if (!comment && value && string.charAt(i) == ';') {
-                codeString += string.substring(lastAddedIndex, i) + '</span>;<span class="aqua-text">'
-                key = true
-                value = false
-                lastAddedIndex = ++i
+                codeString += string.substring(lastAddedIndex, i) + '</span>;<span class="aqua-text">';
+                key = true;
+                value = false;
+                lastAddedIndex = ++i;
             } else if (!comment && i + 1 < string.length && string.substring(i, i + 2) == '/*') {
-                codeString += string.substring(lastAddedIndex, i) + '<span class="grey-text">/*'
-                comment = true
-                i += 2
-                lastAddedIndex = i
+                codeString += string.substring(lastAddedIndex, i) + '<span class="grey-text">/*';
+                comment = true;
+                i += 2;
+                lastAddedIndex = i;
             } else if (comment && i + 1 < string.length && string.substring(i, i + 2) == '*/') {
-                codeString += string.substring(lastAddedIndex, i) + '*/</span>'
-                comment = false
-                i += 2
-                lastAddedIndex = i
+                codeString += string.substring(lastAddedIndex, i) + '*/</span>';
+                comment = false;
+                i += 2;
+                lastAddedIndex = i;
             }
         }
-        codeString += string.substring(lastAddedIndex, string.length - 1)
-        return '<span class="blue-text">' + codeString + '</span>'
+        codeString += string.substring(lastAddedIndex, string.length - 1);
+        return '<span class="blue-text">' + codeString + '</span>';
     }
 
 }
 
-customElements.define('swd-navigation', SwdNavigation)
-customElements.define('swd-input', SwdInput)
-customElements.define('swd-dropdown', SwdDropdown)
-customElements.define('swd-selection', SwdSelection)
-customElements.define('swd-dialog', SwdDialog)
-customElements.define('swd-code', SwdCode)
+customElements.define('swd-navigation', SwdNavigation);
+customElements.define('swd-input', SwdInput);
+customElements.define('swd-dropdown', SwdDropdown);
+customElements.define('swd-selection', SwdSelection);
+customElements.define('swd-dialog', SwdDialog);
+customElements.define('swd-code', SwdCode);
