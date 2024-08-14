@@ -55,6 +55,7 @@ class Swd {
 }
 
 swd = new Swd();
+document.addEventListener('click', () => SwdNavigation.close() );
 document.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.close() });
 document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'));
@@ -100,16 +101,19 @@ class SwdComponent extends HTMLElement {
 class SwdNavigation extends SwdComponent {
 
     static #openNavigation = undefined;
+    static #ignoreNextClose = false;
 
     open() {
         SwdNavigation.close();
         SwdNavigation.#openNavigation = this;
         this.setAttribute('shown', 'true');
+        SwdNavigation.#ignoreNextClose = true;
     }
 
     close() {
         this.removeAttribute('shown');
         SwdNavigation.#openNavigation = undefined;
+        this.scrollTop = 0;
     }
 
     isOpen() { 
@@ -123,6 +127,10 @@ class SwdNavigation extends SwdComponent {
 
     static close() {
         if (!SwdNavigation.#openNavigation) return;
+        if (this.#ignoreNextClose) {
+            this.#ignoreNextClose = false;
+            return;
+        }
         SwdNavigation.#openNavigation.close();
         SwdNavigation.#openNavigation = undefined;
     }
