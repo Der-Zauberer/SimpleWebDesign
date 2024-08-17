@@ -55,8 +55,8 @@ class Swd {
 }
 
 swd = new Swd();
-document.addEventListener('click', () => SwdNavigation.close() );
-document.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.close() });
+document.addEventListener('click', (event) => { SwdNavigation.autoClose(event); SwdDropdown.autoClose(event); });
+document.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.autoClose() });
 document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'));
 
@@ -104,7 +104,7 @@ class SwdNavigation extends SwdComponent {
     static #ignoreNextClose = false;
 
     open() {
-        SwdNavigation.close();
+        SwdNavigation.autoClose();
         SwdNavigation.#openNavigation = this;
         this.setAttribute('shown', 'true');
         SwdNavigation.#ignoreNextClose = true;
@@ -125,10 +125,13 @@ class SwdNavigation extends SwdComponent {
         else this.open();
     }
 
-    static close() {
+    static autoClose(event) {
         if (!SwdNavigation.#openNavigation) return;
         if (this.#ignoreNextClose) {
             this.#ignoreNextClose = false;
+            return;
+        }
+        if (event && SwdNavigation.#openNavigation.contains(event.target) && !(event.target.nodeName == 'A' && event.target.hasAttribute('href'))) {
             return;
         }
         SwdNavigation.#openNavigation.close();
@@ -197,7 +200,7 @@ class SwdDropdown extends SwdComponent {
             if (!this.#dropdownContent) return;
             if (!this.#dropdownInput) {
                 if (!this.isOpen()) this.open();
-                else this.close();
+                else if (this.isOpen() && (!this.#dropdownContent || !this.#dropdownContent.contains(event.target))) this.close()
             }
             if (this.#selection) this.#selection.select(event.target);
         })
@@ -258,7 +261,6 @@ class SwdDropdown extends SwdComponent {
 
     open() {
         if (!this.#dropdownContent) return;
-        SwdDropdown.closeAllDropdowns();
         this.#dropdownContent.setAttribute('shown', 'true') ;
         this.#setDropdownDirectionAndSize();
         SwdDropdown.#openDropdowns.push(this);
@@ -303,8 +305,13 @@ class SwdDropdown extends SwdComponent {
         for (const dropdown of SwdDropdown.#openDropdowns) dropdown.#setDropdownDirectionAndSize();
     }
 
-    static closeAllDropdowns() {
-        for (const dropdown of SwdDropdown.#openDropdowns) dropdown.close();
+    static autoClose(event) {
+        for (const dropdown of SwdDropdown.#openDropdowns) {
+            if (event && dropdown.contains(event.target) && !(event.target.nodeName == 'A' && event.target.hasAttribute('href'))) {
+                return;
+            }
+            dropdown.close();
+        }
     }
 
 }
