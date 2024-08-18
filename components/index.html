@@ -10,980 +10,1127 @@
         <title>Simple Web Design</title>
     </head>
     <body>
-        
-        <div class="menu mobile-menu">
-            <img class="icon icon-white only-mobile" src="/SimpleWebDesign/resources/icons/hamburger.svg" onclick="swd.toggleMobileNavigationMenu()">
-            <a class="menu-title" href="/SimpleWebDesign/">Simple Web Design</a>
-            <a href="/SimpleWebDesign/" class="only-mobile">Home</a>
-            <a class="menu-active">Components</a>
-            <a href="/SimpleWebDesign/functions">Functions</a>
+
+        <swd-menu>
+            <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger"></swd-icon></a>
+            <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
+            <a href="/SimpleWebDesign/components/" selected>Components</a>
             <a href="/SimpleWebDesign/colors">Colors</a>
-            <a href="/SimpleWebDesign/icons">Icons</a>
-            <a href="/SimpleWebDesign/customization/">Customization</a>
-        </div>
-        
-        <div id="navigation" class="navigation">
-            <h2>Navigation</h2>
-            <div class="table-of-contents"></div>
-        </div>
+        </swd-menu>
 
-        <div class="navigation-content footer-spacer footer-spacer-with-menu">
+        <swd-navigation navigation-collapse-md>
+            <div class="only-smaller-md margin-bottom"">
+                <a href="/SimpleWebDesign">Home</a>
+                <a href="/SimpleWebDesign/components" selected>Components</a>
+                <a href="/SimpleWebDesign/colors">Colors</a>
+            </div>
+            <div class="margin-bottom">
+                <b>Elements</b>
+                <a href="#get-started">Get started</a>
+                <a href="#layout">Layout</a>
+                <a href="#menu">Menu</a>
+                <a href="#navigation">Navigation</a>
+                <a href="#footer">Footer</a>
+                <a href="#headline">Headline</a>
+                <a href="#text">Text</a>
+                <a href="#label">Label</a>
+                <a href="#button">Button</a>
+                <a href="#dropdown">Dropdown</a>
+                <a href="#input">Input</a>
+                <a href="#card">Card</a>
+                <a href="#table">Table</a>
+                <a href="#icons">Icons</a>
+                <a href="#media">Media</a>
+                <a href="#dialog">Dialog</a>
+                <a href="#code">Code</a>
+            </div>
+            <div class="margin-bottom">
+                <b>Interfaces</b>
+                <a href="#variables">Variables</a>
+                <a href="#utility-classes">Utility Classes</a>
+            </div>
+        </swd-navigation>
 
-            <div class="container">
+        <swd-navigation-content navigation-collapse-md>
 
-                <h2 id="getstarted">Get started</h2>
+            <div class="container-xl">
                 
-                <p>Download the <a href="/SimpleWebDesign/resources/style.css" download>Stylesheet</a> and the <a href="/SimpleWebDesign/resources/script.js" download>Javascript</a> file. Then create a .html file, using the following template!</p>
+                <h2 id="get-started">Get started</h2>
 
-                <code class="code-html">
+                <p>Download you stylesheet <a href="/SimpleWebDesign/downloads">here</a> or use the hostet version of the css and javascript files:</p>
+
+                <swd-code swd-code-language="html">
+                    &lt;link href="https://der-zauberer.github.io/SimpleWebDesign/download/v2.0-alpha-1/swd.min.css" rel="stylesheet"&gt;<br>
+                    &lt;script src="https://der-zauberer.github.io/SimpleWebDesign/download/v2.0-alpha-1/swd.min.js"&gt;&lt;/script&gt;
+                </swd-code>
+
+                <p>You can create a <samp>.html</samp> file using the following template. If you use the downloaded version of the resources you have to change the <samp>scrpt.src</samp> and <samp>link.href</samp> paths to your local path.</p>
+
+                <swd-code swd-code-language="html">
                     &lt;!DOCTYPE html&gt;<br>
                     &lt;html&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="utf-8"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="theme-color" content="#003ecc"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href="style.css" rel="stylesheet"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="script.js"&gt;&lt;/script&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href="https://der-zauberer.github.io/SimpleWebDesign/download/v2.0-alpha-1/swd.min.css" rel="stylesheet"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://der-zauberer.github.io/SimpleWebDesign/download/v2.0-alpha-1/swd.min.js"&gt;&lt;/script&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Template&lt;/title&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Your content here --&gt;<br><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
-                    &lt;/html&gt;<br>
-                </code>
-                
-                <h2 id="menu">Menu</h2>
+                    &lt;/html&gt;
+                </swd-code>
 
-                <div class="mg-b overflow">
-                    <div class="menu" style="z-index: 0; min-width: 400px;">
-                        <a class="menu-title">Menu</a>
-                        <a>Menu1</a>
-                        <a class="menu-active">Menu2</a>
-                        <a>Menu3</a>
-                    </div>
-                </div>
+                <h2 id="layout">Layout</h2>
 
-                <code class="code-html">
-                    &lt;div class="menu"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-title"&gt;Menu&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Menu1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-active"&gt;Menu2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Menu3&lt;/a&gt;<br>
-                    &lt;/div&gt;<br>
-                </code>
-
-                <div class="mg-b overflow">
-                    <div class="menu" style="z-index: 0; min-width: 400px;">
-                        <a class="menu-title">Menu</a>
-                        <div class="width-100"></div>
-                        <a>Menu1</a>
-                        <a class="menu-active">Menu2</a>
-                        <a>Menu3</a>
-                    </div>
-                </div>
-
-                <code class="code-html">
-                    &lt;div class="menu"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-title"&gt;Menu&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Menu1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-active"&gt;Menu2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Menu3&lt;/a&gt;<br>
-                    &lt;/div&gt;<br>
-                </code>
-
-                <div class="mg-b overflow">
-                    <div class="menu menu-centered" style="z-index: 0; min-width: 500px;">
-                        <a>Menu1</a>
-                        <a class="menu-active">Menu2</a>
-                        <a>Menu3</a>
-                        <a>Menu4</a>
-                    </div>
-                </div>
-
-                <code class="code-html">
-                    &lt;div class="menu menu-centered"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-active"&gt;Menu1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Menu2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Menu3&lt;/a&gt;<br>
-                    &lt;/div&gt;<br>
-                </code>
-
-                <div class="mg-b">
-                    <div class="menu" style="z-index: 0;">
-                        <img class="icon icon-white only-mobile" src="/SimpleWebDesign/resources/icons/hamburger.svg">
-                        <a class="menu-title">Menu</a>
-                        <a class="not-mobile">Menu1</a>
-                        <a class="menu-active not-mobile">Menu2</a>
-                        <a class="not-mobile">Menu3</a>
-                    </div>
-                    <div class="navigation"></div>
-                    <p>Resize window to see the difference.</p>
-                    <p>The navigation can not be displayed in this preview!</p>
-                </div>
-
-                <code class="code-html">
-                    &lt;div class="menu mobile-menu"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img class="icon icon-white only-mobile" src="/SimpleWebDesign/resources/icons/hamburger.svg" onclick="swd.toggleMobileNavigationMenu()"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-title"&gt;Menu&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="menu-active"&gt;Menu1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Menu2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Menu3&lt;/a&gt;<br>
-                    &lt;/div&gt;<br>
-                </code>
-
-                <code class="code-html">
-                    &lt;script&gt;swd.setMenuFocus('Menu3')&lt;/script&gt;
-                </code>
-                
-                <h2 id="_navigation">Navigation</h2>
-                
-                <code class="code-html">
-                    &lt;!-- navigation --&gt;<br>
-                    &lt;div class="navigation"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Headline&lt;/h2&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Nav1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Nav2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Nav3&lt;/a&gt;<br>
-                    &lt;/div&gt;<br>
-                    &lt;div class="navigation-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- content of website here --&gt;<br>
-                    &lt;/div&gt;<br>
-                    <br>
-                    &lt;!-- navigation with automatic headlines --&gt;<br>
-                    &lt;div id="navigation" class="navigation"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="table-of-contents"&gt;&lt;/div&gt;<br>
-                    &lt;/div&gt;<br>
-                    &lt;div class="navigation-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- content of website here --&gt;<br>
-                    &lt;/div&gt;<br><br>
-                    &lt;!-- navigation with specific mobile navigation position --&gt;<br>
-                    &lt;div id="navigation" class="navigation"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="mobile-navigation only-mobile"&gt;&lt;/div&gt;<br>
-                    &lt;/div&gt;<br>
-                    &lt;div class="navigation-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- content of website here --&gt;<br>
-                    &lt;/div&gt;<br>
-                </code>
-
-                <code class="code-html">
-                    &lt;script&gt;swd.setNavigationFocus('Nav1')&lt;/script&gt;
-                </code>
-
-                <h2 id="container">Container</h2>
-
-                <div class="box">
-                    <div class="box blue" style="width: 50%; margin: 0px auto;">container</div>
-                </div>
-
-                <div class="box">
-                    <div class="box blue">container-fluid</div>
-                </div>
-
-                <code class="code-html">
-                    &lt;div class="container"&gt;container&lt;/div&gt;<br>
+                <swd-card-outline class="top-item" style="padding-left: 15%; padding-right: 15%;">
+                    <swd-card class="margin-0 text-center" style="background-color: var(--theme-primary-grey-color)">container</swd-card>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
                     &lt;div class="container-sm"&gt;container-sm&lt;/div&gt;<br>
                     &lt;div class="container-md"&gt;container-md&lt;/div&gt;<br>
+                    &lt;div class="container-lg"&gt;container-lg&lt;/div&gt;<br>
                     &lt;div class="container-xl"&gt;container-xl&lt;/div&gt;<br>
-                    &lt;div class="container-fluid"&gt;container&lt;/div&gt;
-                </code>
+                    &lt;div class="container-xxl"&gt;container-xxl&lt;/div&gt;<br>
+                    &lt;div class="container-fluid"&gt;container&lt;/div&gt; 
+                </swd-code>
 
-                <div class="overflow">
-                    <table>
-                        <tr><th>Class</th><th>Size</th></tr>
-                        <tr><td><samp>container-fluid</samp></td><td><samp>100%</samp></td></tr>
-                        <tr><td><samp>container</samp></td><td><samp>800px</samp></td></tr>
-                        <tr><td><samp>container-sm</samp></td><td><samp>600px</samp></td></tr>
-                        <tr><td><samp>container-md</samp></td><td><samp>800px</samp></td></tr>
-                        <tr><td><samp>container-xl</samp></td><td><samp>1200px</samp></td></tr>
-                    </table>
-                </div>
+                <table>
+                    <tr><th>Class</th><th>Size</th></tr>
+                    <tr><td><samp>container-sm</samp></td><td><samp>576px</samp></td></tr>
+                    <tr><td><samp>container-md</samp></td><td><samp>768px</samp></td></tr>
+                    <tr><td><samp>container-lg</samp></td><td><samp>992px</samp></td></tr>
+                    <tr><td><samp>container-xl</samp></td><td><samp>1200px</samp></td></tr>
+                    <tr><td><samp>container-xxl</samp></td><td><samp>1400px</samp></td></tr>
+                    <tr><td><samp>container-fluid</samp></td><td><samp>100%</samp></td></tr>
+                </table>
 
-                <h2 id="grids">Grids</h2>
-
-                <p>Please resize window to see changes:</p>
-
-                <div class="grid-4">
-                    <div class="box blue"></div>
-                    <div class="box green"></div>
-                    <div class="box yellow"></div>
-                    <div class="box red"></div>
-                </div>
-
-                <div class="grid-4 grid-sm-2">
-                    <div class="box blue"></div>
-                    <div class="box green"></div>
-                    <div class="box yellow"></div>
-                    <div class="box red"></div>
-                </div>
-
-                <code class="code-html">
-                    &lt;div class="grid-4"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box blue"&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box green"&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box yellow"&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box red"&gt;&lt;/div&gt;<br>
-                    &lt;/div&gt;<br><br>
-                    &lt;div class="grid-4 grid-sm-2"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box blue"&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box green"&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box yellow"&gt;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="box red"&gt;&lt;/div&gt;<br>
+                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 text-center top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card>Item 4</swd-card>
+                    <swd-card>Item 5</swd-card>
+                    <swd-card>Item 6</swd-card>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="grid-cols-md-3 grid-cols-sm-2, grid-cols-1"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 5&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 6&lt;/div&gt;<br>
                     &lt;/div&gt;
-                </code>
+                </swd-code>
 
-                <div class="overflow">
-                    <table>
-                        <tr><th>Class</th><th>Breakpoint</th></tr>
-                        <tr><td><samp>grid-[1-12]</samp></td><td>Always</td></tr>
-                        <tr><td><samp>grid-sm-[1-12]</samp></td><td><samp>min-width: 600px</samp></td></tr>
-                        <tr><td><samp>grid-md-[1-12]</samp></td><td><samp>min-width: 768px</samp></td></tr>
-                        <tr><td><samp>grid-xl-[1-12]</samp></td><td><samp>min-width: 1024px</samp></td></tr>
-                    </table>
-                </div>
-                
-                <h2 id="headlines">Headlines</h2>
+                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 text-center top-item">
+                    <swd-card class="grid-span-sm-2">Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card class="grid-span-sm-2">Item 4</swd-card>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="grid-cols-md-3 grid-cols-sm-2, grid-cols-1"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="grid-span-sm-2"&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="grid-span-sm-2"&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </swd-code>
 
-                <div style="overflow-x:auto; border-radius: 5px;">
-                    <table>
-                        <tr><th>Headlines</th></tr>
-                        <tr><td><h1 style="margin: 10px 0px 10px 0px;">Headline 1</h1></td></tr>
-                        <tr><td><h2 style="margin: 10px 0px 10px 0px;">Headline 2</h2></td></tr>
-                        <tr><td><h3 style="margin: 10px 0px 10px 0px;">Headline 3</h3></td></tr>
-                        <tr><td><h4 style="margin: 10px 0px 10px 0px;">Headline 4</h4></td></tr>
-                        <tr><td><h5 style="margin: 10px 0px 10px 0px;">Headline 5</h5></td></tr>
-                        <tr><td><h6 style="margin: 10px 0px 10px 0px;">Headline 6</h6></td></tr>
-                    </table>
-                </div>
+                <table>
+                    <tr><th>Class</th><th>Breakpoint</th></tr>
+                    <tr><td><samp>grid-cols-[1-12]</samp><br><samp>grid-span-[1-12]</samp></td><td><samp>Always</samp></td></tr>
+                    <tr><td><samp>grid-cols-sm-[1-12]</samp><br><samp>grid-span-sm-[1-12]</samp></td><td><samp>min-width: 576px</samp></td></tr>
+                    <tr><td><samp>grid-cols-md-[1-12]</samp><br><samp>grid-span-mg-[1-12]</samp></td><td><samp>min-width: 768px</samp></td></tr>
+                    <tr><td><samp>grid-cols-lg-[1-12]</samp><br><samp>grid-span-lg-[1-12]</samp></td><td><samp>min-width: 992px</samp></td></tr>
+                    <tr><td><samp>grid-cols-xl-[1-12]</samp><br><samp>grid-span-xl-[1-12]</samp></td><td><samp>min-width: 1200px</samp></td></tr>
+                    <tr><td><samp>grid-cols-xxl-[1-12]</samp><br><samp>grid-span-xxl-[1-12]</samp></td><td><samp>min-width: 1400px</samp></td></tr>
+                </table>
+
+                <swd-card-outline class="flex top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card>Item 4</swd-card>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="flex"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </swd-code>
+
+                <swd-card-outline class="flex flex-end top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card>Item 4</swd-card>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="flex flex-end"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </swd-code>
+
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card>Item 4</swd-card>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="flex flex-space-around"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </swd-code>
+
+                <swd-card-outline class="flex flex-space-between top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <swd-card>Item 4</swd-card>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="flex flex-space-between"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </swd-code>
+
+                <swd-card-outline class="flex text-nowrap top-item">
+                    <swd-card>Item 1</swd-card>
+                    <swd-card>Item 2</swd-card>
+                    <swd-card>Item 3</swd-card>
+                    <div class="width-100"></div>
+                    <swd-card>Item 4</swd-card>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="flex text-nowrap"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 1&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 2&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 3&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;Item 4&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </swd-code>
+
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>flex-wrap</samp></td><td><samp>flex-wrap: wrap</samp></td></tr>
+                    <tr><td><samp>flex-end</samp></td><td><samp>justify-content: flex-end</samp></td></tr>
+                    <tr><td><samp>flex-space-around</samp></td><td><samp>justify-content: space-around</samp></td></tr>
+                    <tr><td><samp>flex-space-between</samp></td><td><samp>justify-content: space-between</samp></td></tr>
+                </table>
+
+                <h2 id="menu">Menu</h2>
+
+                <swd-card-outline class="top-item">
+                    <swd-menu style="position: initial; z-index: initial;">
+                        <a class="swd-menu-title" href="#">Page Title</a>
+                        <a href="#">Item 1</a>
+                        <a href="#" selected>item 2</a>
+                        <a href="#">Item 3</a>
+                    </swd-menu>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-menu&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &lt;/swd-menu&gt;
+                </swd-code>
                 
-                <code class="code-html">
+                <swd-card-outline class="top-item">
+                    <swd-menu style="position: initial; z-index: initial;">
+                        <a class="swd-menu-title" href="#">Page Title</a>
+                        <div class="width-100"></div>
+                        <a href="#">Item 1</a>
+                        <a href="#" selected>item 2</a>
+                        <a href="#">Item 3</a>
+                    </swd-menu>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-menu&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &lt;/swd-menu&gt;
+                </swd-code>
+
+                <swd-card-outline class="top-item">
+                    <swd-menu style="position: initial; z-index: initial;">
+                        <a class="swd-menu-title" href="#">Page Title</a>
+                        <a href="#">Item 1</a>
+                        <a href="#" selected>item 2</a>
+                        <a href="#" >Item 3</a>
+                        <div class="width-100"></div>
+                        <a href="#">Item 4</a>
+                        <a href="#">Item 5</a>
+                    </swd-menu>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-menu&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 4&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 5&lt;/a&gt;<br>
+                    &lt;/swd-menu&gt;
+                </swd-code>
+
+                <swd-card-outline class="top-item">
+                    <swd-menu class="flex-space-between margin-bottom" style="position: initial; z-index: initial;">
+                        <a href="#">Item 1</a>
+                        <a href="#" selected>item 2</a>
+                        <a href="#">Item 3</a>
+                        <a href="#">Item 4</a>
+                    </swd-menu>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-menu class="flex-space-between"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 4&lt;/a&gt;<br>
+                    &lt;/swd-menu&gt;
+                </swd-code>
+
+                <h2 id="navigation">Navigation</h2>
+
+                <swd-card-outline class="top-item">
+                    <swd-navigation style="position: initial; z-index: initial; max-height: 400px;">
+                        <b>Navigation</b>
+                        <a>Item 1</a>
+                        <a selected>Item 2</a>
+                        <a>Item 3</a>
+                    </swd-navigation>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-navigation&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;Navigation&lt;/b&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &lt;/swd-navigation&gt;<br>
+                    &lt;swd-navigation-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Page content here --&gt;<br>
+                    &lt;/swd-navigation-content&gt;
+                </swd-code>
+
+                <swd-card-outline class="top-item">
+                    <swd-navigation style="position: initial; z-index: initial; max-height: 400px;">
+                        <div class="margin-bottom">
+                            <b>Navigation</b>
+                            <a>Item 1</a>
+                            <a selected>Item 2</a>
+                            <a>Item 3</a>
+                        </div>
+                        <swd-card>
+                            <span>Some Card</span>
+                            <swd-subtitle>with some Information</swd-subtitle>
+                        </swd-card>
+                    </swd-navigation>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-navigation&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="margin-bottom"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;Navigation&lt;/b&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Some Card&lt;/span&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-subtitle&gt;with some Information&lt;/swd-subtitle&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-card&gt;<br>
+                    &lt;/swd-navigation&gt;<br>
+                    &lt;swd-navigation-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Page content here --&gt;<br>
+                    &lt;/swd-navigation-content&gt;
+                </swd-code>
+
+                <swd-code swd-code-language="html">
+                    &lt;swd-menu&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"&gt;&lt;swd-icon class="hamburger"&gt;&lt;/swd-icon&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title" href="#"&gt;Page Title&lt;/a&gt;<br>
+                    &lt;/swd-menu&gt;<br><br>
+                    &lt;swd-navigation navigation-collapse-md&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Item 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#" selected&gt;item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#" &gt;Item 3&lt;/a&gt;<br>
+                    &lt;/swd-navigation&gt;<br><br>
+                    &lt;swd-navigation-content navigation-collapse-md&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Page content here --&gt;<br>
+                    &lt;/swd-navigation-content&gt;
+                </swd-code>
+
+                <h2 id="footer">Footer</h2>
+
+                <swd-card-outline class="top-item">
+                    <swd-footer>
+                        <a class="text-nowrap">&copy; 2023 Someone</a>
+                        <div class="width-100"></div>
+                        <a href="#">Imprint</a>
+                        <a href="#">Privacy policy</a>
+                    </swd-footer>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-footer&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="text-nowrap"&gt;&amp;copy; 2023 Someone&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Imprint&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Privacy policy&lt;/a&gt;<br>
+                    &lt;/swd-footer&gt;
+                </swd-code>
+
+                <h2 id="headline">Headline</h2>
+
+                <table>
+                    <tr><th>Headlines</th></tr>
+                    <tr><td><h1 class="margin-0">Headline 1</h1></td></tr>
+                    <tr><td><h2 class="margin-0">Headline 2</h2></td></tr>
+                    <tr><td><h3 class="margin-0">Headline 3</h3></td></tr>
+                    <tr><td><h4 class="margin-0">Headline 4</h4></td></tr>
+                    <tr><td><h5 class="margin-0">Headline 5</h5></td></tr>
+                    <tr><td><h6 class="margin-0">Headline 6</h6></td></tr>
+                </table>
+
+                <swd-code swd-code-language="html">
                     &lt;h1&gt;Headline 1&lt;/h1&gt;<br>
                     &lt;h2&gt;Headline 2&lt;/h2&gt;<br>
                     &lt;h3&gt;Headline 3&lt;/h3&gt;<br>
                     &lt;h4&gt;Headline 4&lt;/h4&gt;<br>
                     &lt;h5&gt;Headline 5&lt;/h5&gt;<br>
-                    &lt;h6&gt;Headline 5&lt;/h6&gt;<br>
-                </code>
+                    &lt;h6&gt;Headline 6&lt;/h6&gt;
+                </swd-code>
+
+                <h2 id="text">Text</h2>
+
+                <swd-card-outline class="top-item">
+                    <h3>
+                        Some Headline 
+                        <swd-subtitle>Subtitle</swd-subtitle>
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    </p>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;h2&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Some Headline<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-subtitle&gt;Subtitle&lt;/swd-subtitle&gt; <br>
+                    &lt;/h2&gt;<br>
+                    &lt;p&gt;Some text&lt;/p&gt;
+                </swd-code>
+
+                <swd-card-outline class="top-item">
+                    <ol>
+                        <li>Ordered List 1</li>
+                        <li>Ordered List 2</li>
+                        <li>Ordered List 3</li>
+                    </ol>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;ol&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Ordered List 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Ordered List 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Ordered List 1&lt;/li&gt;<br>
+                    &lt;/ol&gt;
+                </swd-code>
+
                 
-                <h2 id="box">Box</h2>
-                
-                <div class="grid-2 grid-sm-1">
-                    <div class="box">This is a box!</div>
-                    <div class="box box-border blue-border">This is a box with border!</div>
-                </div>
-
-                <div class="box red">Error: This is an error message!</div>
-
-                <div class="box box-top blue">Box</div>
-                <div class="box box-bottom">This is a box!</div>
-
-                <div class="grid-2 grid-sm-1">
-                    <div><img class="box box-top" src="../resources/image.jpg"><div class="box box-bottom">This is a box with a picture</div></div>
-                    <div class="overlay mg-b">
-                        <img class="box mg-b-0" src="../resources/image.jpg">
-                        <div class="bottom-left">This is also a box with a picture</div>
-                    </div>
-                </div>
-                
-                <code class="code-html">
-                    &lt;div class="box"&gt;This is a box!&lt;/div&gt;<br>
-                    &lt;div class="box box-border"&gt;This is a box with border!&lt;/div&gt;<br>
-                    &lt;div class="box red"&gt;Error: This is an error message!&lt;/div&gt;<br><br>
-
-                    &lt;div class="box box-top blue"&gt;;Box&lt;/div&gt;<br>
-                    &lt;div class="box box-center"&gt;This is a box!&lt;/div&gt;<br>
-                    &lt;div class="box box-bottom float-right"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a style="float: right"&gt;Next&lt;/a&gt;<br>
-                    &lt;/div&gt;<br><br>
-
-                    &lt;img class="box box-top" src="image.jpg"&gt;<br>
-                    &lt;div class="box box-bottom"&gt;This is a box with a picture&lt;/div&gt;<br><br>
-
-                    &lt;div class="overlay mg-b"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img class="box mg-b-0" src="image.jpg"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="bottom-left">This is also a box with a picture&lt;/div&gt;<br>
-                    &lt;/div&gt;
-                </code>
+                <swd-card-outline class="top-item">
+                    <ul>
+                        <li>Unordered List 1</li>
+                        <li>Unordered List 2</li>
+                        <li>Unordered List 3</li>
+                    </ul>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;ul&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Unordered List 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Unordered List 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Unordered List 1&lt;/li&gt;<br>
+                    &lt;/ul&gt;
+                </swd-code>
 
                 <h2 id="label">Label</h2>
-                
-                <label class="blue">Info</label>
-                <label class="green">Success</label>
-                <label class="yellow">Warning</label>
-                <label class="red">Error</label>
-                <samp>Samp Code</samp>
-                <kbd>Space</kbd>
-                Text
-                
-                <code class="code-html" style="margin-top: 20px;">
-                    &lt;label class="blue"&gt;Info&lt;/label&gt;<br>
-                    &lt;label class="green"&gt;Success&lt;/label&gt;<br>
-                    &lt;label class="yellow"&gt;Warning&lt;/label&gt;<br>
-                    &lt;label class="red"&gt;Error&lt;/label&gt;<br>
-                    &lt;samp&gt;Samp Code&lt;/samp&gt;<br>
-                    &lt;kbd&gt;Space&lt;/kbd&gt;<br>
-                </code>
+
+                <swd-card-outline class="flex flex-wrap top-item">
+                    <label class="chip">Label</label>
+                    <samp>Code</samp>
+                    <kbd>Key</kbd>
+                    <label class="tooltip">Tooltip</label>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;label class="chip"&gt;Label&lt;/label&gt;<br>
+                    &lt;samp&gt;Code&lt;/samp&gt;<br>
+                    &lt;kbd&gt;Key&lt;/kbd&gt;<br>
+                    &lt;label class="tooltip"&gt;Tooltip&lt;/label&gt;
+                </swd-code>
 
                 <h2 id="button">Button</h2>
-                
-                <div class="flex flex-wrap">
-                    <a class="button blue">Button</a>
-                    <a class="button green">Button</a>
-                    <a class="button yellow">Button</a>
-                    <a class="button red">Button</a>
-                </div>
-                
-                <div class="flex flex-wrap">
-                    <a class="button blue dark-blue-hover">Hover</a>
-                    <a class="button green dark-green-hover">Hover</a>
-                    <a class="button yellow dark-yellow-hover">Hover</a>
-                    <a class="button red dark-red-hover">Hover</a><br>
-                </div>
 
-                <div class="flex flex-no-gap">
-                    <a class="button button-left mg-b">1</a>
-                    <a class="button button-middle mg-b">2</a>
-                    <a class="button button-right mg-b">3</a>
-                </div>
+                <swd-card-outline class="grid-cols-1 grid-cols-sm-1 grid-cols-md-3 top-item">
+                    <div class="flex flex-wrap">
+                        <button>Button</button>
+                        <button selected>Active</button>
+                        <button disabled>Disabled</button>
+                    </div>
 
-                <code class="code-html">
-                    &lt;div class="flex flex-wrap"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button blue"&gt;Button&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button green"&gt;Button&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button yellow"&gt;Button&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button red"&gt;Button&lt;/a&gt;<br>
-                    &lt;/div&gt;<br><br>
+                    <div class="flex flex-wrap">
+                        <button class="outline">Button</button>
+                        <button class="outline" selected>Active</button>
+                        <button class="outline" disabled>Disabled</button>
+                    </div>
 
-                    &lt;div class="flex flex-wrap"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button dark-blue-hover blue"&gt;Hover&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button dark-green-hover green"&gt;Hover&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button dark-yellow-hover yellow"&gt;Hover&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button dark-red-hover red"&gt;Hover&lt;/a&gt;<br>
-                    &lt;/div&gt;<br><br>
+                    <div class="flex flex-wrap">
+                        <button class="ghost">Button</button>
+                        <button class="ghost" selected>Active</button>
+                        <button class="ghost" disabled>Disabled</button>
+                    </div>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;button&gt;Button&lt;/button&gt;<br>
+                    &lt;button selected&gt;Active&lt;/button&gt;<br>
+                    &lt;button disabled&gt;Disabled&lt;/button&gt;<br><br>
+                    &lt;button class="outline"&gt;Button&lt;/button&gt;<br>
+                    &lt;button class="outline" selected&gt;Active&lt;/button&gt;<br>
+                    &lt;button class="outline" disabled&gt;Disabled&lt;/button&gt;<br><br>
+                    &lt;button class="ghost"&gt;Button&lt;/button&gt;<br>
+                    &lt;button class="ghost" selected&gt;Active&lt;/button&gt;<br>
+                    &lt;button class="ghost" disabled&gt;Disabled&lt;/button&gt;<br>
+                </swd-code>
 
-                    &lt;div class="flex flex-no-gap"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button button-left mg-b"&gt;1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button button-middle mg-b"&gt;2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button button-right mg-b"&gt;3&lt;/a&gt;<br>
+                <swd-card-outline class="flex no-gap top-item">
+                    <button class="left-item">1</button><button class="center-item">2</button><button class="center-item" selected>3</button><button class="right-item">4</button>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="flex no-gap"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="left-item"&gt;1&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="center-item"&gt;2&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="center-item" selected&gt;3&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="right-item"&gt;4&lt;/button&gt;<br>
                     &lt;/div&gt;
-                </code>
-
-                <h2 id="form">Form</h2>
-
-                <form style="max-width: 400px;">
-
-                    <div class="input">
-                        <input type="text" placeholder="Max" required>
-                        <span class="input-name">Name</span>
-                        <span class="input-error"></span>
-                    </div>
-
-                    <div class="input">
-                        <input type="text" maxlength="10" pattern="(\w|\d)+">
-                        <span class="input-name">Username (only letters and numbers)</span>
-                        <span class="input-error"></span>
-                        <span class="input-range"></span>
-                    </div>
-
-                    <div class="input">
-                        <input type="email">
-                        <span class="input-name">Email</span>
-                        <span class="input-error"></span>
-                    </div>
-
-                    <div class="input-buttons">
-                        <a class="button button-left button-decrement">-</a>
-                        <div class="input">
-                            <input type="number" value="0" min="0" class="button-middle">
-                            <span class="input-name">Age</span>
-                            <span class="input-error"></span>
-                        </div>
-                        <a class="button button-right button-increment">+</a>
-                    </div>
-
-                    <div class="input dropdown">
-                        <input type="text" readonly>
-                        <span class="input-name">Type</span>
-                        <img class="icon input-icon" src="/SimpleWebDesign/resources/icons/more_down.svg" onclick="swd.focusDropdown(this)">
-                        <div class="dropdown-content">
-                            <a>Question</a>
-                            <a>Answer</a>
-                            <a>Ticket</a>
-                        </div>
-                        <span class="input-error"></span>
-                    </div>
-
-                    <div class="input">
-                        <input type="checkbox">
-                        <span>Answer me per mail</span>
-                    </div>
-
-                    <div class="input">
-                        <textarea maxlength="500"></textarea>
-                        <span class="input-name">Your message:</span>
-                        <span class="input-error"></span>
-                        <span class="input-range"></span>
-                    </div>
-
-                    <input type="submit" value="Send request">
-
-                </form>
-
-                <code class="code-html">
-                    &lt;form style="max-width: 300px;"&gt;<br><br>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" placeholder="Max" required&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-name"&gt;Name&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-error"&gt;&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" maxlength="10" pattern="(\w|\d)+"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-name"&gt;Username (only letters and numbers)&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-error"&gt;&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-range"&gt;&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="email"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-name"&gt;Email&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-error"&gt;&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input-buttons"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button button-left button-decrement"&gt;-&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="number" min="0" class="button-middle"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-name"&gt;Age&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-error"&gt;&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button button-right button-increment"&gt;+&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input dropdown"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" readonly&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-name"&gt;Type&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img class="icon input-icon" src="/SimpleWebDesign/resources/icons/more_down.svg" onclick="swd.focusDropdown(this)"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dropdown-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Question&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Answer&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Ticket&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-error"&gt;&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="checkbox"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Answer me per mail&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea maxlength="500"&gt;&lt;/textarea&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-name"&gt;Your message:&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-error"&gt;&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="input-range"&gt;&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br><br>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="submit" value="Send request"&gt;<br><br>
-
-                    &lt;/form&gt;<br>
-                </code>
-
-                <h2 id="input-icon">Input Icons</h2>
-
-                <div class="input" style="max-width: 400px;">
-                    <input id="icon-input" class="input-small input-icon">
-                    <img class="icon input-icon" src="/SimpleWebDesign/resources/icons/close.svg" onclick="document.getElementById('icon-input').value=''">
-                </div>
-
-                <code class="code-html">
-                    &lt;div class="input" style="max-width: 400px;"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="icon-input" class="input-small input-icon"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img class="icon input-icon" src="/SimpleWebDesign/resources/icons/close.svg" onclick="document.getElementById('icon-input').value=''"&gt;<br>
-                    &lt;/div&gt;
-                </code>
-
-                <h2 id="input-dropdowns">Input Dropdowns</h2>
-
-                Text:<br>
-                <div class="input input-small dropdown mg-b" style="max-width: 400px;">
-                    <input type="text">
-                    <div class="dropdown-content">
-                        <a>Link 1</a>
-                        <a>Link 2</a>
-                        <a>Link 3</a>
-                    </div>
-                </div><br>
-
-                Options:<br>
-                <div class="input input-small dropdown mg-b" style="max-width: 400px;">
-                    <input type="text" readonly>
-                    <img class="icon input-icon" src="/SimpleWebDesign/resources/icons/more_down.svg" onclick="swd.focusDropdown(this)">
-                    <div class="dropdown-content">
-                        <a>Link 1</a>
-                        <a>Link 2</a>
-                        <a>Link 3</a>
-                    </div>
-                </div>
-                
-                <code class="code-html">
-                    Text:&lt;br&gt;<br>
-                    &lt;div class="input input-small dropdown mg-b" style="max-width: 400px;"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dropdown-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a>Link 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a>Link 2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a>Link 3&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &lt;/div&gt;<br><br>
-
-                    Options:&lt;br&gt;<br>
-                    &lt;div class="input input-small dropdown mg-b" style="max-width: 400px;"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" readonly&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img class="icon input-icon" src="/SimpleWebDesign/resources/icons/more_down.svg" onclick="swd.focusDropdown(this)"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dropdown-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a>Link 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a>Link 2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a>Link 3&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &lt;/div&gt;<br>
-                </code>
+                </swd-code>
 
                 <h2 id="dropdown">Dropdown</h2>
 
-                <div class="flex flex-wrap">
-                    <div class="dropdown">
-                        <a class="button">Toggle Dropdown</a>
-                        <div class="dropdown-content">
-                            <a>Link 1</a>
-                            <a>Link 1</a>
-                            <a>Link 1</a>
-                        </div>
-                    </div>
-                    <div class="dropdown dropdown-hover">
-                        <a class="button">Hover Dropdown</a>
-                        <div class="dropdown-content">
-                            <a>Link 1</a>
-                            <a>Link 1</a>
-                            <a>Link 1</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flex flex-wrap">
-                    <div class="dropdown">
-                        <a class="button">Profile</a>
-                        <div class="dropdown-content">
-                            <h3 class="pd-10 mg-0" style="padding-top: 20px">Max Mustermann</h3>
-                            <div class="pd-10 mg-b blue-text">max.mustermann@mustermail.com</div>
-                            <a>Show profile</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a class="button">Tooltip</a>
-                        <div class="dropdown-content tooltip">Tooltip</div>
-                    </div>
-                </div>
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-dropdown>
+                        <button>Selection Example</button>
+                        <swd-dropdown-content>
+                            <swd-selection>
+                                <a>Option</a>
+                                <a selected>Selections</a>
+                                <a>Something</a>
+                            </swd-selection>
+                        </swd-dropdown-content>
+                    </swd-dropdown>
+                    <swd-dropdown>
+                        <button>Card Example</button>
+                        <swd-dropdown-content class="right">
+                            <swd-card class="margin-bottom-0">
+                                <h4 class="margin-bottom-0">John Doe</h4>
+                                <a href="#">john.doe@mail.com</a>
+                                <a href="#" class="button grey width-100 margin-top">Visit Profile</a>
+                            </swd-card>
+                        </swd-dropdown-content>
+                    </swd-dropdown>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-dropdown&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Test&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Selections&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
+                    &lt;/swd-dropdown&gt;<br><br>
+                    &lt;swd-dropdown&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Card Example&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h4 class="margin-bottom-0"&gt;John Doe&lt;/h4&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;john.doe@mail.com&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="width-100 margin-top grey"&gt;Visit Profile&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-card&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
+                    &lt;/swd-dropdown&gt;<br>
+                </swd-code>
 
-                <code class="code-html">
-                    &lt;div class="dropdown"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button">Toggle Dropdown&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dropdown-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Link 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Link 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Link 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &lt;/div&gt;<br><br>
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-dropdown>
+                        <input placeholder="Autocomplete">
+                        <swd-dropdown-content>
+                            <swd-selection>
+                                <a>Option 1</a>
+                                <a>Option 2</a>
+                                <a>Selection 1</a>
+                                <a>Selection 2</a>
+                                <a>Something 1</a>
+                                <a>Something 2</a>
+                            </swd-selection>
+                        </swd-dropdown-content>
+                    </swd-dropdown>
+                    <swd-dropdown>
+                        <input placeholder="Select" readonly>
+                        <swd-icon class="more-down" onclick="this.parentElement.querySelector('input').focus()"></swd-icon>
+                        <swd-dropdown-content>
+                            <swd-selection>
+                                <a>Option 1</a>
+                                <a>Option 2</a>
+                                <a>Selection 1</a>
+                                <a>Selection 2</a>
+                                <a>Something 1</a>
+                                <a>Something 2</a>
+                            </swd-selection>
+                        </swd-dropdown-content>
+                    </swd-dropdown>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-dropdown&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Autocomplete"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Selection 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Selection 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
+                    &lt;/swd-dropdown&gt;<br><br>
+                    &lt;swd-dropdown&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Select" readonly&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="more-down" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Selection 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Selection 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something 1&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
+                    &lt;/swd-dropdown&gt;
+                </swd-code>
 
-                    &lt;div class="dropdown dropdown-hover"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button">Hover Dropdown&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dropdown-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Link 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Link 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Link 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &lt;/div&gt;<br><br>
+                <h2 id="input">Input</h2>
 
-                    &lt;div class="dropdown"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button">Profile&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dropdown-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 class="pd-10 mg-0" style="padding-top: 20px"&gt;Max Mustermann&lt;/h3&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="pd-10 mg-b blue-text">max.mustermann@mustermail.com&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Show profile&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &lt;/div&gt;<br><br>
+                <swd-card-outline class="grid-cols-1 grid-cols-md-3 top-item">
+                    <input value="Default">
+                    <input value="Default" selected>
+                    <input value="Default" disabled>
+                    <input value="Outline" class="outline">
+                    <input value="Outline" class="outline" selected>
+                    <input value="Outline" class="outline" disabled>
+                    <input value="Ghost" class="ghost">
+                    <input value="Ghost" class="ghost" selected>
+                    <input value="Ghost" class="ghost" disabled>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;input value="Default"&gt;<br>
+                    &lt;input value="Default" selected&gt;<br>
+                    &lt;input value="Default" disabled&gt;<br><br>
+                    &lt;input value="Outline" class="outline"&gt;<br>
+                    &lt;input value="Outline" class="outline" selected&gt;<br>
+                    &lt;input value="Outline" class="outline" disabled&gt;<br><br>
+                    &lt;input value="Ghost" class="ghost"&gt;<br>
+                    &lt;input value="Ghost" class="ghost" selected&gt;<br>
+                    &lt;input value="Ghost" class="ghost" disabled&gt;<br>
+                </swd-code>
 
-                    &lt;div class="dropdown"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button">Tooltip&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dropdown-content tooltip"&gt;Tooltip&lt;/div&gt;<br>
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-input>
+                        <label for="example-input-1">Default</label>
+                        <input id="example-input-1" type="text">
+                    </swd-input>
+                    <swd-input class="outline">
+                        <label for="example-input-2">Outline</label>
+                        <input id="example-input-2" type="text">
+                    </swd-input>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-input&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-1"&gt;Default&lt;/label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-1" type="text"&gt;<br>
+                    &lt;/swd-input&gt;<br>
+                    &lt;swd-input class="outline"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-2"&gt;Outline&lt;/label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-2" type="text"&gt;<br>
+                    &lt;/swd-input&gt;
+                </swd-code>
+
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-input class="width-100">
+                        <label for="example-input-3">Username (only letters and numbers)</label>
+                        <input id="example-input-3" type="text" maxlength="10" pattern="(\w|\d)+">
+                        <swd-input-range></swd-input-range>
+                        <swd-input-error></swd-input-error>
+                    </swd-input>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-input&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input"&gt;Username (only letters and numbers)&lt;/label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input" type="text" maxlength="10" pattern="(\w|\d)+"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-range&gt;&lt;/swd-input-range&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input-error&gt;&lt;/swd-input-error&gt;<br>
+                    &lt;/swd-input&gt;
+                </swd-code>
+
+                <h2 id="card">Card</h2>
+
+                <swd-card-outline class="grid-cols-1 grid-cols-xl-2 top-item">
+
+                    <swd-card>
+                        Default card
+                    </swd-card>
+
+                    <swd-card class="swd-card-hover">
+                        Default card hover
+                    </swd-card>
+
+                    <swd-card-outline>
+                        Outline card
+                    </swd-card-outline>
+
+                    <swd-card-outline class="swd-card-hover">
+                        Outline card hover
+                    </swd-card-outline>
+
+                    <swd-card-ghost>
+                        Ghost card
+                    </swd-card-ghost>
+
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-card&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Default card<br>
+                    &lt;/swd-card&gt;<br><br>
+                    &lt;swd-card class="swd-card-hover"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Default card hover<br>
+                    &lt;/swd-card&gt;<br><br>
+                    &lt;swd-card-outline&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Outline card<br>
+                    &lt;/swd-card-outline&gt;<br><br>
+                    &lt;swd-card-outline class="swd-card-hover"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Outline card hover<br>
+                    &lt;/swd-card-outline&gt;<br><br>
+                    &lt;swd-card-ghost&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Ghost card<br>
+                    &lt;/swd-card-ghost&gt;
+                </swd-code>
+
+                <swd-card-outline class="grid-cols-1 grid-cols-xl-3 top-item">
+
+                    <swd-card>
+                        <h3>Some Title</h3>
+                        <p>Some text</p>
+                        <div class="flex flex-end"><a class="button">Some action</a></div>
+                    </swd-card>
+
+                    <div>
+                        <img class="swd-card-frame top-item" src="/SimpleWebDesign/resources/image.jpg">
+                        <swd-card class="bottom-item margin-bottom-0">
+                            <p>Some image</p>
+                        </swd-card>
+                    </div>
+
+                    <div class="overlay-bottom-left">
+                        <img class="swd-card-frame" src="/SimpleWebDesign/resources/image.jpg">
+                        <label class="tooltip">Some image</label>
+                    </div>
+
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-card&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Some Title&lt;/h2&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Some text&lt;/p&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="flex flex-end"&gt;&lt;a class="button"&gt;Some action&lt;/a&gt;<br>
+                    &lt;/swd-card&gt;<br><br>
+                    &lt;img class="swd-card-frame top-item" src="/SimpleWebDesign/resources/image.jpg"&gt;<br>
+                    &lt;swd-card class="bottom-item margin-bottom-0"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Some image&lt;/p&gt;<br>
+                    &lt;/swd-card&gt;<br><br>
+                    &lt;div class="overlay-bottom-left"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img class="swd-card-frame" src="/SimpleWebDesign/resources/image.jpg"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="tooltip"&gt;Some image&lt;/label&gt;<br>
                     &lt;/div&gt;
-                </code>
+                </swd-code>
 
-                <h2 id="dialog">Dialog</h2>
-
-                <a class="button" onclick="swd.toggleDialog('test-dialog')">Dialog</a>
-                
-                <div class="dialog" id="test-dialog">
-                    <div class="dialog-content">
-                        <h3>Dialog</h3>
-                        <p>This is a Dialog!</p>
-                        <div class="dialog-button">
-                            <a class="button width-100 red dark-red-hover" onclick="swd.toggleDialog('test-dialog')">Cancel</a>
-                            <a class="button width-100" onclick="swd.toggleDialog('test-dialog')">Confirm</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <code class="code-html">
-                    &lt;a class="button" onclick="swd.toggleDialog('test-dialog')"&gt;Dialog&lt;/a&gt;<br><br>
-                
-                    &lt;div class="dialog" id="test-dialog"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dialog-content"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;Dialog&lt;/h3&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is a Dialog!&lt;/p&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="dialog-button"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&lt;a class="button width-100" onclick="swd.toggleDialog('test-dialog')">Confirm&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&lt;a class="button width-100 red dark-red-hover" onclick="swd.toggleDialog('test-dialog')">Cancel&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &lt;/div&gt;
-                </code>
-
-                <h2 id="notification">Notification</h2>
-
-                <a class="button" onclick="swd.toggleNotification('test-notification')">Notification</a>
-
-                <div class="notification" id="test-notification">
-                    <div class="flex">
-                        <span>This is a notification!</span>
-                        <a onclick="swd.toggleNotification('test-notification')" style="margin-left: auto;">
-                            <img class="icon" src="/SimpleWebDesign/resources/icons/close.svg">
-                        </a>
-                    </div>
-                </div>
-
-                <code class="code-html">
-                    &lt;a class="button" onclick="swd.toggleNotification('test-notification')"&gt;Notification&lt;/a&gt;<br><br>
-                
-                    &lt;div class="notification" id="test-notification"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="flex"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span>This is a notification!&lt;/span&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a onclick="swd.toggleNotification('test-notification')" style="margin-left: auto;"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img class="icon" src="/SimpleWebDesign/resources/icons/close.svg"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-                    &lt;/div&gt;
-                </code>
-
-                <h2 id="image">Image</h2>
-                
-                <img src="/SimpleWebDesign/resources/image.jpg" alt="image">
-                <div class="overlay">
-                    <img src="/SimpleWebDesign/resources/image.jpg" alt="image">
-                    <div class="bottom-left">Image with description</div>
-                </div>
-                <img src="/SimpleWebDesign/resources/icon.jpg" alt="icon">
-
-                <code class="code-html">
-                    &lt;img src="image.jpg" alt="image"&gt;<br><br>
-
-                    &lt;div class="overlay"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="image.jpg" alt="image"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="bottom-left">Image with description&lt;/div&gt;<br>
-                    &lt;/div&gt;
-                </code>
-                
-                <h2 id="video">Video</h2>
-                
-                <video width="100%" controls>
-                    <source src="video.mp4" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                </video>
-
-                <code class="code-html">
-                    &lt;video width="100%" controls&gt; <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;source src="video.mp4" type="video/mp4"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Your browser does not support HTML5 video.<br>
-                    &lt;/video&gt;
-                </code>
-
-                <div class="box" id="youtube-button">
-                    <p>We've embedded content from YouTube here. As YouTube may collect personal data and track your viewing behaviour, we'll only load the video after you consent to their use of cookies and similar technologies as described in their <a href="https://www.youtube.com/t/privacy">privacy policy</a>.</p>
-                    <a class="button" style="margin-left: auto;" onclick="swd.expose('youtube-video'); swd.cover('youtube-button')">Allow content from YouTube</a>
-                </div>
-                <div class="youtube hide" id="youtube-video">
-                    <!--<iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-                </div>
-
-                <code class="code-html">
-                    &lt;div class="youtube"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;iframe src="https://www.youtube.com/embed/r2nblrwCMeA"&gt;<br>
-                    &lt;/div&gt;<br><br>
-
-                    &lt;!-- privacy-protection video --&gt;<br>
-                    &lt;div class="box" id="youtube-button"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p>We've embedded content from YouTube here. As YouTube may collect personal data and track your viewing behaviour, we'll only load the video after you consent to their use of cookies and similar technologies as described in their &lt;a href="https://www.youtube.com/t/privacy">privacy policy&lt;/a&gt;.&lt;/p&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="button" style="display: block; margin-left: auto;" onclick="swd.expose('youtube-video'); swd.cover('youtube-button')">Allow content from YouTube&lt;/a&gt;<br>
-                    &lt;/div><br>
-                    &lt;div class="youtube hide" id="youtube-video"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&lt;iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&lt;--&gt;<br>
-                    &lt;/div&gt;
-                </code>
-
-                <h2 id="audio">Audio</h2>
-                
-                <audio controls>
-                    <source src="music.mp3" type="audio/mpeg">
-                    Your browser does not support HTML5 audio.
-                </audio>
-
-                <code class="code-html">
-                    &lt;audio controls&gt; <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;source src="audio.mp3" type="video/mp3"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Your browser does not support HTML5 audio.<br>
-                    &lt;/audio&gt;
-                </code>
-                
-                <h2 id="code">Code</h2>
-
-                <code class="code-html">
-                    &lt;code class="code-html"&gt;Code Hightlighting!&lt;/code&gt;
-                </code>
-
-                Supportet languages for syntax highlighting:
-                <ul>
-                    <li>html</li>
-                    <li>css</li>
-                </ul>
-
-                Examples:
-
-                <code class="code-html">
-                    &lt;!DOCTYPE html&gt;<br>
-                    &lt;html&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="utf-8"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="theme-color" content="#003ecc"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href="style.css" rel="stylesheet"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="script.js"&gt;&lt;/script&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Template&lt;/title&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;element class="some classes"&gt;Some element&lt;/element&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- comment --&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
-                    &lt;/html&gt;<br>
-                </code>
-
-                <code class="code-css">
-                    .div {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;background-color: #0000ff;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;margin-bottom: 2px;<br>
-                    }<br>
-                    /* comment */
-                </code>
-                
-                <code>
-                    @Override<br>
-                    public static void main(String[] args) {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("This is a Test");<br>
-                    }<br>
-                </code>
-                
-                <h2 id="pre">Pre (Console and Code)</h2>
-                
-                <pre>This is a Test</pre>
-                
-                <code>&lt;pre&gt; This is a Test &lt;/pre&gt; </code>
-                
-                <h2 id="var">Var (Formula)</h2>
-                
-                <code><var>f(x) = 2x<sup>2</sup> + 5x +7</var></code>
-                
-                <code class="code-html"> &lt;var>f(x) = 2x&lt;sup>2&lt;/sup> + 5x +7&lt;/var> </code>
-                
                 <h2 id="table">Table</h2>
-                
-                <div class="overflow">
+
+                <swd-card-outline class="top-item">
                     <table>
                         <tr><th>Name</th><th>Author</th><th>Parts</th></tr>
                         <tr><td>Harry Potter</td><td>J. K. Rowling</td><td>7</td></tr>
                         <tr><td>Lord of the Rings</td><td>J. R. Tolkien</td><td>3</td></tr>
                     </table>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;table&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Author&lt;/th&gt;&lt;th&gt;Parts&lt;/th&gt;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;Harry Potter&lt;/td&gt;&lt;td&gt;J. K. Rowling&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;Lord of the Rings&lt;/td&gt;&lt;td&gt;J. R. Tolkien&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;<br>
+                    &lt;/table&gt;
+                </swd-code>
+
+                <h2 id="icons">Icons</h2>
+
+                <div class="icons flex flex-wrap">
+                    <swd-card>
+                        <swd-icon class="hamburger"></swd-icon>
+                        <div>hamburger</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="arrow-left"></swd-icon>
+                        <div>arrow-left</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="arrow-right"></swd-icon>
+                        <div>arrow-right</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="arrow-up"></swd-icon>
+                        <div>arrow-up</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="arrow-down"></swd-icon>
+                        <div>arrow-down</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="more"></swd-icon>
+                        <div>more</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="more-down"></swd-icon>
+                        <div>more-down</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="done"></swd-icon>
+                        <div>done</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="close"></swd-icon>
+                        <div>close</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="search"></swd-icon>
+                        <div>search</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="add"></swd-icon>
+                        <div>add</div>
+                    </swd-card>
+                    <swd-card>
+                        <swd-icon class="delete"></swd-icon>
+                        <div>delete</div>
+                    </swd-card>
                 </div>
-
-                <code class="code-html">
-                    &lt;div class="overflow"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;table&gt;<br>
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;&ensp;&ensp;&ensp;&ensp;&lt;tr&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Name&lt;/th&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Author&lt;/th&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Parts&lt;/th&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Harry Potter&lt;/td&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;J. K. Rowling&lt;/td&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;7&lt;/td><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Lord of the Rings&lt;/td&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;J. R. Tolkien&lt;/td&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;3&lt;/td&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/table&gt;<br>
-                    &lt;/div&gt;
-                </code>
-
-                <h2 id="list">List</h2>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li></ul>
+    
+                <style>
+                    .icons swd-card { 
+                        padding: 20px 0; 
+                        width: 100px; 
+                        height: 110px 
+                    }
+    
+                    .icons swd-card swd-icon {
+                        font-size: 2em; 
+                        display: block; 
+                        margin: 0 auto 10px auto;
+                    }
+    
+                    .icons swd-card div { 
+                        font-size: 0.8em; 
+                        text-align: center; 
+                    }
+                </style>
+    
+                <swd-card-outline class="top-item flex flex-space-around">
+                    <swd-icon class="hamburger"></swd-icon>
+                    
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-icon class="hamburger"&gt;&lt;/swd-icon&gt;
+                </swd-code>
+    
+                <swd-card-outline class="top-item flex flex-space-around">
+                    <div>
+                        <swd-icon class="hamburger"></swd-icon> <span>hamburger</span>
                     </div>
-                    <div class="col-md-6">
-                        <ol><li>Video.mp4</li><li>MyVideo.mp4</li><li>YouTube.mp4</li></ol>
+                    <div>
+                        <button><swd-icon class="add"></swd-icon> Add</button>
                     </div>
-                </div>
+                    <div>
+                        <a class="button ghost red-text"><swd-icon class="delete"></swd-icon> Test</a>
+                    </div>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-icon class="hamburger"&gt;&lt;/swd-icon&gt; &lt;span&gt;hamburger&lt;/span&gt;<br></br>
+                    &lt;button&gt;&lt;swd-icon class="add"&gt;&lt;/swd-icon&gt; Add&lt;/button&gt;<br><br>
+                    &lt;a class="red-text button ghost"&gt;&lt;swd-icon class="remove"&gt;&lt;/swd-icon&gt; Remove&lt;/a&gt;
+                </swd-code>
+
+                <h2 id="media">Media</h2>
+
+                <h3>Image</h3>
+
+                <swd-card-outline class="top-item">
+                    <img src="/SimpleWebDesign/resources/image.jpg" alt="image">
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;img src="image.jpg" alt="image"&gt;
+                </swd-code>
+
+                <h3>Video</h3>
                 
-                <code class="code-html">
-                    &lt;ul&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Video.mp4&lt;/li&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
-                    &lt;/ul&gt;<br>
-                    <br>
-                    &lt;ol><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Video.mp4&lt;/li&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;MyVideo.mp4&lt;/li&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;YouTube.mp4&lt;/li&gt;<br>
-                    &lt;/ol&gt;<br>
-                </code>
+                <swd-card-outline class="top-item">
+                    <video width="100%" controls>
+                        <source src="video.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;video width="100%" controls&gt; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;source src="video.mp4" type="video/mp4"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Your browser does not support HTML5 video.<br>
+                    &lt;/video&gt;
+                </swd-code>
+
+                <swd-card-outline class="top-item">
+                    <swd-card id="youtube-gdpr-question">
+                        <p>
+                            We've embedded content from YouTube here. As YouTube may collect personal data and track your viewing behaviour, 
+                            we'll only load the video after you consent to their use of cookies and similar technologies as described in their 
+                            <a href="https://www.youtube.com/t/privacy">privacy policy</a>.
+                        </p>
+                        <div class="flex flex-end"><button onclick="swd.hide(swd.query('#youtube-gdpr-question')); swd.commentExpose(swd.query('#youtube-wrapper'));">Allow content from YouTube</button></div>
+                    </swd-card>
+
+                    <div id="youtube-wrapper" class="youtube" hidden>
+                        <!-- <iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                    </div>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-card id="youtube-gdpr-question"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We've embedded content from YouTube here. As YouTube may collect personal data and track your viewing behaviour, <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;we'll only load the video after you consent to their use of cookies and similar technologies as described in their <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="https://www.youtube.com/t/privacy"&gt;privacy policy&lt;/a&gt;.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="flex flex-end"&gt;&lt;button onclick="swd.hide(swd.query('#youtube-gdpr-question')); swd.commentExpose(swd.query('#youtube-wrapper'));"&gt;Allow content from YouTube&lt;/button&gt;&lt;/div&gt;<br>
+                    &lt;/swd-card&gt;<br><br>
+                    &lt;div id="youtube-wrapper" class="youtube" hidden&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- &lt;iframe src="https://www.youtube.com/embed/r2nblrwCMeA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt; --&gt;<br>
+                    &lt;/div&gt;
+                </swd-code>
+
+                <h3>Audio</h3>
+
+                <swd-card-outline class="top-item">
+                    <audio controls>
+                        <source src="music.mp3" type="audio/mpeg">
+                        Your browser does not support HTML5 audio.
+                    </audio>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;audio controls&gt; <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;source src="audio.mp3" type="video/mp3"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Your browser does not support HTML5 audio.<br>
+                    &lt;/audio&gt;
+                </swd-code>
+
+                <h2 id="dialog">Dialog</h2>
+
+                <swd-card-outline class="flex top-item flex-space-around">
+
+                    <button onclick="swd.query('swd-dialog').open()">Click to open dialog</button>
+
+                    <swd-dialog id="swd-dialog">
+                        <swd-card>
+                            <h3>Dialog</h3>
+                            <p>Really interesting text for the dialog to see how the dialog works</p>
+                            <div class="grid-cols-sm-2 grid-cols-1">
+                                <button class="red" onclick="SwdDialog.close()">Cancel</button>
+                                <button onclick="SwdDialog.close()">Save</button>
+                            </div>
+                        </swd-card>
+                    </swd-dialog>
+
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;button onclick="swd.query('swd-dialog').open()"&gt;Click to open dialog&lt;/button&gt;<br><br>
+                    &lt;swd-dialog id="swd-dialog"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Dialog&lt;/h2&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Really interesting text for the dialog to see how the dialog works&lt;/p&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="grid-cols-sm-2 grid-cols-1"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="SwdDialog.close()"&gt;Cancel&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="SwdDialog.close()"&gt;Save&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-card&gt;<br>
+                    &lt;/swd-dialog&gt;
+                </swd-code>
+
+                <h2 id="code">Code</h2>
+
+                <swd-card-outline class="top-item">
+                    <swd-code swd-code-language="html">
+                        &lt;!DOCTYPE html&gt;<br>
+                        &lt;html&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href="style.css" rel="stylesheet"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="script.js"&gt;&lt;/script&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Template&lt;/title&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;element class="some classes"&gt;Some element&lt;/element&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- comment --&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+                        &lt;/html&gt;
+                    </swd-code>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-code swd-code-language="html"&gt; &lt;!-- Your code here --&gt; &lt;/swd-code&gt;
+                </swd-code>
+
+                <swd-card-outline class="top-item">
+                    <swd-code swd-code-language="css">
+                        .div {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;background-color: #0000ff;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;margin-bottom: 2px;<br>
+                        }<br>
+                        /* comment /*
+                    </swd-code>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-code swd-code-language="css"&gt; &lt;!-- Your code here --&gt; &lt;/swd-code&gt;
+                </swd-code>
+
+                <swd-card-outline class="top-item">
+                    <code>
+                        @Override<br>
+                        public static void main(String args[]) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Hello World");<br>
+                        }
+                    </code>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;code&gt; &lt;!-- Your code without highlighting here --&gt; &lt;/code&gt;
+                </swd-code>
 
                 <h2 id="variables">Variables</h2>
 
-                <div class="overflow">
-                    <table>
-                        <tr><th>Variables</th><th></th></tr>
-                        <tr><td><samp>--theme-border-radius</samp></td><td><samp>5px</samp></td></tr>
-                        <tr><td><samp>--theme-element-spacing</samp></td><td><samp>30px</samp></td></tr>
-                        <tr><td><samp>--theme-border-width</samp></td><td><samp>3px</samp></td></tr>
-                    </table>
-                </div>
+                <table>
+                    <tr><th>Variable</th><th>Default</th></tr>
+                    <tr><td><samp>--theme-font-family</pre></td><td><samp>Roboto, sans-serif</samp></td></tr>
+                    <tr><td><samp>--theme-font-size</pre></td><td><samp>18px</samp></td></tr>
+                    <tr><td><samp>--theme-line-height</pre></td><td><samp>30px</samp></td></tr>
+                    <tr><td><samp>--theme-border-radius</pre></td><td><samp>5px</samp></td></tr>
+                    <tr><td><samp>--theme-border-width</pre></td><td><samp>3px</samp></td></tr>
+                    <tr><td><samp>--theme-box-shadow</pre></td><td><samp>none</samp></td></tr>
+                    <tr><td><samp>--theme-element-spacing</pre></td><td><samp>30px</samp></td></tr>
+                    <tr><td><samp>--theme-inner-element-spacing</pre></td><td><samp>20px</samp></td></tr>
+                    <tr><td><samp>--theme-menu-height</pre></td><td><samp>50px</samp></td></tr>
+                    <tr><td><samp>--theme-navigation-width</pre></td><td><samp>250px</samp></td></tr>
+                </table>
 
-                <h2 id="utility">Utility Classes</h2>
+                <h2 id="utility-classes">Utility Classes</h2>
 
-                <div class="overflow">
-                    <table>
-                        <tr><th>Class</th><th></th></tr>
-                        <tr><td><samp>only-mobile</samp></td><td>Element will only be displayed on mobile devices</td></tr>
-                        <tr><td><samp>not-mobile</samp></td><td>Element will never be displayed on mobile devices</td></tr>
-                        <tr><td><samp>only-lightmode</samp></td><td>Element will only be displayed on lightmode devices</td></tr>
-                        <tr><td><samp>only-darkmode</samp></td><td>Element will only be displayed on darkmode devices</td></tr>
-                        <tr><td><samp>center</samp></td><td><samp>text-align: center</samp></td></tr>
-                        <tr><td><samp>clearfix</samp></td><td><samp>clear: both</samp></td></tr>
-                        <tr><td><samp>float-left</samp></td><td><samp>float: left</samp></td></tr>
-                        <tr><td><samp>float-right</samp></td><td><samp>float: right</samp></td></tr>
-                        <tr><td><samp>height-100</samp></td><td><samp>height: 100%</samp></td></tr>
-                        <tr><td><samp>width-100</samp></td><td><samp>width: 100%</samp></td></tr>
-                        <tr><td><samp>nowrap</samp></td><td><samp>white-space: nowrap</samp></td></tr>
-                        <tr><td><samp>show</samp></td><td><samp>display: block</samp></td></tr>
-                        <tr><td><samp>hide</samp></td><td><samp>display: none</samp></td></tr>
-                        <tr><td><samp>uppercase</samp></td><td><samp>text-transform: uppercase</samp></td></tr>
-                        <tr><td><samp>lowercase</samp></td><td><samp>text-transform: lowercase</samp></td></tr>
-                        <tr><td><samp>underline</samp></td><td><samp>text-decoration: underline</samp></td></tr>
-                        <tr><td><samp>line-through</samp></td><td><samp>text-decoration: line-through</samp></td></tr>
-                        <tr><td><samp>fit-content</samp></td><td><samp>width: fit-content</samp></td></tr>
-                        <tr><td><samp>overflow</samp></td><td><samp>max-width: 100%</samp><br><samp>overflow: hidden</samp></td></tr>
-                        <tr><td><samp>text-overflow</samp></td><td><samp>overflow: hidden</samp><br><samp>text-overflow: ellipsis</samp><br><samp>white-space: nowrap</samp></td></tr>
-                        <tr><td><samp>flex</samp></td><td><samp>display: flex;</samp><br><samp>gap: var(--theme-element-spacing)</samp></td></tr>
-                        <tr><td><samp>flex-wrap</samp></td><td><samp>flex-wrap: wrap</samp></td></tr>
-                    </table>
-                </div>
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>margin</pre></td><td><samp>margin: var(--theme-element-spacing)</samp></td></tr>
+                    <tr><td><samp>margin-top</pre></td><td><samp>margin-top: var(--theme-element-spacing)</samp></td></tr>
+                    <tr><td><samp>margin-left</pre></td><td><samp>margin-left: var(--theme-element-spacing)</samp></td></tr>
+                    <tr><td><samp>margin-right</pre></td><td><samp>margin-right: var(--theme-element-spacing)</samp></td></tr>
+                    <tr><td><samp>margin-bottom</pre></td><td><samp>margin-bottom: var(--theme-element-spacing)</samp></td></tr>
+                    <tr><td><samp>margin-0</pre></td><td><samp>margin: 0</samp></td></tr>
+                    <tr><td><samp>margin-top-0</pre></td><td><samp>margin-top: 0</samp></td></tr>
+                    <tr><td><samp>margin-left-0</pre></td><td><samp>margin-left: 0</samp></td></tr>
+                    <tr><td><samp>margin-right-0</pre></td><td><samp>margin-right: 0</samp></td></tr>
+                    <tr><td><samp>margin-bottom-0</pre></td><td><samp>margin-bottom: 0</samp></td></tr>
+                    <tr><td><samp>margin-auto</pre></td><td><samp>margin-left: auto; margin-right: auto</samp></td></tr>
+                    <tr><td><samp>margin-left-auto</pre></td><td><samp>margin-left: auto</samp></td></tr>
+                    <tr><td><samp>margin-right-auto</pre></td><td><samp>margin-right: auto</samp></td></tr>
+                </table>
 
-                <h3>Padding</h3>
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>text-left</pre></td><td><samp>text-align: start</samp></td></tr>
+                    <tr><td><samp>text-right</pre></td><td><samp>text-align: end</samp></td></tr>
+                    <tr><td><samp>text-center</pre></td><td><samp>text-align: center</samp></td></tr>
+                    <tr><td><samp>text-uppercase</pre></td><td><samp>text-transform: uppercase</samp></td></tr>
+                    <tr><td><samp>text-lowercase</pre></td><td><samp>text-transform: lowercase</samp></td></tr>
+                    <tr><td><samp>text-underline</pre></td><td><samp>text-decoration: underline</samp></td></tr>
+                    <tr><td><samp>text-line-through</pre></td><td><samp>ext-decoration: line-through</samp></td></tr>
+                    <tr><td><samp>text-nowrap</pre></td><td><samp>white-space: nowrap</samp></td></tr>
+                    <tr><td><samp>text-overflow</pre></td><td><samp>overflow: hidden; text-overflow: ellipsis; white-space: nowrap</samp></td></tr>
+                </table>
 
-                <div class="overflow">
-                    <table>
-                        <tr><th>Class</th><th></th></tr>
-                        <tr><td><samp>pd-0</samp></td><td><samp>padding: 0px</samp></td></tr>
-                        <tr><td><samp>pd-5</samp></td><td><samp>padding: 5px</samp></td></tr>
-                        <tr><td><samp>pd-10</samp></td><td><samp>padding: 10px</samp></td></tr>
-                        <tr><td><samp>pd-20</samp></td><td><samp>padding: 20px</samp></td></tr>
-                        <tr><td><samp>pd-30</samp></td><td><samp>padding: 30px</samp></td></tr>
-                        <tr><td><samp>pd-50</samp></td><td><samp>padding: 50px</samp></td></tr>
-                        <tr><td><samp>pd-t</samp></td><td><samp>padding-top: 30px</samp></td></tr>
-                        <tr><td><samp>pd-l</samp></td><td><samp>padding-left: 30px</samp></td></tr>
-                        <tr><td><samp>pd-r</samp></td><td><samp>padding-right: 30px</samp></td></tr>
-                        <tr><td><samp>pd-b</samp></td><td><samp>padding-bottom: 30px</samp></td></tr>
-                        <tr><td><samp>pd-t-0</samp></td><td><samp>padding-top: 0px</samp></td></tr>
-                        <tr><td><samp>pd-l-0</samp></td><td><samp>padding-left: 0px</samp></td></tr>
-                        <tr><td><samp>pd-r-0</samp></td><td><samp>padding-right: 0px</samp></td></tr>
-                        <tr><td><samp>pd-b-0</samp></td><td><samp>padding-bottom: 0px</samp></td></tr>
-                    </table>
-                </div>
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>left-item</pre></td><td><samp>border-top-right-radius: 0; border-bottom-right-radius: 0; margin-right: 0;</samp></td></tr>
+                    <tr><td><samp>right-item</pre></td><td><samp>border-top-left-radius: 0; border-bottom-left-radius: 0; margin-left: 0;</samp></td></tr>
+                    <tr><td><samp>top-item</pre></td><td><samp>border-bottom-left-radius: 0; border-bottom-right-radius: 0; margin-bottom: 0;</samp></td></tr>
+                    <tr><td><samp>bottom-item</pre></td><td><samp>border-top-left-radius: 0; border-top-right-radius: 0; margin-top: 0;</samp></td></tr>
+                    <tr><td><samp>center-item</pre></td><td><samp>border-radius: 0px; margin: 0;</samp></td></tr>
+                </table>
 
-                <h3>Margin</h3>
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>only-smaller-sm</pre></td><td>Only displayed if screen size is smaller than 576px</td></tr>
+                    <tr><td><samp>only-smaller-md</pre></td><td>Only displayed if screen size is smaller than 768px</td></tr>
+                    <tr><td><samp>only-smaller-lg</pre></td><td>Only displayed if screen size is smaller than 992px</td></tr>
+                    <tr><td><samp>only-smaller-xl</pre></td><td>Only displayed if screen size is smaller than 1200px</td></tr>
+                    <tr><td><samp>only-smaller-xxl</pre></td><td>Only displayed if screen size is smaller than 1400px</td></tr>
+                    <tr><td><samp>only-bigger-sm</pre></td><td>Only displayed if screen size is equal or bigger than 576px</td></tr>
+                    <tr><td><samp>only-bigger-md</pre></td><td>Only displayed if screen size is equal or bigger than 768px</td></tr>
+                    <tr><td><samp>only-bigger-lg</pre></td><td>Only displayed if screen size is equal or bigger than 992px</td></tr>
+                    <tr><td><samp>only-bigger-xl</pre></td><td>Only displayed if screen size is equal or bigger than 1200px</td></tr>
+                    <tr><td><samp>only-bigger-xxl</pre></td><td>Only displayed if screen size is equal or bigger than 1400px</td></tr>
+                </table>
 
-                <div class="overflow">
-                    <table>
-                        <tr><th>Class</th><th></th></tr>
-                        <tr><td><samp>mg-0</samp></td><td><samp>margin: 0px</samp></td></tr>
-                        <tr><td><samp>mg-5</samp></td><td><samp>margin: 5px</samp></td></tr>
-                        <tr><td><samp>mg-10</samp></td><td><samp>margin: 10px</samp></td></tr>
-                        <tr><td><samp>mg-20</samp></td><td><samp>margin: 20px</samp></td></tr>
-                        <tr><td><samp>mg-30</samp></td><td><samp>margin: 30px</samp></td></tr>
-                        <tr><td><samp>mg-50</samp></td><td><samp>margin: 50px</samp></td></tr>
-                        <tr><td><samp>mg-t</samp></td><td><samp>margin-top: 30px</samp></td></tr>
-                        <tr><td><samp>mg-l</samp></td><td><samp>margin-left: 30px</samp></td></tr>
-                        <tr><td><samp>mg-r</samp></td><td><samp>margin-right: 30px</samp></td></tr>
-                        <tr><td><samp>mg-b</samp></td><td><samp>margin-bottom: 30px</samp></td></tr>
-                        <tr><td><samp>mg-t-0</samp></td><td><samp>margin-top: 0px</samp></td></tr>
-                        <tr><td><samp>mg-l-0</samp></td><td><samp>margin-left: 0px</samp></td></tr>
-                        <tr><td><samp>mg-r-0</samp></td><td><samp>margin-right: 0px</samp></td></tr>
-                        <tr><td><samp>mg-b-0</samp></td><td><samp>margin-bottom: 0px</samp></td></tr>
-                        <tr><td><samp>mg-center</samp></td><td><samp>margin-left: auto</samp><br><samp>margin-right: auto</samp></td></tr>
-                    </table>
-                </div>
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>width-100</pre></td><td><samp>width: 100%</samp></td></tr>
+                    <tr><td><samp>contents</pre></td><td><samp>display: contents</samp></td></tr>
+                </table>
 
-                <h3>Border</h3>
-
-                <div class="overflow">
-                    <table>
-                        <tr><th>Class</th><th></th></tr>
-                        <tr><td><samp>border</samp></td><td><samp>border-style: solid</samp><br><samp> var(--theme-border-radius)</samp></td></tr>
-                        <tr><td><samp>r-0</samp></td><td><samp>border-radius: 0px</samp></td></tr>
-                        <tr><td><samp>r-5</samp></td><td><samp>border-radius: 5px</samp></td></tr>
-                        <tr><td><samp>r-10</samp></td><td><samp>border-radius: 10px</samp></td></tr>
-                        <tr><td><samp>r-20</samp></td><td><samp>border-radius: 20px</samp></td></tr>
-                        <tr><td><samp>r-30</samp></td><td><samp>border-radius: 30px</samp></td></tr>
-                        <tr><td><samp>r-50</samp></td><td><samp>border-radius: 50px</samp></td></tr>
-                    </table>
-                </div>
-                
             </div>
-            
-            <div class="grey">
-                <div class="container footer">
-                    <div class="nowrap grey-text width-100" style="align-self: flex-end;">
-                        &copy; 2023 Der Zauberer
-                        <div class="width-100"></div>
-                    </div>
-                    <div>
-                        <strong class="grey-text uppercase" style="letter-spacing: 1px;">English</strong><br>
-                        <a href="/SimpleWebDesign/imprint/" class="grey-text">Imprint</a><br>
-                        <a href="/SimpleWebDesign/privacy-policy/" class="grey-text nowrap">Privacy policy</a>
-                    </div>
-                    <div>
-                        <strong class="grey-text uppercase" style="letter-spacing: 1px;">German</strong><br>
-                        <a href="/SimpleWebDesign/impressum/" class="grey-text">Impressum</a><br>
-                        <a href="/SimpleWebDesign/datenschutzerklaerung/" class="grey-text">Datenschutzerklaerung</a>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-            
+
+            <swd-footer>
+                <a class="text-nowrap">&copy; 2024 Der Zauberer</a>
+                <div class="width-100"></div>
+                <a href="/SimpleWebDesign/imprint">Imprint</a>
+                <a href="/SimpleWebDesign/privacy-policy">Privacy policy</a>
+            </swd-footer>
+
+        </swd-navigation-content>
+
     </body>
 </html>

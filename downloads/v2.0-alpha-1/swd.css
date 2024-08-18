@@ -301,21 +301,12 @@ ol li:last-child, ul li:last-child { padding-bottom: 0 }
 *   Label   *
 ************/
 
-.chip {
+:not(swd-input) > label {
     height: fit-content;
     line-height: round(1.2em, 1px);
     padding: round(0.2em, 1px) round(0.8em, 1px);
     background-color: var(--theme-primary-grey-color);
     border-radius: 1em;
-}
-
-.tooltip {
-    height: fit-content;
-    line-height: round(1.2em, 1px);
-    padding: round(0.2em, 1px) round(0.4em, 1px);
-    background-color: color-mix(in srgb, var(--theme-text-color) 70%, transparent);
-    color: var(--theme-background-color);
-    border-radius: var(--theme-border-radius);
 }
 
 samp {
@@ -335,6 +326,15 @@ kbd {
     font-family: 'Roboto Mono', monospace;
     border-radius: var(--theme-border-radius);
     border: solid 1px var(--theme-text-color);
+}
+
+.tooltip {
+    height: fit-content;
+    line-height: round(1.2em, 1px);
+    padding: round(0.2em, 1px) round(0.4em, 1px);
+    background-color: color-mix(in srgb, var(--theme-text-color) 70%, transparent);
+    color: var(--theme-background-color);
+    border-radius: var(--theme-border-radius);
 }
 
 /***********
@@ -628,12 +628,11 @@ swd-navigation {
     flex-direction: column;
     box-sizing: border-box;
     padding: var(--theme-inner-element-spacing);
-    width: var(--theme-navigation-width);
+    width: 250px;
     height: calc(100% - var(--theme-menu-height));
     background-color: var(--theme-primary-grey-color);
     z-index: 2;
     overflow: hidden;
-    transition: left 0.2s;
 }
 
 swd-navigation:hover { overflow-y: auto }
@@ -642,20 +641,6 @@ swd-navigation-content {
     display: block;
     margin-left: var(--theme-navigation-width);
 }
-
-swd-navigation[navigation-collapse]{ left: calc(var(--theme-navigation-width) * -1)}
-@media only screen and (max-width: 575px) {swd-navigation[navigation-collapse-sm]{ left: calc(var(--theme-navigation-width) * -1)}}
-@media only screen and (max-width: 767px) {swd-navigation[navigation-collapse-md]{ left: calc(var(--theme-navigation-width) * -1)}}
-@media only screen and (max-width: 991px) {swd-navigation[navigation-collapse-lg]{ left: calc(var(--theme-navigation-width) * -1)}}
-@media only screen and (max-width: 1199px) {swd-navigation[navigation-collapse-xl]{ left: calc(var(--theme-navigation-width) * -1)}}
-@media only screen and (max-width: 1399px) {swd-navigation[navigation-collapse-xxl]{ left: calc(var(--theme-navigation-width) * -1)}}
-@media only screen and (max-width: 575px) {swd-navigation-content[navigation-collapse-sm]{ margin-left: 0 }}
-@media only screen and (max-width: 767px) {swd-navigation-content[navigation-collapse-md]{ margin-left: 0 }}
-@media only screen and (max-width: 991px) {swd-navigation-content[navigation-collapse-lg]{ margin-left: 0 }}
-@media only screen and (max-width: 1199px) {swd-navigation-content[navigation-collapse-xl]{ margin-left: 0 }}
-@media only screen and (max-width: 1399px) {swd-navigation-content[navigation-collapse-xxl]{ margin-left: 0 }}
-
-swd-navigation[shown] { left: 0 }
 
 /*************
 *   Footer   *
@@ -1046,7 +1031,7 @@ swd-router {
 
 [class*="container-"] > :first-child, swd-navigation > :first-child, swd-selection > :first-child,
 swd-card > :first-child, swd-card-outline > :first-child, swd-card-ghost > :first-child, swd-card-frame > :first-child {
-    margin-top: 0
+    margin-top: 0 
 }
 
 [class*="container-"] > :last-child, swd-navigation > :last-child, swd-selection > :last-child,
@@ -1069,19 +1054,9 @@ swd-navigation *, swd-card *, swd-selection * { --theme-primary-grey-color: var(
 **********************/
 
 .width-100 { width: 100% }
-.contents { display: contents }
 
-@media only screen and (max-width: 575px) {.only-bigger-sm { display: none }}
-@media only screen and (max-width: 767px) {.only-bigger-md { display: none }}
-@media only screen and (max-width: 991px) {.only-bigger-lg { display: none }}
-@media only screen and (max-width: 1199px) {.only-bigger-xl { display: none }}
-@media only screen and (max-width: 1399px) {.only-bigger-xxl { display: none }}
-
-@media only screen and (min-width: 576px) {.only-smaller-sm { display: none }}
-@media only screen and (min-width: 768px) {.only-smaller-md { display: none }}
-@media only screen and (min-width: 992px) {.only-smaller-lg { display: none }}
-@media only screen and (min-width: 1200px) {.only-smaller-xl { display: none }}
-@media only screen and (min-width: 1400px) {.only-smaller-xxl { display: none }}
+@media screen and (max-width: 768px) {.not-mobile {display: none !important}}
+@media screen and (min-width: 769px) {.only-mobile {display: none !important}}
 
 .left-item { border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; margin-right: 0 !important; }
 .right-item { border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important; margin-left: 0 !important; }

@@ -10,156 +10,283 @@
         <title>Simple Web Design</title>
     </head>
     <body>
+
+        <swd-menu>
+            <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger"></swd-icon></a>
+            <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
+            <div class="contents only-bigger-md">
+                <a href="/SimpleWebDesign/components">Components</a>
+                <a href="/SimpleWebDesign/colors" selected>Colors</a>
+            </div>
+        </swd-menu>
         
-        <div class="menu mobile-menu">
-            <img class="icon icon-white only-mobile" src="/SimpleWebDesign/resources/icons/hamburger.svg" onclick="swd.toggleMobileNavigationMenu()">
-            <a class="menu-title" href="/SimpleWebDesign/">Simple Web Design</a>
-            <a href="/SimpleWebDesign/" class="only-mobile">Home</a>
+        <swd-navigation navigation-collapse>
+            <a href="/SimpleWebDesign">Home</a>
             <a href="/SimpleWebDesign/components">Components</a>
-            <a href="/SimpleWebDesign/functions">Functions</a>
-            <a class="menu-active">Colors</a>
-            <a href="/SimpleWebDesign/icons">Icons</a>
-            <a href="/SimpleWebDesign/customization/">Customization</a>
-        </div>
+            <a href="/SimpleWebDesign/colors" selected>Colors</a>
+        </swd-navigation>
 
-        <div class="footer-spacer footer-spacer-with-menu">
-        
-            <div class="container">
-            
-                <h2 id="colors">Colors</h2>
-            
-                <div class="grid-3 grid-sm-2 mg-b">
-                    <div>
-                        <div class="box box-top dark-blue">Dark-Blue  <span class="color-code">#0024b3</span></div>
-                        <div class="box box-bottom blue">Blue  <span class="color-code">#0033ff</span></div>
-                        <div class="box blue-transparent">Blue</div>
-                    </div>
-                    <div>
-                        <div class="box box-top dark-aqua">Dark-Aqua <span class="color-code">#005a80</span></div>
-                        <div class="box box-bottom aqua">Aqua <span class="color-code">#0090cc</span></div>
-                        <div class="box aqua-transparent">Aqua</div>
-                    </div>
-                    <div>
-                        <div class="box box-top dark-green">Dark-Green <span class="color-code">#0f4d00</span></div>
-                        <div class="box box-bottom green">Green <span class="color-code">#1f9900</span></div>
-                        <div class="box green-transparent">Green</div>
-                    </div>
-                    <div>
-                        <div class="box box-top dark-yellow">Dark-Yellow <span class="color-code">#997a00</span></div>
-                        <div class="box box-bottom yellow">Yellow <span class="color-code">#e5b800</span></div>
-                        <div class="box yellow-transparent">Yellow</div>
-                    </div>
-                    <div>
-                        <div class="box box-top dark-orange">Dark-Orange <span class="color-code">#992e00</span></div>
-                        <div class="box box-bottom orange">Orange <span class="color-code">#e64500</span></div>
-                        <div class="box orange-transparent">Orange</div>
-                    </div>
-                    <div>
-                        <div class="box box-top dark-red">Dark-Red <span class="color-code">#990000</span></div>
-                        <div class="box box-bottom red">Red <span class="color-code">#e60000</span></div>
-                        <div class="box red-transparent">Red</div>
-                    </div>
-                </div>
+        <div class="container-xl">
 
-                <div class="grid-2 mg-b">
-                    <div class="lightmode" style="background-color: initial !important;">
-                        <div class="box box-top dark-grey">Dark Grey (Lightmode) <span class="color-code">#c2c2c2</span></div>
-                        <div class="box box-bottom grey">Grey <span class="color-code">#e0e0e0</span></div>
-                    </div>
-                    <div class="darkmode"  style="background-color: initial !important;">
-                        <div class="box box-top dark-grey">Dark Grey (Darkmode) <span class="color-code">#3d3d3d</span></div>
-                        <div class="box box-bottom grey">Grey <span class="color-code">#1f1f1f</span></div>
-                    </div>
-                </div>
-                
-                <code>
-                    <span class="black-text">Black</span><br>
-                    <span class="grey-text">Grey</span><br>
-                    <span class="blue-text">Blue</span><br>
-                    <span class="aqua-text">Aqua</span><br>
-                    <span class="green-text">Green</span><br>
-                    <span class="yellow-text">Yellow</span><br>
-                    <span class="orange-text">Orange</span><br>
-                    <span class="red-text">Red</span><br>
-                </code>
+            <h2>Predefined Colors</h2>
 
-                <h2 id="dark-and-light">Dark and Light</h2>
-                
-                <div class="grid-2 grid-sm-1">
-                    <div class="lightmode box border r-10" style="background-color: white;">
-                        <h3>Lightmode</h3>
-                        <div class="box">Hey lightmode users!</div>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                        <a class="button width-100">Button</a>
-                    </div>
-                    <div class="darkmode box border r-10" style="background-color: black;">
-                        <h3>Darkmode</h3>
-                        <div class="box">Hey darkmode users!</div>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                        <a class="button width-100">Button</a>
-                    </div>
-                </div>
-                    
-                <h2 id="usage">Usage</h2>
-
-                <div style="overflow-x:auto; border-radius: 5px;">
-                    <table>
-                        <tr><th>Class</th><th>Result</th></tr>
-                        <tr><td><samp>lightmode > *</samp></td><td><div class="box mg-5 pd-5 center lightmode grey-border">Box</div></td></tr>
-                        <tr><td><samp>darkmode > *</samp></td><td><div class="box mg-5 pd-5 center darkmode grey-border">Box</div></td></tr>
-                        <tr><td><samp>dark-blue</samp></td><td><div class="box mg-5 pd-5 center dark-blue">Box</div></td></tr>
-                        <tr><td><samp>blue</samp></td><td><div class="box mg-5 pd-5 center blue">Box</div></td></tr>
-                        <tr><td><samp>blue-transparent</samp></td><td><div class="box mg-5 pd-5 center blue-transparent">Box</div></td></tr>
-                        <tr><td><samp>blue-border</samp></td><td><div class="box mg-5 pd-5 center border white blue-border">Box</div></td></tr>
-                        <tr><td><samp>blue-text</samp></td><td class="center"><span class="blue-text">Text</span></td></tr>
-                    </table>
-                </div>
-
-                <h2 id="variables">Variables</h2>
-
-                <div style="overflow-x:auto; border-radius: 5px;">
-                    <table>
-                        <tr><th>Variable</th><th>Lightmode</th><th>Darkmode</th></tr>
-                        <tr><td><samp>--theme-primary</samp></td><td><samp>#0033ff</samp></td><td><samp>#0033ff</samp></td></tr>
-                        <tr><td><samp>--theme-secondary</samp></td><td><samp>#0024b3</samp></td><td><samp>#0024b3</samp></td></tr>
-                        <tr><td><samp>--theme-background</samp></td><td><samp>#ffffff</samp></td><td><samp>#000000</samp></td></tr>
-                        <tr><td><samp>--theme-grey-primary</samp></td><td><samp>#e0e0e0</samp></td><td><samp>#1f1f1f</samp></td></tr>
-                        <tr><td><samp>--theme-grey-secondary</samp></td><td><samp>#c2c2c2</samp></td><td><samp>#3d3d3d</samp></td></tr>
-                        <tr><td><samp>--theme-text</samp></td><td><samp>#000000</samp></td><td><samp>#ffffff</samp></td></tr>
-                        <tr><td><samp>--theme-text-grey</samp></td><td><samp>#666666</samp></td><td><samp>#999999</samp></td></tr>
-                    </table>
-                </div>
-
+            <div class="grid-cols-sm-3 grid-cols-2">
+                <swd-card class="primary">Primary&nbsp;<b class="hex">.primary</b></swd-card>
+                <swd-card class="secondary">Secondary&nbsp;<b class="hex">.secondary</b></swd-card>
+                <swd-card class="accent">Accent&nbsp;<b class="hex">.accent</b></swd-card>
+                <swd-card class="blue">Blue&nbsp;<b class="hex">.blue #0033ff</b></swd-card>
+                <swd-card class="aqua">Aqua&nbsp;<b class="hex">.aqua #0090cc</b></swd-card>
+                <swd-card class="green">Green&nbsp;<b class="hex">.green #1f9900</b></swd-card>
+                <swd-card class="yellow">Yellow&nbsp;<b class="hex">.yellow #e5b800</b></swd-card>
+                <swd-card class="orange">Orange&nbsp;<b class="hex">.orange #e64500</b></swd-card>
+                <swd-card class="red">Red&nbsp;<b class="hex">.red #e60000</b></swd-card>
+                <swd-card class="grey">Grey&nbsp;<b class="hex">.grey (scheme dependent)</b></swd-card>
+                <swd-card class="light">Light&nbsp;<b class="hex">.dark (scheme dependent)</b></swd-card>
+                <swd-card class="dark">Dark&nbsp;<b class="hex">.light (scheme dependent)</b></swd-card>
+                <swd-card class="white">White&nbsp;<b class="hex">.white</b></swd-card>
+                <swd-card class="black">Black&nbsp;<b class="hex">.black</b></swd-card>
             </div>
 
-            <div class="grey">
-                <div class="container footer">
-                    <div class="nowrap grey-text width-100" style="align-self: flex-end;">
-                        &copy; 2023 Der Zauberer
-                        <div class="width-100"></div>
-                    </div>
-                    <div>
-                        <strong class="grey-text uppercase" style="letter-spacing: 1px;">English</strong><br>
-                        <a href="/SimpleWebDesign/imprint/" class="grey-text">Imprint</a><br>
-                        <a href="/SimpleWebDesign/privacy-policy/" class="grey-text nowrap">Privacy policy</a>
-                    </div>
-                    <div>
-                        <strong class="grey-text uppercase" style="letter-spacing: 1px;">German</strong><br>
-                        <a href="/SimpleWebDesign/impressum/" class="grey-text">Impressum</a><br>
-                        <a href="/SimpleWebDesign/datenschutzerklaerung/" class="grey-text">Datenschutzerklaerung</a>
-                    </div>
+            <p>The colors for <samp>.light</samp> and <samp>.dark</samp> gets changed to thier opposite if darkmode is enabled.</p>
+
+            <swd-card-outline class="top-item">
+                <div class="grid-cols-md-3 grid-cols-sm-2, grid-cols-1">
+                    <button class="primary">Primary</button>
+                    <button class="secondary">Secondary</button>
+                    <button class="accent">Accent</button>
+                    <button class="blue">Blue</button>
+                    <button class="aqua">Aqua</button>
+                    <button class="green">Green</button>
+                    <button class="yellow">Yellow</button>
+                    <button class="orange">Orange</button>
+                    <button class="red">Red</button>
+                    <button class="grey" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Grey</button>
+                    <button class="light" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Light</button>
+                    <button class="dark" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Dark</button>
+                    <button class="white" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">White</button>
+                    <button class="black" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Black</button>
                 </div>
+            </swd-card-outline>
+            <swd-code swd-code-language="html" class="bottom-item">
+                &lt;button class="blue"&gt;Blue&lt;/button&gt;<br>
+                &lt;button class="aqua"&gt;Aqua&lt;/button&gt;<br>
+                &lt;button class="green"&gt;Green&lt;/button&gt;<br>
+                &lt;button class="yellow"&gt;Yellow&lt;/button&gt;<br>
+                &lt;button class="orange"&gt;Orange&lt;/buttond&gt;<br>
+                &lt;button class="red"&gt;Red&lt;/button&gt;<br>
+                &lt;button class="grey"&gt;Grey&lt;/button&gt;<br>
+                &lt;button class="light"&gt;Light&lt;/button&gt;<br>
+                &lt;button class="dark"&gt;Dark&lt;/button&gt;<br>
+                &lt;button class="white"&gt;White&lt;/button&gt;<br>
+                &lt;button class="black"&gt;Black&lt;/button&gt;
+            </swd-code>
+
+            <swd-card-outline class="top-item">
+                <div class="flex flex-space-around flex-wrap">
+                    <span class="blue-text">Blue</span>
+                    <span class="aqua-text">Aqua</span>
+                    <span class="green-text">Green</span>
+                    <span class="yellow-text">Yellow</span>
+                    <span class="orange-text">Orange</span>
+                    <span class="red-text">Red</span>
+                </div>
+                <div class="flex flex-space-around flex-wrap">
+                    <span class="grey-text" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Grey</span>
+                    <span class="light-text" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Light</span>
+                    <span class="dark-text" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Dark</span>
+                    <span class="white-text" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">White</span>
+                    <span class="black-text" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Black</span>
+                </div>
+            </swd-card-outline>
+            <swd-code swd-code-language="html"  class="bottom-item">
+                &lt!-- scheme dependent --&gt;<br>
+                &lt;span class="blue-text"&gt;Blue&lt;/span&gt;<br>
+                &lt;span class="aqua-text"&gt;Aqua&lt;/span&gt;<br>
+                &lt;span class="green-text"&gt;Green&lt;/span&gt;<br>
+                &lt;span class="yellow-text"&gt;Yellow&lt;/span&gt;<br>
+                &lt;span class="orange-text"&gt;Orange&lt;/span&gt;<br>
+                &lt;span class="red-text"&gt;Red&lt;/span&gt;<br>
+                &lt;span class="grey-text"&gt;Grey&lt;/span&gt;<br>
+                &lt;span class="light-text"&gt;Light&lt;/span&gt;<br>
+                &lt;span class="dark-text"&gt;Dark&lt;/span&gt;<br>
+                &lt;span class="white-text"&gt;White&lt;/span&gt;<br>
+                &lt;span class="black-text"&gt;Black&lt;/span&gt;<br>
+                Default
+            </swd-code>
+
+            <style>
+                .hex { font-size: 0.8em; opacity: 0.7; }
+            </style>
+
+            <h2>Define Your Own Color</h2>
+
+            <p>
+                You can simply redefine the theme color variables. The secondary color is used as hover color by the most components. You can create your own class like <samp>.magenta</samp> for some elements or overrite the <samp>:root</samp> pseudoclass to set the color for the whole theme.
+            </p>
+
+            <swd-card-outline class="flex flex-space-around top-item">
+                <button class="color-magenta">Magenta Button</button>
+                <button class="outline color-magenta">Magenta Button</button>
+                <style>
+                    .color-magenta {
+                        --theme-primary-color: hsl(320, 100%, 45%);
+                        --theme-secondary-color: hsl(320, 100%, 35%);
+                    }
+                </style>
+            </swd-card-outline>
+            <swd-code swd-code-language="html" class="center-item">
+                &lt;button class="magenta"&gt;Magenta Button&lt;/button&gt;<br>
+                &lt;button class="outline magenta"&gt;Magenta Button&lt;/button&gt;
+            </swd-code>
+            <swd-code swd-code-language="css" class="bottom-item">
+                .magenta {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-color: hsl(320, 100%, 45%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-color: hsl(320, 100%, 35%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-text-color: #ffffff;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--theme-primary-color); /* Required depending on usecase */<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color: var(--theme-text-color); /* Required depending on usecase */<br>
+                }
+            </swd-code>
+
+            <h2>Color Scheme</h2>
+
+            <p>
+                The css applies the systems color scheme by default. If you want to force a scheme for an element, you can add the <samp>lightmode</samp> or <samp>darkmode</samp> class to your element. You can put this class in your <samp>&lt;body&gt;</samp> tag if you want to force the scheme to the whole webseite.
+            </p>
+
+            <div class="grid-cols-sm-2 grid-cols-1">
+                <swd-card-outline class="lightmode">
+                    <h3>
+                        Lightmode Example
+                        <swd-subtitle>This card is displayed for lightmode</swd-subtitle>
+                    </h3>
+                    <div class="flex flex-wrap">
+                        <label class="chip">Color Scheme</label>
+                        <label class="chip">Lightmode</label>
+                    </div>
+                    <code>&lt;div class="lightmode"&gt;...&lt;/div&gt;</code>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                    <button class="width-100">Button</button>
+                </swd-card-outline>
+                <swd-card-outline class="darkmode">
+                    <h3>
+                        Darkmode Example
+                        <swd-subtitle>This card is displayed for darkmode</swd-subtitle>
+                    </h3>
+                    <div class="flex flex-wrap">
+                        <label class="chip">Color Scheme</label>
+                        <label class="chip">Lightmode</label>
+                    </div>
+                    <code>&lt;div class="darkmode"&gt;...&lt;/div&gt;</code>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                    <button class="width-100">Button</button>
+                </swd-card-outline>
             </div>
+
+            <h2>Greyscale</h2>
+
+            <p>
+                Elements with grey background in front of element with grey background can adjust their grey value based on the primary and secondary grey value.
+            </p>
+
+            <div class="grid-cols-sm-2 grid-cols-1">
+                <swd-card-outline>
+                    <h3>
+                        Black Background
+                        <swd-subtitle>A card to compare the colors</swd-subtitle>
+                    </h3>
+                    <div class="flex flex-wrap">
+                        <label class="chip">Background</label>
+                        <label class="chip">Black</label>
+                    </div>
+                    <swd-card>Inner Card</swd-card>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                    <button class="width-100">Button</button>
+                </swd-card-outline>
+                <swd-card>
+                    <h3>
+                        Grey Background
+                        <swd-subtitle>A card to compare the colors</swd-subtitle>
+                    </h3>
+                    <div class="flex flex-wrap">
+                        <label class="chip">Background</label>
+                        <label class="chip">Black</label>
+                    </div>
+                    <swd-card>Inner Card</swd-card>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                    <button class="width-100">Button</button>
+                </swd-card>
+            </div>
+
+            <p>You can implement this behavior for your own elements by overwriting the grey variable for child elements while using the primary grey variable as background.</p>
+
+            <swd-code swd-code-language="css">
+                .grey-element {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--theme-primary-grey-color);<br>
+                }<br><br>
+                .grey-element * {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-grey-color: var(--theme-secondary-grey-color);<br>
+                }
+            </swd-code>
+
+            <h2>Theme Colors</h2>
+
+            <p>You can define yor own main color for the theme by overriding the theme variables in the <samp>:root</samp> class. The theme color applies to menu, buttons, inputs and other elemnts.</p>
+
+            <swd-code swd-code-language="css">
+                :root {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-grey-color: hsl(320, 100%, 45%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-grey-color: hsl(320, 100%, 35%);<br>
+                }
+            </swd-code>
+
+            <h2>Default colors</h2>
+
+            <table>
+                <tr><th>Variables</th><th>Default</th></tr>
+                <tr><td><samp>--theme-primary-color</samp></td><td><div class="swd-color-preview" style="background-color: #0033ff; color: white;">#0033ff</div></td></tr>
+                <tr><td><samp>--theme-secondary-color</samp></td><td><div class="swd-color-preview" style="background-color: #0024b3; color: white;">#0024b3</div></td></tr>
+                <tr><td><samp>--theme-info-color</samp></td><td><div class="swd-color-preview" style="background-color: #0033ff; color: white;">#0033ff</div></td></tr>
+                <tr><td><samp>--theme-success-color</samp></td><td><div class="swd-color-preview" style="background-color: #1f9900; color: white;">#1f9900</div></td></tr>
+                <tr><td><samp>--theme-warning-color</samp></td><td><div class="swd-color-preview" style="background-color: #e5b800; color: white;">#e5b800</div></td></tr>
+                <tr><td><samp>--theme-error-color</samp></td><td><div class="swd-color-preview" style="background-color: #e60000; color: white;">#e60000</div></td></tr>
+            </table>
+
+            <table>
+                <tr><th>Color Scheme Dependent Variables</th><th>Lightmode</th><th>Darkmode</th></tr>
+                <tr><td><samp>--theme-background-color</samp></td><td><div class="swd-color-preview" style="background-color: #ffffff; color: black;">#ffffff</div></td><td><div class="swd-color-preview" style="background-color: #000000; color: white;">#000000</div></td></tr>
+                <tr><td><samp>--theme-light-color</samp></td><td><div class="swd-color-preview" style="background-color: #ffffff; color: black;">#ffffff</div></td><td><div class="swd-color-preview" style="background-color: #000000; color: white;">#000000</div></td></tr>
+                <tr><td><samp>--theme-dark-color</samp></td><td><div class="swd-color-preview" style="background-color: #000000; color: white;">#000000</div></td><td><div class="swd-color-preview" style="background-color: #ffffff; color: black;">#ffffff</div></td></tr>
+                <tr><td><samp>--theme-primary-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: #e0e0e0; color: black;">#e0e0e0</div></td><td><div class="swd-color-preview" style="background-color: #1f1f1f; color: white;">#1f1f1f</div></td></tr>
+                <tr><td><samp>--theme-secondary-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: #c2c2c2; color: black;">#c2c2c2</div></td><td><div class="swd-color-preview" style="background-color: #3d3d3d; color: white;">#3d3d3d</div></td></tr>
+            </table>
+
+            <table>
+                <tr><th>Color Scheme Dependent Text Variables</th><th>Lightmode</th><th>Darkmode</th></tr>
+                <tr><td><samp>--theme-text-color</samp></td><td><div class="swd-color-preview" style="background-color: white; color: #000000;">#000000</div></td><td><div class="swd-color-preview" style="background-color: black; color: #ffffff;">#ffffff</div></td></tr>
+                <tr><td><samp>--theme-text-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: white; color: #666666;">#666666</div></td><td><div class="swd-color-preview" style="background-color: black; color: #999999;">#999999</div></td></tr>
+            </table>
+
+            <style>
+                .swd-color-preview {
+                    display: inline-block;
+                    box-sizing: border-box;
+                    line-height: round(1.2em, 1px);
+                    width: 100%;
+                    text-align: center;
+                    padding: round(0.5em, 1px) round(0.6em, 1px);
+                    border-radius: var(--theme-border-radius);
+                }
+            </style>
 
         </div>
 
-        <style>
-            .color-code {
-                font-size: 14px;
-                font-weight: bold;
-                opacity: 50%;
-            }
-        </style>
-            
+        <swd-footer>
+            <a class="text-nowrap">&copy; 2024 Der Zauberer</a>
+            <div class="width-100"></div>
+            <a href="/SimpleWebDesign/imprint">Imprint</a>
+            <a href="/SimpleWebDesign/privacy-policy">Privacy policy</a>
+        </swd-footer>
+
     </body>
 </html>

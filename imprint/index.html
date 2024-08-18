@@ -10,76 +10,65 @@
         <title>Simple Web Design</title>
     </head>
     <body>
-        <div class="menu mobile-menu">
-            <img class="icon icon-white only-mobile" src="/SimpleWebDesign/resources/icons/hamburger.svg" onclick="swd.toggleMobileNavigationMenu()">
-            <a href="/SimpleWebDesign/" class="menu-title">Simple Web Design</a>
-            <a href="/SimpleWebDesign/" class="only-mobile">Home</a>
+
+        <swd-menu>
+            <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger"></swd-icon></a>
+            <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
+            <div class="contents only-bigger-md">
+                <a href="/SimpleWebDesign/components">Components</a>
+                <a href="/SimpleWebDesign/colors">Colors</a>
+            </div>
+        </swd-menu>
+
+        <swd-navigation navigation-collapse>
+            <a href="/SimpleWebDesign">Home</a>
             <a href="/SimpleWebDesign/components">Components</a>
-            <a href="/SimpleWebDesign/functions">Functions</a>
             <a href="/SimpleWebDesign/colors">Colors</a>
-            <a href="/SimpleWebDesign/icons">Icons</a>
-            <a href="/SimpleWebDesign/customization/">Customization</a>
+        </swd-navigation>
+
+        <div class="container-md">
+
+            <h2>Data according to §5 TMG</h2>
+            <p>
+                André Sommer<br>
+                Poststraße 23A<br>
+                78239 Rielasingen-Worblingen<br>
+                Germany
+            </p>
+            <span id="email"></span>
+            <button onclick="revealEmailAdress(this)">Reveal email</button>
+
+            <script>
+                function revealEmailAdress(element) {
+                    element.setAttribute('hidden', 'true');
+                    const email = document.querySelector('#email');
+                    email.innerText = decodeURIComponent(escape(window.atob('YW5kLnNvbTI4MkBnbWFpbC5jb20=')));
+                }
+            </script>
+
+            <h2>Scope of the imprint</h2>
+            <p>The imprint applies to the following pages:</p>
+
+            <ul>
+                <li>SimpleWebDesign GitHub Pages <a href="https://der-zauberer.github.io/SimpleWebDesign">https://der-zauberer.github.io/SimpleWebDesign</a></li>
+            </ul>
+
+            <h2>Responsibility for contents</h2>
+            <p>As a service provider, we are responsible for our own content on these pages in accordance with general legislation pursuant to Section 7 (1) of the German Telemedia Act (TMG). According to §§ 8 to 10 TMG, however, we are not obligated as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.</p>
+            <p>Obligations to remove or block the use of information according to general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a concrete infringement. If we become aware of such infringements, we will remove this content immediately.</p>
+
+            <h2>Copyright</h2>
+            <p>This page is licensed as <a target="_blank" href="https://github.com/Der-Zauberer/SimpleWebDesign/tree/master?tab=Apache-2.0-1-ov-file#readme">Apache 2.0</a>.</p>
+            <p>If content on this page was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such. Should you nevertheless become aware of a copyright infringement, we request that you notify us accordingly. If we become aware of any infringements, we will remove such content immediately.</p>
+
         </div>
 
-        <div class="footer-spacer footer-spacer-with-menu">
+        <swd-footer>
+            <a class="text-nowrap">&copy; 2024 Der Zauberer</a>
+            <div class="width-100"></div>
+            <a href="/SimpleWebDesign/imprint">Imprint</a>
+            <a href="/SimpleWebDesign/privacy-policy">Privacy policy</a>
+        </swd-footer>
 
-            <div class="container">
-
-                <h1>Imprint</h1>
-
-                <h2>Data according to §5 TMG</h2>
-                <p>
-                    André Sommer<br>
-                    Poststraße 23A<br>
-                    78239 Rielasingen-Worblingen<br>
-                    Germany
-                </p>
-                <span class="button" onclick="revealEmailAdress(this)">Reveal email</span>
-
-                <script>
-                    function revealEmailAdress(element) {
-                        element.classList.remove('button');
-                        element.innerText = decodeURIComponent(escape(window.atob('YW5kLnNvbTI4MkBnbWFpbC5jb20=')));
-                    }
-                </script>
-
-                <h2>Scope of the imprint</h2>
-                <p>The imprint applies to the following pages:</p>
-
-                <ul>
-                    <li>SimpleWebDesign GitHub Pages <a href="https://der-zauberer.github.io/SimpleWebDesign">https://der-zauberer.github.io/SimpleWebDesign</a></li>
-                </ul>
-
-                <h2>Responsibility for contents</h2>
-                <p>As a service provider, we are responsible for our own content on these pages in accordance with general legislation pursuant to Section 7 (1) of the German Telemedia Act (TMG). According to §§ 8 to 10 TMG, however, we are not obligated as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.</p>
-                <p>Obligations to remove or block the use of information according to general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a concrete infringement. If we become aware of such infringements, we will remove this content immediately.</p>
-
-                <h2>Copyright</h2>
-                <p>The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution, or any form of commercialization of such material beyond the scope of the copyright law shall require the prior written consent of its respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use.</p>
-                <p>Insofar as the content on this page was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such. Should you nevertheless become aware of a copyright infringement, we request that you notify us accordingly. If we become aware of any infringements, we will remove such content immediately.</p>
-
-            </div>
-
-            <div class="grey">
-                <div class="container footer">
-                    <div class="nowrap grey-text width-100" style="align-self: flex-end;">
-                        &copy; 2023 Der Zauberer
-                        <div class="width-100"></div>
-                    </div>
-                    <div>
-                        <strong class="grey-text uppercase" style="letter-spacing: 1px;">English</strong><br>
-                        <a href="/SimpleWebDesign/imprint/" class="grey-text">Imprint</a><br>
-                        <a href="/SimpleWebDesign/privacy-policy/" class="grey-text nowrap">Privacy policy</a>
-                    </div>
-                    <div>
-                        <strong class="grey-text uppercase" style="letter-spacing: 1px;">German</strong><br>
-                        <a href="/SimpleWebDesign/impressum/" class="grey-text">Impressum</a><br>
-                        <a href="/SimpleWebDesign/datenschutzerklaerung/" class="grey-text">Datenschutzerklaerung</a>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        
     </body>
 </html>
