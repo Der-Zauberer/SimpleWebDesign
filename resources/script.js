@@ -55,9 +55,9 @@ class Swd {
 }
 
 swd = new Swd();
-document.addEventListener('click', (event) => { SwdNavigation.autoClose(event); SwdDropdown.autoClose(event); });
-document.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.autoClose() });
+window.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.autoClose() });
 document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
+document.addEventListener('click', (event) => { SwdNavigation.autoClose(event); SwdDropdown.autoClose(event); });
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'));
 
 class SwdComponent extends HTMLElement {
@@ -200,9 +200,8 @@ class SwdDropdown extends SwdComponent {
             if (!this.#dropdownContent) return;
             if (!this.#dropdownInput) {
                 if (!this.isOpen()) this.open();
-                else if (this.isOpen() && (!this.#dropdownContent || !this.#dropdownContent.contains(event.target))) this.close()
+                else if (this.isOpen() && (!this.#dropdownContent || !this.#dropdownContent.contains(event.target))) this.close();
             }
-            if (this.#selection) this.#selection.select(event.target);
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
             if (this.#selection && this.#dropdownInput && !this.isOpen() && event.key === 'Enter') {
@@ -261,7 +260,7 @@ class SwdDropdown extends SwdComponent {
 
     open() {
         if (!this.#dropdownContent) return;
-        this.#dropdownContent.setAttribute('shown', 'true') ;
+        this.#dropdownContent.setAttribute('shown', 'true');
         this.#setDropdownDirectionAndSize();
         SwdDropdown.#openDropdowns.push(this);
     }
