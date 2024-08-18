@@ -191,17 +191,21 @@ class SwdDropdown extends SwdComponent {
     #dropdownContent;
     #selection;
 
-    #FOCUS_EVENT = event => { this.open() }
-    #BLUR_EVENT = event => { this.close() }
-    #INPUT_EVENT = event => { if (this.#selection) this.#selection.filter(event.target.value) }
+    #INPUT_EVENT = event => { this.open(); if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value) }
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
-            if (!this.#dropdownContent) return;
-            if (!this.#dropdownInput) {
-                if (!this.isOpen()) this.open();
-                else if (this.isOpen() && (!this.#dropdownContent || !this.#dropdownContent.contains(event.target))) this.close();
+            const canBeClosed = (event) => {
+                if (!this.isOpen()) return;
+                if (this.#selection) {
+                    return this.#selection.contains(event.target);
+                } else {
+                    return !this.#dropdownContent || !this.#dropdownContent.contains(event.target);
+                }
             }
+            if (!this.#dropdownContent) return;
+            if (!this.isOpen()) this.open();
+            else if (canBeClosed(event)) this.close();
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
             if (this.#selection && this.#dropdownInput && !this.isOpen() && event.key === 'Enter') {
@@ -238,22 +242,18 @@ class SwdDropdown extends SwdComponent {
 
     swdOnUpdate(event) {
         if (this.#dropdownInput) {
-            this.#dropdownInput.removeEventListener('focus', this.#FOCUS_EVENT);
-            this.#dropdownInput.removeEventListener('blur', this.#BLUR_EVENT);
             this.#dropdownInput.removeEventListener('input', this.#INPUT_EVENT);
         }
         this.#dropdownContent = this.querySelector('swd-dropdown-content');
         this.#dropdownInput = this.querySelector('swd-dropdown input:not(swd-dropdown-content *)');
         if (this.#dropdownInput) {
-            this.#dropdownInput.addEventListener('focus', this.#FOCUS_EVENT);
-            this.#dropdownInput.addEventListener('blur', this.#BLUR_EVENT);
             this.#dropdownInput.addEventListener('input', this.#INPUT_EVENT);
         }
         if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection');
-        if (this.#selection) {
+        if (this.#selection && this.#dropdownInput) {
             this.#selection.setOnSelect((text, value) => {
-                if (this.#dropdownInput) this.#dropdownInput.value = value;
-                //TODO Input event
+                this.#dropdownInput.value = value;
+                this.#dropdownInput.dispatchEvent(new Event("input"));
             })
         }
     }
