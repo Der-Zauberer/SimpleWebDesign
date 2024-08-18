@@ -254,6 +254,7 @@ class SwdDropdown extends SwdComponent {
             this.#selection.setOnSelect((text, value) => {
                 this.#dropdownInput.value = value;
                 this.#dropdownInput.dispatchEvent(new Event("input"));
+                this.#dropdownInput.dispatchEvent(new Event("select"));
             })
         }
     }

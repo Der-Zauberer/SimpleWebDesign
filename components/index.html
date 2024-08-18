@@ -611,7 +611,7 @@
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
                     &lt;swd-dropdown&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Autocomplete"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Autocomplete" onselect="doWhatYouWant()"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option 1&lt;/a&gt;<br>
@@ -624,7 +624,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
                     &lt;/swd-dropdown&gt;<br><br>
                     &lt;swd-dropdown&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Select" readonly&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Select" readonly onselect="doWhatYouWant()"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="more-down" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection&gt;<br>
