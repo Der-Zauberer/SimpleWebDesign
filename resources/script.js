@@ -341,6 +341,12 @@ class SwdSelection extends SwdComponent {
         } while (target.nodeName !== 'A' || target.hasAttribute('hidden'));
         if (original) original.removeAttribute('selected');
         target.setAttribute('selected', 'true');
+        const content = this.parentElement;
+        const contentRect = content.getBoundingClientRect();
+        const taregtRect = target.getBoundingClientRect();
+        const targetOffset = target.offsetTop;
+        if (targetOffset + taregtRect.height > content.scrollTop + contentRect.height) content.scrollTop = targetOffset + taregtRect.height - contentRect.height;
+        else if (targetOffset < content.scrollTop) content.scrollTop = targetOffset;
     }
 
     reset() {
