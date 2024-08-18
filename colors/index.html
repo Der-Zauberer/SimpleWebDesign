@@ -31,82 +31,35 @@
             <h2>Predefined Colors</h2>
 
             <div class="grid-cols-sm-3 grid-cols-2">
-
-                <swd-card class="primary">
-                    Primary <b class="hex">.primary</b>
-                </swd-card>
-
-                <swd-card class="secondary">
-                    Secondary <b class="hex">.secondary</b>
-                </swd-card>
-
-                <swd-card class="accent">
-                    Accent <b class="hex">.accent</b>
-                </swd-card>
-
-                <swd-card class="blue">
-                    Blue <b class="hex">.blue #0033ff</b>
-                </swd-card>
-
-                <swd-card class="aqua">
-                    Aqua <b class="hex">.aqua #0090cc</b>
-                </swd-card>
-
-                <swd-card class="green">
-                    Green <b class="hex">.green #1f9900</b>
-                </swd-card>
-
-                <swd-card class="yellow">
-                    Yellow <b class="hex">.yellow #e5b800</b>
-                </swd-card>
-
-                <swd-card class="orange">
-                    Orange <b class="hex">.orange #e64500</b>
-                </swd-card>
-
-                <swd-card class="red">
-                    Red <b class="hex">.red #e60000</b>
-                </swd-card>
-
-                <swd-card class="grey">
-                    Grey <b class="hex">.grey (scheme dependent)</b>
-                </swd-card>
-
-                <swd-card class="light">
-                    Light <b class="hex">.dark (scheme dependent)</b>
-                </swd-card>
-
-                <swd-card class="dark">
-                    Dark <b class="hex">.light (scheme dependent)</b>
-                </swd-card>
-
-                <swd-card class="white">
-                    White <b class="hex">.white</b>
-                </swd-card>
-
-                <swd-card class="black">
-                    Black <b class="hex">.black</b>
-                </swd-card>
-
+                <swd-card class="primary">Primary&nbsp;<b class="hex">.primary</b></swd-card>
+                <swd-card class="secondary">Secondary&nbsp;<b class="hex">.secondary</b></swd-card>
+                <swd-card class="accent">Accent&nbsp;<b class="hex">.accent</b></swd-card>
+                <swd-card class="blue">Blue&nbsp;<b class="hex">.blue #0033ff</b></swd-card>
+                <swd-card class="aqua">Aqua&nbsp;<b class="hex">.aqua #0090cc</b></swd-card>
+                <swd-card class="green">Green&nbsp;<b class="hex">.green #1f9900</b></swd-card>
+                <swd-card class="yellow">Yellow&nbsp;<b class="hex">.yellow #e5b800</b></swd-card>
+                <swd-card class="orange">Orange&nbsp;<b class="hex">.orange #e64500</b></swd-card>
+                <swd-card class="red">Red&nbsp;<b class="hex">.red #e60000</b></swd-card>
+                <swd-card class="grey">Grey&nbsp;<b class="hex">.grey (scheme dependent)</b></swd-card>
+                <swd-card class="light">Light&nbsp;<b class="hex">.dark (scheme dependent)</b></swd-card>
+                <swd-card class="dark">Dark&nbsp;<b class="hex">.light (scheme dependent)</b></swd-card>
+                <swd-card class="white">White&nbsp;<b class="hex">.white</b></swd-card>
+                <swd-card class="black">Black&nbsp;<b class="hex">.black</b></swd-card>
             </div>
 
             <p>The colors for <samp>.light</samp> and <samp>.dark</samp> gets changed to thier opposite if darkmode is enabled.</p>
 
             <swd-card-outline class="top-item">
-                <div class="flex flex-space-around flex-wrap">
+                <div class="grid-cols-md-3 grid-cols-sm-2, grid-cols-1">
                     <button class="primary">Primary</button>
                     <button class="secondary">Secondary</button>
                     <button class="accent">Accent</button>
-                </div>
-                <div class="flex flex-space-around flex-wrap">
                     <button class="blue">Blue</button>
                     <button class="aqua">Aqua</button>
                     <button class="green">Green</button>
                     <button class="yellow">Yellow</button>
                     <button class="orange">Orange</button>
                     <button class="red">Red</button>
-                </div>
-                <div  class="flex flex-space-around flex-wrap">
                     <button class="grey" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Grey</button>
                     <button class="light" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Light</button>
                     <button class="dark" style="border: 1px solid #808080; border-radius: var(--theme-border-radius);">Dark</button>
@@ -242,7 +195,10 @@
                         Black Background
                         <swd-subtitle>A card to compare the colors</swd-subtitle>
                     </h3>
-                    <div class="flex flex-wrap"><label>Background</label><label>Black</label></div>
+                    <div class="flex flex-wrap">
+                        <label class="chip">Background</label>
+                        <label class="chip">Black</label>
+                    </div>
                     <swd-card>Inner Card</swd-card>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
                     <button class="width-100">Button</button>
@@ -252,7 +208,10 @@
                         Grey Background
                         <swd-subtitle>A card to compare the colors</swd-subtitle>
                     </h3>
-                    <div class="flex flex-wrap"><label>Background</label><label>Grey</label></div>
+                    <div class="flex flex-wrap">
+                        <label class="chip">Background</label>
+                        <label class="chip">Black</label>
+                    </div>
                     <swd-card>Inner Card</swd-card>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
                     <button class="width-100">Button</button>
