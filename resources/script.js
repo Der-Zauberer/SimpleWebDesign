@@ -191,7 +191,7 @@ class SwdDropdown extends SwdComponent {
     #dropdownContent;
     #selection;
 
-    #INPUT_EVENT = event => { this.open(); if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value) }
+    #INPUT_EVENT = event => { if (!this.isOpen()) this.open(); if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value) }
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
@@ -264,6 +264,7 @@ class SwdDropdown extends SwdComponent {
         this.#dropdownContent.setAttribute('shown', 'true');
         this.#setDropdownDirectionAndSize();
         SwdDropdown.#openDropdowns.push(this);
+        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(this.#dropdownInput.value)
     }
 
     close() {
@@ -370,7 +371,7 @@ class SwdSelection extends SwdComponent {
     }
 
     filter(text) {
-        if (!text) {
+        if (!text || text == '') {
             Array.from(this.children).forEach(element => element.removeAttribute('hidden'));
         }
         const textParts = text.toLowerCase().split(' ');
