@@ -191,7 +191,11 @@ class SwdDropdown extends SwdComponent {
     #dropdownContent;
     #selection;
 
-    #INPUT_EVENT = event => { if (!this.isOpen()) this.open(); if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value) }
+    #INPUT_EVENT = event => { 
+        if (!this.isOpen()) this.open(); 
+        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value); 
+        this.#setDropdownDirectionAndSize(); 
+    }
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
