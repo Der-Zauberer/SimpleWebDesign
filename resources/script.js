@@ -377,26 +377,28 @@ class SwdSelection extends SwdComponent {
     filter(text) {
         if (!text || text == '') {
             Array.from(this.children).forEach(element => element.removeAttribute('hidden'));
+            return;
         }
-        const textParts = text.toLowerCase().split(' ');
+        const normalizedText = text.toLowerCase().replace(/[^\w\d\s]/gm, '');
         for (const element of this.children) {
-            const elementText = element.innerText.toLowerCase();
-            const elementValue = element.hasAttribute('value') ? element.getAttribute('value').toLocaleLowerCase() : undefined;
-            let elementStatus = false;
-            for (const textPart of textParts) {
-                if (elementText.includes(textPart) || (elementValue && elementValue.includes(textPart))) {
-                    elementStatus = true;
-                }
+            let isElementVisible = false;
+            const elementTextParts = [];
+            let currentTextPart = element.innerHTML.toLowerCase().replace(/[^\w\d\s]/gm, '');
+            elementTextParts.push(currentTextPart);
+            while (currentTextPart.indexOf(' ') !== -1) {
+                currentTextPart = currentTextPart.substring(currentTextPart.indexOf(' ') + 1);
+                elementTextParts.push(currentTextPart);
             }
-            if (elementStatus) {
-                element.removeAttribute('hidden');
-            } else {
-                element.setAttribute('hidden', 'true');
+            for (const searchString of elementTextParts) {
+                if (!searchString.startsWith(normalizedText)) continue;
+                isElementVisible = true
+                break;
             }
+            if (isElementVisible) element.removeAttribute('hidden');
+            else element.setAttribute('hidden', 'true');
         }
         this.#nextOrPrevious(true, true);
     }
-
 }
 
 class SwdDialog extends SwdComponent {
