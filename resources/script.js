@@ -266,9 +266,9 @@ class SwdDropdown extends SwdComponent {
     open() {
         if (!this.#dropdownContent) return;
         this.#dropdownContent.setAttribute('shown', 'true');
-        this.#setDropdownDirectionAndSize();
         SwdDropdown.#openDropdowns.push(this);
-        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(this.#dropdownInput.value)
+        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(this.#dropdownInput.value);
+        this.#setDropdownDirectionAndSize();
     }
 
     close() {
