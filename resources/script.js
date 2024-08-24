@@ -80,7 +80,7 @@ class SwdComponent extends HTMLElement {
 
     disconnectedCallback() {
         this.swdOnDestroy();
-        for (eventHolder of this.#events) {
+        for (const eventHolder of this.#events) {
             eventHolder.target.removeEventListener(eventHolder.event, eventHolder.action);
         }
         this.#observer.disconnect();
