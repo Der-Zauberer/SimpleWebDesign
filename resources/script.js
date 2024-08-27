@@ -4,7 +4,7 @@ class Swd {
     #afterRenderedActions = [];
 
     constructor() {
-        document.addEventListener('readystatechange', event => { 
+        document.addEventListener('readystatechange', event => {
             if (event.target.readyState === 'interactive') {
                 this.#loaded = true;
                 this.#afterRenderedActions.forEach(action => action.call());
@@ -35,7 +35,7 @@ document.addEventListener('input', (event) => event.target.setAttribute('dirty',
 
 class SwdElementRef {
 
-    #element
+    #element;
 
     constructor(element) {
         this.#element = element;
@@ -163,7 +163,7 @@ class SwdNavigation extends SwdComponent {
         this.scrollTop = 0;
     }
 
-    isHidden() { 
+    isHidden() {
         return !this.hasAttribute('shown');
     }
 
@@ -238,10 +238,10 @@ class SwdDropdown extends SwdComponent {
     #dropdownContent;
     #selection;
 
-    #INPUT_EVENT = event => { 
-        if (this.isHidden()) this.show()(); 
-        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value); 
-        this.#setDropdownDirectionAndSize(); 
+    #INPUT_EVENT = event => {
+        if (this.isHidden()) this.show()();
+        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value);
+        this.#setDropdownDirectionAndSize();
     }
 
     swdOnInit() {
@@ -430,7 +430,7 @@ class SwdSelection extends SwdComponent {
         for (const element of this.children) {
             let isElementVisible = false;
             const elementTextParts = [];
-            let currentTextPart = element.innerHTML.toLowerCase().replace(/[^\w\d\s]/gm, '');
+            let currentTextPart = element.innerHTML.toLowerCase().replace(/<\/?[^>]*>/g, ' ').replace(/[^\w\d\s]/gm, '').replace(/\s{2,}/g, ' ');
             elementTextParts.push(currentTextPart);
             while (currentTextPart.indexOf(' ') !== -1) {
                 currentTextPart = currentTextPart.substring(currentTextPart.indexOf(' ') + 1);
