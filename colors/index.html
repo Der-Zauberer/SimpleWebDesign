@@ -142,9 +142,9 @@
                 .magenta {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-color: hsl(320, 100%, 45%);<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-color: hsl(320, 100%, 35%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-grey-color: var(--theme-primary-color); /*Required if you want to color elements with grey as default*/<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-grey-color: var(-theme-secondary-color); /*Required if you want to color elements with grey as default*/<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;--theme-text-color: #ffffff;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;background-color: var(--theme-primary-color); /* Required depending on usecase */<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;color: var(--theme-text-color); /* Required depending on usecase */<br>
                 }
             </swd-code>
 
@@ -161,8 +161,8 @@
                         <swd-subtitle>This card is displayed for lightmode</swd-subtitle>
                     </h3>
                     <div class="flex flex-wrap">
-                        <label class="chip">Color Scheme</label>
-                        <label class="chip">Lightmode</label>
+                        <swd-chip>Color Scheme</swd-chip>
+                        <swd-chip>Lightmode</swd-chip>
                     </div>
                     <code>&lt;div class="lightmode"&gt;...&lt;/div&gt;</code>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
@@ -174,8 +174,8 @@
                         <swd-subtitle>This card is displayed for darkmode</swd-subtitle>
                     </h3>
                     <div class="flex flex-wrap">
-                        <label class="chip">Color Scheme</label>
-                        <label class="chip">Lightmode</label>
+                        <swd-chip>Color Scheme</swd-chip>
+                        <swd-chip>Lightmode</swd-chip>
                     </div>
                     <code>&lt;div class="darkmode"&gt;...&lt;/div&gt;</code>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
@@ -196,8 +196,8 @@
                         <swd-subtitle>A card to compare the colors</swd-subtitle>
                     </h3>
                     <div class="flex flex-wrap">
-                        <label class="chip">Background</label>
-                        <label class="chip">Black</label>
+                        <swd-chip>Background</swd-chip>
+                        <swd-chip>Black</swd-chip>
                     </div>
                     <swd-card>Inner Card</swd-card>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
@@ -209,8 +209,8 @@
                         <swd-subtitle>A card to compare the colors</swd-subtitle>
                     </h3>
                     <div class="flex flex-wrap">
-                        <label class="chip">Background</label>
-                        <label class="chip">Black</label>
+                        <swd-chip>Background</swd-chip>
+                        <swd-chip>Black</swd-chip>
                     </div>
                     <swd-card>Inner Card</swd-card>
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
@@ -231,12 +231,12 @@
 
             <h2>Theme Colors</h2>
 
-            <p>You can define yor own main color for the theme by overriding the theme variables in the <samp>:root</samp> class. The theme color applies to menu, buttons, inputs and other elemnts.</p>
+            <p>You can define your own main color for the theme by overriding the theme variables in the <samp>:root</samp> class. The theme color applies to menu, buttons, inputs and other elemnts.</p>
 
             <swd-code swd-code-language="css">
                 :root {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-grey-color: hsl(320, 100%, 45%);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-grey-color: hsl(320, 100%, 35%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-color: hsl(320, 100%, 45%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-color: hsl(320, 100%, 35%);<br>
                 }
             </swd-code>
 

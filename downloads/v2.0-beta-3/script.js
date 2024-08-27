@@ -12,12 +12,8 @@ class Swd {
         })
     }
 
-    from(element) {
-        return new SwdElementRef(element);
-    }
-
     query(query) {
-        return new SwdElementRef(document.querySelector(query));
+        return document.querySelector(query);
     }
 
     doAfterRendered(action) {
@@ -25,87 +21,44 @@ class Swd {
         else this.#afterRenderedActions.push(action);
     }
 
+    setAttribute(id, attribute, value) {
+        const target = document.querySelector(`#${id}`);
+        if (target) target.setAttribute(attribute, value);
+    }
+
+    hide(element) { element.setAttribute('hidden', 'true') }
+    show(element) { element.removeAttribute('hidden') }
+    isHidden(element) { return element.hasAttribute('hidden') }
+
+    toggle(element) {
+        if (this.isHidden(element)) this.show(element);
+        else this.hide(element);
+    }
+
+    commentExpose(element) {
+        if (!this.isHidden(element)) return;
+        element.innerHTML = element.innerHTML.replace('<!--', '').replace('-->', '');
+        this.show(element);
+    }
+
+    commentCover(element) {
+        if (this.isHidden(element)) return;
+        this.hide(element);
+        element.innerHTML = '<!--' + element.innerHTML + '-->';
+    }
+
+    commentToggle(element) {
+        if (this.isHidden(element)) this.commentExpose(element);
+        else this.commentCover(element);
+    }
+
 }
 
 swd = new Swd();
-window.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.autoHide() });
+window.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.autoClose() });
 document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
-document.addEventListener('click', (event) => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });
+document.addEventListener('click', (event) => { SwdNavigation.autoClose(event); SwdDropdown.autoClose(event); });
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'));
-
-class SwdElementRef {
-
-    #element
-
-    constructor(element) {
-        this.#element = element;
-    }
-
-    query(query) {
-        return new SwdElementRef(this.#element.querySelector(query))
-    }
-
-    hide() {
-        if (this.#element.hide) {
-            this.#element.hide();
-            return this;
-        }
-        this.#element.setAttribute('hidden', 'true')
-        return this;
-    }
-
-    show() { 
-        this.#element.show ? this.#element.show() : this.#element.removeAttribute('hidden');
-        return this;
-    }
-
-    isHidden() {
-        return this.#element.isHidden ? this.#element.isHidden() : this.#element.hasAttribute('hidden');
-    }
-
-    toggle() {
-        if (this.#element.toggle) {
-            this.#element.toggle();
-            return this;
-        }
-        if (this.isHidden()) this.show();
-        else this.hide();
-        return this;
-    }
-
-    commentExpose() {
-        if (!this.isCommentHidden()) return this;
-        this.#element.innerHTML = this.#element.innerHTML.replace('<!--', '').replace('-->', '');
-        this.show();
-        return this;
-    }
-
-    commentCover() {
-        if (this.isCommentHidden()) return this;
-        this.hide();
-        this.#element.innerHTML = '<!--' + this.#element.innerHTML + '-->';
-        return this;
-    }
-
-    isCommentHidden() {
-        console.log(this.#element.innerHTML.trim().startsWith('<!--'))
-        console.log(this.#element.innerHTML.trim().endsWith('-->'))
-        console.log(this.innerHTML)
-        return this.#element.innerHTML.trim().startsWith('<!--') && this.#element.innerHTML.trim().endsWith('-->');
-    }
-
-    commentToggle() {
-        if (this.isCommentHidden()) this.commentExpose();
-        else this.commentCover();
-        return this;
-    }
-
-    get(property) {
-        console.log(property)
-        return this.#element[property];
-    }
-
-}
 
 class SwdComponent extends HTMLElement {
 
@@ -147,42 +100,42 @@ class SwdComponent extends HTMLElement {
 
 class SwdNavigation extends SwdComponent {
 
-    static #shownNavigation = undefined;
-    static #ignoreNextHide = false;
+    static #openNavigation = undefined;
+    static #ignoreNextClose = false;
 
-    show() {
-        SwdNavigation.autoHide();
-        SwdNavigation.#shownNavigation = this;
+    open() {
+        SwdNavigation.autoClose();
+        SwdNavigation.#openNavigation = this;
         this.setAttribute('shown', 'true');
-        SwdNavigation.#ignoreNextHide = true;
+        SwdNavigation.#ignoreNextClose = true;
     }
 
-    hide() {
+    close() {
         this.removeAttribute('shown');
-        SwdNavigation.#shownNavigation = undefined;
+        SwdNavigation.#openNavigation = undefined;
         this.scrollTop = 0;
     }
 
-    isHidden() { 
-        return !this.hasAttribute('shown');
+    isOpen() { 
+        return this.hasAttribute('shown');
     }
 
     toggle() {
-        if (this.isHidden()) this.show();
-        else this.hide();
+        if (this.isOpen()) this.close();
+        else this.open();
     }
 
-    static autoHide(event) {
-        if (!SwdNavigation.#shownNavigation) return;
-        if (this.#ignoreNextHide) {
-            this.#ignoreNextHide = false;
+    static autoClose(event) {
+        if (!SwdNavigation.#openNavigation) return;
+        if (this.#ignoreNextClose) {
+            this.#ignoreNextClose = false;
             return;
         }
-        if (event && SwdNavigation.#shownNavigation.contains(event.target) && !(event.target.nodeName == 'A' && event.target.hasAttribute('href'))) {
+        if (event && SwdNavigation.#openNavigation.contains(event.target) && !(event.target.nodeName == 'A' && event.target.hasAttribute('href'))) {
             return;
         }
-        SwdNavigation.#shownNavigation.hide();
-        SwdNavigation.#shownNavigation = undefined;
+        SwdNavigation.#openNavigation.close();
+        SwdNavigation.#openNavigation = undefined;
     }
 
 }
@@ -231,7 +184,7 @@ class SwdInput extends SwdComponent {
 
 class SwdDropdown extends SwdComponent {
 
-    static #shownDropdowns = [];
+    static #openDropdowns = [];
 
     #dropdownInput;
     #dropdownSecondaryInput;
@@ -239,15 +192,15 @@ class SwdDropdown extends SwdComponent {
     #selection;
 
     #INPUT_EVENT = event => { 
-        if (this.isHidden()) this.show()(); 
+        if (!this.isOpen()) this.open(); 
         if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value); 
         this.#setDropdownDirectionAndSize(); 
     }
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
-            const canBeHidden = (event) => {
-                if (this.isHidden()) return;
+            const canBeClosed = (event) => {
+                if (!this.isOpen()) return;
                 if (this.#selection) {
                     return this.#selection.contains(event.target);
                 } else {
@@ -255,16 +208,16 @@ class SwdDropdown extends SwdComponent {
                 }
             }
             if (!this.#dropdownContent) return;
-            if (this.isHidden()) this.show();
-            else if (canBeHidden(event)) this.hide();
+            if (!this.isOpen()) this.open();
+            else if (canBeClosed(event)) this.close();
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
-            if (this.#selection && this.#dropdownInput && this.isHidden() && event.key === 'Enter') {
+            if (this.#selection && this.#dropdownInput && !this.isOpen() && event.key === 'Enter') {
                 event.preventDefault();
-                this.hide();
+                this.open();
                 return;
             }
-            if (!this.#selection || !this.isHidden()) return;
+            if (!this.#selection || !this.isOpen()) return;
             switch (event.key) {
                 case 'ArrowUp': case 'ArrowLeft':
                     this.#selection.previous();
@@ -277,11 +230,11 @@ class SwdDropdown extends SwdComponent {
                 case 'Enter':
                     event.preventDefault();
                     this.#selection.select();
-                    this.hide();
+                    this.close();
                     break;
                 case 'Escape':
                     this.#selection.reset();
-                    this.hide();
+                    this.close();
                     break;
                 case 'Delete':
                 case 'Backspace':
@@ -310,28 +263,28 @@ class SwdDropdown extends SwdComponent {
         }
     }
 
-    show() {
+    open() {
         if (!this.#dropdownContent) return;
         this.#dropdownContent.setAttribute('shown', 'true');
-        SwdDropdown.#shownDropdowns.push(this);
-        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(this.#dropdownInput.value)
+        SwdDropdown.#openDropdowns.push(this);
+        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(this.#dropdownInput.value);
         this.#setDropdownDirectionAndSize();
     }
 
-    hide() {
+    close() {
         if (!this.#dropdownContent) return;
         this.#dropdownContent.removeAttribute('shown');
-        SwdDropdown.#shownDropdowns = SwdDropdown.#shownDropdowns.filter(entry => entry !== this);
+        SwdDropdown.#openDropdowns = SwdDropdown.#openDropdowns.filter(entry => entry !== this);
     }
 
-    isHidden() { 
-        if (!this.#dropdownContent) return true;
-        return !this.#dropdownContent.hasAttribute('shown');
+    isOpen() { 
+        if (!this.#dropdownContent) return false;
+        return this.#dropdownContent.hasAttribute('shown');
     }
 
     toggle() {
-        if (this.isHidden()) this.show();
-        else this.hide();
+        if (this.isOpen()) this.close();
+        else this.open();
     }
 
     #setDropdownDirectionAndSize() {
@@ -354,15 +307,15 @@ class SwdDropdown extends SwdComponent {
     }
 
     static resizeAllDropdowns() {
-        for (const dropdown of SwdDropdown.#shownDropdowns) dropdown.#setDropdownDirectionAndSize();
+        for (const dropdown of SwdDropdown.#openDropdowns) dropdown.#setDropdownDirectionAndSize();
     }
 
-    static autoHide(event) {
-        for (const dropdown of SwdDropdown.#shownDropdowns) {
+    static autoClose(event) {
+        for (const dropdown of SwdDropdown.#openDropdowns) {
             if (event && dropdown.contains(event.target) && !(event.target.nodeName == 'A' && event.target.hasAttribute('href'))) {
                 return;
             }
-            dropdown.hide();
+            dropdown.close();
         }
     }
 
@@ -450,30 +403,30 @@ class SwdSelection extends SwdComponent {
 
 class SwdDialog extends SwdComponent {
 
-    static #shownDialog;
+    static #openDialog;
     
-    show() {
-        if (SwdDialog.#shownDialog) SwdDialog.#shownDialog.hide();
-        SwdDialog.#shownDialog = this;
+    open() {
+        if (SwdDialog.#openDialog) SwdDialog.#openDialog.close();
+        SwdDialog.#openDialog = this;
         this.setAttribute('shown', 'true');
     }
 
-    hide() {
-        SwdDialog.#shownDialog = undefined;
+    close() {
+        SwdDialog.#openDialog = undefined;
         this.removeAttribute('shown');
     }
 
-    isHidden() {
-        return !this.hasAttribute('shown');
+    isOpen() {
+        return this.hasAttribute('shown');
     }
 
     toggle() {
-        if (this.isHidden()) this.show();
-        else this.hide();
+        if (this.isOpen()) this.close();
+        else this.open();
     }
 
-    static hide() {
-        SwdDialog.#shownDialog.hide();
+    static close() {
+        SwdDialog.#openDialog.close();
     }
 
 }
