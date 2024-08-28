@@ -239,7 +239,7 @@ class SwdDropdown extends SwdComponent {
     #selection;
 
     #INPUT_EVENT = event => {
-        if (this.isHidden()) this.show()();
+        if (this.isHidden()) this.show();
         if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value);
         this.#setDropdownDirectionAndSize();
     }
@@ -264,7 +264,7 @@ class SwdDropdown extends SwdComponent {
                 this.hide();
                 return;
             }
-            if (!this.#selection || !this.isHidden()) return;
+            if (!this.#selection || this.isHidden()) return;
             switch (event.key) {
                 case 'ArrowUp': case 'ArrowLeft':
                     this.#selection.previous();
@@ -280,6 +280,7 @@ class SwdDropdown extends SwdComponent {
                     this.hide();
                     break;
                 case 'Escape':
+                    if (this.#dropdownInput) document.activeElement.blur();
                     this.#selection.reset();
                     this.hide();
                     break;
@@ -295,17 +296,28 @@ class SwdDropdown extends SwdComponent {
         if (this.#dropdownInput) {
             this.#dropdownInput.removeEventListener('input', this.#INPUT_EVENT);
         }
+        const inputs = this.querySelectorAll('swd-dropdown input:not(swd-dropdown-content *)');
+        if (inputs.length > 0) this.#dropdownInput = inputs[0];
+        if (inputs.length > 1) this.#dropdownSecondaryInput = inputs[1];
         this.#dropdownContent = this.querySelector('swd-dropdown-content');
-        this.#dropdownInput = this.querySelector('swd-dropdown input:not(swd-dropdown-content *)');
         if (this.#dropdownInput) {
             this.#dropdownInput.addEventListener('input', this.#INPUT_EVENT);
         }
         if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection');
         if (this.#selection && this.#dropdownInput) {
             this.#selection.setOnSelect((text, value) => {
-                this.#dropdownInput.value = value;
-                this.#dropdownInput.dispatchEvent(new Event("input"));
-                this.#dropdownInput.dispatchEvent(new Event("select"));
+                if (this.#dropdownSecondaryInput) {
+                    this.#dropdownInput.value = text;
+                    this.#dropdownSecondaryInput.value = value;
+                    this.#dropdownInput.dispatchEvent(new Event("input"));
+                    this.#dropdownSecondaryInput.dispatchEvent(new Event("input"));
+                    this.#dropdownInput.dispatchEvent(new Event("select"));
+                    this.#dropdownSecondaryInput.dispatchEvent(new Event("select"));
+                } else {
+                    this.#dropdownInput.value = value;
+                    this.#dropdownInput.dispatchEvent(new Event("input"));
+                    this.#dropdownInput.dispatchEvent(new Event("select"));
+                }
             })
         }
     }
@@ -414,6 +426,7 @@ class SwdSelection extends SwdComponent {
         if (!targetToSelect || targetToSelect.nodeName !== 'A' || targetToSelect.hasAttribute('hidden')) return;
         this.selected = targetToSelect;
         this.value = this.selected.getAttribute('value') || this.selected.innerText;
+        this.dispatchEvent(new Event("select"));
         if (this.#selectionChangeAction) this.#selectionChangeAction(this.selected.innerText, this.value);
     }
 
