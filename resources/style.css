@@ -694,13 +694,9 @@ swd-selection a:not(:last-child) {
 *   Dropdown   *
 ***************/
 
-swd-dropdown {
-    position: relative;
-}
-
-swd-dropdown input[readonly] {
-    cursor: pointer;
-}
+swd-dropdown { position: relative }
+swd-dropdown input[readonly] { cursor: pointer }
+swd-dropdown input { width: 100% }
 
 swd-dropdown swd-icon {
     position: absolute;
