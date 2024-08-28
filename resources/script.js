@@ -13,11 +13,17 @@ class Swd {
     }
 
     from(element) {
-        return new SwdElementRef(element);
+        for (const [key, value] of Object.entries(new SwdElementRef(element))) {
+            if (!element[key]) {
+                element[key] = value;
+            }
+        }
+        element.swdElementRef = element;
+        return element;
     }
 
     query(query) {
-        return new SwdElementRef(document.querySelector(query));
+        return this.from(document.querySelector(query));
     }
 
     doAfterRendered(action) {
@@ -35,74 +41,103 @@ document.addEventListener('input', (event) => event.target.setAttribute('dirty',
 
 class SwdElementRef {
 
-    #element;
+    #swdElementRef
 
     constructor(element) {
-        this.#element = element;
+        this.#swdElementRef = element;
     }
 
-    query(query) {
-        return new SwdElementRef(this.#element.querySelector(query))
+    query = (query) => {
+        return swd.from(this.#swdElementRef.querySelector(query));
     }
 
-    hide() {
-        if (this.#element.hide) {
-            this.#element.hide();
-            return this;
-        }
-        this.#element.setAttribute('hidden', 'true')
-        return this;
+    hide = () => {
+        this.#swdElementRef.setAttribute('hidden', 'true');
+        return this.#swdElementRef;
     }
 
-    show() { 
-        this.#element.show ? this.#element.show() : this.#element.removeAttribute('hidden');
-        return this;
+    show = () => { 
+        this.#swdElementRef.removeAttribute('hidden');
+        return this.#swdElementRef;
     }
 
-    isHidden() {
-        return this.#element.isHidden ? this.#element.isHidden() : this.#element.hasAttribute('hidden');
+    isHidden = () => {
+        return this.#swdElementRef.hasAttribute('hidden');
     }
 
-    toggle() {
-        if (this.#element.toggle) {
-            this.#element.toggle();
-            return this;
-        }
+    toggle = () => {
         if (this.isHidden()) this.show();
         else this.hide();
-        return this;
+        return this.#swdElementRef;
     }
 
-    commentExpose() {
-        if (!this.isCommentHidden()) return this;
-        this.#element.innerHTML = this.#element.innerHTML.replace('<!--', '').replace('-->', '');
+    commentExpose = () => {
+        this.#swdElementRef.innerHTML = this.#swdElementRef.innerHTML.replace('<!--', '').replace('-->', '');
         this.show();
-        return this;
+        return this.#swdElementRef;
     }
 
-    commentCover() {
-        if (this.isCommentHidden()) return this;
+    commentCover = () => {
         this.hide();
-        this.#element.innerHTML = '<!--' + this.#element.innerHTML + '-->';
-        return this;
+        this.#swdElementRef.innerHTML = '<!--' + this.#swdElementRef.innerHTML + '-->';
+        return this.#swdElementRef;
     }
 
-    isCommentHidden() {
-        console.log(this.#element.innerHTML.trim().startsWith('<!--'))
-        console.log(this.#element.innerHTML.trim().endsWith('-->'))
-        console.log(this.innerHTML)
-        return this.#element.innerHTML.trim().startsWith('<!--') && this.#element.innerHTML.trim().endsWith('-->');
+    isCommentHidden = () => {
+        return this.#swdElementRef.innerHTML.trim().startsWith('<!--') && this.#swdElementRef.innerHTML.trim().endsWith('-->');
     }
 
-    commentToggle() {
+    commentToggle = () => {
         if (this.isCommentHidden()) this.commentExpose();
         else this.commentCover();
-        return this;
+        return this.#swdElementRef;
     }
 
-    get(property) {
-        console.log(property)
-        return this.#element[property];
+    writeObject = (object) => {
+        for (const elements of this.#swdElementRef.querySelectorAll('[name]')) {
+            const path = elements.getAttribute('name');
+            const parts = path.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
+            const value = parts.reduce((accessor, key) => {
+                const numericKey = Number(key);
+                if (Array.isArray(accessor) && !isNaN(numericKey)) {
+                    return accessor[numericKey];
+                }
+                return accessor && accessor[key] !== undefined ? accessor[key] : undefined;
+            }, object);
+            if (value) {
+                elements.innerText = value;
+            }
+        }
+    }
+
+    readObject = (object) => {
+        for (const elements of this.#swdElementRef.querySelectorAll('[name]')) {
+            const path = elements.getAttribute('name');
+            const value = elements.innerText.length === 0 ? undefined : elements.innerText;
+            const parts = path.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
+            if (!object) object = isNaN(parts[0]) ? {} : []
+            parts.reduce((accessor, key, index) => {
+                const numericKey = Number(key);
+                if (index === parts.length - 1) {
+                    if (Array.isArray(accessor) && !isNaN(numericKey)) {
+                        accessor[numericKey] = value;
+                    } else {
+                        accessor[key] = value;
+                    }
+                } else {
+                    if (Array.isArray(accessor) && !isNaN(numericKey)) {
+                        if (!accessor[numericKey]) accessor[numericKey] = {};
+                        return accessor[numericKey];
+                    } else {
+                        if (accessor[key] === undefined || typeof accessor[key] !== 'object') {
+                            accessor[key] = isNaN(Number(parts[index + 1])) ? {} : [];
+                        }
+                        return accessor[key];
+                    }
+                }
+            }, object);
+        }
+        return object;
     }
 
 }
