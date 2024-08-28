@@ -105,7 +105,9 @@ class SwdElementRef {
                 return accessor && accessor[key] !== undefined ? accessor[key] : undefined;
             }, object);
             if (value) {
-                elements.innerText = value;
+                elements.tagName === 'INPUT' ? elements.value = value : elements.innerText = value;
+            } else {
+                elements.tagName === 'INPUT' ? elements.value = '' : elements.innerText = '';
             }
         }
     }
@@ -113,7 +115,8 @@ class SwdElementRef {
     readObject = (object) => {
         for (const elements of this.#swdElementRef.querySelectorAll('[name]')) {
             const path = elements.getAttribute('name');
-            const value = elements.innerText.length === 0 ? undefined : elements.innerText;
+            let value = elements.tagName === 'INPUT' ? elements.value : elements.innerText;
+            if (value.length === 0) value = undefined;
             const parts = path.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
             if (!object) object = isNaN(parts[0]) ? {} : []
             parts.reduce((accessor, key, index) => {

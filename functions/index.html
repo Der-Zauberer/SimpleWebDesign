@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#003ecc">
+        <link href="/SimpleWebDesign/resources/style.css" rel="stylesheet">
+        <script src="/SimpleWebDesign/resources/script.js"></script>
+        <link href="/SimpleWebDesign/resources/favicon.png" rel="icon">
+        <title>Simple Web Design</title>
+    </head>
+    <body>
+
+        <swd-menu>
+            <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger"></swd-icon></a>
+            <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
+            <div class="contents only-bigger-md">
+                <a href="/SimpleWebDesign/components">Components</a>
+                <a href="/SimpleWebDesign/colors">Colors</a>
+                <a href="/SimpleWebDesign/functions" selected>Functions</a>
+            </div>
+        </swd-menu>
+        
+        <swd-navigation navigation-collapse>
+            <a href="/SimpleWebDesign">Home</a>
+            <a href="/SimpleWebDesign/components">Components</a>
+            <a href="/SimpleWebDesign/colors">Colors</a>
+            <a href="/SimpleWebDesign/functions" selected>Functions</a>
+        </swd-navigation>
+
+        <div class="container-xl">
+
+            <h2>Visibility</h2>
+
+            <swd-card-outline class="top-item">
+                <div class="flex flex-space-between flex-wrap">
+                    <button onclick="swd.query('#toggable').show()">Show</button>
+                    <button onclick="swd.query('#toggable').hide()">Hide</button>
+                    <button onclick="swd.query('#toggable').toggle()">Toggle</button>
+                </div>
+                <swd-card id="toggable">Some Content</swd-card>
+            </swd-card-outline>
+            <swd-code swd-code-language="html" class="bottom-item">
+                &lt;button onclick="swd.query('#toggable').show()"&gt;Show&lt;/button&gt;<br>
+                &lt;button onclick="swd.query('#toggable').hide()"&gt;Hide&lt;/button&gt;<br>
+                &lt;button onclick="swd.query('#toggable').toggle()"&gt;Toggle&lt;/button&gt;<br><br>
+                &lt;swd-card id="toggable"&gt;Some Content&lt;/swd-card&gt;
+            </swd-code>
+
+            <h2>Object Read and Write (Databinding)</h2>
+
+            <swd-card-outline class="grid-cols-sm-2 grid-cols-1 top-item">
+                <swd-input id="example1">
+                    <label for="example-input">Name</label>
+                    <input id="example-input" type="text" name="name" value="Hello World" oninput="swd.query('#example2').writeObject(swd.query('#example1').readObject())">
+                </swd-input>
+                <swd-card id="example2">
+                    <span name="name">Hello World</span>
+                </swd-card>
+            </swd-card-outline>
+            <swd-code swd-code-language="html" class="bottom-item">
+                &lt;swd-input id="example1"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input"&gt;Name&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input" type="text" name="name" value="Hello World" oninput="swd.query('#example2').writeObject(swd.query('#example1').readObject())"&gt;<br>
+                &lt;/swd-input&gt;<br>
+                &lt;swd-card id="example2"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span name="name"&gt;Hello World&lt;/span&gt;<br>
+                &lt;/swd-card&gt;<br>
+            </swd-code>
+
+            <swd-card-outline class="top-item">
+                <div class="flex flex-space-around">
+                    <button onclick="readAndWrite()">Read And Write</button>
+                </div>
+                <div class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1">
+                    <swd-card id="object1" class="grid-cols-1">
+                        <swd-input>
+                            <label for="example-input-1">Name</label>
+                            <input id="example-input-1" type="text" name="name" value="Some Person">
+                        </swd-input>
+                        <swd-input>
+                            <label for="example-input-2">Street</label>
+                            <input id="example-input-2" type="text" name="address.street" value="Designstreet 17">
+                        </swd-input>
+                        <swd-input>
+                            <label for="example-input-3">City</label>
+                            <input id="example-input-3" type="text" name="address.city" value="Los Angeles">
+                        </swd-input>
+                        <swd-input>
+                            <label for="example-input-4">Note</label>
+                            <input id="example-input-4" type="text" name="note[0]" value="It is a text">
+                        </swd-input>
+                    </swd-card>
+                    <swd-card id="object2">
+                        <h3 name="name">John Doe</h3>
+                        <div class="margin-bottom">
+                            <div name="address.street">Somestreet 5</div>
+                            <div name="address.city">New York</div>
+                        </div>
+                        <p name="note[0]">Some Note</p>
+                    </swd-card>
+                    <swd-card id="object3"></swd-card>
+                </div>
+                <script>
+                    function readAndWrite() {
+                        const object = swd.query('#object1').readObject();
+                        console.log(object)
+                        swd.query('#object2').writeObject(object)
+                        swd.query('#object3').innerText = JSON.stringify(object)
+                    }
+                </script>
+            </swd-card-outline>
+            <swd-code swd-code-language="html" class="bottom-item">
+                &lt;button onclick="readAndWrite()"&gt;Read And Write&lt;/button&gt;<br><br>
+                &lt;swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-1"&gt;Name&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-1" type="text" name="name" value="Some Person"&gt;<br>
+                &lt;/swd-input&gt;<br>
+                &lt;swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-2"&gt;Street&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-2" type="text" name="address.street" value="Designstreet 17"&gt;<br>
+                &lt;/swd-input&gt;<br>
+                &lt;swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-3"&gt;City&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-3" type="text" name="address.city" value="Los Angeles"&gt;<br>
+                &lt;/swd-input&gt;<br>
+                &lt;swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-4"&gt;Note&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-4" type="text" name="note[0]" value="It is a text"&gt;<br>
+                &lt;/swd-input&gt;<br>
+                &lt;/swd-card&gt;<br><br>
+                &lt;swd-card id="object2"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 name="name"&gt;John Doe&lt;/h3&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="margin-bottom"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div name="address.street"&gt;Somestreet 5&lt;/div&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div name="address.city"&gt;New York&lt;/div&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p name="note[0]"&gt;Some Note&lt;/p&gt;<br>
+                &lt;/swd-card&gt;<br><br>
+                &lt;swd-card id="object3"&gt;&lt;/swd-card&gt;<br><br>
+                &lt;script&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;function readAndWrite() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const object = swd.query('#object1').readObject();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(object)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object2').writeObject(object)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object3').innerText = JSON.stringify(object)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &lt;/script&gt;
+            </swd-code>
+        </div>
+
+        <swd-footer>
+            <a class="text-nowrap">&copy; 2024 Der Zauberer</a>
+            <div class="width-100"></div>
+            <a href="/SimpleWebDesign/imprint">Imprint</a>
+            <a href="/SimpleWebDesign/privacy-policy">Privacy policy</a>
+        </swd-footer>
+
+    </body>
+</html>
