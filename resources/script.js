@@ -94,9 +94,8 @@ class SwdElementRef {
     }
 
     writeObject = (object) => {
-        for (const elements of this.#swdElementRef.querySelectorAll('[name]')) {
-            const path = elements.getAttribute('name');
-            const parts = path.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
+        for (const element of this.#getAttributeAccessor('name')) {
+            const parts = element.key.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
             const value = parts.reduce((accessor, key) => {
                 const numericKey = Number(key);
                 if (Array.isArray(accessor) && !isNaN(numericKey)) {
@@ -104,20 +103,14 @@ class SwdElementRef {
                 }
                 return accessor && accessor[key] !== undefined ? accessor[key] : undefined;
             }, object);
-            if (value) {
-                elements.tagName === 'INPUT' ? elements.value = value : elements.innerText = value;
-            } else {
-                elements.tagName === 'INPUT' ? elements.value = '' : elements.innerText = '';
-            }
+            element.value = value ? value : '';
         }
     }
 
     readObject = (object) => {
-        for (const elements of this.#swdElementRef.querySelectorAll('[name]')) {
-            const path = elements.getAttribute('name');
-            let value = elements.tagName === 'INPUT' ? elements.value : elements.innerText;
-            if (value.length === 0) value = undefined;
-            const parts = path.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
+        for (const element of this.#getAttributeAccessor('name')) {
+            const value = element.value.length !== 0 ? element.value : undefined;
+            const parts = element.key.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
             if (!object) object = isNaN(parts[0]) ? {} : []
             parts.reduce((accessor, key, index) => {
                 const numericKey = Number(key);
@@ -141,6 +134,35 @@ class SwdElementRef {
             }, object);
         }
         return object;
+    }
+
+    #getAttributeAccessor(name) {
+        const elements = []
+        for (const element of this.#swdElementRef.querySelectorAll('*')) {
+            for (const attribute of element.attributes) {
+                if (attribute.name === name && element.tagName === 'INPUT') {
+                    elements.push({ 
+                        key: attribute.value, 
+                        get value() { return element.value }, 
+                        set value(value) { element.value = value } 
+                    });
+                } else if (attribute.name === name) {
+                    elements.push({ 
+                        key: attribute.value, 
+                        get value() { return element.innerText }, 
+                        set value(value) { element.innerText = value } 
+                    });
+                } else if (attribute.name.startsWith(`${name}-`)) {
+                    const attributeName = attribute.name.substring(name.length + 1);
+                    elements.push({ 
+                        key: attribute.value, 
+                        get value() { return element.getAttribute(attributeName) }, 
+                        set value(value) { element.setAttribute(attributeName, value) } 
+                    });
+                }
+            }
+        }
+        return elements;
     }
 
 }

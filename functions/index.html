@@ -52,10 +52,10 @@
             <swd-card-outline class="grid-cols-sm-2 grid-cols-1 top-item">
                 <swd-input id="example1">
                     <label for="example-input">Name</label>
-                    <input id="example-input" type="text" name="name" value="Hello World" oninput="swd.query('#example2').writeObject(swd.query('#example1').readObject())">
+                    <input id="example-input" type="text" name="text" value="Hello World" oninput="swd.query('#example2').writeObject(swd.query('#example1').readObject())">
                 </swd-input>
                 <swd-card id="example2">
-                    <span name="name">Hello World</span>
+                    <span name="text">Hello World</span>
                 </swd-card>
             </swd-card-outline>
             <swd-code swd-code-language="html" class="bottom-item">
@@ -66,6 +66,27 @@
                 &lt;swd-card id="example2"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;span name="name"&gt;Hello World&lt;/span&gt;<br>
                 &lt;/swd-card&gt;<br>
+            </swd-code>
+
+            <swd-card-outline class="grid-cols-sm-2 grid-cols-1 top-item">
+                <swd-input id="example3">
+                    <label for="example-input-2">Name</label>
+                    <input id="example-input-2" type="text" name="text" value="Hello World" oninput="swd.query('#example4').writeObject(swd.query('#example3').readObject())">
+                </swd-input>
+                <swd-input id="example4">
+                    <label for="example-input-3">Name</label>
+                    <input id="example-input-3" type="text" name-placeholder="text" placeholder="Hello World" readonly>
+                </swd-input>
+            </swd-card-outline>
+            <swd-code swd-code-language="html" class="bottom-item">
+                &lt;swd-input id="example3"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-2"&gt;Name&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-2" type="text" name="text" value="Hello World" oninput="swd.query('#example4').writeObject(swd.query('#example3').readObject())"&gt;<br>
+                &lt;/swd-input&gt;<br>
+                &lt;swd-input id="example4"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-3"&gt;Name&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-3" type="text" name-placeholder="text" placeholder="Hello World" readonly&gt;<br>
+                &lt;/swd-input&gt;
             </swd-code>
 
             <swd-card-outline class="top-item">
