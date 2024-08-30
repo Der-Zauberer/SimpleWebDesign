@@ -46,6 +46,8 @@ body {
     background-repeat: no-repeat;
 }
 
+@media only screen and (max-width: 575px) { :root { font-size: 15px }}
+
 /************************************************
 *   Fonts                                       *
 *   Roboto by Google unter Apache 2.0 license   *
@@ -279,10 +281,10 @@ kbd {
 code, pre, swd-code {
     display: block;
     font-family: 'Roboto Mono', monospace;
-    font-size: 14px;
-    line-height: 25px;
+    font-size: round(0.8em, 1px);
+    line-height: round(1.7em, 1px);
     background-color: var(--theme-primary-grey-color);
-    padding: 15px;
+    padding: round(1em, 1px);
     white-space: nowrap;
     overflow: hidden;
     border-radius: var(--theme-border-radius);
@@ -296,7 +298,6 @@ code:hover, pre:hover, swd-code:hover {
 var {
     font-family: serif;
     font-style: italic;
-    font-size: 18px;
     white-space: nowrap;
 }
 
