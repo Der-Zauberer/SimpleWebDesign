@@ -179,6 +179,7 @@
                         ],
                         fallback: 'en'
                     })
+                    swd.setLanguage(navigator.language);
                 </script>
                 <div class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 margin-bottom">
                     <button onclick="swd.setLanguage('en')">English</button>
@@ -200,6 +201,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fallback: 'en'<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;swd.setLanguage(navigator.language); //Load browser language or use fallback<br>
                 &lt;/script&gt;<br>
                 &lt;div class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 margin-bottom"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="swd.setLanguage('en')"&gt;English&lt;/button&gt;<br>

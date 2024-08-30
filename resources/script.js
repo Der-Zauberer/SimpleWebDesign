@@ -52,7 +52,6 @@ class Swd {
             this.#languages.set(language.locale, language.src);
         }
         this.#fallbackLanguage = languages.fallback;
-        this.setLanguage(navigator.language)
     }
 
     setLanguage(locale) {
