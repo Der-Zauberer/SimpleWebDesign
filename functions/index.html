@@ -125,7 +125,6 @@
                 <script>
                     function readAndWrite() {
                         const object = swd.query('#object1').readObject();
-                        console.log(object)
                         swd.query('#object2').writeObject(object)
                         swd.query('#object3').innerText = JSON.stringify(object)
                     }
@@ -162,12 +161,57 @@
                 &lt;script&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;function readAndWrite() {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const object = swd.query('#object1').readObject();<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(object)<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object2').writeObject(object)<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object3').innerText = JSON.stringify(object)<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 &lt;/script&gt;
             </swd-code>
+
+            <h2>Localization</h2>
+
+            <swd-card-outline class="top-item">
+                <script>
+                    swd.configureLanguages({
+                        languages: [
+                            { locale: 'en', src: 'i18n/en.properties' },
+                            { locale: 'de', src: 'i18n/de.properties' },
+                            { locale: 'es', src: 'i18n/es.properties' }
+                        ],
+                        fallback: 'en'
+                    })
+                </script>
+                <div class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 margin-bottom">
+                    <button onclick="swd.setLanguage('en')">English</button>
+                    <button onclick="swd.setLanguage('de')">Deutsch</button>
+                    <button onclick="swd.setLanguage('es')">Español</button>
+                </div>
+                <div class="grid-cols-sm-2 grid-cols-1">
+                    <div><span i18n="greeting.hello"></span> ... <span i18n="greeting.bye"></span></div>
+                    <input id="placeholder" i18n-placeholder="placeholder">
+                </div>
+            </swd-card-outline>
+            <swd-code swd-code-language="html" class="bottom-item">
+                &lt;script&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;swd.configureLanguages({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;languages: [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'en', src: 'i18n/en.properties' },<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'de', src: 'i18n/de.properties' },<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'es', src: 'i18n/es.properties' }<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fallback: 'en'<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+                &lt;/script&gt;<br>
+                &lt;div class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 margin-bottom"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="swd.setLanguage('en')"&gt;English&lt;/button&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="swd.setLanguage('de')"&gt;Deutsch&lt;/button&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="swd.setLanguage('es')"&gt;Español&lt;/button&gt;<br>
+                &lt;/div&gt;<br>
+                &lt;div class="grid-cols-sm-2 grid-cols-1"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;&lt;span i18n="greeting.hello"&gt;&lt;/span&gt; ... &lt;span i18n="greeting.bye"&gt;&lt;/span&gt;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input i18n-placeholder="placeholder"&gt;<br>
+                &lt;/div&gt;
+            </swd-code>
+
         </div>
 
         <swd-footer>

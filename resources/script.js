@@ -3,6 +3,10 @@ class Swd {
     #loaded = false;
     #afterRenderedActions = [];
 
+    #fallbackLanguage;
+    #translation = new Map();
+    #languages = new Map();
+
     constructor() {
         document.addEventListener('readystatechange', event => {
             if (event.target.readyState === 'interactive') {
@@ -10,9 +14,19 @@ class Swd {
                 this.#afterRenderedActions.forEach(action => action.call());
             }
         })
+        new MutationObserver((mutations, observer) => {
+            for (const mutation of mutations) {
+                if (mutation.target.swdIgnoreNextI18nUpdate) {
+                    mutation.target.swdIgnoreNextI18nUpdate = false;
+                    return;
+                }
+                this.translate([mutation.target]);
+            }
+        }).observe(document, { attributes: true, childList: true, subtree: true });
     }
 
     from(element) {
+        if (!element) throw new ReferenceError(`element is undefined`)
         for (const [key, value] of Object.entries(new SwdElementRef(element))) {
             if (!element[key]) {
                 element[key] = value;
@@ -23,12 +37,78 @@ class Swd {
     }
 
     query(query) {
-        return this.from(document.querySelector(query));
+        const element = document.querySelector(query)
+        if (!element) throw new ReferenceError(`query result is undefined`)
+        return this.from(element);
     }
 
     doAfterRendered(action) {
         if (this.#loaded) action.call();
         else this.#afterRenderedActions.push(action);
+    }
+
+    configureLanguages(languages) {
+        for (const language of languages.languages) {
+            this.#languages.set(language.locale, language.src);
+        }
+        this.#fallbackLanguage = languages.fallback;
+        this.setLanguage(navigator.language)
+    }
+
+    setLanguage(locale) {
+        const src = this.#languages.get(locale) || this.#languages.get(this.#fallbackLanguage);
+        if (src == undefined) return;
+        fetch(src).then(response => response.text()).then(text => {
+            this.#translation.clear();
+            const lines = text.split(/\r?\n/gm);
+            for (const line of lines) {
+                const translation = line.split('=');
+                this.#translation.set(translation[0].trim(), translation[1].trim());
+                if (this.#loaded) this.translate(document.querySelectorAll('*'))
+            }
+        });
+    }
+
+    translate(elements) {
+        for (const element of this.filterElementsByAttributeName('i18n', elements)) {
+            const translated = this.#translation.get(element.key);
+            if (translated) {
+                element.value = translated;
+                element.element.swdIgnoreNextI18nUpdate = true;
+            }
+        }
+    }
+
+    filterElementsByAttributeName(name, elements) {
+        const filteredElements = []
+        for (const element of elements) {
+            for (const attribute of element.attributes) {
+                if (attribute.name === name && element.tagName === 'INPUT') {
+                    filteredElements.push({ 
+                        key: attribute.value,
+                        element,
+                        get value() { return element.value }, 
+                        set value(value) { element.value = value } 
+                    });
+                } else if (attribute.name === name) {
+                    filteredElements.push({ 
+                        key: attribute.value,
+                        element,
+                        get value() { return element.innerText }, 
+                        set value(value) { element.innerText = value } 
+                    });
+                } else if (attribute.name.startsWith(`${name}-`)) {
+                    const attributeName = attribute.name.substring(name.length + 1);
+                    filteredElements.push({ 
+                        key: attribute.value,
+                        element,
+                        get value() { return element.getAttribute(attributeName) }, 
+                        set value(value) { element.setAttribute(attributeName, value) } 
+                    });
+                }
+            }
+        }
+        return filteredElements;
     }
 
 }
@@ -48,7 +128,9 @@ class SwdElementRef {
     }
 
     query = (query) => {
-        return swd.from(this.#swdElementRef.querySelector(query));
+        const element = this.#swdElementRef.querySelector(query)
+        if (!element) throw new ReferenceError(`query result is undefined`)
+        return element;
     }
 
     hide = () => {
@@ -94,7 +176,7 @@ class SwdElementRef {
     }
 
     writeObject = (object) => {
-        for (const element of this.#getAttributeAccessor('name')) {
+        for (const element of swd.filterElementsByAttributeName('name', this.#swdElementRef.querySelectorAll('*'))) {
             const parts = element.key.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
             const value = parts.reduce((accessor, key) => {
                 const numericKey = Number(key);
@@ -108,7 +190,7 @@ class SwdElementRef {
     }
 
     readObject = (object) => {
-        for (const element of this.#getAttributeAccessor('name')) {
+        for (const element of swd.filterElementsByAttributeName('name', this.#swdElementRef.querySelectorAll('*'))) {
             const value = element.value.length !== 0 ? element.value : undefined;
             const parts = element.key.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
             if (!object) object = isNaN(parts[0]) ? {} : []
@@ -136,35 +218,6 @@ class SwdElementRef {
         return object;
     }
 
-    #getAttributeAccessor(name) {
-        const elements = []
-        for (const element of this.#swdElementRef.querySelectorAll('*')) {
-            for (const attribute of element.attributes) {
-                if (attribute.name === name && element.tagName === 'INPUT') {
-                    elements.push({ 
-                        key: attribute.value, 
-                        get value() { return element.value }, 
-                        set value(value) { element.value = value } 
-                    });
-                } else if (attribute.name === name) {
-                    elements.push({ 
-                        key: attribute.value, 
-                        get value() { return element.innerText }, 
-                        set value(value) { element.innerText = value } 
-                    });
-                } else if (attribute.name.startsWith(`${name}-`)) {
-                    const attributeName = attribute.name.substring(name.length + 1);
-                    elements.push({ 
-                        key: attribute.value, 
-                        get value() { return element.getAttribute(attributeName) }, 
-                        set value(value) { element.setAttribute(attributeName, value) } 
-                    });
-                }
-            }
-        }
-        return elements;
-    }
-
 }
 
 class SwdComponent extends HTMLElement {
@@ -174,8 +227,8 @@ class SwdComponent extends HTMLElement {
 
     constructor() {
         super();
-        this.#observer = new MutationObserver((mutationList, observer) => {
-            this.swdOnUpdate([...mutationList]);
+        this.#observer = new MutationObserver((mutations, observer) => {
+            this.swdOnUpdate([...mutations]);
         })
         this.#observer.observe(this, { attributes: true, childList: true, subtree: false });
         swd.doAfterRendered(() => this.swdAfterRendered());
