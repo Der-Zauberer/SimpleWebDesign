@@ -632,7 +632,7 @@ swd-card, swd-card-outline, swd-card-ghost, .swd-card-frame {
     display: block;
     box-sizing: border-box;
     height: fit-content;
-    gap: var(--theme-inner-element-spacing);
+    gap: var(--theme-inner-element-spacing) !important;
     color: var(--theme-text-color);
     background-color: var(--theme-primary-grey-color);
     padding: calc(var(--theme-inner-element-spacing) - var(--theme-border-width));
