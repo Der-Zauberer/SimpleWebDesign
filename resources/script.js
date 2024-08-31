@@ -4,8 +4,8 @@ class Swd {
     #afterRenderedActions = [];
 
     #fallbackLanguage;
-    #translation = new Map();
     #languages = new Map();
+    #translation = new Map();
 
     constructor() {
         document.addEventListener('readystatechange', event => {
@@ -15,6 +15,7 @@ class Swd {
             }
         })
         new MutationObserver((mutations, observer) => {
+            if (this.#translation.length === 0) return;
             for (const mutation of mutations) {
                 if (mutation.target.swdIgnoreNextI18nUpdate) {
                     mutation.target.swdIgnoreNextI18nUpdate = false;
