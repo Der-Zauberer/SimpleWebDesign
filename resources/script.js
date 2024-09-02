@@ -187,6 +187,7 @@ class SwdElementRef {
             }, object);
             element.value = value ? value : '';
         }
+        return this.#swdElementRef;
     }
 
     readObject = (object) => {
