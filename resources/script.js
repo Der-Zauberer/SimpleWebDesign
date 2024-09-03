@@ -176,7 +176,8 @@ class SwdElementRef {
     }
 
     writeObject = (object) => {
-        for (const element of swd.filterElementsByAttributeName('name', this.#swdElementRef.querySelectorAll('*'))) {
+        const elementsToFilter = [this.#swdElementRef, ...this.#swdElementRef.querySelectorAll('*')];
+        for (const element of swd.filterElementsByAttributeName('name', elementsToFilter)) {
             const parts = element.key.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
             const value = parts.reduce((accessor, key) => {
                 const numericKey = Number(key);
@@ -191,7 +192,8 @@ class SwdElementRef {
     }
 
     readObject = (object) => {
-        for (const element of swd.filterElementsByAttributeName('name', this.#swdElementRef.querySelectorAll('*'))) {
+        const elementsToFilter = [this.#swdElementRef, ...this.#swdElementRef.querySelectorAll('*')];
+        for (const element of swd.filterElementsByAttributeName('name', elementsToFilter)) {
             const value = element.value.length !== 0 ? element.value : undefined;
             const parts = element.key.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
             if (!object) object = isNaN(parts[0]) ? {} : []
