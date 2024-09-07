@@ -967,7 +967,7 @@ swd-router {
 }
 
 [class*="grid-cols-"].no-gap, .flex.no-gap {
-    gap: 0
+    gap: 0 !important
 }
 
 [class*="grid-cols-"] > *, .flex > *, [class*="overlay-"] > * {
