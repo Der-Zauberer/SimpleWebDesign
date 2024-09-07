@@ -125,8 +125,8 @@
                 <script>
                     function readAndWrite() {
                         const object = swd.query('#object1').readObject();
-                        swd.query('#object2').writeObject(object)
-                        swd.query('#object3').innerText = JSON.stringify(object)
+                        swd.query('#object2').writeObject(object);
+                        swd.query('#object3').innerHTML = JSON.stringify(object, undefined, '&nbsp&nbsp&nbsp&nbsp').replace(/\n/g, '<br>');
                     }
                 </script>
             </swd-card-outline>
@@ -161,8 +161,8 @@
                 &lt;script&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;function readAndWrite() {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const object = swd.query('#object1').readObject();<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object2').writeObject(object)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object3').innerText = JSON.stringify(object)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object2').writeObject(object);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object3').innerHTML = JSON.stringify(object, undefined, '&nbsp&nbsp&nbsp&nbsp').replace(/\n/g, '<br>');<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 &lt;/script&gt;
             </swd-code>

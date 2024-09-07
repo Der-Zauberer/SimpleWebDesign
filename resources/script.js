@@ -94,6 +94,13 @@ class Swd {
                         get value() { return element.innerText }, 
                         set value(value) { element.innerText = value } 
                     });
+                } else if (attribute.name === `${name}-innerHTML`) {
+                    filteredElements.push({ 
+                        key: attribute.value,
+                        element,
+                        get value() { return element.innerHTML }, 
+                        set value(value) { element.innerHTML = value } 
+                    });
                 } else if (attribute.name.startsWith(`${name}-`)) {
                     const attributeName = attribute.name.substring(name.length + 1);
                     filteredElements.push({ 
@@ -173,8 +180,8 @@ class SwdElementRef {
     }
 
     writeObject = (object) => {
-        const elementsToFilter = [this.#swdElementRef, ...this.#swdElementRef.querySelectorAll('*')];
-        for (const element of swd.filterElementsByAttributeName('name', elementsToFilter)) {
+        const nameElementsToFilter = [this.#swdElementRef, ...this.#swdElementRef.querySelectorAll('*')];
+        for (const element of swd.filterElementsByAttributeName('name', nameElementsToFilter)) {
             const parts = element.key.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
             const value = parts.reduce((accessor, key) => {
                 const numericKey = Number(key);
@@ -184,6 +191,10 @@ class SwdElementRef {
                 return accessor && accessor[key] !== undefined ? accessor[key] : undefined;
             }, object);
             element.value = value ? value : '';
+        }
+        const bindElementsToFilter = [this.#swdElementRef, ...this.#swdElementRef.querySelectorAll('*')];
+        for (const element of swd.filterElementsByAttributeName('bind', bindElementsToFilter)) {
+            element.value = new Function(...Object.keys(object), `return ${element.key}`)(...Object.values(object));
         }
         return this.#swdElementRef;
     }
