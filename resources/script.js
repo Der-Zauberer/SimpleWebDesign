@@ -71,11 +71,8 @@ class Swd {
 
     translate(elements) {
         for (const element of this.filterElementsByAttributeName('i18n', elements)) {
-            const translated = this.#translation.get(element.key);
-            if (translated) {
-                element.value = translated;
-                element.element.swdIgnoreNextI18nUpdate = true;
-            }
+            element.value = this.#translation.get(element.key) || element.key;
+            element.element.swdIgnoreNextI18nUpdate = true;
         }
     }
 
