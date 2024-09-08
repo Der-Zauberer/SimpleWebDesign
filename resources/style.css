@@ -36,7 +36,7 @@
 }
 
 ::selection {
-    background: var(--theme-primary-color);
+    background: #0033ff;
     color: #ffffff;
 }
 

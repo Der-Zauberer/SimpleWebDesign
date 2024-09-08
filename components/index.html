@@ -587,29 +587,35 @@
 
                 <swd-card-outline class="flex flex-space-around top-item">
                     <swd-dropdown>
-                        <input placeholder="Autocomplete">
+                        <input placeholder="Autocomplete City">
                         <swd-dropdown-content>
                             <swd-selection>
-                                <a>Option 1</a>
-                                <a>Option 2</a>
-                                <a>Selection 1</a>
-                                <a>Selection 2</a>
-                                <a>Something 1</a>
-                                <a>Something 2</a>
+                                <a>Amsterdam</a>
+                                <a>Berlin</a>
+                                <a>Bern</a>
+                                <a>Brussels</a>
+                                <a>Los Angeles</a>
+                                <a>New York</a>
+                                <a>Paris</a>
+                                <a>Rom</a>
+                                <a>Vienna</a>
                             </swd-selection>
                         </swd-dropdown-content>
                     </swd-dropdown>
                     <swd-dropdown>
-                        <input placeholder="Select" readonly>
+                        <input placeholder="Select City" readonly>
                         <swd-icon class="more-down" onclick="this.parentElement.querySelector('input').focus()"></swd-icon>
                         <swd-dropdown-content>
                             <swd-selection>
-                                <a>Option 1</a>
-                                <a>Option 2</a>
-                                <a>Selection 1</a>
-                                <a>Selection 2</a>
-                                <a>Something 1</a>
-                                <a>Something 2</a>
+                                <a>Amsterdam</a>
+                                <a>Berlin</a>
+                                <a>Bern</a>
+                                <a>Brussels</a>
+                                <a>Los Angeles</a>
+                                <a>New York</a>
+                                <a>Paris</a>
+                                <a>Rom</a>
+                                <a>Vienna</a>
                             </swd-selection>
                         </swd-dropdown-content>
                     </swd-dropdown>
@@ -618,13 +624,16 @@
                     &lt;swd-dropdown&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Autocomplete" onselect="doWhatYouWant()"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option 2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Selection 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Selection 2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection onselect="doWhatYouWant()" onfilter="doWhatYouWant()"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Amsterdam&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Berlin&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Bern&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Brussels&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Los Angeles&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;New York&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Paris&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Rom&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Vienna&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-selection&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
                     &lt;/swd-dropdown&gt;<br><br>
@@ -632,13 +641,55 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Select" readonly onselect="doWhatYouWant()"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="more-down" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Option 2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Selection 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Selection 2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Something 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection onselect="doWhatYouWant()" onfilter="doWhatYouWant()"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Amsterdam&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Berlin&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Bern&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Brussels&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Los Angeles&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;New York&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Paris&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Rom&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Vienna&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
+                    &lt;/swd-dropdown&gt;
+                </swd-code>
+
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-dropdown>
+                        <input placeholder="Search City">
+                        <input hidden>
+                        <swd-dropdown-content>
+                            <swd-selection onselect="" onfilter="">
+                                <a value="amsterdam" display="Amsterdam">Amsterdam<swd-subtitle>Netherlands</swd-subtitle></a>
+                                <a value="berlin" display="Berlin">Berlin<swd-subtitle>Germany</swd-subtitle></a>
+                                <a value="bern" display="Bern">Bern<swd-subtitle>Switzerland</swd-subtitle></a>
+                                <a value="brussels" display="Brussels">Brussels<swd-subtitle>Belgium</swd-subtitle></a>
+                                <a value="los-angeles" display="Los Angeles">Los Angeles<swd-subtitle>United States</swd-subtitle></a>
+                                <a value="new-york" display="New York">New York<swd-subtitle>United States</swd-subtitle></a>
+                                <a value="paris" display="Paris">Paris<swd-subtitle>France</swd-subtitle></a>
+                                <a value="rom" display="Rom">Rom<swd-subtitle>Italy</swd-subtitle></a>
+                                <a value="vienna" display="Vienna">Vienna<swd-subtitle>Austria</swd-subtitle></a>
+                            </swd-selection>
+                        </swd-dropdown-content>
+                    </swd-dropdown>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-dropdown&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Search City"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input hidden onselect="console.log(event)"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection onselect="doWhatYouWant()" onfilter="doWhatYouWant()"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a value="amsterdam"&gt;Amsterdam&lt;swd-subtitle&gt;Netherlands&lt;/swd-subtitle&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a value="berlin"&gt;Berlin&lt;swd-subtitle&gt;Germany&lt;/swd-subtitle&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a value="bern"&gt;Bern&lt;swd-subtitle&gt;Switzerland&lt;/swd-subtitle&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a value="brussels"&gt;Brussels&lt;swd-subtitle&gt;Belgium&lt;/swd-subtitle&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a value="los-angeles"&gt;Los Angeles&lt;swd-subtitle&gt;United States&lt;/swd-subtitle&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a value="new-york"&gt;New York&lt;swd-subtitle&gt;United States&lt;/swd-subtitle&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a value="paris"&gt;Paris&lt;swd-subtitle&gt;France&lt;/swd-subtitle&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a value="rom"&gt;Rom&lt;swd-subtitle&gt;Italy&lt;/swd-subtitle&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a value="vienna"&gt;Vienna&lt;swd-subtitle&gt;Austria&lt;/swd-subtitle&gt;&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-selection&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
                     &lt;/swd-dropdown&gt;

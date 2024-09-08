@@ -511,9 +511,7 @@ class SwdSelection extends SwdComponent {
     value;
 
     swdOnInit() {
-        this.swdRegisterManagedEvent(this, 'click', event => {
-            this.select(event.target);
-        })
+        this.swdRegisterManagedEvent(this, 'click', event => this.select(event.target));
     }
 
     next() { this.#nextOrPrevious(true, false) }
@@ -550,8 +548,9 @@ class SwdSelection extends SwdComponent {
         if (!targetToSelect || targetToSelect.nodeName !== 'A' || targetToSelect.hasAttribute('hidden')) return;
         this.selected = targetToSelect;
         this.value = this.selected.getAttribute('value') || this.selected.innerText;
+        const name = this.selected.getAttribute('display') || this.selected.innerText;
         this.dispatchEvent(new Event("select"));
-        if (this.#selectionChangeAction) this.#selectionChangeAction(this.selected.innerText, this.value);
+        if (this.#selectionChangeAction) this.#selectionChangeAction(name, this.value);
     }
 
     setOnSelect(action) {
@@ -559,6 +558,14 @@ class SwdSelection extends SwdComponent {
     }
 
     filter(text) {
+        const event = new Event("filter", { cancelable: true, target: this });
+        if (this.hasAttribute('onfilter')) {
+            eval(this.getAttribute('onfilter'));
+        }
+        if (event.returnValue) {
+            this.dispatchEvent(event);
+        }
+        if (!event.returnValue) return;
         if (!text || text == '') {
             Array.from(this.children).forEach(element => element.removeAttribute('hidden'));
             return;
