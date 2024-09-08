@@ -49,44 +49,24 @@
 
             <h2>Object Read and Write (Databinding)</h2>
 
+            <h3>Two-Way Databinding</h3>
+
             <swd-card-outline class="grid-cols-sm-2 grid-cols-1 top-item">
-                <swd-input id="example1">
-                    <label for="example-input">Name</label>
-                    <input id="example-input" type="text" name="text" value="Hello World" oninput="swd.query('#example2').writeObject(swd.query('#example1').readObject())">
-                </swd-input>
-                <swd-card id="example2">
-                    <span name="text">Hello World</span>
-                </swd-card>
+                <input id="example-1-input" type="text" name="text" value="Hello World" oninput="swd.query('#example-1-text').writeObject(swd.query('#example-1-input').readObject())">
+                <span id="example-1-text" name="text">Hello World</span>
             </swd-card-outline>
             <swd-code swd-code-language="html" class="bottom-item">
-                &lt;swd-input id="example1"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input"&gt;Name&lt;/label&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input" type="text" name="name" value="Hello World" oninput="swd.query('#example2').writeObject(swd.query('#example1').readObject())"&gt;<br>
-                &lt;/swd-input&gt;<br>
-                &lt;swd-card id="example2"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span name="name"&gt;Hello World&lt;/span&gt;<br>
-                &lt;/swd-card&gt;<br>
+                &lt;input id="example-input" type="text" name="name" value="Hello World" oninput="swd.query('#example-text').writeObject(swd.query('#example-input').readObject())"&gt;<br>
+                &lt;span id="example-text" name="name"&gt;Hello World&lt;/span&gt;
             </swd-code>
 
             <swd-card-outline class="grid-cols-sm-2 grid-cols-1 top-item">
-                <swd-input id="example3">
-                    <label for="example-input-2">Name</label>
-                    <input id="example-input-2" type="text" name="text" value="Hello World" oninput="swd.query('#example4').writeObject(swd.query('#example3').readObject())">
-                </swd-input>
-                <swd-input id="example4">
-                    <label for="example-input-3">Name</label>
-                    <input id="example-input-3" type="text" name-placeholder="text" placeholder="Hello World" readonly>
-                </swd-input>
+                <input id="example-1-input-1" type="text" name="text" value="Hello World" oninput="swd.query('#example-1-input-2').writeObject(swd.query('#example-1-input-1').readObject())">
+                <input id="example-1-input-2" name-placeholder="text" placeholder="Hello World">
             </swd-card-outline>
             <swd-code swd-code-language="html" class="bottom-item">
-                &lt;swd-input id="example3"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-2"&gt;Name&lt;/label&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-2" type="text" name="text" value="Hello World" oninput="swd.query('#example4').writeObject(swd.query('#example3').readObject())"&gt;<br>
-                &lt;/swd-input&gt;<br>
-                &lt;swd-input id="example4"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-3"&gt;Name&lt;/label&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-3" type="text" name-placeholder="text" placeholder="Hello World" readonly&gt;<br>
-                &lt;/swd-input&gt;
+                &lt;input id="example-input-1" type="text" name="text" value="Hello World" oninput="swd.query('#example-input-2').writeObject(swd.query('#example-input-1').readObject())"&gt;<br>
+                &lt;input id="example-input-2" name-placeholder="text" placeholder="Hello World"&gt;
             </swd-code>
 
             <swd-card-outline class="top-item">
@@ -94,25 +74,25 @@
                     <button onclick="readAndWrite()">Read And Write</button>
                 </div>
                 <div class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1">
-                    <swd-card id="object1" class="grid-cols-1">
+                    <swd-card id="example-3-object-1" class="grid-cols-1">
                         <swd-input>
-                            <label for="example-input-1">Name</label>
-                            <input id="example-input-1" type="text" name="name" value="Some Person">
+                            <label for="example-3-input-1">Name</label>
+                            <input id="example-3-input-1" type="text" name="name" value="Some Person">
                         </swd-input>
                         <swd-input>
-                            <label for="example-input-2">Street</label>
-                            <input id="example-input-2" type="text" name="address.street" value="Designstreet 17">
+                            <label for="example-3-input-2">Street</label>
+                            <input id="example-3-input-2" type="text" name="address.street" value="Designstreet 17">
                         </swd-input>
                         <swd-input>
-                            <label for="example-input-3">City</label>
-                            <input id="example-input-3" type="text" name="address.city" value="Los Angeles">
+                            <label for="example-3-input-3">City</label>
+                            <input id="example-3-input-3" type="text" name="address.city" value="Los Angeles">
                         </swd-input>
                         <swd-input>
-                            <label for="example-input-4">Note</label>
-                            <input id="example-input-4" type="text" name="note[0]" value="It is a text">
+                            <label for="example-3-input-4">Note</label>
+                            <input id="example-3-input-4" type="text" name="note[0]" value="It is a text">
                         </swd-input>
                     </swd-card>
-                    <swd-card id="object2">
+                    <swd-card id="example-3-object-2">
                         <h3 name="name">John Doe</h3>
                         <div class="margin-bottom">
                             <div name="address.street">Somestreet 5</div>
@@ -120,36 +100,37 @@
                         </div>
                         <p name="note[0]">Some Note</p>
                     </swd-card>
-                    <swd-card id="object3"></swd-card>
+                    <swd-card id="example-3-object-3"></swd-card>
                 </div>
                 <script>
                     function readAndWrite() {
-                        const object = swd.query('#object1').readObject();
-                        swd.query('#object2').writeObject(object);
-                        swd.query('#object3').innerHTML = JSON.stringify(object, undefined, '&nbsp&nbsp&nbsp&nbsp').replace(/\n/g, '<br>');
+                        const object = swd.query('#example-3-object-1').readObject();
+                        swd.query('#example-3-object-2').writeObject(object);
+                        swd.query('#example-3-object-3').innerHTML = JSON.stringify(object, undefined, '&nbsp&nbsp&nbsp&nbsp').replace(/\n/g, '<br>');
                     }
                 </script>
             </swd-card-outline>
             <swd-code swd-code-language="html" class="bottom-item">
                 &lt;button onclick="readAndWrite()"&gt;Read And Write&lt;/button&gt;<br><br>
-                &lt;swd-input&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-1"&gt;Name&lt;/label&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-1" type="text" name="name" value="Some Person"&gt;<br>
-                &lt;/swd-input&gt;<br>
-                &lt;swd-input&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-2"&gt;Street&lt;/label&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-2" type="text" name="address.street" value="Designstreet 17"&gt;<br>
-                &lt;/swd-input&gt;<br>
-                &lt;swd-input&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-3"&gt;City&lt;/label&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-3" type="text" name="address.city" value="Los Angeles"&gt;<br>
-                &lt;/swd-input&gt;<br>
-                &lt;swd-input&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-4"&gt;Note&lt;/label&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-4" type="text" name="note[0]" value="It is a text"&gt;<br>
-                &lt;/swd-input&gt;<br>
+                &lt;swd-card id="object-1"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-1"&gt;Name&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-1" type="text" name="name" value="Some Person"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-2"&gt;Street&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-2" type="text" name="address.street" value="Designstreet 17"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-3"&gt;City&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-3" type="text" name="address.city" value="Los Angeles"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input-4"&gt;Note&lt;/label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input-4" type="text" name="note[0]" value="It is a text"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-input&gt;<br>
                 &lt;/swd-card&gt;<br><br>
-                &lt;swd-card id="object2"&gt;<br>
+                &lt;swd-card id="object-2"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 name="name"&gt;John Doe&lt;/h3&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="margin-bottom"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div name="address.street"&gt;Somestreet 5&lt;/div&gt;<br>
@@ -157,14 +138,25 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;p name="note[0]"&gt;Some Note&lt;/p&gt;<br>
                 &lt;/swd-card&gt;<br><br>
-                &lt;swd-card id="object3"&gt;&lt;/swd-card&gt;<br><br>
+                &lt;swd-card id="object-3"&gt;&lt;/swd-card&gt;<br><br>
                 &lt;script&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;function readAndWrite() {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const object = swd.query('#object1').readObject();<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object2').writeObject(object);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object3').innerHTML = JSON.stringify(object, undefined, '&nbsp&nbsp&nbsp&nbsp').replace(/\n/g, '<br>');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const object = swd.query('#object-1').readObject();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object-2').writeObject(object);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object-3').innerHTML = JSON.stringify(object, undefined, '&nbsp&nbsp&nbsp&nbsp').replace(/\n/g, '<br>');<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 &lt;/script&gt;
+            </swd-code>
+
+            <h3>One-Way Databinding With Functions</h3>
+
+            <swd-card-outline class="grid-cols-sm-2 grid-cols-1 top-item">
+                <input id="example-4-input" type="text" name="text" value="Hello World" oninput="swd.query('#example-4-text').writeObject(swd.query('#example-4-input').readObject())">
+                <span id="example-4-text" bind="(text || '').toUpperCase()">HELLO WORLD</span>
+            </swd-card-outline>
+            <swd-code swd-code-language="html" class="bottom-item">
+                &lt;input id="example-input" type="text" name="name" value="Hello World" oninput="swd.query('#example-text').writeObject(swd.query('#example-input').readObject())"&gt;<br>
+                &lt;span id="example-text" bind="(text || '').toUpperCase()"&gt;HELLO WORLD&lt;/span&gt;
             </swd-code>
 
             <h2>Localization</h2>
@@ -195,9 +187,9 @@
                 &lt;script&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;swd.configureLanguages({<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;languages: [<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'en', src: 'i18n/en.properties' },<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'de', src: 'i18n/de.properties' },<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'es', src: 'i18n/es.properties' }<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'en', src: 'i18n/en.properties' },<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'de', src: 'i18n/de.properties' },<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'es', src: 'i18n/es.properties' }<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fallback: 'en'<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;})<br>
