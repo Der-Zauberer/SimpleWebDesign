@@ -400,8 +400,12 @@ class SwdDropdown extends SwdComponent {
                     break;
                 case 'Enter':
                     event.preventDefault();
-                    this.#selection.select();
-                    this.hide();
+                    if (this.isHidden()) {
+                        this.show();
+                    } else {
+                        this.#selection.select();
+                        this.hide();
+                    }
                     break;
                 case 'Escape':
                     if (this.#dropdownInput) document.activeElement.blur();
