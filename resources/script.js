@@ -94,7 +94,7 @@ class Swd {
                         get value() { return element.innerText }, 
                         set value(value) { element.innerText = value } 
                     });
-                } else if (attribute.name === `${name}-innerHTML`) {
+                } else if (attribute.name === `${name}-innerhtml`) {
                     filteredElements.push({ 
                         key: attribute.value,
                         element,
