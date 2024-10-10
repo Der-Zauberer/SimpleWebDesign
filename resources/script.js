@@ -360,12 +360,12 @@ class SwdDropdown extends SwdComponent {
     #dropdownInput;
     #dropdownSecondaryInput;
     #dropdownContent;
+    #dropdownContentObserver;
     #selection;
 
     #INPUT_EVENT = event => {
         if (this.isHidden()) this.show();
         if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value);
-        this.#setDropdownDirectionAndSize();
     }
 
     swdOnInit() {
@@ -431,7 +431,14 @@ class SwdDropdown extends SwdComponent {
         if (this.#dropdownInput) {
             this.#dropdownInput.addEventListener('input', this.#INPUT_EVENT);
         }
-        if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection');
+        if (this.#dropdownContent) {
+            this.#selection = this.#dropdownContent.querySelector('swd-selection');
+            this.#dropdownContentObserver?.disconnect();
+            this.#dropdownContentObserver = new MutationObserver((mutations, observer) => {
+                this.#setDropdownDirectionAndSize();
+            })
+            this.#dropdownContentObserver.observe(this, { attributes: false, childList: true, subtree: true });
+        }
         if (this.#selection && this.#dropdownInput) {
             this.#selection.setOnSelect((text, value) => {
                 if (this.#dropdownSecondaryInput) {
@@ -455,7 +462,6 @@ class SwdDropdown extends SwdComponent {
         this.#dropdownContent.setAttribute('shown', 'true');
         SwdDropdown.#shownDropdowns.push(this);
         if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(this.#dropdownInput.value)
-        this.#setDropdownDirectionAndSize();
     }
 
     hide() {
