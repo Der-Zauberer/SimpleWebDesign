@@ -320,15 +320,15 @@ class SwdInput extends SwdComponent {
         if (this.#selfUpdateQueue-- > 0) return;
         const input = this.querySelector('input');
         if (input !== this.input) {
-            if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation());
-            if (input) input.addEventListener('input', event => this.#updateValidation());
+            this.#input?.removeEventListener('input', event => this.#updateValidation());
+            input?.addEventListener('input', event => this.#updateValidation());
             this.#input = input;
         }
         this.#updateValidation();
     }
 
     swdOnDestroy() {
-        if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation());
+        this.#input?.removeEventListener('input', event => this.#updateValidation());
     }
 
     #updateValidation() {
@@ -421,16 +421,12 @@ class SwdDropdown extends SwdComponent {
     }
 
     swdOnUpdate(event) {
-        if (this.#dropdownInput) {
-            this.#dropdownInput.removeEventListener('input', this.#INPUT_EVENT);
-        }
+        this.#dropdownInput?.removeEventListener('input', this.#INPUT_EVENT);
         const inputs = this.querySelectorAll('swd-dropdown input:not(swd-dropdown-content *)');
         if (inputs.length > 0) this.#dropdownInput = inputs[0];
         if (inputs.length > 1) this.#dropdownSecondaryInput = inputs[1];
         this.#dropdownContent = this.querySelector('swd-dropdown-content');
-        if (this.#dropdownInput) {
-            this.#dropdownInput.addEventListener('input', this.#INPUT_EVENT);
-        }
+        this.#dropdownInput?.addEventListener('input', this.#INPUT_EVENT);
         if (this.#dropdownContent) {
             this.#selection = this.#dropdownContent.querySelector('swd-selection');
             this.#dropdownContentObserver?.disconnect();
@@ -536,7 +532,7 @@ class SwdSelection extends SwdComponent {
             if (!nextTarget) return;
             target = nextTarget;
         } while (target.nodeName !== 'A' || target.hasAttribute('hidden'));
-        if (original) original.removeAttribute('selected');
+        original?.removeAttribute('selected');
         target.setAttribute('selected', 'true');
         const content = this.parentElement;
         const contentRect = content.getBoundingClientRect();
@@ -560,7 +556,7 @@ class SwdSelection extends SwdComponent {
         this.value = this.selected.getAttribute('value') || this.selected.innerText;
         const name = this.selected.getAttribute('display') || this.selected.innerText;
         this.dispatchEvent(new Event("select"));
-        if (this.#selectionChangeAction) this.#selectionChangeAction(name, this.value);
+        this.#selectionChangeAction?.(name, this.value);
     }
 
     setOnSelect(action) {
