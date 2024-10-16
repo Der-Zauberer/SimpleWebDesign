@@ -196,6 +196,21 @@ class SwdElementRef {
         for (const element of swd.filterElementsByAttributeName('bind', bindElementsToFilter)) {
             element.value = new Function(...Object.keys(object), `return ${element.key}`)(...Object.values(object));
         }
+        const forLoops = [...this.#swdElementRef.querySelectorAll('swd-for[swd-for]')];
+        if (this.#swdElementRef.tagName === 'SWD-FOR' && this.#swdElementRef.hasAttribute('swd-for')) forLoops.push(this.#swdElementRef);
+        for (const element of forLoops) {
+            const template = element.template
+            element.innerHTML = '';
+            const swdFor = element.getAttribute('swd-for');
+            const iterations = new Function(...Object.keys(object), `const _entries = []; for(const ${swdFor}) _entries.push({${swdFor.split(' ')[0]}}); return _entries; ${element.key}`)(...Object.values(object));
+            for (const iteration of iterations) {
+                for (const templateChild of template) {
+                    const entry = templateChild.cloneNode(true); 
+                    swd.from(entry).writeObject(iteration);
+                    element.appendChild(entry);
+                }
+            }
+        }
         return this.#swdElementRef;
     }
 
@@ -265,6 +280,17 @@ class SwdComponent extends HTMLElement {
     swdRegisterManagedEvent(target, event, action) {
         this.#events.push({ target, event, action });
         target.addEventListener(event, action);
+    }
+
+}
+
+class SwdFor extends SwdComponent {
+
+    #template = []
+
+    get template() {
+        if (!this.#template || this.#template.length === 0) this.#template = Array.from(this.children)
+        return this.#template;
     }
 
 }
@@ -738,6 +764,7 @@ class SwdCode extends SwdComponent {
 
 }
 
+customElements.define('swd-for', SwdFor);
 customElements.define('swd-navigation', SwdNavigation);
 customElements.define('swd-input', SwdInput);
 customElements.define('swd-dropdown', SwdDropdown);
