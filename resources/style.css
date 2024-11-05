@@ -992,6 +992,8 @@ swd-dialog:not([shown]), swd-dropdown-content:not([shown]) { display: none }
 
 swd-navigation *, swd-card *, swd-selection * { --theme-primary-grey-color: var(--theme-secondary-grey-color) }
 
+swd-for, swd-if { display: contents; }
+
 [hidden] { display: none }
 
 /*************

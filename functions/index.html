@@ -143,7 +143,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;function readAndWrite() {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const object = swd.query('#object-1').readObject();<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object-2').writeObject(object);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object-3').innerHTML = JSON.stringify(object, undefined, '&nbsp&nbsp&nbsp&nbsp').replace(/\n/g, '<br>');<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.query('#object-3').innerHTML = JSON.stringify(object, undefined, '&nbsp&nbsp&nbsp&nbsp').replace(/\n/g, '&lt;br&gt;');<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;}<br>
                 &lt;/script&gt;
             </swd-code>
@@ -157,6 +157,25 @@
             <swd-code swd-code-language="html" class="bottom-item">
                 &lt;input id="example-input" type="text" name="name" value="Hello World" oninput="swd.query('#example-text').writeObject(swd.query('#example-input').readObject())"&gt;<br>
                 &lt;span id="example-text" bind="(text || '').toUpperCase()"&gt;HELLO WORLD&lt;/span&gt;
+            </swd-code>
+
+            <h3>One-Way Databinding with Arrays</h3>
+
+            <swd-card-outline class="flex flex-wrap top-item">
+                <swd-for swd-for="entry of array" id="example-5">
+                    <swd-chip name="entry"></swd-chip>
+                </swd-for>
+                <script>
+                    swd.query('#example-5').writeObject({ array: ['Test1', 'Test2', 'Test3', 'Test4']})
+                </script>
+            </swd-card-outline>
+            <swd-code swd-code-language="html" class="bottom-item">
+                &lt;swd-for swd-for="entry of array" id="example-5"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-chip name="entry"&gt;&lt;/swd-chip&gt;<br>
+                &lt;/swd-for&gt;<br><br>
+                &lt;script&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;swd.query('#example-5').writeObject({ array: ['Test1', 'Test2', 'Test3', 'Test4']})<br>
+                &lt;/script&gt;
             </swd-code>
 
             <h2 id="localization">Localization</h2>
