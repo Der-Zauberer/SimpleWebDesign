@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#003ecc">
+        <link href="/SimpleWebDesign/resources/style.css" rel="stylesheet">
+        <script src="/SimpleWebDesign/resources/script.js"></script>
+        <link href="/SimpleWebDesign/resources/favicon.png" rel="icon">
+        <title>Simple Web Design</title>
+    </head>
+    <body>
+
+        <div class="frame">
+            <div class="grid-cols-4">
+                <swd-card style="margin-top: auto;">
+                    <h4>Delivery Address</h4>
+                    <p>
+                        Joseph Parker<br>
+                        Mcwhorter Road 73<br>
+                        39201 Jackson<br>
+                        United States of America<br>
+                    </p>
+                    <div class="flex flex-end">
+                        <button>Change</button>
+                    </div>
+                </swd-card>
+
+                <div class="grid-cols-2" style="margin-top: auto;">
+
+                    <swd-card class="grid-span-2 green">
+                        <p>Your application has been submitted and will be processed as soon as possible.</p>
+                    </swd-card>
+
+                    <swd-card>
+                        <h3><swd-subtitle><label>Views</label></swd-subtitle>305.234</h3>
+                    </swd-card>
+    
+                    <swd-card>
+                        <h3><swd-subtitle><label>Follower</label></swd-subtitle><span class="green-text">+350</span></h3>
+                    </swd-card>
+
+                </div>
+                
+                <div style="margin-top: auto;">
+
+                    <swd-card>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    </swd-card>
+
+                    <swd-input>
+                        <swd-icon class="search"></swd-icon>
+                        <input id="search" placeholder="Search">
+                    </swd-input>
+
+                </div>
+
+                <swd-card style="margin-top: auto;">
+                    <h3>Delete File</h3>
+                    <p>Are you sure to delete this file?</p>
+                    <code>/home/user/file.text</code>
+                    <div class="flex flex-space-between">
+                        <button class="width-100 grey">Cancel</button>
+                        <button class="width-100 red"><swd-icon class="delete"></swd-icon> Delete</button>
+                    </div>
+                </swd-card>
+
+                <div class="grid-span-4 title">SimpleWebDesign 2.0</div>
+
+                <div class="grid-span-2">
+                    <swd-card>
+                        <h3> respect your privacy!</h3>
+                        <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept all", you consent to our use of cookies. <a>Privacy Policy</a></p>
+                        <div class="flex flex-space-between">
+                            <button class="width-100 grey">Reject optional</button>
+                            <button class="width-100">Accept all</button>
+                        </div>
+                    </swd-card>
+
+                    <swd-card>
+                        <div class="flex flex-space-between">
+                            <button class="grey"> <swd-icon class="arrow-left"></swd-icon>Previous</button>
+                            <div>Holidays 2020</div>
+                            <button class="grey">Next <swd-icon class="arrow-right"></swd-icon></button>
+                        </div>
+                    </swd-card>
+                </div>
+
+                <swd-card-outline>
+                    <h3>Table of contents</h3>
+                    <div class="grid-cols-1 no-gap" style="margin-left: -10px; margin-right: -10px;">
+                        <button class="ghost" style="text-align: left">The Boy Who Lived</button>
+                        <button class="ghost" style="text-align: left">The Vanishing Glass</button>
+                        <button class="ghost" style="text-align: left" selected>The Letters From No One</button>
+                        <button class="ghost" style="text-align: left">The Keeper of the Keys</button>
+                        <button class="ghost" style="text-align: left">Diagon Alley</button>
+                        <button class="ghost" style="text-align: left">The Journey From Platform Nine and Three Quarters</button>
+                    </div>
+                </swd-card-outline>
+
+                <swd-card-outline>
+                    <h3>Login</h3>
+                    <div class="grid-cols-1">
+                        <swd-input>
+                            <label for="login-username">Username</label>
+                            <input id="login-username">
+                        </swd-input>
+                        <swd-input>
+                            <label for="login-username">Password</label>
+                            <input id="login-username">
+                        </swd-input>
+                        <a>Forgot Password?</a>
+                        <button class="100">Login</button>
+                    </div>
+                </swd-card-outline>
+
+            </div>
+            
+        </div>
+
+    </body>
+</html>
+
+<style>
+    .frame {
+        display: block;
+        width: 1280px;
+        height: 720px;
+        border: solid white 1px;
+        box-sizing: content-box;
+        overflow: hidden;
+    }
+
+    .frame > * {
+        position: relative;
+        width: calc(1280px + 120px);
+        transform: translateX(-60px) translateY(-30px);
+    }
+
+    .title {
+        padding: var(--theme-element-spacing);
+        font-size: 80px;
+        width: 100%;
+        font-weight: bold;
+        text-align: center;
+        color: var(--theme-primary-color);
+    }
+
+</style>
