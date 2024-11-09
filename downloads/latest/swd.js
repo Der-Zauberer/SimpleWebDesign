@@ -3,6 +3,10 @@ class Swd {
     #loaded = false;
     #afterRenderedActions = [];
 
+    #fallbackLanguage;
+    #languages = new Map();
+    #translation = new Map();
+
     constructor() {
         document.addEventListener('readystatechange', event => {
             if (event.target.readyState === 'interactive') {
@@ -10,9 +14,20 @@ class Swd {
                 this.#afterRenderedActions.forEach(action => action.call());
             }
         })
+        new MutationObserver((mutations, observer) => {
+            if (this.#translation.length === 0) return;
+            for (const mutation of mutations) {
+                if (mutation.target.swdIgnoreNextI18nUpdate) {
+                    mutation.target.swdIgnoreNextI18nUpdate = false;
+                    return;
+                }
+                this.translate([mutation.target]);
+            }
+        }).observe(document, { attributes: true, childList: true, subtree: true });
     }
 
     from(element) {
+        if (!element) throw new ReferenceError(`element is undefined`)
         for (const [key, value] of Object.entries(new SwdElementRef(element))) {
             if (!element[key]) {
                 element[key] = value;
@@ -23,7 +38,9 @@ class Swd {
     }
 
     query(query) {
-        return this.from(document.querySelector(query));
+        const element = document.querySelector(query)
+        if (!element) throw new ReferenceError(`query result is undefined`)
+        return this.from(element);
     }
 
     doAfterRendered(action) {
@@ -31,9 +48,76 @@ class Swd {
         else this.#afterRenderedActions.push(action);
     }
 
+    configureLanguages(languages) {
+        for (const language of languages.languages) {
+            this.#languages.set(language.locale, language.src);
+        }
+        this.#fallbackLanguage = languages.fallback;
+    }
+
+    setLanguage(locale) {
+        const src = this.#languages.get(locale) || this.#languages.get(this.#fallbackLanguage);
+        if (src == undefined) return;
+        fetch(src).then(response => response.text()).then(text => {
+            this.#translation.clear();
+            const lines = text.split(/\r?\n/gm);
+            for (const line of lines) {
+                const translation = line.split('=');
+                this.#translation.set(translation[0].trim(), translation[1].trim());
+                if (this.#loaded) this.translate(document.querySelectorAll('*'))
+            }
+        });
+    }
+
+    translate(elements) {
+        for (const element of this.filterElementsByAttributeName('i18n', elements)) {
+            element.value = this.#translation.get(element.key) || element.key;
+            element.element.swdIgnoreNextI18nUpdate = true;
+        }
+    }
+
+    filterElementsByAttributeName(name, elements) {
+        const filteredElements = []
+        for (const element of elements) {
+            for (const attribute of element.attributes) {
+                if (attribute.name === name && element.tagName === 'INPUT') {
+                    filteredElements.push({ 
+                        key: attribute.value,
+                        element,
+                        get value() { return element.value }, 
+                        set value(value) { element.value = value } 
+                    });
+                } else if (attribute.name === name) {
+                    filteredElements.push({ 
+                        key: attribute.value,
+                        element,
+                        get value() { return element.innerText }, 
+                        set value(value) { element.innerText = value } 
+                    });
+                } else if (attribute.name === `${name}-innerhtml`) {
+                    filteredElements.push({ 
+                        key: attribute.value,
+                        element,
+                        get value() { return element.innerHTML }, 
+                        set value(value) { element.innerHTML = value } 
+                    });
+                } else if (attribute.name.startsWith(`${name}-`)) {
+                    const attributeName = attribute.name.substring(name.length + 1);
+                    filteredElements.push({ 
+                        key: attribute.value,
+                        element,
+                        get value() { return element.getAttribute(attributeName) }, 
+                        set value(value) { element.setAttribute(attributeName, value) } 
+                    });
+                }
+            }
+        }
+        return filteredElements;
+    }
+
 }
 
-swd = new Swd();
+const swd = new Swd();
 window.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.autoHide() });
 document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
 document.addEventListener('click', (event) => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });
@@ -48,7 +132,9 @@ class SwdElementRef {
     }
 
     query = (query) => {
-        return swd.from(this.#swdElementRef.querySelector(query));
+        const element = this.#swdElementRef.querySelector(query)
+        if (!element) throw new ReferenceError(`query result is undefined`)
+        return element;
     }
 
     hide = () => {
@@ -94,9 +180,9 @@ class SwdElementRef {
     }
 
     writeObject = (object) => {
-        for (const elements of this.#swdElementRef.querySelectorAll('[name]')) {
-            const path = elements.getAttribute('name');
-            const parts = path.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
+        const nameElementsToFilter = [this.#swdElementRef, ...this.#swdElementRef.querySelectorAll('*')];
+        for (const element of swd.filterElementsByAttributeName('name', nameElementsToFilter)) {
+            const parts = element.key.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
             const value = parts.reduce((accessor, key) => {
                 const numericKey = Number(key);
                 if (Array.isArray(accessor) && !isNaN(numericKey)) {
@@ -104,20 +190,20 @@ class SwdElementRef {
                 }
                 return accessor && accessor[key] !== undefined ? accessor[key] : undefined;
             }, object);
-            if (value) {
-                elements.tagName === 'INPUT' ? elements.value = value : elements.innerText = value;
-            } else {
-                elements.tagName === 'INPUT' ? elements.value = '' : elements.innerText = '';
-            }
+            element.value = value ? value : '';
         }
+        const bindElementsToFilter = [this.#swdElementRef, ...this.#swdElementRef.querySelectorAll('*')];
+        for (const element of swd.filterElementsByAttributeName('bind', bindElementsToFilter)) {
+            element.value = new Function(...Object.keys(object), `return ${element.key}`)(...Object.values(object));
+        }
+        return this.#swdElementRef;
     }
 
     readObject = (object) => {
-        for (const elements of this.#swdElementRef.querySelectorAll('[name]')) {
-            const path = elements.getAttribute('name');
-            let value = elements.tagName === 'INPUT' ? elements.value : elements.innerText;
-            if (value.length === 0) value = undefined;
-            const parts = path.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
+        const elementsToFilter = [this.#swdElementRef, ...this.#swdElementRef.querySelectorAll('*')];
+        for (const element of swd.filterElementsByAttributeName('name', elementsToFilter)) {
+            const value = element.value.length !== 0 ? element.value : undefined;
+            const parts = element.key.replace(/\[(\w+)\]/g, '.$1').split('.').filter(Boolean);
             if (!object) object = isNaN(parts[0]) ? {} : []
             parts.reduce((accessor, key, index) => {
                 const numericKey = Number(key);
@@ -152,8 +238,8 @@ class SwdComponent extends HTMLElement {
 
     constructor() {
         super();
-        this.#observer = new MutationObserver((mutationList, observer) => {
-            this.swdOnUpdate([...mutationList]);
+        this.#observer = new MutationObserver((mutations, observer) => {
+            this.swdOnUpdate([...mutations]);
         })
         this.#observer.observe(this, { attributes: true, childList: true, subtree: false });
         swd.doAfterRendered(() => this.swdAfterRendered());
@@ -234,15 +320,15 @@ class SwdInput extends SwdComponent {
         if (this.#selfUpdateQueue-- > 0) return;
         const input = this.querySelector('input');
         if (input !== this.input) {
-            if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation());
-            if (input) input.addEventListener('input', event => this.#updateValidation());
+            this.#input?.removeEventListener('input', event => this.#updateValidation());
+            input?.addEventListener('input', event => this.#updateValidation());
             this.#input = input;
         }
         this.#updateValidation();
     }
 
     swdOnDestroy() {
-        if (this.#input) this.#input.removeEventListener('input', event => this.#updateValidation());
+        this.#input?.removeEventListener('input', event => this.#updateValidation());
     }
 
     #updateValidation() {
@@ -274,12 +360,12 @@ class SwdDropdown extends SwdComponent {
     #dropdownInput;
     #dropdownSecondaryInput;
     #dropdownContent;
+    #dropdownContentObserver;
     #selection;
 
     #INPUT_EVENT = event => {
         if (this.isHidden()) this.show();
         if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value);
-        this.#setDropdownDirectionAndSize();
     }
 
     swdOnInit() {
@@ -314,8 +400,12 @@ class SwdDropdown extends SwdComponent {
                     break;
                 case 'Enter':
                     event.preventDefault();
-                    this.#selection.select();
-                    this.hide();
+                    if (this.isHidden()) {
+                        this.show();
+                    } else {
+                        this.#selection.select();
+                        this.hide();
+                    }
                     break;
                 case 'Escape':
                     if (this.#dropdownInput) document.activeElement.blur();
@@ -331,17 +421,20 @@ class SwdDropdown extends SwdComponent {
     }
 
     swdOnUpdate(event) {
-        if (this.#dropdownInput) {
-            this.#dropdownInput.removeEventListener('input', this.#INPUT_EVENT);
-        }
+        this.#dropdownInput?.removeEventListener('input', this.#INPUT_EVENT);
         const inputs = this.querySelectorAll('swd-dropdown input:not(swd-dropdown-content *)');
         if (inputs.length > 0) this.#dropdownInput = inputs[0];
         if (inputs.length > 1) this.#dropdownSecondaryInput = inputs[1];
         this.#dropdownContent = this.querySelector('swd-dropdown-content');
-        if (this.#dropdownInput) {
-            this.#dropdownInput.addEventListener('input', this.#INPUT_EVENT);
+        this.#dropdownInput?.addEventListener('input', this.#INPUT_EVENT);
+        if (this.#dropdownContent) {
+            this.#selection = this.#dropdownContent.querySelector('swd-selection');
+            this.#dropdownContentObserver?.disconnect();
+            this.#dropdownContentObserver = new MutationObserver((mutations, observer) => {
+                this.#setDropdownDirectionAndSize();
+            })
+            this.#dropdownContentObserver.observe(this, { attributes: false, childList: true, subtree: true });
         }
-        if (this.#dropdownContent) this.#selection = this.#dropdownContent.querySelector('swd-selection');
         if (this.#selection && this.#dropdownInput) {
             this.#selection.setOnSelect((text, value) => {
                 if (this.#dropdownSecondaryInput) {
@@ -365,7 +458,6 @@ class SwdDropdown extends SwdComponent {
         this.#dropdownContent.setAttribute('shown', 'true');
         SwdDropdown.#shownDropdowns.push(this);
         if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(this.#dropdownInput.value)
-        this.#setDropdownDirectionAndSize();
     }
 
     hide() {
@@ -425,9 +517,7 @@ class SwdSelection extends SwdComponent {
     value;
 
     swdOnInit() {
-        this.swdRegisterManagedEvent(this, 'click', event => {
-            this.select(event.target);
-        })
+        this.swdRegisterManagedEvent(this, 'click', event => this.select(event.target));
     }
 
     next() { this.#nextOrPrevious(true, false) }
@@ -442,7 +532,7 @@ class SwdSelection extends SwdComponent {
             if (!nextTarget) return;
             target = nextTarget;
         } while (target.nodeName !== 'A' || target.hasAttribute('hidden'));
-        if (original) original.removeAttribute('selected');
+        original?.removeAttribute('selected');
         target.setAttribute('selected', 'true');
         const content = this.parentElement;
         const contentRect = content.getBoundingClientRect();
@@ -464,8 +554,9 @@ class SwdSelection extends SwdComponent {
         if (!targetToSelect || targetToSelect.nodeName !== 'A' || targetToSelect.hasAttribute('hidden')) return;
         this.selected = targetToSelect;
         this.value = this.selected.getAttribute('value') || this.selected.innerText;
+        const name = this.selected.getAttribute('display') || this.selected.innerText;
         this.dispatchEvent(new Event("select"));
-        if (this.#selectionChangeAction) this.#selectionChangeAction(this.selected.innerText, this.value);
+        this.#selectionChangeAction?.(name, this.value);
     }
 
     setOnSelect(action) {
@@ -473,6 +564,14 @@ class SwdSelection extends SwdComponent {
     }
 
     filter(text) {
+        const event = new Event("filter", { cancelable: true, target: this });
+        if (this.hasAttribute('onfilter')) {
+            eval(this.getAttribute('onfilter'));
+        }
+        if (event.returnValue) {
+            this.dispatchEvent(event);
+        }
+        if (!event.returnValue) return;
         if (!text || text == '') {
             Array.from(this.children).forEach(element => element.removeAttribute('hidden'));
             return;
