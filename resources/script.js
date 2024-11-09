@@ -117,7 +117,7 @@ class Swd {
 
 }
 
-swd = new Swd();
+const swd = new Swd();
 window.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.autoHide() });
 document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
 document.addEventListener('click', (event) => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });
