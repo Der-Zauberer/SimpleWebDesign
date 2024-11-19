@@ -859,71 +859,44 @@
 
                 <h2 id="icons">Icons</h2>
 
-                <div class="icons flex flex-wrap">
-                    <swd-card>
-                        <swd-icon class="hamburger"></swd-icon>
-                        <div>hamburger</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="arrow-left"></swd-icon>
-                        <div>arrow-left</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="arrow-right"></swd-icon>
-                        <div>arrow-right</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="arrow-up"></swd-icon>
-                        <div>arrow-up</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="arrow-down"></swd-icon>
-                        <div>arrow-down</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="more"></swd-icon>
-                        <div>more</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="more-down"></swd-icon>
-                        <div>more-down</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="done"></swd-icon>
-                        <div>done</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="close"></swd-icon>
-                        <div>close</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="search"></swd-icon>
-                        <div>search</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="add"></swd-icon>
-                        <div>add</div>
-                    </swd-card>
-                    <swd-card>
-                        <swd-icon class="delete"></swd-icon>
-                        <div>delete</div>
-                    </swd-card>
+                <div class="icons">
+                    <div><div><swd-icon class="hamburger"></swd-icon></div><div>hamburger</div></div>
+                    <div><div><swd-icon class="arrow-left"></swd-icon></div><div>arrow-left</div></div>
+                    <div><div><swd-icon class="arrow-right"></swd-icon></div><div>arrow-right</div></div>
+                    <div><div><swd-icon class="arrow-up"></swd-icon></div><div>arrow-up</div></div>
+                    <div><div><swd-icon class="arrow-down"></swd-icon></div><div>arrow-down</div></div>
+                    <div><div><swd-icon class="more"></swd-icon></div><div>more</div></div>
+                    <div><div><swd-icon class="more-down"></swd-icon></div><div>more-down</div></div>
+                    <div><div><swd-icon class="done"></swd-icon></div><div>done</div></div>
+                    <div><div><swd-icon class="close"></swd-icon></div><div>close</div></div>
+                    <div><div><swd-icon class="search"></swd-icon></div><div>search</div></div>
+                    <div><div><swd-icon class="add"></swd-icon></div><div>add</div></div>
+                    <div><div><swd-icon class="delete"></swd-icon></div><div>delete</div></div>
                 </div>
     
                 <style>
-                    .icons swd-card { 
-                        padding: 20px 0; 
-                        width: 100px; 
-                        height: 110px 
+                    .icons {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, 80px);
+                        justify-content: space-between;
+                        grid-gap: var(--theme-inner-element-spacing);
+                        margin-bottom: var(--theme-element-spacing);
+                    }
+
+                    .icons div div:first-child {
+                        padding: 22.5px;
+                        height: 35px;
+                        width: 35px;
+                        border-radius: var(--theme-border-radius);
+                        background-color: var(--theme-primary-grey-color);
+                    }
+
+                    .icons div div:first-child swd-icon {
+                        transform: translateY(-1px);
+                        font-size: 2em;
                     }
     
-                    .icons swd-card swd-icon {
-                        font-size: 2em; 
-                        display: block; 
-                        margin: 0 auto 10px auto;
-                    }
-    
-                    .icons swd-card div { 
+                    .icons div div:last-child { 
                         font-size: 0.8em; 
                         text-align: center; 
                     }
