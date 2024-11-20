@@ -361,8 +361,9 @@ a.button, button, input[type="submit"], swd-navigation a, swd-selection a {
     white-space: nowrap;
     overflow-x: hidden;
     text-overflow: ellipsis;
-    vertical-align: bottom;
 }
+
+input[type="submit"] {border-bottom: initial}
 
 a.button:hover, a.button:focus, a.button:active, a.button[selected],
 button:hover, button:focus, button:active, button[selected],
@@ -444,7 +445,7 @@ swd-input swd-icon {
 swd-input:has(input.outline) swd-icon { transform: translateX(calc((round(0.5em, 1px) + var(--theme-border-width)) / -1)) translateY(-50%) }
 swd-input:has(input:focus) swd-icon { background-color: var(--theme-text-color) }
 
-input:not(.outline, .ghost), select:not(.outline, .ghost), textarea:not(.outline, .ghost), swd-input:not(.outline, .ghost) {
+input, select, textarea, swd-input {
     padding: round(0.5em, 1px) round(0.5em, 1px) calc(round(0.5em, 1px) - var(--theme-border-width)) round(0.5em, 1px);
     border: none;
     background-color: var(--theme-primary-grey-color);
@@ -452,12 +453,15 @@ input:not(.outline, .ghost), select:not(.outline, .ghost), textarea:not(.outline
 }
 
 input.outline, select.outline, textarea.outline, swd-input.outline {
+    padding: calc(round(0.5em, 1px) - var(--theme-border-width));
     background-color: var(--theme-primary-grey-color);
-    border-color: var(--theme-secondary-grey-color);
+    border: solid var(--theme-border-width) var(--theme-secondary-grey-color);
 }
 
 input.ghost, select.ghost, textarea.ghost, swd-input.ghost {
+    padding: calc(round(0.5em, 1px) - var(--theme-border-width));
     background-color: transparent;
+    border: solid var(--theme-border-width) transparent;
 }
 
 input:focus, select:focus, textarea:focus, input[selected], select[selected], textarea[selected], 
