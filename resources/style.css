@@ -614,6 +614,7 @@ swd-card-outline {
 
 swd-card-ghost { background: initial; border-color: transparent; }
 swd-card.swd-card-hover:hover, swd-card-outline.swd-card-hover:hover { cursor: pointer; --theme-primary-grey-color: var(--theme-secondary-grey-color); }
+swd-card-ghost.swd-card-hover:hover { cursor: pointer; background-color: var(--theme-primary-grey-color); }
 .swd-card-frame { padding: 0; border: none; }
 
 [class*="overlay-"] {
@@ -938,7 +939,7 @@ swd-navigation a, swd-select a { display: block }
 
 swd-dialog:not([shown]), swd-dropdown-content:not([shown]) { display: none }
 
-swd-navigation *, swd-card *, swd-selection * { --theme-primary-grey-color: var(--theme-secondary-grey-color) }
+swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selection * { --theme-primary-grey-color: var(--theme-secondary-grey-color) }
 
 [hidden] { display: none }
 
