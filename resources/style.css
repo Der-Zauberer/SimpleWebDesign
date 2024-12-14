@@ -157,18 +157,21 @@ body {
 *   Icons   *
 ************/
 
-swd-icon.hamburger { mask-image: url("icons/hamburger.svg") }
-swd-icon.arrow-left { mask-image: url("icons/arrow-left.svg") }
-swd-icon.arrow-right { mask-image: url("icons/arrow-right.svg") }
-swd-icon.arrow-up { mask-image: url("icons/arrow-up.svg") }
-swd-icon.arrow-down { mask-image: url("icons/arrow-down.svg") }
-swd-icon.more { mask-image: url("icons/more.svg") }
-swd-icon.more-down { mask-image: url("icons/more-down.svg") }
-swd-icon.done { mask-image: url("icons/done.svg") }
-swd-icon.close { mask-image: url("icons/close.svg") }
-swd-icon.search { mask-image: url("icons/search.svg") }
-swd-icon.add { mask-image: url("icons/add.svg") }
-swd-icon.delete { mask-image: url("icons/delete.svg") }
+swd-icon.hamburger { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="1" width="9" x="0" y="0"/><rect height="1" width="9" x="0" y="4"/><rect height="1" width="9" x="0" y="8"/></svg>') }
+swd-icon.arrow-left { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="1" width="8" x="1" y="4"/><rect height="6" width="1" x="0.5" y="-1" transform="rotate(45, 1, 4.5)"/><rect height="6" width="1" x="0.5" y="4" transform="rotate(-45, 1, 4.5)"/></svg>') }
+swd-icon.arrow-right { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="1" width="8" x="0" y="4"/><rect height="6" width="1" x="7.5" y="-1" transform="rotate(-45, 8, 4.5)"/><rect height="6" width="1" x="7.5" y="4" transform="rotate(45, 8, 4.5)"/></svg>') }
+swd-icon.arrow-up { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="8" width="1" x="4" y="1"/><rect height="1" width="6" x="-1" y="0.5" transform="rotate(-45, 4.5, 1)"/><rect height="1" width="6" x="4" y="0.5" transform="rotate(45, 4.5, 1)"/></svg>') }
+swd-icon.arrow-down { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="8" width="1" x="4" y="0"/><rect height="1" width="6" x="-1" y="7.5" transform="rotate(45, 4.5, 8)"/><rect height="1" width="6" x="4" y="7.5" transform="rotate(-45, 4.5, 8)"/></svg>') }
+swd-icon.more { mask-image: url('data:image/svg+xml,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle r="1.5" cx="8" cy="1.5"/><circle r="1.5" cx="8" cy="8"/><circle r="1.5" cx="8" cy="14.5"/></svg>') }
+swd-icon.left { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="6" width="1" x="2" y="-1" transform="rotate(45, 2.5, 4.5)"/><rect height="6" width="1" x="2" y="4" transform="rotate(-45, 2.5, 4.5)"/></svg>') }
+swd-icon.right { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="6" width="1" x="6" y="-1" transform="rotate(-45, 6.5, 4.5)"/><rect height="6" width="1" x="6" y="4" transform="rotate(45, 6.5, 4.5)"/></svg>') }
+swd-icon.up { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="1" width="6" x="-1" y="2" transform="rotate(-45, 4.5, 2.5)"/><rect height="1" width="6" x="4" y="2" transform="rotate(45, 4.5, 2.5)"/></svg>') }
+swd-icon.down { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="1" width="6" x="-1" y="6" transform="rotate(45, 4.5, 6.5)"/><rect height="1" width="6" x="4" y="6" transform="rotate(-45, 4.5, 6.5)"/></svg>') }
+swd-icon.done { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="1" width="4" x="-0.5" y="6.5" transform="rotate(45, 3, 7)"/><rect height="1" width="8.5" x="2.5" y="6.5" transform="rotate(-45, 3, 7)"/></svg>') }
+swd-icon.close { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="1" width="11" x="-1" y="4" transform="rotate(45, 4.5, 4.5)"/><rect height="11" width="1" x="4" y="-1" transform="rotate(45, 4.5, 4.5)"/></svg>') }
+swd-icon.search { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><circle cx="3.5" cy="3.5" r="2.5" stroke-width="1" stroke="black" fill="%2300000000"/><rect height="4.5" width="1" x="7.5" y="4" transform="rotate(-45, 8, 8)"/></svg>') }
+swd-icon.add { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="1" width="9" y="4" x="0"/><rect height="9" width="1" y="0" x="4"/></svg>') }
+swd-icon.delete { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><rect height="7" width="6" y="1.5" x="1.5" stroke-width="1" stroke="black" fill="%2300000000"/><rect height="1" width="3" y="0" x="3"/><rect height="1" width="9" y="1" x="0"/><rect height="4" width="1" y="3" x="3"/><rect height="4" width="1" y="3" x="5"/></svg>') }
 
 swd-icon {
     display: inline-block;
@@ -178,7 +181,7 @@ swd-icon {
     mask-size: contain;
     mask-position: center;
     mask-repeat: no-repeat;
-    transform: translateY(10%);
+    transform: translateY(12%);
 }
 
 /****************
