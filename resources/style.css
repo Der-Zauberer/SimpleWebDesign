@@ -104,18 +104,32 @@ body {
 *   Icons   *
 ************/
 
-swd-icon.hamburger { mask-image: url("icons/hamburger.svg") }
-swd-icon.arrow-left { mask-image: url("icons/arrow-left.svg") }
-swd-icon.arrow-right { mask-image: url("icons/arrow-right.svg") }
-swd-icon.arrow-up { mask-image: url("icons/arrow-up.svg") }
-swd-icon.arrow-down { mask-image: url("icons/arrow-down.svg") }
-swd-icon.more { mask-image: url("icons/more.svg") }
-swd-icon.more-down { mask-image: url("icons/more-down.svg") }
-swd-icon.done { mask-image: url("icons/done.svg") }
-swd-icon.close { mask-image: url("icons/close.svg") }
-swd-icon.search { mask-image: url("icons/search.svg") }
-swd-icon.add { mask-image: url("icons/add.svg") }
-swd-icon.delete { mask-image: url("icons/delete.svg") }
+swd-icon.hamburger { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 1 H18 M0 9 H 18 M0 17 H18" stroke-width="2" stroke="black"/></svg>') }
+swd-icon.more { mask-image: url('data:image/svg+xml,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><circle r="1.5" cx="8" cy="1.5"/><circle r="1.5" cx="8" cy="8"/><circle r="1.5" cx="8" cy="14.5"/></svg>') }
+swd-icon.arrow-left { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 1 L1.5 9 L9.5 17 M2 9 H18" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.arrow-right { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M8.5 1 L16.5 9 L8.5 17 M0 9 H16" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.arrow-up { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 9.5 L9 1.5 L17 9.5 M9 2 V18" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.arrow-down { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.5 L9 16.5 L17 8.5 M9 0 V16" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.left { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M13 1 5 9 L13 17" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.right { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M5 1 13 9 L5 17" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.up { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 13 L9 5 L17 13" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.down { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 5 L9 13 L17 5" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.download { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.5 L9 12.5 L15 6.5 M9 0 V13 M0 17 H18" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.upload { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M3 11.5 L9 5.5 L15 11.5 M9 5 V18 M0 1 H18" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.external { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M17 12 V17 H1 V1 H6 M10 1 H17 V8 M17 1 L7 11" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.share { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><circle r="2" cx="15" cy="3" stroke-width="2" stroke="black" fill="black"/><circle r="2" cx="15" cy="15" stroke-width="2" stroke="black" fill="black"/><circle r="2" cx="3" cy="9" stroke-width="2" stroke="black" fill="black"/><path d="M15 3 L3 9 L15 15" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.done { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 9 L8 15 L17 3" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.close { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 1 L17 17 M17 1 L1 17" stroke-width="2" stroke="black"/></svg>') }
+swd-icon.add { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 9 L18 9 M9 0 L9 18" stroke-width="2" stroke="black"/></svg>') }
+swd-icon.delete { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M6 1 H12 M0 3 H18 M3 3 L3 17 L15 17 L15 4 M7 6 V14 M11 6 V14" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.search { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="5" stroke-width="2" stroke="black" fill="none"/><path d="M17 17 L9 9" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.history { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 9 Q1.5 16.5 9 17 Q16.5 16.5 17 9 Q16.5 1.5 9 1 Q4 1 1.4 5 M1 0 V5 H6 M9 4 V9 L13 12" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.settings { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><circle r="6" cx="9" cy="9" stroke-width="2" stroke="black" fill="none"/><path d="M9 0 L9 3 M15.4 2.6 L13 5 M18 9 L15 9 M15.4 15.4 L13 13 M9 18 L9 15 M2.6 15.4 L5 13 M0 9 L3 9 M2.6 2.6 L5 5" stroke-width="3" stroke="black" fill="none"/></svg>') }
+swd-icon.options { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 H18 M0 9 H 18 M0 15 H18 M3 0 V6 M13 6 V12 M7 12 V18" stroke-width="2" stroke="black"/></svg>') }
+swd-icon.filter { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M2 1 L16 1 L11 7 L11 13 L7 16 L7 7 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.star { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 2.5 L11 7 L16 7 L12.5 11 L14 16 L9 13 L4 16 L5.5 11 L2 7 L7 7 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.star-filled { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 2.5 L11 7 L16 7 L12.5 11 L14 16 L9 13 L4 16 L5.5 11 L2 7 L7 7 Z" stroke-width="2" stroke="black" fill="black"/></svg>') }
+swd-icon.grid { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 H9 M0 1 H9 M0 2 H9 M0 3 H9 M0 4 H9 M0 5 H9 M0 6 H9 M0 7 H9 M0 8 H9 M0 9 H9 M0 0 V9 M1 0 V9 M2 0 V9 M3 0 V9 M4 0 V9 M5 0 V9 M6 0 V9 M7 0 V9 M8 0 V9 M9 0 V9" stroke-width="0.1" stroke="black"/></svg>') }
 
 swd-icon {
     display: inline-block;
@@ -125,7 +139,7 @@ swd-icon {
     mask-size: contain;
     mask-position: center;
     mask-repeat: no-repeat;
-    transform: translateY(10%);
+    transform: translateY(12%);
 }
 
 /****************
