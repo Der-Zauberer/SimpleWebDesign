@@ -994,8 +994,8 @@ swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selecti
 .primary-text { --theme-text-color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); }
 .secondary-text { --theme-text-color: light-dark(hsl(225, 100%, 25%), hsl(225, 100%, 35%)); }
 .accent-text { --theme-text-color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)); }
-.magenta-text { --theme-text-color: light-dark(hsl(337.5, 100%, 40%), hsl(337.5, 100%, 50%)); }
-.purple-text { --theme-text-color: light-dark(hsl(270, 100%, 40%), hsl(270, 100%, 50%)); }
+.magenta-text { --theme-text-color: light-dark(hsl(337.5, 100%, 50%), hsl(337.5, 100%, 60%)); }
+.purple-text { --theme-text-color: light-dark(hsl(270, 100%, 50%), hsl(270, 100%, 60%)); }
 .blue-text { --theme-text-color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); }
 .aqua-text { --theme-text-color: light-dark(hsl(202.2, 100%, 40%), hsl(202.2, 100%, 50%)); }
 .green-text { --theme-text-color: light-dark(hsl(112.5, 100%, 30%), hsl(112.5, 100%, 40%)); }
