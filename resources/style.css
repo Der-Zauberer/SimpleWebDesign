@@ -11,8 +11,8 @@
     --theme-success-color: hsl(112.5, 100%, 35%);
     --theme-warning-color: hsl(45, 100%, 50%);
     --theme-error-color: hsl(0, 100%, 50%);
-    --theme-primary-grey-color: light-dark(hsl(0, 0%, 85%), hsl(0, 0%, 15%));
-    --theme-secondary-grey-color: light-dark(hsl(0, 0%, 70%), hsl(0, 0%, 30%));
+    --theme-primary-grey-color: light-dark(hsl(0, 0%, 90%), hsl(0, 0%, 10%));
+    --theme-secondary-grey-color: light-dark(hsl(0, 0%, 80%), hsl(0, 0%, 20%));
     --theme-background-color: light-dark(white, black);
     --theme-text-color: light-dark(black, white);
     --theme-text-grey-color: light-dark(hsl(0, 0%, 40%), hsl(0, 0%, 60%));
@@ -981,7 +981,7 @@ swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selecti
 .yellow { --theme-primary-color: hsl(45, 100%, 50%); --theme-secondary-color: hsl(45, 100%, 30%); }
 .orange { --theme-primary-color: hsl(22.5, 100%, 50%); --theme-secondary-color: hsl(22.5, 100%, 30%); }
 .red { --theme-primary-color: hsl(0, 100%, 50%); --theme-secondary-color: hsl(0, 100%, 30%); }
-.grey { --theme-primary-color: light-dark(hsl(0, 0%, 85%), hsl(0, 0%, 15%)); --theme-secondary-color: light-dark(hsl(0, 0%, 70%), hsl(0, 0%, 30%)); }
+.grey { --theme-primary-color: light-dark(hsl(0, 0%, 90%), hsl(0, 0%, 10%)); --theme-secondary-color: light-dark(hsl(0, 0%, 80%), hsl(0, 0%, 20%)); }
 .light { --theme-primary-color: light-dark(white, black); --theme-secondary-color: light-dark(white, black); color: light-dark(black, white); }
 .dark { --theme-primary-color: light-dark(black, white); --theme-secondary-color: light-dark(black, white); color: light-dark(white, black); }
 .white { --theme-primary-color: white; --theme-secondary-color: white; color: black; }
@@ -994,8 +994,8 @@ swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selecti
 .primary-text { --theme-text-color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); }
 .secondary-text { --theme-text-color: light-dark(hsl(225, 100%, 25%), hsl(225, 100%, 35%)); }
 .accent-text { --theme-text-color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)); }
-.magenta-text { --theme-text-color: light-dark(hsl(337.5, 100%, 40%), hsl(337.5, 100%, 50%)); }
-.purple-text { --theme-text-color: light-dark(hsl(270, 100%, 40%), hsl(270, 100%, 50%)); }
+.magenta-text { --theme-text-color: light-dark(hsl(337.5, 100%, 50%), hsl(337.5, 100%, 60%)); }
+.purple-text { --theme-text-color: light-dark(hsl(270, 100%, 50%), hsl(270, 100%, 60%)); }
 .blue-text { --theme-text-color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); }
 .aqua-text { --theme-text-color: light-dark(hsl(202.2, 100%, 40%), hsl(202.2, 100%, 50%)); }
 .green-text { --theme-text-color: light-dark(hsl(112.5, 100%, 30%), hsl(112.5, 100%, 40%)); }
