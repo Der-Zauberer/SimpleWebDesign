@@ -33,26 +33,28 @@
             <h2>Predefined Colors</h2>
 
             <div class="flex flex-wrap">
-                <div><div class="color-preview primary"></div><div class="color-description grey-text">.primary</div></div>
-                <div><div class="color-preview secondary"></div><div class="color-description grey-text">.secondary</div></div>
-                <div><div class="color-preview accent"></div><div class="color-description grey-text">.accent</div></div>
+                <div><div class="color-preview primary"><div></div></div><div class="color-description grey-text">.primary</div></div>
+                <div><div class="color-preview secondary"><div></div></div><div class="color-description grey-text">.secondary</div></div>
+                <div><div class="color-preview accent"><div></div></div><div class="color-description grey-text">.accent</div></div>
             </div>
 
             <div class="flex flex-wrap">
-                <div><div class="color-preview blue"></div><div class="color-description grey-text">.blue</div></div>
-                <div><div class="color-preview aqua"></div><div class="color-description grey-text">.aqua</div></div>
-                <div><div class="color-preview green"></div><div class="color-description grey-text">.green</div></div>
-                <div><div class="color-preview yellow"></div><div class="color-description grey-text">.yellow</div></div>
-                <div><div class="color-preview orange"></div><div class="color-description grey-text">.orange</div></div>
-                <div><div class="color-preview red"></div><div class="color-description grey-text">.red</div></div>
+                <div><div class="color-preview blue"><div></div></div><div class="color-description grey-text">.blue</div></div>
+                <div><div class="color-preview aqua"><div></div></div><div class="color-description grey-text">.aqua</div></div>
+                <div><div class="color-preview green"><div></div></div><div class="color-description grey-text">.green</div></div>
+                <div><div class="color-preview yellow"><div></div></div><div class="color-description grey-text">.yellow</div></div>
+                <div><div class="color-preview orange"><div></div></div><div class="color-description grey-text">.orange</div></div>
+                <div><div class="color-preview red"><div></div></div><div class="color-description grey-text">.red</div></div>
+                <div><div class="color-preview magenta"><div></div></div><div class="color-description grey-text">.magenta</div></div>
+                <div><div class="color-preview purple"><div></div></div><div class="color-description grey-text">.purple</div></div>
             </div>
 
             <div class="flex flex-wrap">
-                <div><div class="color-preview grey"></div><div class="color-description grey-text">.grey</div></div>
-                <div><div class="color-preview light color-outline"></div><div class="color-description grey-text">.light</div></div>
-                <div><div class="color-preview dark color-outline"></div><div class="color-description grey-text">.dark</div></div>
-                <div><div class="color-preview white color-outline"></div><div class="color-description grey-text">.white</div></div>
-                <div><div class="color-preview black color-outline"></div><div class="color-description grey-text">.black</div></div>
+                <div><div class="color-preview grey"><div></div></div><div class="color-description grey-text">.grey</div></div>
+                <div><div class="color-preview light color-outline"><div></div></div><div class="color-description grey-text">.light</div></div>
+                <div><div class="color-preview dark color-outline"><div></div></div><div class="color-description grey-text">.dark</div></div>
+                <div><div class="color-preview white color-outline"><div></div></div><div class="color-description grey-text">.white</div></div>
+                <div><div class="color-preview black color-outline"><div></div></div><div class="color-description grey-text">.black</div></div>
             </div>
 
             <div class="flex flex-wrap">
@@ -68,6 +70,8 @@
                 <swd-chip class="color-description yellow-text">.yellow-text</swd-chip>
                 <swd-chip class="color-description orange-text">.orange-text</swd-chip>
                 <swd-chip class="color-description red-text">.red-text</swd-chip>
+                <swd-chip class="color-description purple-text">.purple-text</swd-chip>
+                <swd-chip class="color-description magenta-text">.magenta-text</swd-chip>
             </div>
 
             <div class="flex flex-wrap">
@@ -82,10 +86,21 @@
 
             <style>
                 .color-preview {
+                    display: block;
+                    position: relative;
                     height: 80px;
                     width: 80px;
                     border-radius: var(--theme-border-radius);
                     background-color: var(--theme-primary-color);
+                }
+                .color-preview div {
+                    display: block;
+                    position: absolute;
+                    height: 40px;
+                    width: 40px;
+                    transform: translateX(100%);
+                    border-radius: 0 var(--theme-border-radius) 0 0;
+                    background-color: var(--theme-secondary-color);
                 }
                 .color-description {
                     text-align: center;
@@ -108,25 +123,25 @@
             <h2>Define Your Own Color</h2>
 
             <p>
-                You can simply redefine the theme color variables. The secondary color is used as hover color by the most components. You can create your own class like <samp>.magenta</samp> for some elements or overrite the <samp>:root</samp> pseudoclass to set the color for the whole theme.
+                You can simply redefine the theme color variables. The secondary color is used as hover color by the most components. You can create your own class like <samp>.rose</samp> for some elements or overrite the <samp>:root</samp> pseudoclass to set the color for the whole theme.
             </p>
 
             <swd-card-outline class="flex flex-space-around top-item">
-                <button class="color-magenta">Magenta Button</button>
-                <button class="outline color-magenta">Magenta Button</button>
+                <button class="color-rose">Rose Button</button>
+                <button class="outline color-rose">Rose Button</button>
                 <style>
-                    .color-magenta {
-                        --theme-primary-color: hsl(320, 100%, 45%);
-                        --theme-secondary-color: hsl(320, 100%, 35%);
+                    .color-rose {
+                        --theme-primary-color: hsl(340, 100%, 35%);
+                        --theme-secondary-color: hsl(340, 100%, 25%);
                     }
                 </style>
             </swd-card-outline>
             <swd-code swd-code-language="html" class="center-item">
-                &lt;button class="magenta"&gt;Magenta Button&lt;/button&gt;<br>
-                &lt;button class="outline magenta"&gt;Magenta Button&lt;/button&gt;
+                &lt;button class="rose"&gt;Rose Button&lt;/button&gt;<br>
+                &lt;button class="outline rose"&gt;Rose Button&lt;/button&gt;
             </swd-code>
             <swd-code swd-code-language="css" class="bottom-item">
-                .magenta {<br>
+                .rose {<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-color: hsl(320, 100%, 45%);<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-color: hsl(320, 100%, 35%);<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-grey-color: var(--theme-primary-color); /*Required if you want to color elements with grey as default*/<br>
@@ -231,26 +246,26 @@
 
             <table>
                 <tr><th>Variables</th><th>Default</th></tr>
-                <tr><td><samp>--theme-primary-color</samp></td><td><div class="swd-color-preview" style="background-color: #0033ff; color: white;">#0033ff</div></td></tr>
-                <tr><td><samp>--theme-secondary-color</samp></td><td><div class="swd-color-preview" style="background-color: #0024b3; color: white;">#0024b3</div></td></tr>
-                <tr><td><samp>--theme-accent-color</samp></td><td><div class="swd-color-preview" style="background-color: #e5b800; color: white;">#e5b800</div></td></tr>
-                <tr><td><samp>--theme-info-color</samp></td><td><div class="swd-color-preview" style="background-color: #0033ff; color: white;">#0033ff</div></td></tr>
-                <tr><td><samp>--theme-success-color</samp></td><td><div class="swd-color-preview" style="background-color: #1f9900; color: white;">#1f9900</div></td></tr>
-                <tr><td><samp>--theme-warning-color</samp></td><td><div class="swd-color-preview" style="background-color: #e5b800; color: white;">#e5b800</div></td></tr>
-                <tr><td><samp>--theme-error-color</samp></td><td><div class="swd-color-preview" style="background-color: #e60000; color: white;">#e60000</div></td></tr>
+                <tr><td><samp>--theme-primary-color</samp></td><td><div class="swd-color-preview" style="background-color: hsl(225, 100%, 50%); color: white;">hsl(225, 100%, 50%)</div></td></tr>
+                <tr><td><samp>--theme-secondary-color</samp></td><td><div class="swd-color-preview" style="background-color: hsl(225, 100%, 30%); color: white;">hsl(225, 100%, 30%)</div></td></tr>
+                <tr><td><samp>--theme-accent-color</samp></td><td><div class="swd-color-preview" style="background-color: hsl(45, 100%, 50%); color: white;">hsl(45, 100%, 50%)</div></td></tr>
+                <tr><td><samp>--theme-info-color</samp></td><td><div class="swd-color-preview" style="background-color: hsl(225, 100%, 50%); color: white;">hsl(225, 100%, 50%)</div></td></tr>
+                <tr><td><samp>--theme-success-color</samp></td><td><div class="swd-color-preview" style="background-color: hsl(112.5, 100%, 35%); color: white;">hsl(112.5, 100%, 35%)</div></td></tr>
+                <tr><td><samp>--theme-warning-color</samp></td><td><div class="swd-color-preview" style="background-color: hsl(45, 100%, 50%); color: white;">hsl(45, 100%, 50%)</div></td></tr>
+                <tr><td><samp>--theme-error-color</samp></td><td><div class="swd-color-preview" style="background-color: hsl(0, 100%, 50%); color: white;">hsl(0, 100%, 50%)</div></td></tr>
             </table>
 
             <table>
                 <tr><th>Color Scheme Dependent Variables</th><th>Lightmode</th><th>Darkmode</th></tr>
-                <tr><td><samp>--theme-background-color</samp></td><td><div class="swd-color-preview" style="background-color: #ffffff; color: black;">#ffffff</div></td><td><div class="swd-color-preview" style="background-color: #000000; color: white;">#000000</div></td></tr>
-                <tr><td><samp>--theme-primary-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: #e0e0e0; color: black;">#e0e0e0</div></td><td><div class="swd-color-preview" style="background-color: #1f1f1f; color: white;">#1f1f1f</div></td></tr>
-                <tr><td><samp>--theme-secondary-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: #c2c2c2; color: black;">#c2c2c2</div></td><td><div class="swd-color-preview" style="background-color: #3d3d3d; color: white;">#3d3d3d</div></td></tr>
+                <tr><td><samp>--theme-background-color</samp></td><td><div class="swd-color-preview" style="background-color: white; color: black;">white</div></td><td><div class="swd-color-preview" style="background-color: black; color: white;">black</div></td></tr>
+                <tr><td><samp>--theme-primary-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: hsl(0, 0%, 85%); color: black;">hsl(0, 0%, 85%)</div></td><td><div class="swd-color-preview" style="background-color: hsl(0, 0%, 15%); color: white;">hsl(0, 0%, 15%)</div></td></tr>
+                <tr><td><samp>--theme-secondary-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: hsl(0, 0%, 70%); color: black;">hsl(0, 0%, 70%)</div></td><td><div class="swd-color-preview" style="background-color: hsl(0, 0%, 30%); color: white;">hsl(0, 0%, 30%)</div></td></tr>
             </table>
 
             <table>
                 <tr><th>Color Scheme Dependent Text Variables</th><th>Lightmode</th><th>Darkmode</th></tr>
-                <tr><td><samp>--theme-text-color</samp></td><td><div class="swd-color-preview" style="background-color: white; color: #000000;">#000000</div></td><td><div class="swd-color-preview" style="background-color: black; color: #ffffff;">#ffffff</div></td></tr>
-                <tr><td><samp>--theme-text-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: white; color: #666666;">#666666</div></td><td><div class="swd-color-preview" style="background-color: black; color: #999999;">#999999</div></td></tr>
+                <tr><td><samp>--theme-text-color</samp></td><td><div class="swd-color-preview" style="background-color: white; color: black;">black</div></td><td><div class="swd-color-preview" style="background-color: black; color: white;">white</div></td></tr>
+                <tr><td><samp>--theme-text-grey-color</samp></td><td><div class="swd-color-preview" style="background-color: white; color: hsl(0, 0%, 40%);">hsl(0, 0%, 40%)</div></td><td><div class="swd-color-preview" style="background-color: black; color: hsl(0, 0%, 60%);">hsl(0, 0%, 60%)</div></td></tr>
             </table>
 
             <style>
