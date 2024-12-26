@@ -129,6 +129,7 @@ swd-icon.options { mask-image: url('data:image/svg+xml,<svg width="18" height="1
 swd-icon.filter { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M2 1 L16 1 L11 7 L11 13 L7 16 L7 7 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.star { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 2.5 L11 7 L16 7 L12.5 11 L14 16 L9 13 L4 16 L5.5 11 L2 7 L7 7 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.star-filled { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 2.5 L11 7 L16 7 L12.5 11 L14 16 L9 13 L4 16 L5.5 11 L2 7 L7 7 Z" stroke-width="2" stroke="black" fill="black"/></svg>') }
+swd-icon.loading-spinner { mask-image: url('data:image/svg+xml;utf8,<svg width="18" height="18" stroke="white" xmlns="http://www.w3.org/2000/svg"><style>g{transform-origin:center;animation:rotation 2s linear infinite}g circle{animation:stroke 1.5s ease-in-out infinite}@keyframes rotation{100%{transform:rotate(360deg)}}@keyframes stroke{0%{stroke-dasharray:0 150;stroke-dashoffset:0}50%{stroke-dasharray:30 150;stroke-dashoffset:-20}95%,100%{stroke-dasharray:45 150;stroke-dashoffset:-49}}</style><g><circle cx="9" cy="9" r="8" fill="none" stroke-width="2"></circle></g></svg>') }
 swd-icon.grid { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 H9 M0 1 H9 M0 2 H9 M0 3 H9 M0 4 H9 M0 5 H9 M0 6 H9 M0 7 H9 M0 8 H9 M0 9 H9 M0 0 V9 M1 0 V9 M2 0 V9 M3 0 V9 M4 0 V9 M5 0 V9 M6 0 V9 M7 0 V9 M8 0 V9 M9 0 V9" stroke-width="0.1" stroke="black"/></svg>') }
 
 swd-icon {
@@ -710,6 +711,30 @@ swd-dialog {
 }
 
 swd-dialog > * { max-width: 400px; }
+
+/***********************
+*   Loading Skeleton   *
+***********************/
+
+swd-skeleton-text {
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+    cursor: wait;
+    background: linear-gradient(90deg, var(--theme-primary-grey-color) 30%, var(--theme-secondary-grey-color) 50%, var(--theme-primary-grey-color) 70%);
+    border-radius: var(--theme-border-radius);
+    animation: skeleton-loading 2s linear infinite;
+    background-size: 200%;
+}
+
+swd-skeleton-shape {
+
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 100% 0 }
+    100% { background-position: -100% 0 }
+}
 
 /**********************
 *   Loading Spinner   *
