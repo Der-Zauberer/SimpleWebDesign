@@ -43,6 +43,8 @@
                 <a href="#input">Input</a>
                 <a href="#card">Card</a>
                 <a href="#table">Table</a>
+                <a href="#loading-skeleton">Loading Skeleton</a>
+                <a href="#loading-spinner">Loading Spinner</a>
                 <a href="#icons">Icons</a>
                 <a href="#media">Media</a>
                 <a href="#dialog">Dialog</a>
@@ -526,8 +528,10 @@
                     &lt;button class="ghost" disabled&gt;Disabled&lt;/button&gt;<br>
                 </swd-code>
 
-                <swd-card-outline class="flex no-gap top-item">
-                    <button class="left-item">1</button><button class="center-item">2</button><button class="center-item" selected>3</button><button class="right-item">4</button>
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <div class="flex no-gap" style="width: fit-content;">
+                        <button class="left-item">1</button><button class="center-item">2</button><button class="center-item" selected>3</button><button class="right-item">4</button>
+                    </div>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
                     &lt;div class="flex no-gap"&gt;<br>
@@ -862,6 +866,50 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;Harry Potter&lt;/td&gt;&lt;td&gt;J. K. Rowling&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;/tr&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;Lord of the Rings&lt;/td&gt;&lt;td&gt;J. R. Tolkien&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;<br>
                     &lt;/table&gt;
+                </swd-code>
+
+                <h2 id="loading-skeleton">Loading Skeleton</h2>
+
+                <swd-card-outline class="top-item">
+                    <swd-skeleton-text></swd-skeleton-text>
+                    <swd-skeleton-text></swd-skeleton-text>
+                    <swd-skeleton-text></swd-skeleton-text>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    
+                </swd-code>
+
+                <swd-card-outline class="top-item">
+                    <swd-skeleton-shape></swd-skeleton-shape>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    
+                </swd-code>
+
+                <h2 id="loading-spinner">Loading Spinner</h2>
+
+                <swd-card-outline class="top-item">
+                    <swd-loading-spinner loading="true" class="width-100"></swd-loading-spinner>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-loading-spinner loading="true" class="width-100"&gt;&lt;/swd-loading-spinner&gt;
+                </swd-code>
+
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-loading-spinner loading="true">
+                        <swd-card style="max-width: 300px;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</swd-card>
+                    </swd-loading-spinner>
+                    <swd-loading-spinner loading="true">
+                        <button>Button</button>
+                    </swd-loading-spinner>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-loading-spinner loading="true"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;Some text&lt;/swd-card&gt;<br>
+                    &lt;/swd-loading-spinner&gt;<br><br>
+                    &lt;swd-loading-spinner loading="true"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Button&lt;/button&gt;<br>
+                    &lt;/swd-loading-spinner&gt;
                 </swd-code>
 
                 <h2 id="icons">Icons</h2>
