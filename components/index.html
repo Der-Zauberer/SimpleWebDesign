@@ -65,11 +65,11 @@
                 <p>Download you stylesheet <a href="/SimpleWebDesign/downloads">here</a> or use the hostet version of the css and javascript files:</p>
 
                 <swd-code swd-code-language="html">
-                    &lt;link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0-beta-4/style.min.css" rel="stylesheet"&gt;<br>
-                    &lt;script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0-beta-4/script.min.js"&gt;&lt;/script&gt;
+                    &lt;link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0/swd.min.css" rel="stylesheet"&gt;<br>
+                    &lt;script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0/swd.min.js"&gt;&lt;/script&gt;
                 </swd-code>
 
-                <p>You can create a <samp>.html</samp> file using the following template. If you use the downloaded version of the resources you have to change the <samp>scrpt.src</samp> and <samp>link.href</samp> paths to your local path.</p>
+                <p>You can create a <samp>.html</samp> file using the following template. If you use the downloaded version of the resources you have to change the <samp>script.src</samp> and <samp>link.href</samp> paths to your local path.</p>
 
                 <swd-code swd-code-language="html">
                     &lt;!DOCTYPE html&gt;<br>
@@ -78,8 +78,8 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="utf-8"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="theme-color" content="#003ecc"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0-beta-4/style.min.css" rel="stylesheet"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0-beta-4/script.min.js"&gt;&lt;/script&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0/swd.min.css" rel="stylesheet"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0/swd.min.js"&gt;&lt;/script&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Template&lt;/title&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br><br>
@@ -767,51 +767,20 @@
                 <h2 id="card">Card</h2>
 
                 <swd-card-outline class="grid-cols-1 grid-cols-xl-2 top-item">
-
-                    <swd-card>
-                        Default card
-                    </swd-card>
-
-                    <swd-card class="swd-card-hover">
-                        Default card hover
-                    </swd-card>
-
-                    <swd-card-outline>
-                        Outline card
-                    </swd-card-outline>
-
-                    <swd-card-outline class="swd-card-hover">
-                        Outline card hover
-                    </swd-card-outline>
-
-                    <swd-card-ghost>
-                        Ghost card
-                    </swd-card-ghost>
-
-                    <swd-card-ghost class="swd-card-hover">
-                        Ghost card hover
-                    </swd-card-ghost>
-
+                    <swd-card>Default card</swd-card>
+                    <swd-card class="swd-card-hover">Default card hover</swd-card>
+                    <swd-card-outline>Outline card</swd-card-outline>
+                    <swd-card-outline class="swd-card-hover">Outline card hover</swd-card-outline>
+                    <swd-card-ghost>Ghost card</swd-card-ghost>
+                    <swd-card-ghost class="swd-card-hover">Ghost card hover</swd-card-ghost>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
-                    &lt;swd-card&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Default card<br>
-                    &lt;/swd-card&gt;<br><br>
-                    &lt;swd-card class="swd-card-hover"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Default card hover<br>
-                    &lt;/swd-card&gt;<br><br>
-                    &lt;swd-card-outline&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Outline card<br>
-                    &lt;/swd-card-outline&gt;<br><br>
-                    &lt;swd-card-outline class="swd-card-hover"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Outline card hover<br>
-                    &lt;/swd-card-outline&gt;<br><br>
-                    &lt;swd-card-ghost&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Ghost card<br>
-                    &lt;/swd-card-ghost&gt;<br><br>
-                    &lt;swd-card-ghost class="swd-card-hover"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Ghost card<br>
-                    &lt;/swd-card-ghost&gt;
+                    &lt;swd-card&gt;Default card&lt;/swd-card&gt;<br><br>
+                    &lt;swd-card class="swd-card-hover"&gt;Default card hover&lt;/swd-card&gt;<br><br>
+                    &lt;swd-card-outline&gt;Outline card&lt;/swd-card-outline&gt;<br><br>
+                    &lt;swd-card-outline class="swd-card-hover"&gt;Outline card hover&lt;/swd-card-outline&gt;<br><br>
+                    &lt;swd-card-ghost&gt;Ghost card&lt;/swd-card-ghost&gt;<br><br>
+                    &lt;swd-card-ghost class="swd-card-hover"&gt;Ghost card&lt;/swd-card-ghost&gt;
                 </swd-code>
 
                 <swd-card-outline class="grid-cols-1 grid-cols-xl-3 top-item">
