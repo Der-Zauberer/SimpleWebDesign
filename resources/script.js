@@ -1,5 +1,7 @@
 class Swd {
 
+    static #instance;
+
     #loaded = false;
     #afterRenderedActions = [];
 
@@ -9,6 +11,8 @@ class Swd {
     #currentLocale;
 
     constructor() {
+        if (Swd.#instance) throw new Error('Swd is already instantiated!');
+        Swd.#instance = this;
         document.addEventListener('readystatechange', event => {
             if (event.target.readyState === 'interactive') {
                 this.#loaded = true;
@@ -119,7 +123,7 @@ class Swd {
 
 }
 
-const swd = new Swd();
+window.swd = new Swd();
 window.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.autoHide() });
 document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
 document.addEventListener('click', (event) => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });
