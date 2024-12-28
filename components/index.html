@@ -871,19 +871,28 @@
                 <h2 id="loading-skeleton">Loading Skeleton</h2>
 
                 <swd-card-outline class="top-item">
-                    <swd-skeleton-text></swd-skeleton-text>
-                    <swd-skeleton-text></swd-skeleton-text>
-                    <swd-skeleton-text></swd-skeleton-text>
+                    <div class="flex">
+                        <div>
+                            <swd-skeleton-shape style="width: 80px; aspect-ratio: 1/1;"></swd-skeleton-shape>
+                        </div>
+                        <div class="width-100">
+                            <swd-skeleton-text></swd-skeleton-text>
+                            <swd-skeleton-text></swd-skeleton-text>
+                            <swd-skeleton-text style="width: 80%;"></swd-skeleton-text>
+                        </div>
+                    </div>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
-                    
-                </swd-code>
-
-                <swd-card-outline class="top-item">
-                    <swd-skeleton-shape></swd-skeleton-shape>
-                </swd-card-outline>
-                <swd-code swd-code-language="html" class="bottom-item">
-                    
+                    &lt;div class="flex"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-skeleton-shape style="width: 80px; aspect-ratio: 1/1;"&gt;&lt;/swd-skeleton-shape&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-skeleton-text&gt;&lt;/swd-skeleton-text&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-skeleton-text&gt;&lt;/swd-skeleton-text&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-skeleton-text style="width: 80%;"&gt;&lt;/swd-skeleton-text&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                    &lt;/div&gt;
                 </swd-code>
 
                 <h2 id="loading-spinner">Loading Spinner</h2>

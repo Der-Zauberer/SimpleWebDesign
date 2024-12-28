@@ -11,8 +11,9 @@
     --theme-success-color: hsl(112.5, 100%, 35%);
     --theme-warning-color: hsl(45, 100%, 50%);
     --theme-error-color: hsl(0, 100%, 50%);
-    --theme-primary-grey-color: light-dark(hsl(0, 0%, 90%), hsl(0, 0%, 10%));
+    --theme-primary-grey-color: light-dark(hsl(0, 0%, 88%), hsl(0, 0%, 12%));
     --theme-secondary-grey-color: light-dark(hsl(0, 0%, 80%), hsl(0, 0%, 20%));
+    --theme-tertiary-grey-color: light-dark(hsl(0, 0%, 72%), hsl(0, 0%, 28%));
     --theme-background-color: light-dark(white, black);
     --theme-text-color: light-dark(black, white);
     --theme-text-grey-color: light-dark(hsl(0, 0%, 40%), hsl(0, 0%, 60%));
@@ -716,10 +717,8 @@ swd-dialog > * { max-width: 400px; }
 *   Loading Skeleton   *
 ***********************/
 
-swd-skeleton-text {
+swd-skeleton-text, swd-skeleton-shape {
     display: inline-block;
-    height: 1em;
-    width: 100%;
     cursor: wait;
     background: linear-gradient(90deg, var(--theme-primary-grey-color) 30%, var(--theme-secondary-grey-color) 50%, var(--theme-primary-grey-color) 70%);
     border-radius: var(--theme-border-radius);
@@ -727,8 +726,9 @@ swd-skeleton-text {
     background-size: 200%;
 }
 
-swd-skeleton-shape {
-
+swd-skeleton-text {
+    height: 1em;
+    width: 100%;
 }
 
 @keyframes skeleton-loading {
