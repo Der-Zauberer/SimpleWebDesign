@@ -118,6 +118,69 @@
             
         </div>
 
+        <div class="frame">
+            <div class="color-grid">
+                <div class="color purple"><swd-icon class="add"></swd-icon></div>
+                <div class="color yellow"><swd-icon class="filter"></swd-icon></div>
+                <div class="color aqua"><swd-icon class="delete"></swd-icon></div>
+                <div class="color green"><swd-icon class="share"></swd-icon></div>
+                <div class="color magenta"><swd-icon class="download"></swd-icon></div>
+                <div class="color blue"><swd-icon class="star"></swd-icon></div>
+                <div class="color orange"><swd-icon class="upload"></swd-icon></div>
+                <div class="color red"><swd-icon class="hamburger"></swd-icon></div>
+                <div class="color yellow"><swd-icon class="close"></swd-icon></div>
+                <div class="color red"><swd-icon class="options"></swd-icon></div>
+                <div class="color green"><swd-icon class="settings"></swd-icon></div>
+                <div class="color aqua"><swd-icon class="arrow-up"></swd-icon></div>
+                <div class="color blue"><swd-icon class="external"></swd-icon></div>
+                <div class="color magenta"><swd-icon class="search"></swd-icon></div>
+                <div class="color purple"><swd-icon class="arrow-right"></swd-icon></div>
+                <div class="color orange"><swd-icon class="done"></swd-icon></div>
+                <div class="title grid-span-8">Color & Icon Update</div>
+                <div class="color blue"><swd-icon class="add"></swd-icon></div>
+                <div class="color magenta"><swd-icon class="hamburger"></swd-icon></div>
+                <div class="color purple"><swd-icon class="filter"></swd-icon></div>
+                <div class="color yellow"><swd-icon class="done"></swd-icon></div>
+                <div class="color green"><swd-icon class="arrow-left"></swd-icon></div>
+                <div class="color aqua"><swd-icon class="options"></swd-icon></div>
+                <div class="color orange"><swd-icon class="delete"></swd-icon></div>
+                <div class="color blue"><swd-icon class="external"></swd-icon></div>
+                <div class="color red"><swd-icon class="upload"></swd-icon></div>
+                <div class="color purple"><swd-icon class="arrow-down"></swd-icon></div>
+                <div class="color red"><swd-icon class="close"></swd-icon></div>
+                <div class="color green"><swd-icon class="share"></swd-icon></div>
+                <div class="color yellow"><swd-icon class="settings"></swd-icon></div>
+                <div class="color blue"><swd-icon class="arrow-up"></swd-icon></div>
+                <div class="color aqua"><swd-icon class="star"></swd-icon></div>
+                <div class="color magenta"><swd-icon class="download"></swd-icon></div>
+            </div>
+            
+        </div>
+
+        <style>
+            .color-grid {
+                display: grid;
+                grid-template-columns: repeat(8, 120px);
+                gap: calc(var(--theme-element-spacing) * 2);
+                transform: translateX(-50px) translateY(-45px) !important;
+            }
+
+            .color {
+                width: 120px;
+                height: 120px;
+                padding: 30px;
+                box-sizing: border-box;
+                background-color: var(--theme-primary-grey-color);
+                border-radius: var(--theme-border-radius);
+            }
+
+            .color swd-icon {
+                font-size: 60px;
+                color: white;
+                transform: translateY(1px);
+            }
+        </style>
+
     </body>
 </html>
 
