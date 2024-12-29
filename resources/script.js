@@ -1,13 +1,18 @@
 class Swd {
 
+    static #instance;
+
     #loaded = false;
     #afterRenderedActions = [];
 
     #fallbackLanguage;
     #languages = new Map();
     #translation = new Map();
+    #currentLocale;
 
     constructor() {
+        if (Swd.#instance) throw new Error('Swd is already instantiated!');
+        Swd.#instance = this;
         document.addEventListener('readystatechange', event => {
             if (event.target.readyState === 'interactive') {
                 this.#loaded = true;
@@ -21,7 +26,7 @@ class Swd {
                     mutation.target.swdIgnoreNextI18nUpdate = false;
                     return;
                 }
-                this.translate([mutation.target]);
+                this.#translate([mutation.target]);
             }
         }).observe(document, { attributes: true, childList: true, subtree: true });
     }
@@ -62,16 +67,17 @@ class Swd {
             this.#translation.clear();
             const lines = text.split(/\r?\n/gm);
             for (const line of lines) {
-                const translation = line.split('=');
-                this.#translation.set(translation[0].trim(), translation[1].trim());
-                if (this.#loaded) this.translate(document.querySelectorAll('*'))
+                const [key, value] = line.split('=').map(value => value.trim());
+                if (key && value) this.#translation.set(key, value);
             }
+            this.#currentLocale = locale;
+            if (this.#loaded) this.#translate(document.querySelectorAll('*'));
         });
     }
 
-    translate(elements) {
+    #translate(elements) {
         for (const element of this.filterElementsByAttributeName('i18n', elements)) {
-            element.value = this.#translation.get(element.key) || element.key;
+            element.value = this.#translation.get(element.key) || `${element.key}[${this.#currentLocale}]`;
             element.element.swdIgnoreNextI18nUpdate = true;
         }
     }
@@ -117,7 +123,7 @@ class Swd {
 
 }
 
-const swd = new Swd();
+window.swd = new Swd();
 window.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.autoHide() });
 document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
 document.addEventListener('click', (event) => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });

@@ -43,6 +43,8 @@
                 <a href="#input">Input</a>
                 <a href="#card">Card</a>
                 <a href="#table">Table</a>
+                <a href="#loading-skeleton">Loading Skeleton</a>
+                <a href="#loading-spinner">Loading Spinner</a>
                 <a href="#icons">Icons</a>
                 <a href="#media">Media</a>
                 <a href="#dialog">Dialog</a>
@@ -63,11 +65,11 @@
                 <p>Download you stylesheet <a href="/SimpleWebDesign/downloads">here</a> or use the hostet version of the css and javascript files:</p>
 
                 <swd-code swd-code-language="html">
-                    &lt;link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0-beta-4/style.min.css" rel="stylesheet"&gt;<br>
-                    &lt;script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0-beta-4/script.min.js"&gt;&lt;/script&gt;
+                    &lt;link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0/swd.min.css" rel="stylesheet"&gt;<br>
+                    &lt;script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0/swd.min.js"&gt;&lt;/script&gt;
                 </swd-code>
 
-                <p>You can create a <samp>.html</samp> file using the following template. If you use the downloaded version of the resources you have to change the <samp>scrpt.src</samp> and <samp>link.href</samp> paths to your local path.</p>
+                <p>You can create a <samp>.html</samp> file using the following template. If you use the downloaded version of the resources you have to change the <samp>script.src</samp> and <samp>link.href</samp> paths to your local path.</p>
 
                 <swd-code swd-code-language="html">
                     &lt;!DOCTYPE html&gt;<br>
@@ -76,8 +78,8 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="utf-8"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="theme-color" content="#003ecc"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0-beta-4/style.min.css" rel="stylesheet"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0-beta-4/script.min.js"&gt;&lt;/script&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0/swd.min.css" rel="stylesheet"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.0/swd.min.js"&gt;&lt;/script&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Template&lt;/title&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br><br>
@@ -526,8 +528,10 @@
                     &lt;button class="ghost" disabled&gt;Disabled&lt;/button&gt;<br>
                 </swd-code>
 
-                <swd-card-outline class="flex no-gap top-item">
-                    <button class="left-item">1</button><button class="center-item">2</button><button class="center-item" selected>3</button><button class="right-item">4</button>
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <div class="flex no-gap" style="width: fit-content;">
+                        <button class="left-item">1</button><button class="center-item">2</button><button class="center-item" selected>3</button><button class="right-item">4</button>
+                    </div>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
                     &lt;div class="flex no-gap"&gt;<br>
@@ -763,51 +767,20 @@
                 <h2 id="card">Card</h2>
 
                 <swd-card-outline class="grid-cols-1 grid-cols-xl-2 top-item">
-
-                    <swd-card>
-                        Default card
-                    </swd-card>
-
-                    <swd-card class="swd-card-hover">
-                        Default card hover
-                    </swd-card>
-
-                    <swd-card-outline>
-                        Outline card
-                    </swd-card-outline>
-
-                    <swd-card-outline class="swd-card-hover">
-                        Outline card hover
-                    </swd-card-outline>
-
-                    <swd-card-ghost>
-                        Ghost card
-                    </swd-card-ghost>
-
-                    <swd-card-ghost class="swd-card-hover">
-                        Ghost card hover
-                    </swd-card-ghost>
-
+                    <swd-card>Default card</swd-card>
+                    <swd-card class="swd-card-hover">Default card hover</swd-card>
+                    <swd-card-outline>Outline card</swd-card-outline>
+                    <swd-card-outline class="swd-card-hover">Outline card hover</swd-card-outline>
+                    <swd-card-ghost>Ghost card</swd-card-ghost>
+                    <swd-card-ghost class="swd-card-hover">Ghost card hover</swd-card-ghost>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
-                    &lt;swd-card&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Default card<br>
-                    &lt;/swd-card&gt;<br><br>
-                    &lt;swd-card class="swd-card-hover"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Default card hover<br>
-                    &lt;/swd-card&gt;<br><br>
-                    &lt;swd-card-outline&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Outline card<br>
-                    &lt;/swd-card-outline&gt;<br><br>
-                    &lt;swd-card-outline class="swd-card-hover"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Outline card hover<br>
-                    &lt;/swd-card-outline&gt;<br><br>
-                    &lt;swd-card-ghost&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Ghost card<br>
-                    &lt;/swd-card-ghost&gt;<br><br>
-                    &lt;swd-card-ghost class="swd-card-hover"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;Ghost card<br>
-                    &lt;/swd-card-ghost&gt;
+                    &lt;swd-card&gt;Default card&lt;/swd-card&gt;<br><br>
+                    &lt;swd-card class="swd-card-hover"&gt;Default card hover&lt;/swd-card&gt;<br><br>
+                    &lt;swd-card-outline&gt;Outline card&lt;/swd-card-outline&gt;<br><br>
+                    &lt;swd-card-outline class="swd-card-hover"&gt;Outline card hover&lt;/swd-card-outline&gt;<br><br>
+                    &lt;swd-card-ghost&gt;Ghost card&lt;/swd-card-ghost&gt;<br><br>
+                    &lt;swd-card-ghost class="swd-card-hover"&gt;Ghost card&lt;/swd-card-ghost&gt;
                 </swd-code>
 
                 <swd-card-outline class="grid-cols-1 grid-cols-xl-3 top-item">
@@ -864,6 +837,59 @@
                     &lt;/table&gt;
                 </swd-code>
 
+                <h2 id="loading-skeleton">Loading Skeleton</h2>
+
+                <swd-card-outline class="top-item">
+                    <div class="flex">
+                        <div>
+                            <swd-skeleton-shape style="width: 80px; aspect-ratio: 1/1;"></swd-skeleton-shape>
+                        </div>
+                        <div class="width-100">
+                            <swd-skeleton-text></swd-skeleton-text>
+                            <swd-skeleton-text></swd-skeleton-text>
+                            <swd-skeleton-text style="width: 80%;"></swd-skeleton-text>
+                        </div>
+                    </div>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="flex"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-skeleton-shape style="width: 80px; aspect-ratio: 1/1;"&gt;&lt;/swd-skeleton-shape&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-skeleton-text&gt;&lt;/swd-skeleton-text&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-skeleton-text&gt;&lt;/swd-skeleton-text&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-skeleton-text style="width: 80%;"&gt;&lt;/swd-skeleton-text&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </swd-code>
+
+                <h2 id="loading-spinner">Loading Spinner</h2>
+
+                <swd-card-outline class="top-item">
+                    <swd-loading-spinner loading="true" class="width-100"></swd-loading-spinner>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-loading-spinner loading="true" class="width-100"&gt;&lt;/swd-loading-spinner&gt;
+                </swd-code>
+
+                <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-loading-spinner loading="true">
+                        <swd-card style="max-width: 300px;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</swd-card>
+                    </swd-loading-spinner>
+                    <swd-loading-spinner loading="true">
+                        <button>Button</button>
+                    </swd-loading-spinner>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-loading-spinner loading="true"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;Some text&lt;/swd-card&gt;<br>
+                    &lt;/swd-loading-spinner&gt;<br><br>
+                    &lt;swd-loading-spinner loading="true"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Button&lt;/button&gt;<br>
+                    &lt;/swd-loading-spinner&gt;
+                </swd-code>
+
                 <h2 id="icons">Icons</h2>
 
 
@@ -893,6 +919,7 @@
                     <div><div><swd-icon class="filter"></swd-icon></div><div>filter</div></div>
                     <div><div><swd-icon class="star"></swd-icon></div><div>star</div></div>
                     <div><div><swd-icon class="star-filled"></swd-icon></div><div>star-filled</div></div>
+                    <div><div><swd-icon class="loading-spinner"></swd-icon></div><div>loading-spinner</div></div>
                 </div>
     
                 <style>
@@ -917,8 +944,10 @@
                         font-size: 2em;
                     }
     
-                    .icons div div:last-child { 
-                        font-size: 0.8em; 
+                    .icons div div:last-child {
+                        margin-top: 5px;
+                        line-height: 1.2em;
+                        font-size: 0.8em;
                         text-align: center; 
                     }
                 </style>

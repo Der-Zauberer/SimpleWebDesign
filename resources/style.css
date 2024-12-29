@@ -11,8 +11,9 @@
     --theme-success-color: hsl(112.5, 100%, 35%);
     --theme-warning-color: hsl(45, 100%, 50%);
     --theme-error-color: hsl(0, 100%, 50%);
-    --theme-primary-grey-color: light-dark(hsl(0, 0%, 85%), hsl(0, 0%, 15%));
-    --theme-secondary-grey-color: light-dark(hsl(0, 0%, 70%), hsl(0, 0%, 30%));
+    --theme-primary-grey-color: light-dark(hsl(0, 0%, 88%), hsl(0, 0%, 12%));
+    --theme-secondary-grey-color: light-dark(hsl(0, 0%, 80%), hsl(0, 0%, 20%));
+    --theme-tertiary-grey-color: light-dark(hsl(0, 0%, 72%), hsl(0, 0%, 28%));
     --theme-background-color: light-dark(white, black);
     --theme-text-color: light-dark(black, white);
     --theme-text-grey-color: light-dark(hsl(0, 0%, 40%), hsl(0, 0%, 60%));
@@ -116,7 +117,7 @@ swd-icon.up { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xm
 swd-icon.down { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 5 L9 13 L17 5" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.download { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M3 6.5 L9 12.5 L15 6.5 M9 0 V13 M0 17 H18" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.upload { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M3 11.5 L9 5.5 L15 11.5 M9 5 V18 M0 1 H18" stroke-width="2" stroke="black" fill="none"/></svg>') }
-swd-icon.external { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M17 12 V17 H1 V1 H6 M10 1 H17 V8 M17 1 L7 11" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.external { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M17 11 V17 H1 V1 H7 M10 1 H17 V8 M17 1 L7 11" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.share { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><circle r="2" cx="15" cy="3" stroke-width="2" stroke="black" fill="black"/><circle r="2" cx="15" cy="15" stroke-width="2" stroke="black" fill="black"/><circle r="2" cx="3" cy="9" stroke-width="2" stroke="black" fill="black"/><path d="M15 3 L3 9 L15 15" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.done { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 9 L8 15 L17 3" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.close { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 1 L17 17 M17 1 L1 17" stroke-width="2" stroke="black"/></svg>') }
@@ -129,6 +130,7 @@ swd-icon.options { mask-image: url('data:image/svg+xml,<svg width="18" height="1
 swd-icon.filter { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M2 1 L16 1 L11 7 L11 13 L7 16 L7 7 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.star { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 2.5 L11 7 L16 7 L12.5 11 L14 16 L9 13 L4 16 L5.5 11 L2 7 L7 7 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.star-filled { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 2.5 L11 7 L16 7 L12.5 11 L14 16 L9 13 L4 16 L5.5 11 L2 7 L7 7 Z" stroke-width="2" stroke="black" fill="black"/></svg>') }
+swd-icon.loading-spinner { mask-image: url('data:image/svg+xml;utf8,<svg width="18" height="18" stroke="white" xmlns="http://www.w3.org/2000/svg"><style>g{transform-origin:center;animation:rotation 2s linear infinite}g circle{animation:stroke 1.5s ease-in-out infinite}@keyframes rotation{100%{transform:rotate(360deg)}}@keyframes stroke{0%{stroke-dasharray:0 150;stroke-dashoffset:0}50%{stroke-dasharray:30 150;stroke-dashoffset:-20}95%,100%{stroke-dasharray:45 150;stroke-dashoffset:-49}}</style><g><circle cx="9" cy="9" r="8" fill="none" stroke-width="2"></circle></g></svg>') }
 swd-icon.grid { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 H9 M0 1 H9 M0 2 H9 M0 3 H9 M0 4 H9 M0 5 H9 M0 6 H9 M0 7 H9 M0 8 H9 M0 9 H9 M0 0 V9 M1 0 V9 M2 0 V9 M3 0 V9 M4 0 V9 M5 0 V9 M6 0 V9 M7 0 V9 M8 0 V9 M9 0 V9" stroke-width="0.1" stroke="black"/></svg>') }
 
 swd-icon {
@@ -211,8 +213,8 @@ swd-tooltip {
     height: fit-content;
     line-height: round(1.2em, 1px);
     padding: round(0.2em, 1px) round(0.4em, 1px);
-    background-color: color-mix(in srgb, var(--theme-text-color) 70%, transparent);
-    color: var(--theme-background-color);
+    background-color: light-dark(rgba(0, 0, 0, 80%), rgba(255, 255, 255, 80%));
+    color: light-dark(white, black);
     border-radius: var(--theme-border-radius);
 }
 
@@ -711,6 +713,69 @@ swd-dialog {
 
 swd-dialog > * { max-width: 400px; }
 
+/***********************
+*   Loading Skeleton   *
+***********************/
+
+swd-skeleton-text, swd-skeleton-shape {
+    display: inline-block;
+    cursor: wait;
+    background: linear-gradient(90deg, var(--theme-primary-grey-color) 30%, var(--theme-secondary-grey-color) 50%, var(--theme-primary-grey-color) 70%);
+    border-radius: var(--theme-border-radius);
+    animation: skeleton-loading 2s linear infinite;
+    background-size: 200%;
+}
+
+swd-skeleton-text {
+    height: 1em;
+    width: 100%;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 100% 0 }
+    100% { background-position: -100% 0 }
+}
+
+/**********************
+*   Loading Spinner   *
+**********************/
+
+swd-loading-spinner {
+    display: inline-block;
+    position: relative;
+    cursor: wait;
+    height: max-content;
+    min-height: calc(1em);
+    min-width: calc(1em);
+}
+
+swd-loading-spinner[loading="true"]::after {
+    content: '';
+    position: absolute;
+    mask: no-repeat center url('data:image/svg+xml;utf8,<svg width="18" height="18" stroke="white" xmlns="http://www.w3.org/2000/svg"><style>g{transform-origin:center;animation:rotation 2s linear infinite}g circle{animation:stroke 1.5s ease-in-out infinite}@keyframes rotation{100%{transform:rotate(360deg)}}@keyframes stroke{0%{stroke-dasharray:0 150;stroke-dashoffset:0}50%{stroke-dasharray:30 150;stroke-dashoffset:-20}95%,100%{stroke-dasharray:45 150;stroke-dashoffset:-49}}</style><g><circle cx="9" cy="9" r="8" fill="none" stroke-width="2"></circle></g></svg>');
+    mask-size: contain;
+    background-color: var(--theme-primary-color);
+    height: calc(1em);
+    width: calc(1em);
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+swd-loading-spinner[loading="true"]:not(:empty)::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: light-dark(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
 /****************
 *   Container   *
 ****************/
@@ -938,12 +1003,14 @@ swd-router {
 }
 
 [class*="container-"] > :first-child, swd-navigation > :first-child, swd-selection > :first-child,
-swd-card > :first-child, swd-card-outline > :first-child, swd-card-ghost > :first-child, swd-card-frame > :first-child {
+swd-card > :first-child, swd-card-outline > :first-child, swd-card-ghost > :first-child, swd-card-frame > :first-child,
+swd-loading-spinner > :first-child {
     margin-top: 0
 }
 
 [class*="container-"] > :last-child, swd-navigation > :last-child, swd-selection > :last-child,
-swd-card > :last-child, swd-card-outline > :last-child,swd-card-ghost > :last-child, swd-card-frame > :last-child {
+swd-card > :last-child, swd-card-outline > :last-child,swd-card-ghost > :last-child, swd-card-frame > :last-child,
+swd-loading-spinner > :first-child {
     margin-bottom: 0
 }
 
@@ -974,14 +1041,14 @@ swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selecti
 .secondary { --theme-primary-color: hsl(225, 100%, 30%); --theme-secondary-color: hsl(225, 100%, 50%); }
 .accent { --theme-primary-color: hsl(45, 100%, 50%); --theme-secondary-color: hsl(225, 100%, 30%); }
 .magenta { --theme-primary-color: hsl(337.5, 100%, 45%); --theme-secondary-color: hsl(337.5, 100%, 25%); }
-.purple { --theme-primary-color: hsl(270, 100%, 45%); --theme-secondary-color: hsl(270, 100%, 25%); }
+.purple { --theme-primary-color: hsl(270, 100%, 40%); --theme-secondary-color: hsl(270, 100%, 20%); }
 .blue { --theme-primary-color: hsl(225, 100%, 50%); --theme-secondary-color: hsl(225, 100%, 30%); }
 .aqua { --theme-primary-color: hsl(202.2, 100%, 45%); --theme-secondary-color: hsl(202.2, 100%, 25%); }
 .green { --theme-primary-color: hsl(112.5, 100%, 35%); --theme-secondary-color: hsl(112.5, 100%, 20%); }
 .yellow { --theme-primary-color: hsl(45, 100%, 50%); --theme-secondary-color: hsl(45, 100%, 30%); }
 .orange { --theme-primary-color: hsl(22.5, 100%, 50%); --theme-secondary-color: hsl(22.5, 100%, 30%); }
 .red { --theme-primary-color: hsl(0, 100%, 50%); --theme-secondary-color: hsl(0, 100%, 30%); }
-.grey { --theme-primary-color: light-dark(hsl(0, 0%, 85%), hsl(0, 0%, 15%)); --theme-secondary-color: light-dark(hsl(0, 0%, 70%), hsl(0, 0%, 30%)); }
+.grey { --theme-primary-color: light-dark(hsl(0, 0%, 90%), hsl(0, 0%, 10%)); --theme-secondary-color: light-dark(hsl(0, 0%, 80%), hsl(0, 0%, 20%)); }
 .light { --theme-primary-color: light-dark(white, black); --theme-secondary-color: light-dark(white, black); color: light-dark(black, white); }
 .dark { --theme-primary-color: light-dark(black, white); --theme-secondary-color: light-dark(black, white); color: light-dark(white, black); }
 .white { --theme-primary-color: white; --theme-secondary-color: white; color: black; }
@@ -994,8 +1061,8 @@ swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selecti
 .primary-text { --theme-text-color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); }
 .secondary-text { --theme-text-color: light-dark(hsl(225, 100%, 25%), hsl(225, 100%, 35%)); }
 .accent-text { --theme-text-color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)); }
-.magenta-text { --theme-text-color: light-dark(hsl(337.5, 100%, 50%), hsl(337.5, 100%, 60%)); }
-.purple-text { --theme-text-color: light-dark(hsl(270, 100%, 50%), hsl(270, 100%, 60%)); }
+.magenta-text { --theme-text-color: light-dark(hsl(337.5, 100%, 45%), hsl(337.5, 100%, 55%)); }
+.purple-text { --theme-text-color: light-dark(hsl(270, 100%, 45%), hsl(270, 100%, 55%)); }
 .blue-text { --theme-text-color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); }
 .aqua-text { --theme-text-color: light-dark(hsl(202.2, 100%, 40%), hsl(202.2, 100%, 50%)); }
 .green-text { --theme-text-color: light-dark(hsl(112.5, 100%, 30%), hsl(112.5, 100%, 40%)); }
