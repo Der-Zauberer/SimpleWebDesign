@@ -20,13 +20,17 @@ class Swd {
             }
         })
         new MutationObserver((mutations, observer) => {
-            if (this.#translation.length === 0) return;
             for (const mutation of mutations) {
-                if (mutation.target.swdIgnoreNextI18nUpdate) {
-                    mutation.target.swdIgnoreNextI18nUpdate = false;
-                    return;
-                }
-                this.#translate([mutation.target]);
+                const elements = Array.from(mutation.target.querySelectorAll('*'))
+                .filter(element => this.#preFilterElementsByAttributeName(element, 'i18n'))
+                .filter(target => {
+                    if (target.swdIgnoreNextI18nUpdate) {
+                        target.swdIgnoreNextI18nUpdate = false;
+                        return false;
+                    }
+                    return true;
+                });
+                if (elements.length !== 0) this.#translate(elements);
             }
         }).observe(document, { attributes: true, childList: true, subtree: true });
     }
@@ -60,19 +64,17 @@ class Swd {
         this.#fallbackLanguage = languages.fallback;
     }
 
-    setLanguage(locale) {
+    async setLanguage(locale) {
         const src = this.#languages.get(locale) || this.#languages.get(this.#fallbackLanguage);
         if (src == undefined) return;
-        fetch(src).then(response => response.text()).then(text => {
-            this.#translation.clear();
-            const lines = text.split(/\r?\n/gm);
-            for (const line of lines) {
-                const [key, value] = line.split('=').map(value => value.trim());
-                if (key && value) this.#translation.set(key, value);
-            }
-            this.#currentLocale = locale;
-            if (this.#loaded) this.#translate(document.querySelectorAll('*'));
-        });
+        const content = await fetch(src).then(response => response.text());
+        this.#translation.clear();
+        for (const line of content.split(/\r?\n/gm)) {
+            const [key, value] = line.split('=').map(value => value.trim());
+            if (key && value) this.#translation.set(key, value);
+        }
+        this.#currentLocale = locale;
+        if (this.#loaded) this.#translate(Array.from(document.querySelectorAll('*')).filter(element => this.#preFilterElementsByAttributeName(element, 'i18n')));
     }
 
     #translate(elements) {
@@ -80,6 +82,10 @@ class Swd {
             element.value = this.#translation.get(element.key) || `${element.key}[${this.#currentLocale}]`;
             element.element.swdIgnoreNextI18nUpdate = true;
         }
+    }
+
+    #preFilterElementsByAttributeName(element, name) {
+        return Array.from(element.attributes).filter(attribute => attribute.name === name || attribute.name.startsWith(`${name}-`)).length !== 0;
     }
 
     filterElementsByAttributeName(name, elements) {
