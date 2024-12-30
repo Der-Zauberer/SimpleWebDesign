@@ -1020,7 +1020,7 @@ swd-navigation a, swd-select a { display: block }
 
 swd-dialog:not([shown]), swd-dropdown-content:not([shown]) { display: none }
 
-swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selection * { --theme-primary-grey-color: var(--theme-secondary-grey-color) }
+swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selection *, .grey * { --theme-primary-grey-color: var(--theme-secondary-grey-color) }
 
 [hidden] { display: none }
 
@@ -1031,7 +1031,7 @@ swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selecti
 .lightmode { color-scheme: light; color: var(--theme-text-color); background-color: var(--theme-background-color); }
 .darkmode { color-scheme: dark; color: var(--theme-text-color); background-color: var(--theme-background-color); }
 
-.primary, .secondary, .accent, .magenta, .purple, .blue, .aqua, .green, .yellow, .orange, .red, .grey, .light, .dark, .white, .black {
+.primary, .secondary, .accent, .magenta, .purple, .blue, .aqua, .green, .yellow, .orange, .red, .light, .dark, .white, .black {
     --theme-primary-grey-color: var(--theme-primary-color);
     --theme-secondary-grey-color: var(--theme-secondary-color);
     color: white;
@@ -1048,7 +1048,7 @@ swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selecti
 .yellow { --theme-primary-color: hsl(45, 100%, 50%); --theme-secondary-color: hsl(45, 100%, 30%); }
 .orange { --theme-primary-color: hsl(22.5, 100%, 50%); --theme-secondary-color: hsl(22.5, 100%, 30%); }
 .red { --theme-primary-color: hsl(0, 100%, 50%); --theme-secondary-color: hsl(0, 100%, 30%); }
-.grey { --theme-primary-color: light-dark(hsl(0, 0%, 90%), hsl(0, 0%, 10%)); --theme-secondary-color: light-dark(hsl(0, 0%, 80%), hsl(0, 0%, 20%)); }
+.grey { --theme-primary-color: var(--theme-primary-grey-color); --theme-secondary-color: var(--theme-secondary-grey-color); color: white }
 .light { --theme-primary-color: light-dark(white, black); --theme-secondary-color: light-dark(white, black); color: light-dark(black, white); }
 .dark { --theme-primary-color: light-dark(black, white); --theme-secondary-color: light-dark(black, white); color: light-dark(white, black); }
 .white { --theme-primary-color: white; --theme-secondary-color: white; color: black; }
