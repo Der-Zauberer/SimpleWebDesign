@@ -1054,26 +1054,22 @@ swd-navigation *, swd-card *, swd-card-ghost.swd-card-hover:hover *, swd-selecti
 .white { --theme-primary-color: white; --theme-secondary-color: white; color: black; }
 .black { --theme-primary-color: black; --theme-secondary-color: black; color: white; }
 
-[class*="-text"] {
-    color: var(--theme-text-color);
-}
-
-.primary-text { --theme-text-color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); }
-.secondary-text { --theme-text-color: light-dark(hsl(225, 100%, 25%), hsl(225, 100%, 35%)); }
-.accent-text { --theme-text-color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)); }
-.magenta-text { --theme-text-color: light-dark(hsl(337.5, 100%, 45%), hsl(337.5, 100%, 55%)); }
-.purple-text { --theme-text-color: light-dark(hsl(270, 100%, 45%), hsl(270, 100%, 55%)); }
-.blue-text { --theme-text-color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); }
-.aqua-text { --theme-text-color: light-dark(hsl(202.2, 100%, 40%), hsl(202.2, 100%, 50%)); }
-.green-text { --theme-text-color: light-dark(hsl(112.5, 100%, 30%), hsl(112.5, 100%, 40%)); }
-.yellow-text { --theme-text-color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)); }
-.orange-text { --theme-text-color: light-dark(hsl(22.5, 100%, 45%), hsl(22.5, 100%, 55%)); }
-.red-text { --theme-text-color: light-dark(hsl(0, 100%, 45%), hsl(0, 100%, 55%)); }
-.grey-text { --theme-text-color: var(--theme-text-grey-color); }
-.light-text { --theme-text-color: light-dark(white, black); }
-.dark-text { --theme-text-color: light-dark(black, white); }
-.white-text { --theme-text-color: white; }
-.black-text { --theme-text-color: black; }
+.primary-text { color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); }
+.secondary-text { color: light-dark(hsl(225, 100%, 25%), hsl(225, 100%, 35%)); }
+.accent-text { color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)); }
+.magenta-text { color: light-dark(hsl(337.5, 100%, 45%), hsl(337.5, 100%, 55%)); }
+.purple-text { color: light-dark(hsl(270, 100%, 45%), hsl(270, 100%, 55%)); }
+.blue-text { color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); }
+.aqua-text { color: light-dark(hsl(202.2, 100%, 40%), hsl(202.2, 100%, 50%)); }
+.green-text { color: light-dark(hsl(112.5, 100%, 30%), hsl(112.5, 100%, 40%)); }
+.yellow-text { color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)); }
+.orange-text { color: light-dark(hsl(22.5, 100%, 45%), hsl(22.5, 100%, 55%)); }
+.red-text { color: light-dark(hsl(0, 100%, 45%), hsl(0, 100%, 55%)); }
+.grey-text { color: var(--theme-text-grey-color); }
+.light-text { color: light-dark(white, black); }
+.dark-text { color: light-dark(black, white); }
+.white-text { color: white; }
+.black-text { color: black; }
 
 /**********************
 *   Utility Classes   *
