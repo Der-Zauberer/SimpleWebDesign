@@ -30,7 +30,7 @@
     font-family: var(--theme-font-family);
     font-size: 18px;
     font-weight: 500;
-    line-height: round(1.7em, 1px);
+    line-height: round(1.6em, 1px);
     letter-spacing: 0.01em;
     scroll-behavior: smooth;
 }
@@ -202,35 +202,46 @@ ol li:last-child, ul li:last-child { padding-bottom: 0 }
 ************/
 
 swd-chip {
+    display: inline-block;
+    vertical-align: baseline;
+    white-space: nowrap;
     height: fit-content;
-    line-height: round(1.2em, 1px);
-    padding: round(0.2em, 1px) round(0.8em, 1px);
+    line-height: 1em;
+    padding: round(0.2em, 1px) round(0.5em, 1px);
     background-color: var(--theme-primary-grey-color);
     border-radius: 1em;
 }
 
 swd-tooltip {
+    display: inline-block;
+    vertical-align: baseline;
+    white-space: nowrap;
     height: fit-content;
-    line-height: round(1.2em, 1px);
-    padding: round(0.2em, 1px) round(0.4em, 1px);
+    line-height: 1em;
+    padding: round(0.2em, 1px) round(0.3em, 1px);
     background-color: light-dark(rgba(0, 0, 0, 80%), rgba(255, 255, 255, 80%));
     color: light-dark(white, black);
     border-radius: var(--theme-border-radius);
 }
 
 samp {
+    display: inline-block;
+    vertical-align: baseline;
+    white-space: nowrap;
     height: fit-content;
-    line-height: round(1.2em, 1px);
-    padding: round(0.2em, 1px) round(0.4em, 1px);
+    line-height: 1em;
+    padding: round(0.2em, 1px) round(0.3em, 1px);
     font-family: 'Roboto Mono', monospace;
     background-color: var(--theme-primary-grey-color);
     border-radius: var(--theme-border-radius);
 }
 
 kbd {
-    font-family: 'Roboto Mono', monospace;
+    display: inline-block;
+    vertical-align: baseline;
+    white-space: nowrap;
     height: fit-content;
-    line-height: round(1.2em, 1px);
+    line-height: 1em;
     padding: calc(round(0.2em, 1px) - 1px) round(0.2em, 1px);
     font-family: 'Roboto Mono', monospace;
     border-radius: var(--theme-border-radius);
