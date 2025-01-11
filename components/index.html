@@ -646,7 +646,7 @@
                     &lt;swd-dropdown&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Select City" readonly&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="down" onclick="this.parentElement.querySelector('input').focus()"&lt;&gt;/swd-icon&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="down" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-input&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection onselect="doWhatYouWant()" onfilter="doWhatYouWant()"&gt;<br>
@@ -750,9 +750,24 @@
                 </swd-code>
 
                 <swd-card-outline class="flex flex-space-around top-item">
+                    <swd-input>
+                        <label for="example-input-3">Input with icon</label>
+                        <input id="example-input-3" type="text">
+                        <swd-icon class="search" onclick="this.parentElement.querySelector('input').focus()"></swd-icon>
+                    </swd-input>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-input&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input"&gt;Input with icon&lt;/label&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input" type="text"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="search" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
+                    &lt;/swd-input&gt;<br>
+                </swd-code>
+
+                <swd-card-outline class="flex flex-space-around top-item">
                     <swd-input class="width-100">
-                        <label for="example-input-3">Username (only letters and numbers)</label>
-                        <input id="example-input-3" type="text" maxlength="10" pattern="(\w|\d)+" required>
+                        <label for="example-input-4">Username (only letters and numbers)</label>
+                        <input id="example-input-4" type="text" maxlength="10" pattern="(\w|\d)+" required>
                         <swd-input-range></swd-input-range>
                         <swd-input-error></swd-input-error>
                     </swd-input>
