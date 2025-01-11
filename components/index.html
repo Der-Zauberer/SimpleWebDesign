@@ -90,7 +90,7 @@
 
                 <h2 id="layout">Layout</h2>
 
-                <swd-card-outline class="top-item" style="padding-left: 15%; padding-right: 15%;">
+                <swd-card-outline class="top-item layout" style="padding-left: 15%; padding-right: 15%;">
                     <swd-card class="margin-0 text-center" style="background-color: var(--theme-primary-grey-color)">container</swd-card>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
@@ -112,7 +112,7 @@
                     <tr><td><samp>container-fluid</samp></td><td><samp>100%</samp></td></tr>
                 </table>
 
-                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 text-center top-item">
+                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 text-center top-item layout">
                     <swd-card>Item 1</swd-card>
                     <swd-card>Item 2</swd-card>
                     <swd-card>Item 3</swd-card>
@@ -131,7 +131,7 @@
                     &lt;/div&gt;
                 </swd-code>
 
-                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 text-center top-item">
+                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 text-center top-item layout">
                     <swd-card class="grid-span-sm-2">Item 1</swd-card>
                     <swd-card>Item 2</swd-card>
                     <swd-card>Item 3</swd-card>
@@ -156,7 +156,7 @@
                     <tr><td><samp>grid-cols-xxl-[1-12]</samp><br><samp>grid-span-xxl-[1-12]</samp></td><td><samp>min-width: 1400px</samp></td></tr>
                 </table>
 
-                <swd-card-outline class="flex top-item">
+                <swd-card-outline class="flex top-item layout">
                     <swd-card>Item 1</swd-card>
                     <swd-card>Item 2</swd-card>
                     <swd-card>Item 3</swd-card>
@@ -171,7 +171,7 @@
                     &lt;/div&gt;
                 </swd-code>
 
-                <swd-card-outline class="flex flex-end top-item">
+                <swd-card-outline class="flex flex-end top-item layout">
                     <swd-card>Item 1</swd-card>
                     <swd-card>Item 2</swd-card>
                     <swd-card>Item 3</swd-card>
@@ -186,7 +186,7 @@
                     &lt;/div&gt;
                 </swd-code>
 
-                <swd-card-outline class="flex flex-space-around top-item">
+                <swd-card-outline class="flex flex-space-around top-item layout">
                     <swd-card>Item 1</swd-card>
                     <swd-card>Item 2</swd-card>
                     <swd-card>Item 3</swd-card>
@@ -201,7 +201,7 @@
                     &lt;/div&gt;
                 </swd-code>
 
-                <swd-card-outline class="flex flex-space-between top-item">
+                <swd-card-outline class="flex flex-space-between top-item layout">
                     <swd-card>Item 1</swd-card>
                     <swd-card>Item 2</swd-card>
                     <swd-card>Item 3</swd-card>
@@ -216,7 +216,7 @@
                     &lt;/div&gt;
                 </swd-code>
 
-                <swd-card-outline class="flex text-nowrap top-item">
+                <swd-card-outline class="flex text-nowrap top-item layout">
                     <swd-card>Item 1</swd-card>
                     <swd-card>Item 2</swd-card>
                     <swd-card>Item 3</swd-card>
@@ -240,6 +240,11 @@
                     <tr><td><samp>flex-space-around</samp></td><td><samp>justify-content: space-around</samp></td></tr>
                     <tr><td><samp>flex-space-between</samp></td><td><samp>justify-content: space-between</samp></td></tr>
                 </table>
+
+                <style>
+                    .layout swd-card { padding: 0.5em 0.6em }
+                    @media only screen and (max-width: 575px) { .layout swd-card { font-size: 12px }}
+                </style>
 
                 <h2 id="menu">Menu</h2>
 
@@ -381,7 +386,7 @@
                     &lt;swd-navigation navigation-collapse-md&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Item 1&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#" selected&gt;item 2&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#" &gt;Item 3&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Item 3&lt;/a&gt;<br>
                     &lt;/swd-navigation&gt;<br><br>
                     &lt;swd-navigation-content navigation-collapse-md&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Page content here --&gt;<br>
@@ -426,6 +431,25 @@
                     &lt;h4&gt;Headline 4&lt;/h4&gt;<br>
                     &lt;h5&gt;Headline 5&lt;/h5&gt;<br>
                     &lt;h6&gt;Headline 6&lt;/h6&gt;
+                </swd-code>
+
+                <table>
+                    <tr><th>Headlines</th></tr>
+                    <tr><td><h1 class="margin-0">Headline 1<swd-subtitle>with Subtitle</swd-subtitle></h1></td></tr>
+                    <tr><td><h2 class="margin-0">Headline 2<swd-subtitle>with Subtitle</swd-subtitle></h2></td></tr>
+                    <tr><td><h3 class="margin-0">Headline 3<swd-subtitle>with Subtitle</swd-subtitle></h3></td></tr>
+                    <tr><td><h4 class="margin-0">Headline 4<swd-subtitle>with Subtitle</swd-subtitle></h4></td></tr>
+                    <tr><td><h5 class="margin-0">Headline 5<swd-subtitle>with Subtitle</swd-subtitle></h5></td></tr>
+                    <tr><td><h6 class="margin-0">Headline 6<swd-subtitle>with Subtitle</swd-subtitle></h6></td></tr>
+                </table>
+
+                <swd-code swd-code-language="html">
+                    &lt;h1&gt;Headline 1&lt;swd-subtitle&gt;with Subtitle&lt;/swd-subtitle&gt;&lt;/h1&gt;<br>
+                    &lt;h2&gt;Headline 2&lt;swd-subtitle&gt;with Subtitle&lt;/swd-subtitle&gt;&lt;/h2&gt;<br>
+                    &lt;h3&gt;Headline 3&lt;swd-subtitle&gt;with Subtitle&lt;/swd-subtitle&gt;&lt;/h3&gt;<br>
+                    &lt;h4&gt;Headline 4&lt;swd-subtitle&gt;with Subtitle&lt;/swd-subtitle&gt;&lt;/h4&gt;<br>
+                    &lt;h5&gt;Headline 5&lt;swd-subtitle&gt;with Subtitle&lt;/swd-subtitle&gt;&lt;/h5&gt;<br>
+                    &lt;h6&gt;Headline 6&lt;swd-subtitle&gt;with Subtitle&lt;/swd-subtitle&gt;&lt;/h6&gt;
                 </swd-code>
 
                 <h2 id="text">Text</h2>
@@ -483,9 +507,8 @@
                 <swd-card-outline class="flex flex-wrap top-item">
                     <swd-chip>Chip</swd-chip>
                     <swd-chip class="primary">Colored Chip</swd-chip>
-                    <samp>Code</samp>
                     <kbd>Key</kbd>
-                    <swd-tooltip>Tooltip</swd-tooltip>
+                    <div><samp>Code</samp></div>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
                     &lt;swd-chip&gt;Chip&lt;/swd-chip&gt;<br>
@@ -1147,13 +1170,13 @@
                 <table>
                     <tr><th>Variable</th><th>Default</th></tr>
                     <tr><td><samp>--theme-font-family</pre></td><td><samp>Roboto, sans-serif</samp></td></tr>
-                    <tr><td><samp>--theme-font-size</pre></td><td><samp>18px</samp></td></tr>
-                    <tr><td><samp>--theme-line-height</pre></td><td><samp>30px</samp></td></tr>
+                    <tr><td><samp>--theme-font-size</pre></td><td><samp>18px</samp> (<samp>15px</samp> when screen smaller than <samp>576px</samp>)</td></tr>
+                    <tr><td><samp>--theme-line-height</pre></td><td><samp>round(1.6em, 1px)</samp></td></tr>
                     <tr><td><samp>--theme-border-radius</pre></td><td><samp>5px</samp></td></tr>
                     <tr><td><samp>--theme-border-width</pre></td><td><samp>3px</samp></td></tr>
                     <tr><td><samp>--theme-box-shadow</pre></td><td><samp>none</samp></td></tr>
-                    <tr><td><samp>--theme-element-spacing</pre></td><td><samp>30px</samp></td></tr>
-                    <tr><td><samp>--theme-inner-element-spacing</pre></td><td><samp>20px</samp></td></tr>
+                    <tr><td><samp>--theme-element-spacing</pre></td><td><samp>30px</samp>(<samp>20px</samp> when screen smaller than <samp>576px</samp>)</td></tr>
+                    <tr><td><samp>--theme-inner-element-spacing</pre></td><td><samp>20px</samp>(<samp>15px</samp> when screen smaller than <samp>576px</samp>)</td></tr>
                     <tr><td><samp>--theme-menu-height</pre></td><td><samp>50px</samp></td></tr>
                     <tr><td><samp>--theme-navigation-width</pre></td><td><samp>250px</samp></td></tr>
                 </table>

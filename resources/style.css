@@ -46,7 +46,11 @@ body {
     background-repeat: no-repeat;
 }
 
-@media only screen and (max-width: 575px) { :root { font-size: 15px }}
+@media only screen and (max-width: 575px) { :root {
+    --theme-element-spacing: 20px;
+    --theme-inner-element-spacing: 15px;
+    font-size: 15px;
+}}
 
 /************************************************
 *   Fonts                                       *
@@ -164,8 +168,8 @@ h6 { font-size: 0.8em; letter-spacing: 1px; font-weight: bold; text-transform: u
 
 swd-subtitle {
     display: block;
-    font-size: round(0.6em, 1px);
-    line-height: round(2em, 1px);
+    font-size: round(0.7em, 1px);
+    line-height: round(1.5em, 1px);
     color: var(--theme-text-grey-color);
 }
 
@@ -207,7 +211,7 @@ swd-chip {
     white-space: nowrap;
     height: fit-content;
     line-height: 1em;
-    padding: round(0.2em, 1px) round(0.5em, 1px);
+    padding: round(0.15em, 1px) round(0.5em, 1px);
     background-color: var(--theme-primary-grey-color);
     border-radius: 1em;
 }
@@ -219,7 +223,7 @@ swd-tooltip {
     height: fit-content;
     line-height: 1em;
     padding: round(0.2em, 1px) round(0.3em, 1px);
-    background-color: light-dark(rgba(0, 0, 0, 80%), rgba(255, 255, 255, 80%));
+    background-color: color-mix(in srgb, light-dark(black, white) 80%, transparent);
     color: light-dark(white, black);
     border-radius: var(--theme-border-radius);
 }
@@ -230,7 +234,7 @@ kbd {
     white-space: nowrap;
     height: fit-content;
     line-height: 1em;
-    padding: calc(round(0.2em, 1px) - 1px) round(0.2em, 1px);
+    padding: calc(round(0.15em, 1px) - 1px) round(0.2em, 1px);
     font-family: 'Roboto Mono', monospace;
     border-radius: var(--theme-border-radius);
     border: solid 1px var(--theme-text-color);
@@ -239,9 +243,8 @@ kbd {
 samp {
     display: inline;
     vertical-align: baseline;
-    height: fit-content;
     line-height: 1em;
-    padding: round(0.2em, 1px) round(0.3em, 1px);
+    padding: round(0.05em, 1px) round(0.3em, 1px);
     font-family: 'Roboto Mono', monospace;
     background-color: var(--theme-primary-grey-color);
     border-radius: var(--theme-border-radius);
@@ -279,6 +282,7 @@ var {
 ************/
 
 table {
+    font-size: 0.9em;
     width: 100%;
     border-spacing: 0px;
     border-collapse: collapse;
@@ -287,10 +291,10 @@ table {
 }
 
 table tr th {
-    background-color: var(--theme-primary-grey-color);
     padding: 6px 8px;
     min-width: 60px;
     font-weight: normal;
+    background-color: var(--theme-primary-grey-color);
     border-color: var(--theme-primary-grey-color);
 }
 
