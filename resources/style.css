@@ -224,18 +224,6 @@ swd-tooltip {
     border-radius: var(--theme-border-radius);
 }
 
-samp {
-    display: inline-block;
-    vertical-align: baseline;
-    white-space: nowrap;
-    height: fit-content;
-    line-height: 1em;
-    padding: round(0.2em, 1px) round(0.3em, 1px);
-    font-family: 'Roboto Mono', monospace;
-    background-color: var(--theme-primary-grey-color);
-    border-radius: var(--theme-border-radius);
-}
-
 kbd {
     display: inline-block;
     vertical-align: baseline;
@@ -246,6 +234,17 @@ kbd {
     font-family: 'Roboto Mono', monospace;
     border-radius: var(--theme-border-radius);
     border: solid 1px var(--theme-text-color);
+}
+
+samp {
+    display: inline;
+    vertical-align: baseline;
+    height: fit-content;
+    line-height: 1em;
+    padding: round(0.2em, 1px) round(0.3em, 1px);
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--theme-primary-grey-color);
+    border-radius: var(--theme-border-radius);
 }
 
 /***********
