@@ -12,7 +12,7 @@
     <body>
 
         <swd-menu>
-            <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger"></swd-icon></a>
+            <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger-icon white-text"></swd-icon></a>
             <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
             <div class="contents only-bigger-md">
                 <a href="/SimpleWebDesign/components/" selected>Components</a>
@@ -380,7 +380,7 @@
 
                 <swd-code swd-code-language="html">
                     &lt;swd-menu&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"&gt;&lt;swd-icon class="hamburger"&gt;&lt;/swd-icon&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"&gt;&lt;swd-icon class="hamburger-icon"&gt;&lt;/swd-icon&gt;&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title" href="#"&gt;Page Title&lt;/a&gt;<br>
                     &lt;/swd-menu&gt;<br><br>
                     &lt;swd-navigation navigation-collapse-md&gt;<br>
@@ -506,13 +506,13 @@
 
                 <swd-card-outline class="flex flex-wrap top-item">
                     <swd-chip>Chip</swd-chip>
-                    <swd-chip class="primary">Colored Chip</swd-chip>
+                    <swd-chip class="primary-color">Colored Chip</swd-chip>
                     <kbd>Key</kbd>
                     <div><samp>Code</samp></div>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
                     &lt;swd-chip&gt;Chip&lt;/swd-chip&gt;<br>
-                    &lt;swd-chip class="primary"&gt;Colored Chip&lt;/swd-chip&gt;<br>
+                    &lt;swd-chip class="primary-color"&gt;Colored Chip&lt;/swd-chip&gt;<br>
                     &lt;samp&gt;Code&lt;/samp&gt;<br>
                     &lt;kbd&gt;Key&lt;/kbd&gt;<br>
                     &lt;swd-tooltip&gt;Tooltip&lt;/swd-tooltip&gt;
@@ -632,7 +632,7 @@
                     <swd-dropdown>
                         <swd-input>
                             <input placeholder="Select City" readonly>
-                            <swd-icon class="down" onclick="this.parentElement.querySelector('input').focus()"></swd-icon>
+                            <swd-icon class="down-icon" onclick="this.parentElement.querySelector('input').focus()"></swd-icon>
                         </swd-input>
                         <swd-dropdown-content>
                             <swd-selection>
@@ -669,7 +669,7 @@
                     &lt;swd-dropdown&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Select City" readonly&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="down" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="down-icon" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-input&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection onselect="doWhatYouWant()" onfilter="doWhatYouWant()"&gt;<br>
@@ -776,14 +776,14 @@
                     <swd-input>
                         <label for="example-input-3">Input with icon</label>
                         <input id="example-input-3" type="text">
-                        <swd-icon class="search" onclick="this.parentElement.querySelector('input').focus()"></swd-icon>
+                        <swd-icon class="search-icon" onclick="this.parentElement.querySelector('input').focus()"></swd-icon>
                     </swd-input>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
                     &lt;swd-input&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="example-input"&gt;Input with icon&lt;/label&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;input id="example-input" type="text"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="search" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="search-icon" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
                     &lt;/swd-input&gt;<br>
                 </swd-code>
 
@@ -934,32 +934,32 @@
 
 
                 <div class="icons">
-                    <div><div><swd-icon class="hamburger"></swd-icon></div><div>hamburger</div></div>
-                    <div><div><swd-icon class="more"></swd-icon></div><div>more</div></div>
-                    <div><div><swd-icon class="arrow-left"></swd-icon></div><div>arrow-left</div></div>
-                    <div><div><swd-icon class="arrow-right"></swd-icon></div><div>arrow-right</div></div>
-                    <div><div><swd-icon class="arrow-up"></swd-icon></div><div>arrow-up</div></div>
-                    <div><div><swd-icon class="arrow-down"></swd-icon></div><div>arrow-down</div></div>
-                    <div><div><swd-icon class="left"></swd-icon></div><div>left</div></div>
-                    <div><div><swd-icon class="right"></swd-icon></div><div>right</div></div>
-                    <div><div><swd-icon class="up"></swd-icon></div><div>up</div></div>
-                    <div><div><swd-icon class="down"></swd-icon></div><div>down</div></div>
-                    <div><div><swd-icon class="download"></swd-icon></div><div>download</div></div>
-                    <div><div><swd-icon class="upload"></swd-icon></div><div>upload</div></div>
-                    <div><div><swd-icon class="external"></swd-icon></div><div>external</div></div>
-                    <div><div><swd-icon class="share"></swd-icon></div><div>share</div></div>
-                    <div><div><swd-icon class="done"></swd-icon></div><div>done</div></div>
-                    <div><div><swd-icon class="close"></swd-icon></div><div>close</div></div>
-                    <div><div><swd-icon class="add"></swd-icon></div><div>add</div></div>
-                    <div><div><swd-icon class="delete"></swd-icon></div><div>delete</div></div>
-                    <div><div><swd-icon class="search"></swd-icon></div><div>search</div></div>
-                    <div><div><swd-icon class="history"></swd-icon></div><div>history</div></div>
-                    <div><div><swd-icon class="settings"></swd-icon></div><div>settings</div></div>
-                    <div><div><swd-icon class="options"></swd-icon></div><div>options</div></div>
-                    <div><div><swd-icon class="filter"></swd-icon></div><div>filter</div></div>
-                    <div><div><swd-icon class="star"></swd-icon></div><div>star</div></div>
-                    <div><div><swd-icon class="star-filled"></swd-icon></div><div>star-filled</div></div>
-                    <div><div><swd-icon class="loading-spinner"></swd-icon></div><div>loading-spinner</div></div>
+                    <div><div><swd-icon class="hamburger-icon"></swd-icon></div><div>hamburger</div></div>
+                    <div><div><swd-icon class="more-icon"></swd-icon></div><div>more</div></div>
+                    <div><div><swd-icon class="arrow-left-icon"></swd-icon></div><div>arrow-left</div></div>
+                    <div><div><swd-icon class="arrow-right-icon"></swd-icon></div><div>arrow-right</div></div>
+                    <div><div><swd-icon class="arrow-up-icon"></swd-icon></div><div>arrow-up</div></div>
+                    <div><div><swd-icon class="arrow-down-icon"></swd-icon></div><div>arrow-down</div></div>
+                    <div><div><swd-icon class="left-icon"></swd-icon></div><div>left</div></div>
+                    <div><div><swd-icon class="right-icon"></swd-icon></div><div>right</div></div>
+                    <div><div><swd-icon class="up-icon"></swd-icon></div><div>up</div></div>
+                    <div><div><swd-icon class="down-icon"></swd-icon></div><div>down</div></div>
+                    <div><div><swd-icon class="download-icon"></swd-icon></div><div>download</div></div>
+                    <div><div><swd-icon class="upload-icon"></swd-icon></div><div>upload</div></div>
+                    <div><div><swd-icon class="external-icon"></swd-icon></div><div>external</div></div>
+                    <div><div><swd-icon class="share-icon"></swd-icon></div><div>share</div></div>
+                    <div><div><swd-icon class="done-icon"></swd-icon></div><div>done</div></div>
+                    <div><div><swd-icon class="close-icon"></swd-icon></div><div>close</div></div>
+                    <div><div><swd-icon class="add-icon"></swd-icon></div><div>add</div></div>
+                    <div><div><swd-icon class="delete-icon"></swd-icon></div><div>delete</div></div>
+                    <div><div><swd-icon class="search-icon"></swd-icon></div><div>search</div></div>
+                    <div><div><swd-icon class="history-icon"></swd-icon></div><div>history</div></div>
+                    <div><div><swd-icon class="settings-icon"></swd-icon></div><div>settings</div></div>
+                    <div><div><swd-icon class="options-icon"></swd-icon></div><div>options</div></div>
+                    <div><div><swd-icon class="filter-icon"></swd-icon></div><div>filter</div></div>
+                    <div><div><swd-icon class="star-icon"></swd-icon></div><div>star</div></div>
+                    <div><div><swd-icon class="star-filled-icon"></swd-icon></div><div>star-filled</div></div>
+                    <div><div><swd-icon class="loading-spinner-icon"></swd-icon></div><div>loading-spinner</div></div>
                 </div>
     
                 <style>
@@ -993,28 +993,28 @@
                 </style>
     
                 <swd-card-outline class="top-item flex flex-space-around">
-                    <swd-icon class="hamburger"></swd-icon>
+                    <swd-icon class="hamburger-icon"></swd-icon>
                     
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
-                    &lt;swd-icon class="hamburger"&gt;&lt;/swd-icon&gt;
+                    &lt;swd-icon class="hamburger-icon"&gt;&lt;/swd-icon&gt;
                 </swd-code>
     
                 <swd-card-outline class="top-item flex flex-space-around">
                     <div>
-                        <swd-icon class="hamburger"></swd-icon> <span>hamburger</span>
+                        <swd-icon class="hamburger-icon"></swd-icon> <span>hamburger</span>
                     </div>
                     <div>
-                        <button><swd-icon class="add"></swd-icon> Add</button>
+                        <button><swd-icon class="add-icon"></swd-icon> Add</button>
                     </div>
                     <div>
-                        <a class="button ghost red-text"><swd-icon class="delete"></swd-icon> Delete</a>
+                        <a class="button ghost red-text"><swd-icon class="delete-icon"></swd-icon> Delete</a>
                     </div>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
-                    &lt;swd-icon class="hamburger"&gt;&lt;/swd-icon&gt; &lt;span&gt;hamburger&lt;/span&gt;<br></br>
-                    &lt;button&gt;&lt;swd-icon class="add"&gt;&lt;/swd-icon&gt; Add&lt;/button&gt;<br><br>
-                    &lt;a class="red-text button ghost"&gt;&lt;swd-icon class="remove"&gt;&lt;/swd-icon&gt; Remove&lt;/a&gt;
+                    &lt;swd-icon class="hamburger-icon"&gt;&lt;/swd-icon&gt; &lt;span&gt;hamburger-icon&lt;/span&gt;<br></br>
+                    &lt;button&gt;&lt;swd-icon class="add-icon"&gt;&lt;/swd-icon&gt; Add&lt;/button&gt;<br><br>
+                    &lt;a class="red-text button ghost"&gt;&lt;swd-icon class="remove-icon"&gt;&lt;/swd-icon&gt; Remove&lt;/a&gt;
                 </swd-code>
 
                 <h2 id="media">Media</h2>
@@ -1097,7 +1097,7 @@
                             <h3>Dialog</h3>
                             <p>Really interesting text for the dialog to see how the dialog works</p>
                             <div class="grid-cols-sm-2 grid-cols-1">
-                                <button class="red" onclick="SwdDialog.hide()">Cancel</button>
+                                <button class="red-color" onclick="SwdDialog.hide()">Cancel</button>
                                 <button onclick="SwdDialog.hide()">Save</button>
                             </div>
                         </swd-card>
@@ -1111,7 +1111,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Dialog&lt;/h2&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Really interesting text for the dialog to see how the dialog works&lt;/p&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="grid-cols-sm-2 grid-cols-1"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="SwdDialog.hide()"&gt;Cancel&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="red-color" onclick="SwdDialog.hide()"&gt;Cancel&lt;/button&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="SwdDialog.hide()"&gt;Save&lt;/button&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-card&gt;<br>
