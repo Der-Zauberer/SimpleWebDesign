@@ -131,9 +131,12 @@ class Swd {
 
 window.swd = new Swd();
 window.addEventListener('resize', () => SwdDropdown.resizeAllDropdowns());
+window.addEventListener('wheel', event => SwdNavigation.wheel(event), { passive: false });
+window.addEventListener('touchstart', event => SwdNavigation.touchStart(event));
+window.addEventListener('touchmove', event => SwdNavigation.touchMove(event), { passive: false });
 document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
-document.addEventListener('click', (event) => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });
-document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'));
+document.addEventListener('click', event => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });
+document.addEventListener('input', event => event.target.setAttribute('dirty', 'true'));
 
 class SwdElementRef {
 
@@ -285,6 +288,7 @@ class SwdNavigation extends SwdComponent {
 
     static #shownNavigation = undefined;
     static #ignoreNextHide = false;
+    static #yScroll = 0;
 
     show() {
         SwdNavigation.autoHide();
@@ -319,6 +323,25 @@ class SwdNavigation extends SwdComponent {
         }
         SwdNavigation.#shownNavigation.hide();
         SwdNavigation.#shownNavigation = undefined;
+    }
+
+    static wheel(event) {
+        if (!SwdNavigation.#shownNavigation) return;
+        SwdNavigation.#shownNavigation.scrollTop += event.deltaY;
+        event.preventDefault();
+    }
+
+    static touchStart(event) {
+        if (!SwdNavigation.#shownNavigation) return;
+        SwdNavigation.#yScroll = event.touches[0].clientY;
+    }
+
+    static touchMove(event) {
+        if (!SwdNavigation.#shownNavigation) return;
+        const deltaY = SwdNavigation.#yScroll - event.touches[0].clientY;
+        SwdNavigation.#shownNavigation.scrollTop += deltaY;
+        SwdNavigation.#yScroll = event.touches[0].clientY;
+        event.preventDefault();
     }
 
 }
