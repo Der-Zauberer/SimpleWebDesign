@@ -144,9 +144,12 @@
             </swd-code>
             <swd-code swd-code-language="css" class="bottom-item">
                 .rose-color {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;--theme-element-primary-color: hsl(320, 100%, 45%);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;--theme-element-secondary-color: hsl(320, 100%, 35%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-primary-color: hsl(320, 100%, 45%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-secondary-color: hsl(320, 100%, 35%);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-element-primary-color: var(--theme-primary-color);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;--theme-element-secondary-color: var(--theme-secondary-color);<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;--theme-text-color: #ffffff;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color: var(--theme-text-color);<br>
                 }
             </swd-code>
 
