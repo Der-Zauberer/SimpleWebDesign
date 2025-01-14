@@ -130,7 +130,7 @@ class Swd {
 }
 
 window.swd = new Swd();
-window.addEventListener('resize', () => { SwdDropdown.resizeAllDropdowns(); SwdNavigation.autoHide() });
+window.addEventListener('resize', () => SwdDropdown.resizeAllDropdowns());
 document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
 document.addEventListener('click', (event) => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });
 document.addEventListener('input', (event) => event.target.setAttribute('dirty', 'true'));
