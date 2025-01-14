@@ -12,7 +12,7 @@
     <body>
 
         <swd-menu>
-            <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger-icon white-text"></swd-icon></a>
+            <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger-icon"></swd-icon></a>
             <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
             <div class="contents only-bigger-md">
                 <a href="/SimpleWebDesign/components/" selected>Components</a>
@@ -321,6 +321,19 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 4&lt;/a&gt;<br>
+                    &lt;/swd-menu&gt;
+                </swd-code>
+
+                <swd-card-outline class="top-item">
+                    <swd-menu class="margin-bottom" style="position: initial; z-index: initial;">
+                        <a class="only-smaller-md" tabindex="0"><swd-icon class="hamburger-icon"></swd-icon></a>
+                        <a class="swd-menu-title" href="#">Page Title</a>
+                    </swd-menu>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;swd-menu&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a tabindex="0"&gt;&lt;swd-icon class="hamburger-icon"&gt;&lt;/swd-icon&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
                     &lt;/swd-menu&gt;
                 </swd-code>
 
