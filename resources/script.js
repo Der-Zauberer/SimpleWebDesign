@@ -77,6 +77,10 @@ class Swd {
         if (this.#loaded) this.#translate(Array.from(document.querySelectorAll('*')).filter(element => this.#preFilterElementsByAttributeName(element, 'i18n')));
     }
 
+    i18n(key) {
+        return this.#translation.get(key) `${key}[${this.#currentLocale}]`;
+    }
+
     #translate(elements) {
         for (const element of this.filterElementsByAttributeName('i18n', elements)) {
             element.value = this.#translation.get(element.key) || `${element.key}[${this.#currentLocale}]`;
