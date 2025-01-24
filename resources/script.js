@@ -621,7 +621,8 @@ class SwdSelection extends SwdComponent {
     }
 
     select(target) {
-        const targetToSelect = target ? target : this.querySelector('[selected]');
+        let targetToSelect = target ? target : this.querySelector('[selected]');
+        while(targetToSelect && targetToSelect !== this && targetToSelect.tagName !== 'A') targetToSelect = targetToSelect.parentNode;
         if (!targetToSelect || targetToSelect.nodeName !== 'A' || targetToSelect.hasAttribute('hidden')) return;
         this.selected = targetToSelect;
         this.value = this.selected.getAttribute('value') || this.selected.innerText;
