@@ -628,7 +628,7 @@
                 <swd-card-outline class="flex flex-space-around top-item">
                     <swd-dropdown>
                         <swd-input>
-                            <input placeholder="Autocomplete City" readonly>
+                            <input placeholder="Autocomplete City">
                             <swd-icon class="search-icon" onclick="this.parentElement.querySelector('input').focus()"></swd-icon>
                         </swd-input>
                         <swd-dropdown-content>
@@ -668,7 +668,7 @@
                 <swd-code swd-code-language="html" class="bottom-item">
                     &lt;swd-dropdown&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Autocomplete" readonly&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Autocomplete"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="down-icon" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-input&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
@@ -709,12 +709,12 @@
                 <swd-card-outline class="flex flex-space-around top-item">
                     <swd-dropdown>
                         <swd-input>
-                            <input placeholder="Autocomplete City" readonly>
+                            <input placeholder="Autocomplete City">
                             <input hidden>
                             <swd-icon class="search-icon" onclick="this.parentElement.querySelector('input').focus()"></swd-icon>
                         </swd-input>
                         <swd-dropdown-content>
-                            <swd-selection onselect="" onfilter="">
+                            <swd-selection onselect="" onfilter="" id="test">
                                 <a value="amsterdam" display="Amsterdam">Amsterdam<swd-subtitle>Netherlands</swd-subtitle></a>
                                 <a value="berlin" display="Berlin">Berlin<swd-subtitle>Germany</swd-subtitle></a>
                                 <a value="bern" display="Bern">Bern<swd-subtitle>Switzerland</swd-subtitle></a>
@@ -731,7 +731,7 @@
                 <swd-code swd-code-language="html" class="bottom-item">
                     &lt;swd-dropdown&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Search City" readonly&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input placeholder="Search City"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input hidden onselect="console.log(event)"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="down-icon" onclick="this.parentElement.querySelector('input').focus()"&gt;&lt;/swd-icon&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-input&gt;<br>
