@@ -352,22 +352,53 @@ class SwdNavigation extends SwdComponent {
 
 class SwdInput extends SwdComponent {
 
+    #INPUT_EVENT = () => { this.#updateIcon(); this.#INPUT_EVENT; }
+    #INPUT_ICON_EVENT = () => this.#input?.focus();
+    #INPUT_RESET_ICON_EVENT = () => { this.#input?.focus(); if (this.#input) this.#input.value = ''; this.#input.dispatchEvent(new Event('input', { bubbles: true })); }
+
     #input;
+    #inputIcon;
+    #inputResetIcon;
     #selfUpdateQueue = 0;
 
     swdOnUpdate() {
         if (this.#selfUpdateQueue-- > 0) return;
         const input = this.querySelector('input');
+        const inputIcon = this.querySelector('[swd-input-icon]');
+        const inputResetIcon = this.querySelector('[swd-input-reset-icon]');
         if (input !== this.input) {
-            this.#input?.removeEventListener('input', event => this.#updateValidation());
-            input?.addEventListener('input', event => this.#updateValidation());
+            this.#input?.removeEventListener('input',this.#INPUT_EVENT);
+            input?.addEventListener('input', this.#INPUT_EVENT);
             this.#input = input;
+        }
+        if (inputIcon !== this.inputIcon) {
+            this.#inputIcon?.removeEventListener('click',this.#INPUT_ICON_EVENT);
+            inputIcon?.addEventListener('click', this.#INPUT_ICON_EVENT);
+            this.#inputIcon = inputIcon;
+        }
+        if (inputResetIcon !== this.inputResetIcon) {
+            this.#inputResetIcon?.removeEventListener('click',this.#INPUT_RESET_ICON_EVENT);
+            inputResetIcon?.addEventListener('click', this.#INPUT_RESET_ICON_EVENT);
+            this.#inputResetIcon = inputResetIcon;
         }
         this.#updateValidation();
     }
 
+    swdAfterRendered() {
+        this.#updateIcon()
+    }
+
     swdOnDestroy() {
-        this.#input?.removeEventListener('input', event => this.#updateValidation());
+        this.#input?.removeEventListener('input', this.#INPUT_EVENT);
+    }
+
+    #updateIcon() {
+        const inputIcon = this.querySelector('[swd-input-icon]');
+        const inputResetIcon = this.querySelector('[swd-input-reset-icon]');
+        if (!inputIcon || !inputResetIcon) return;
+        const value = this.#input.value.length > 0;
+        if (value) inputIcon.setAttribute('hidden', 'true'); else inputIcon.removeAttribute('hidden')
+        if (!value) inputResetIcon.setAttribute('hidden', 'true'); else inputResetIcon.removeAttribute('hidden')
     }
 
     #updateValidation() {
@@ -552,6 +583,7 @@ class SwdDropdown extends SwdComponent {
 class SwdSelection extends SwdComponent {
 
     #selectionChangeAction;
+    #elements = new Set();
     #selected;
     value;
 
@@ -635,6 +667,7 @@ class SwdSelection extends SwdComponent {
         }
         this.#nextOrPrevious(true, true);
     }
+    
 }
 
 class SwdDialog extends SwdComponent {
