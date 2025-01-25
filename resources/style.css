@@ -51,7 +51,6 @@ body {
 @media only screen and (max-width: 575px) { :root {
     --theme-element-spacing: 20px;
     --theme-inner-element-spacing: 15px;
-    font-size: 15px;
 }}
 
 /************************************************
@@ -284,7 +283,7 @@ var {
 ************/
 
 table {
-    font-size: 0.9em;
+    font-size: round(0.8em, 1px);
     width: 100%;
     border-spacing: 0px;
     border-collapse: collapse;
@@ -572,6 +571,7 @@ swd-navigation {
     background-color: var(--theme-element-primary-color);
     z-index: 2;
     overflow: hidden;
+    scroll-behavior: smooth;
     transition: left 0.2s;
 }
 

@@ -427,7 +427,7 @@
 
                 <h2 id="headline">Headline</h2>
 
-                <table>
+                <table style="font-size: 1em;">
                     <tr><th>Headlines</th></tr>
                     <tr><td><h1 class="margin-0">Headline 1</h1></td></tr>
                     <tr><td><h2 class="margin-0">Headline 2</h2></td></tr>
@@ -446,7 +446,7 @@
                     &lt;h6&gt;Headline 6&lt;/h6&gt;
                 </swd-code>
 
-                <table>
+                <table style="font-size: 1em;">
                     <tr><th>Headlines</th></tr>
                     <tr><td><h1 class="margin-0">Headline 1<swd-subtitle>with Subtitle</swd-subtitle></h1></td></tr>
                     <tr><td><h2 class="margin-0">Headline 2<swd-subtitle>with Subtitle</swd-subtitle></h2></td></tr>
@@ -580,7 +580,7 @@
 
                 <h2 id="dropdown">Dropdown</h2>
 
-                <swd-card-outline class="flex flex-space-around top-item">
+                <swd-card-outline class="flex flex-wrap flex-space-around top-item">
                     <swd-dropdown>
                         <button>Selection Example</button>
                         <swd-dropdown-content>
@@ -625,7 +625,7 @@
                     &lt;/swd-dropdown&gt;<br>
                 </swd-code>
 
-                <swd-card-outline class="flex flex-space-around top-item">
+                <swd-card-outline class="flex flex-wrap flex-space-around top-item">
                     <swd-dropdown>
                         <swd-input>
                             <input placeholder="Autocomplete City">
@@ -908,16 +908,14 @@
 
                 <h2 id="loading-skeleton">Loading Skeleton</h2>
 
-                <swd-card-outline class="top-item">
-                    <div class="flex">
-                        <div>
-                            <swd-skeleton-shape style="width: 80px; aspect-ratio: 1/1;"></swd-skeleton-shape>
-                        </div>
-                        <div class="width-100">
-                            <swd-skeleton-text></swd-skeleton-text>
-                            <swd-skeleton-text></swd-skeleton-text>
-                            <swd-skeleton-text style="width: 80%;"></swd-skeleton-text>
-                        </div>
+                <swd-card-outline class="flex top-item">
+                    <div>
+                        <swd-skeleton-shape style="width: 80px; aspect-ratio: 1/1;"></swd-skeleton-shape>
+                    </div>
+                    <div class="width-100">
+                        <swd-skeleton-text></swd-skeleton-text>
+                        <swd-skeleton-text></swd-skeleton-text>
+                        <swd-skeleton-text style="width: 80%;"></swd-skeleton-text>
                     </div>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
@@ -942,7 +940,7 @@
                     &lt;swd-loading-spinner loading="true" class="width-100"&gt;&lt;/swd-loading-spinner&gt;
                 </swd-code>
 
-                <swd-card-outline class="flex flex-space-around top-item">
+                <swd-card-outline class="flex flex-wrap flex-space-around top-item">
                     <swd-loading-spinner loading="true">
                         <swd-card style="max-width: 300px;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</swd-card>
                     </swd-loading-spinner>
