@@ -162,10 +162,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 3em }
 h2 { font-size: 2.5em }
-h3 { font-size: 1.5em }
-h4 { font-size: 1.2em }
-h5 { font-size: 1em; font-weight: bold }
-h6 { font-size: 0.8em; letter-spacing: 1px; font-weight: bold; text-transform: uppercase }
+h3 { font-size: 2em }
+h4 { font-size: 1.5em }
+h5 { font-size: 1.2em; font-weight: bold }
+h6 { font-size: 0.9em; letter-spacing: 1px; font-weight: bold; text-transform: uppercase }
 
 swd-subtitle {
     display: block;
@@ -571,7 +571,6 @@ swd-navigation {
     background-color: var(--theme-element-primary-color);
     z-index: 2;
     overflow: hidden;
-    scroll-behavior: smooth;
     transition: left 0.2s;
 }
 
