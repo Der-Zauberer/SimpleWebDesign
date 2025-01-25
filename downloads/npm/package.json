@@ -1,0 +1,19 @@
+{
+  "name": "simplewebdesign",
+  "version": "2.2.2",
+  "description": "A simple way to style your responsive website! This is a framework like Bootstrap but more lightweight.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Der-Zauberer/SimpleWebDesign.git"
+  },
+  "keywords": [
+    "responsive",
+    "css-framework"
+  ],
+  "author": "Der-Zauberer",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Der-Zauberer/SimpleWebDesign/issues"
+  },
+  "homepage": "https://github.com/Der-Zauberer/SimpleWebDesign#readme"
+}
