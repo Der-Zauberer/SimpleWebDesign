@@ -17,7 +17,6 @@
     --theme-background-color: light-dark(white, black);
     --theme-element-primary-color: var(--theme-primary-grey-color);
     --theme-element-secondary-color: var(--theme-secondary-grey-color);
-    --theme-text-color: light-dark(black, white);
     --theme-text-grey-color: light-dark(hsl(0, 0%, 40%), hsl(0, 0%, 60%));
     --theme-font-family: Roboto, sans-serif;
     --theme-border-radius: 5px;
@@ -28,7 +27,7 @@
     --theme-menu-height: 50px;
     --theme-navigation-width: 250px;
     background-color: var(--theme-background-color);
-    color: var(--theme-text-color);
+    color: light-dark(black, white);
     font-family: var(--theme-font-family);
     font-size: 18px;
     font-weight: 500;
@@ -140,7 +139,7 @@ swd-icon.grid-icon { mask-image: url('data:image/svg+xml,<svg width="9" height="
 
 swd-icon {
     display: inline-block;
-    background-color: var(--theme-text-color);
+    background-color: currentColor;
     height: calc(1em - 1px);
     width: calc(1em - 1px);
     mask-size: contain;
@@ -238,7 +237,7 @@ kbd {
     padding: calc(round(0.15em, 1px) - 1px) round(0.2em, 1px);
     font-family: 'Roboto Mono', monospace;
     border-radius: var(--theme-border-radius);
-    border: solid 1px var(--theme-text-color);
+    border: solid 1px currentColor;
 }
 
 samp {
@@ -367,7 +366,7 @@ a.button, button, input, select, textarea, swd-menu a, swd-navigation a, swd-sel
     padding: calc(round(0.5em, 1px) - var(--theme-border-width)) calc(round(0.6em, 1px) - var(--theme-border-width));
     font-family: var(--theme-font-family);
     font-size: var(--theme-font-size);
-    color: var(--theme-text-color);
+    color: white;
     user-select: none;
     -webkit-user-select: none;
     outline: none;
@@ -377,7 +376,7 @@ a.button, button, input, select, textarea, swd-menu a, swd-navigation a, swd-sel
 
 a.button[disabled], button:disabled, input:disabled, select:disabled, textarea:disabled, swd-selection a:disabled {
     --theme-primary-color: var(--theme-element-primary-color) !important;
-    --theme-text-color: var(--theme-text-grey-color) !important;
+    color: var(--theme-text-grey-color) !important;
     cursor: no-drop;
 }
 
@@ -396,7 +395,7 @@ a.button, button, input[type="submit"], swd-menu a, swd-navigation a, swd-footer
 
 a.button:not(.outline, .ghost), button:not(.outline, .ghost), input[type="submit"]:not(.outline, .ghost) {
     background-color: var(--theme-primary-color);
-    --theme-text-color: white;
+    color: white;
 }
 
 a.button:not(.outline, .ghost, [disabled]):hover, a.button:not(.outline, .ghost, [disabled]):focus, a.button:not(.outline, .ghost, [disabled]):active, a.button:not(.outline, .ghost, [disabled])[selected],
@@ -414,7 +413,7 @@ a.button.outline:not([disabled]):hover, a.button.outline:not([disabled]):focus, 
 button.outline:not(:disabled):hover, button.outline:not(:disabled):focus, button.outline:not(:disabled):active, button.outline:not(:disabled)[selected],
 input[type="submit"].outline:not(:disabled):hover, input[type="submit"].outline:not(:disabled):focus, input[type="submit"].outline:not(:disabled):active, input[type="submit"].outline:not(:disabled)[selected] {
     background-color: var(--theme-primary-color);
-    --theme-text-color: white;
+    color: white;
 }
 
 a.button.ghost, button.ghost, input[type="submit"].ghost {
@@ -476,7 +475,7 @@ swd-input swd-icon {
 }
 
 swd-input:has(input.outline) swd-icon { transform: translateX(calc((round(0.5em, 1px) + var(--theme-border-width)) / -1)) translateY(-50%) }
-swd-input:has(input:focus) swd-icon { background-color: var(--theme-text-color) }
+swd-input:has(input:focus) swd-icon { background-color: currentColor }
 
 input, select, textarea, swd-input {
     padding: round(0.5em, 1px) round(0.5em, 1px) calc(round(0.5em, 1px) - var(--theme-border-width)) round(0.5em, 1px);
@@ -530,7 +529,6 @@ swd-menu {
 }
 
 swd-menu * {
-    --theme-text-color: white;
     color: white;
 }
 
@@ -615,7 +613,7 @@ swd-footer a {
 swd-footer a:hover:not(.swd-menu-title), 
 swd-footer a:active:not(.swd-menu-title), 
 swd-footer a[selected]:not(.swd-menu-title) {
-    color: var(--theme-text-color);
+    color: white;
 }
 
 /***********
@@ -627,7 +625,6 @@ swd-card, swd-card-outline, swd-card-ghost, .swd-card-frame {
     box-sizing: border-box;
     height: fit-content;
     gap: var(--theme-inner-element-spacing) !important;
-    color: var(--theme-text-color);
     background-color: var(--theme-element-primary-color);
     padding: calc(var(--theme-inner-element-spacing) - var(--theme-border-width));
     border: solid var(--theme-border-width) var(--theme-element-primary-color);
@@ -1048,42 +1045,42 @@ swd-navigation[class*="-color"] *, swd-card[class*="-color"] *, swd-card-ghost.s
 *   Colors   *
 *************/
 
-.lightmode { color-scheme: light; color: var(--theme-text-color); background-color: var(--theme-background-color); }
-.darkmode { color-scheme: dark; color: var(--theme-text-color); background-color: var(--theme-background-color); }
+.lightmode { color-scheme: light; color: black; background-color: var(--theme-background-color); }
+.darkmode { color-scheme: dark; color: white; background-color: var(--theme-background-color); }
 
-.primary-color { --theme-primary-color: hsl(225, 100%, 50%); --theme-secondary-color: hsl(225, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.secondary-color { --theme-primary-color: hsl(225, 100%, 30%); --theme-secondary-color: hsl(225, 100%, 50%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.accent-color { --theme-primary-color: hsl(45, 100%, 50%); --theme-secondary-color: hsl(225, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.magenta-color { --theme-primary-color: hsl(337.5, 100%, 45%); --theme-secondary-color: hsl(337.5, 100%, 25%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.purple-color { --theme-primary-color: hsl(270, 100%, 40%); --theme-secondary-color: hsl(270, 100%, 20%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.blue-color { --theme-primary-color: hsl(225, 100%, 50%); --theme-secondary-color: hsl(225, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.aqua-color { --theme-primary-color: hsl(202.2, 100%, 45%); --theme-secondary-color: hsl(202.2, 100%, 25%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.green-color { --theme-primary-color: hsl(112.5, 100%, 35%); --theme-secondary-color: hsl(112.5, 100%, 20%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.yellow-color { --theme-primary-color: hsl(45, 100%, 50%); --theme-secondary-color: hsl(45, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.orange-color { --theme-primary-color: hsl(22.5, 100%, 50%); --theme-secondary-color: hsl(22.5, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.red-color { --theme-primary-color: hsl(0, 100%, 50%); --theme-secondary-color: hsl(0, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.grey-color { --theme-primary-color: var(--theme-primary-grey-color); --theme-secondary-color: var(--theme-secondary-grey-color); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
-.light-color { --theme-primary-color: light-dark(white, black); --theme-secondary-color: light-dark(white, black); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: light-dark(black, white);; color: var(--theme-text-color); }
-.dark-color { --theme-primary-color: light-dark(black, white); --theme-secondary-color: light-dark(black, white); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: light-dark(white, black);; color: var(--theme-text-color); }
-.white-color { --theme-primary-color: white; --theme-secondary-color: white; --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: black; color: var(--theme-text-color); }
-.black-color { --theme-primary-color: black; --theme-secondary-color: black; --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); --theme-text-color: white; color: var(--theme-text-color); }
+.primary-color { --theme-primary-color: hsl(225, 100%, 50%); --theme-secondary-color: hsl(225, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.secondary-color { --theme-primary-color: hsl(225, 100%, 30%); --theme-secondary-color: hsl(225, 100%, 50%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.accent-color { --theme-primary-color: hsl(45, 100%, 50%); --theme-secondary-color: hsl(225, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.magenta-color { --theme-primary-color: hsl(337.5, 100%, 45%); --theme-secondary-color: hsl(337.5, 100%, 25%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.purple-color { --theme-primary-color: hsl(270, 100%, 40%); --theme-secondary-color: hsl(270, 100%, 20%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.blue-color { --theme-primary-color: hsl(225, 100%, 50%); --theme-secondary-color: hsl(225, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.aqua-color { --theme-primary-color: hsl(202.2, 100%, 45%); --theme-secondary-color: hsl(202.2, 100%, 25%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.green-color { --theme-primary-color: hsl(112.5, 100%, 35%); --theme-secondary-color: hsl(112.5, 100%, 20%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.yellow-color { --theme-primary-color: hsl(45, 100%, 50%); --theme-secondary-color: hsl(45, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.orange-color { --theme-primary-color: hsl(22.5, 100%, 50%); --theme-secondary-color: hsl(22.5, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.red-color { --theme-primary-color: hsl(0, 100%, 50%); --theme-secondary-color: hsl(0, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
+.grey-color { --theme-primary-color: var(--theme-primary-grey-color); --theme-secondary-color: var(--theme-secondary-grey-color); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white;  }
+.light-color { --theme-primary-color: light-dark(white, black); --theme-secondary-color: light-dark(white, black); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: light-dark(black, white); }
+.dark-color { --theme-primary-color: light-dark(black, white); --theme-secondary-color: light-dark(black, white); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: light-dark(white, black); }
+.white-color { --theme-primary-color: white; --theme-secondary-color: white; --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: black; }
+.black-color { --theme-primary-color: black; --theme-secondary-color: black; --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
 
-.primary-text { --theme-text-color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); color: var(--theme-text-color); }
-.secondary-text { --theme-text-color: light-dark(hsl(225, 100%, 25%), hsl(225, 100%, 35%)); color: var(--theme-text-color); }
-.accent-text { --theme-text-color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)); color: var(--theme-text-color); }
-.magenta-text { --theme-text-color: light-dark(hsl(337.5, 100%, 45%), hsl(337.5, 100%, 55%)); color: var(--theme-text-color); }
-.purple-text { --theme-text-color: light-dark(hsl(270, 100%, 45%), hsl(270, 100%, 55%)); color: var(--theme-text-color); }
-.blue-text { --theme-text-color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)); color: var(--theme-text-color); }
-.aqua-text { --theme-text-color: light-dark(hsl(202.2, 100%, 40%), hsl(202.2, 100%, 50%)); color: var(--theme-text-color); }
-.green-text { --theme-text-color: light-dark(hsl(112.5, 100%, 30%), hsl(112.5, 100%, 40%)); color: var(--theme-text-color); }
-.yellow-text { --theme-text-color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)); color: var(--theme-text-color); }
-.orange-text { --theme-text-color: light-dark(hsl(22.5, 100%, 45%), hsl(22.5, 100%, 55%)); color: var(--theme-text-color); }
-.red-text { --theme-text-color: light-dark(hsl(0, 100%, 45%), hsl(0, 100%, 55%)); color: var(--theme-text-color); }
-.grey-text { --theme-text-color: var(--theme-text-grey-color); color: var(--theme-text-color); }
-.light-text { --theme-text-color: light-dark(white, black); color: var(--theme-text-color); }
-.dark-text { --theme-text-color: light-dark(black, white); color: var(--theme-text-color); }
-.white-text { --theme-text-color: white; color: var(--theme-text-color); }
-.black-text { --theme-text-color: black; color: var(--theme-text-color); }
+.primary-text, .primary-text * { color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)) !important }
+.secondary-text, .secondary-text * { color: light-dark(hsl(225, 100%, 25%), hsl(225, 100%, 35%)) !important }
+.accent-text, .accent-text * { color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)) !important }
+.magenta-text, .magenta-text * { color: light-dark(hsl(337.5, 100%, 45%), hsl(337.5, 100%, 55%)) !important }
+.purple-text, .purple-text * { color: light-dark(hsl(270, 100%, 45%), hsl(270, 100%, 55%)) !important }
+.blue-text, .blue-text * { color: light-dark(hsl(225, 100%, 45%), hsl(225, 100%, 55%)) !important }
+.aqua-text, .aqua-text * { color: light-dark(hsl(202.2, 100%, 40%), hsl(202.2, 100%, 50%)) !important }
+.green-text, .green-text * { color: light-dark(hsl(112.5, 100%, 30%), hsl(112.5, 100%, 40%)) !important }
+.yellow-text, .yellow-text * { color: light-dark(hsl(45, 100%, 45%), hsl(45, 100%, 55%)) !important }
+.orange-text, .orange-text * { color: light-dark(hsl(22.5, 100%, 45%), hsl(22.5, 100%, 55%)) !important }
+.red-text, .red-text * { color: light-dark(hsl(0, 100%, 45%), hsl(0, 100%, 55%)) !important }
+.grey-text, .grey-text * { color: var(--theme-text-grey-color) !important }
+.light-text, .light-text * { color: light-dark(white, black) !important }
+.dark-text, .dark-text * { color: light-dark(black, white) !important }
+.white-text, .white-text * { color: white !important }
+.black-text, .black-text * { color: black !important }
 
 /**********************
 *   Utility Classes   *
