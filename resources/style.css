@@ -25,7 +25,7 @@
     --theme-box-shadow: none;
     --theme-element-spacing: 30px;
     --theme-inner-element-spacing: 20px;
-    --theme-menu-height: calc(1em + 2 * round(0.2em, 2px) + 2 * round(0.5em, 2px));
+    --theme-menu-height: 50px;
     --theme-navigation-width: 250px;
     background-color: var(--theme-background-color);
     color: var(--theme-text-color);
@@ -358,7 +358,7 @@ audio {
 *   Button & Input   *
 *********************/
 
-a.button, button, input, select, textarea, swd-navigation a, swd-selection a, swd-input {
+a.button, button, input, select, textarea, swd-menu a, swd-navigation a, swd-selection a, swd-footer a, swd-input {
     box-sizing: border-box;
     height: fit-content;
     min-height: round(2.2em, 1px);
@@ -385,7 +385,7 @@ a.button[disabled], button:disabled, input:disabled, select:disabled, textarea:d
 *   Button   *
 *************/
 
-a.button, button, input[type="submit"], swd-navigation a, swd-selection a {
+a.button, button, input[type="submit"], swd-menu a, swd-navigation a, swd-footer a, swd-selection a {
     display: inline-block;
     text-decoration: none !important;
     cursor: pointer;
@@ -520,8 +520,10 @@ swd-menu {
     position: sticky;
     position: -webkit-sticky;
     box-sizing: border-box;
-    top: 0px;
-    padding: round(0.25em, 1px) round(0.6em, 1px);
+    align-items: center;
+    top: 0;
+    padding: 0 round(0.6em, 1px);
+    height: var(--theme-menu-height);
     background-color: var(--theme-primary-color);
     z-index: 3;
     overflow: hidden;
@@ -535,14 +537,8 @@ swd-menu * {
 swd-menu:hover { overflow: auto }
 
 swd-menu a {
-    line-height: round(1.2em, 1px);
-    padding: round(0.5em, 1px) round(0.6em, 1px);
-    text-decoration: none !important;
-    user-select: none;
-    -webkit-user-select: none;
-    white-space: nowrap;
+    min-width: fit-content;
     color: hsla(0, 0%, 100%, 60%);
-    border-radius: var(--theme-border-radius);
 }
 
 swd-menu a.swd-menu-title {
@@ -602,7 +598,9 @@ swd-navigation[shown] { left: 0 }
 swd-footer {
     display: flex;
     box-sizing: border-box;
-    padding: round(0.25em, 1px) round(0.6em, 1px);
+    padding: 0 round(0.6em, 1px);
+    align-items: center;
+    height: 50px;
     background-color: var(--theme-element-primary-color);
     overflow: hidden;
 }
@@ -610,14 +608,8 @@ swd-footer {
 swd-footer:hover { overflow: auto }
 
 swd-footer a {
-    line-height: round(1.2em, 1px);
-    padding: round(0.5em, 1px) round(0.6em, 1px);
-    text-decoration: none !important;
-    user-select: none;
-    -webkit-user-select: none;
-    white-space: nowrap;
+    min-width: fit-content;
     color: var(--theme-text-grey-color);
-    border-radius: var(--theme-border-radius);
 }
 
 swd-footer a:hover:not(.swd-menu-title), 
