@@ -308,15 +308,6 @@ table td, th {
 *   Media   *
 ************/
 
-img {
-    display: block;
-    margin: 0px auto;
-    max-width: 100%;
-    height: auto;
-    object-fit: scale-down;
-    margin-bottom: var(--theme-element-spacing);
-}
-
 video {
     display: block;
     margin: 0px auto;
@@ -620,7 +611,7 @@ swd-footer a[selected]:not(.swd-menu-title) {
 *   Card   *
 ***********/
 
-swd-card, swd-card-outline, swd-card-ghost, .swd-card-frame {
+swd-card, swd-card-outline, swd-card-ghost, .swd-card-image {
     display: block;
     box-sizing: border-box;
     height: fit-content;
@@ -642,7 +633,13 @@ swd-card-outline {
 swd-card-ghost { background: initial; border-color: transparent; }
 swd-card.swd-card-hover:hover, swd-card-outline.swd-card-hover:hover { cursor: pointer; --theme-element-primary-color: var(--theme-element-secondary-color); }
 swd-card-ghost.swd-card-hover:hover { cursor: pointer; background: var(--theme-element-primary-color); }
-.swd-card-frame { padding: 0; border: none; }
+
+.swd-card-image {
+    width: 100%;
+    padding: 0;
+    border: none;
+    border-radius: var(--theme-border-radius);
+}
 
 [class*="overlay-"] {
     color: white;
