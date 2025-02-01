@@ -14,7 +14,7 @@
     --theme-primary-grey-color: light-dark(hsl(0, 0%, 88%), hsl(0, 0%, 12%));
     --theme-secondary-grey-color: light-dark(hsl(0, 0%, 80%), hsl(0, 0%, 20%));
     --theme-tertiary-grey-color: light-dark(hsl(0, 0%, 72%), hsl(0, 0%, 28%));
-    --theme-background-color: light-dark(white, black);
+    --theme-background: light-dark(white, black);
     --theme-element-primary-color: var(--theme-primary-grey-color);
     --theme-element-secondary-color: var(--theme-secondary-grey-color);
     --theme-text-grey-color: light-dark(hsl(0, 0%, 40%), hsl(0, 0%, 60%));
@@ -26,7 +26,7 @@
     --theme-inner-element-spacing: 20px;
     --theme-menu-height: 50px;
     --theme-navigation-width: 250px;
-    background-color: var(--theme-background-color);
+    background: var(--theme-background);
     color: light-dark(black, white);
     font-family: var(--theme-font-family);
     font-size: 18px;
@@ -139,13 +139,13 @@ swd-icon.grid-icon { mask-image: url('data:image/svg+xml,<svg width="9" height="
 
 swd-icon {
     display: inline-block;
-    background-color: currentColor;
+    background: currentColor;
     height: calc(1em - 1px);
     width: calc(1em - 1px);
     mask-size: contain;
     mask-position: center;
     mask-repeat: no-repeat;
-    transform: translateY(12%);
+    transform: translateY(0.1em);
 }
 
 /****************
@@ -212,7 +212,7 @@ swd-chip {
     height: fit-content;
     line-height: 1em;
     padding: round(0.15em, 1px) round(0.6em, 1px);
-    background-color: var(--theme-element-primary-color);
+    background: var(--theme-element-primary-color);
     border-radius: 1em;
 }
 
@@ -223,7 +223,7 @@ swd-tooltip {
     height: fit-content;
     line-height: 1em;
     padding: round(0.2em, 1px) round(0.3em, 1px);
-    background-color: color-mix(in srgb, light-dark(black, white) 80%, transparent);
+    background: color-mix(in srgb, light-dark(black, white) 80%, transparent);
     color: light-dark(white, black);
     border-radius: var(--theme-border-radius);
 }
@@ -246,7 +246,7 @@ samp {
     line-height: 1em;
     padding: round(0.05em, 1px) round(0.3em, 1px);
     font-family: 'Roboto Mono', monospace;
-    background-color: var(--theme-element-primary-color);
+    background: var(--theme-element-primary-color);
     border-radius: var(--theme-border-radius);
 }
 
@@ -259,7 +259,7 @@ code, pre, swd-code {
     font-family: 'Roboto Mono', monospace;
     font-size: round(0.8em, 1px);
     line-height: round(1.7em, 1px);
-    background-color: var(--theme-element-primary-color);
+    background: var(--theme-element-primary-color);
     padding: round(1em, 1px);
     white-space: nowrap;
     overflow: hidden;
@@ -294,7 +294,7 @@ table tr th {
     padding: 6px 8px;
     min-width: 60px;
     font-weight: normal;
-    background-color: var(--theme-element-primary-color);
+    background: var(--theme-element-primary-color);
     border-color: var(--theme-element-primary-color);
 }
 
@@ -366,7 +366,7 @@ a.button, button, input, select, textarea, swd-menu a, swd-navigation a, swd-sel
     padding: calc(round(0.5em, 1px) - var(--theme-border-width)) calc(round(0.6em, 1px) - var(--theme-border-width));
     font-family: var(--theme-font-family);
     font-size: var(--theme-font-size);
-    color: white;
+    color: light-dark(black, white);
     user-select: none;
     -webkit-user-select: none;
     outline: none;
@@ -394,30 +394,30 @@ a.button, button, input[type="submit"], swd-menu a, swd-navigation a, swd-footer
 }
 
 a.button:not(.outline, .ghost), button:not(.outline, .ghost), input[type="submit"]:not(.outline, .ghost) {
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
     color: white;
 }
 
 a.button:not(.outline, .ghost, [disabled]):hover, a.button:not(.outline, .ghost, [disabled]):focus, a.button:not(.outline, .ghost, [disabled]):active, a.button:not(.outline, .ghost, [disabled])[selected],
 button:not(.outline, .ghost, :disabled):hover, button:not(.outline, .ghost, :disabled):focus, button:not(.outline, .ghost, :disabled):active, button:not(.outline, .ghost, :disabled)[selected],
 input[type="submit"]:not(.outline, .ghost, :disabled):hover, input[type="submit"]:not(.outline, .ghost, :disabled):focus, input[type="submit"]:not(.outline, .ghost, :disabled):active, input[type="submit"]:not(.outline, .ghost, :disabled)[selected] {
-    background-color: var(--theme-secondary-color);
+    background: var(--theme-secondary-color);
 }
 
 a.button.outline, button.outline, input[type="submit"].outline {
-    background-color: transparent;
+    background: transparent;
     border-color: var(--theme-primary-color);
 }
 
 a.button.outline:not([disabled]):hover, a.button.outline:not([disabled]):focus, a.button.outline:not([disabled]):active, a.button.outline:not([disabled])[selected],
 button.outline:not(:disabled):hover, button.outline:not(:disabled):focus, button.outline:not(:disabled):active, button.outline:not(:disabled)[selected],
 input[type="submit"].outline:not(:disabled):hover, input[type="submit"].outline:not(:disabled):focus, input[type="submit"].outline:not(:disabled):active, input[type="submit"].outline:not(:disabled)[selected] {
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
     color: white;
 }
 
 a.button.ghost, button.ghost, input[type="submit"].ghost {
-    background-color: transparent;
+    background: transparent;
 }
 
 a.button.ghost:not([disabled]):hover, a.button.ghost:not([disabled]):focus, a.button.ghost:not([disabled]):active, a.button:not([disabled]).ghost[selected],
@@ -425,7 +425,7 @@ button.ghost:not(:disabled):hover, button.ghost:not(:disabled):focus, button.gho
 input[type="submit"].ghost:not(:disabled):hover, input[type="submit"].ghost:not(:disabled):focus, input[type="submit"].ghost:not(:disabled):active, input[type="submit"].ghost:not(:disabled)[selected],
 swd-navigation a:not([disabled]):hover, swd-navigation a:not([disabled]):focus, swd-navigation a:not([disabled]):active, swd-navigation a:not([disabled])[selected],
 swd-selection a:not([disabled]):hover, swd-selection a:not([disabled]):focus, swd-selection a:not([disabled]):active, swd-selection a:not([disabled])[selected] {
-    background-color: var(--theme-element-primary-color);
+    background: var(--theme-element-primary-color);
 }
 
 /************
@@ -440,7 +440,7 @@ swd-input {
 }
 
 swd-input input, swd-input select, swd-input textarea {
-    background-color: transparent !important;
+    background: transparent !important;
     min-width: initial !important;
     min-height: initial !important;
     border: 0 !important; 
@@ -470,29 +470,29 @@ swd-input swd-icon {
     right: 0;
     top: 50%;
     cursor: pointer;
-    background-color: var(--theme-text-grey-color);
+    background: var(--theme-text-grey-color);
     transform: translateX(calc(round(0.5em, 1px) / -1)) translateY(-50%);
 }
 
 swd-input:has(input.outline) swd-icon { transform: translateX(calc((round(0.5em, 1px) + var(--theme-border-width)) / -1)) translateY(-50%) }
-swd-input:has(input:focus) swd-icon { background-color: currentColor }
+swd-input:has(input:focus) swd-icon { background: currentColor }
 
 input, select, textarea, swd-input {
     padding: round(0.5em, 1px) round(0.5em, 1px) calc(round(0.5em, 1px) - var(--theme-border-width)) round(0.5em, 1px);
     border: none;
-    background-color: var(--theme-element-primary-color);
+    background: var(--theme-element-primary-color);
     border-bottom: solid var(--theme-border-width) var(--theme-element-secondary-color);
 }
 
 input.outline, select.outline, textarea.outline, swd-input.outline {
     padding: calc(round(0.5em, 1px) - var(--theme-border-width));
-    background-color: var(--theme-element-primary-color);
+    background: var(--theme-element-primary-color);
     border: solid var(--theme-border-width) var(--theme-element-secondary-color);
 }
 
 input.ghost, select.ghost, textarea.ghost, swd-input.ghost {
     padding: calc(round(0.5em, 1px) - var(--theme-border-width));
-    background-color: transparent;
+    background: transparent;
     border: solid var(--theme-border-width) transparent;
 }
 
@@ -523,7 +523,7 @@ swd-menu {
     top: 0;
     padding: 0 round(0.6em, 1px);
     height: var(--theme-menu-height);
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
     z-index: 3;
     overflow: hidden;
 }
@@ -562,7 +562,7 @@ swd-navigation {
     padding: var(--theme-inner-element-spacing);
     width: var(--theme-navigation-width);
     height: calc(100% - var(--theme-menu-height));
-    background-color: var(--theme-element-primary-color);
+    background: var(--theme-element-primary-color);
     z-index: 2;
     overflow: hidden;
     transition: left 0.2s;
@@ -599,7 +599,7 @@ swd-footer {
     padding: 0 round(0.6em, 1px);
     align-items: center;
     height: 50px;
-    background-color: var(--theme-element-primary-color);
+    background: var(--theme-element-primary-color);
     overflow: hidden;
 }
 
@@ -625,22 +625,23 @@ swd-card, swd-card-outline, swd-card-ghost, .swd-card-frame {
     box-sizing: border-box;
     height: fit-content;
     gap: var(--theme-inner-element-spacing) !important;
-    background-color: var(--theme-element-primary-color);
     padding: calc(var(--theme-inner-element-spacing) - var(--theme-border-width));
     border: solid var(--theme-border-width) var(--theme-element-primary-color);
     border-radius: var(--theme-border-radius);
     margin-bottom: var(--theme-element-spacing);
+    color: light-dark(black, white);
+    background: var(--theme-element-primary-color);
 }
 
 swd-card-outline {
-    background-color: initial;
+    background: initial;
     padding: calc(var(--theme-inner-element-spacing) - var(--theme-border-width));
     border: solid var(--theme-border-width) var(--theme-element-primary-color);
 }
 
 swd-card-ghost { background: initial; border-color: transparent; }
 swd-card.swd-card-hover:hover, swd-card-outline.swd-card-hover:hover { cursor: pointer; --theme-element-primary-color: var(--theme-element-secondary-color); }
-swd-card-ghost.swd-card-hover:hover { cursor: pointer; background-color: var(--theme-element-primary-color); }
+swd-card-ghost.swd-card-hover:hover { cursor: pointer; background: var(--theme-element-primary-color); }
 .swd-card-frame { padding: 0; border: none; }
 
 [class*="overlay-"] {
@@ -669,7 +670,7 @@ swd-selection {
     display: flex;
     flex-direction: column;
     min-width: 150px;
-    background-color: var(--theme-element-primary-color);
+    background: var(--theme-element-primary-color);
     border-radius: var(--theme-border-radius);
 }
 
@@ -717,7 +718,7 @@ swd-dialog {
     height: 100%;
     width: 100%;
     padding: calc(var(--theme-element-spacing) / 2);
-    background-color: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 4;
 }
 
@@ -764,7 +765,7 @@ swd-loading-spinner[loading="true"]::after {
     position: absolute;
     mask: no-repeat center url('data:image/svg+xml;utf8,<svg width="18" height="18" stroke="white" xmlns="http://www.w3.org/2000/svg"><style>g{transform-origin:center;animation:rotation 2s linear infinite}g circle{animation:stroke 1.5s ease-in-out infinite}@keyframes rotation{100%{transform:rotate(360deg)}}@keyframes stroke{0%{stroke-dasharray:0 150;stroke-dashoffset:0}50%{stroke-dasharray:30 150;stroke-dashoffset:-20}95%,100%{stroke-dasharray:45 150;stroke-dashoffset:-49}}</style><g><circle cx="9" cy="9" r="8" fill="none" stroke-width="2"></circle></g></svg>');
     mask-size: contain;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
     height: calc(1em);
     width: calc(1em);
     top: 50%;
@@ -780,7 +781,7 @@ swd-loading-spinner[loading="true"]:not(:empty)::before {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: light-dark(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+    background: light-dark(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -1045,8 +1046,8 @@ swd-navigation[class*="-color"] *, swd-card[class*="-color"] *, swd-card-ghost.s
 *   Colors   *
 *************/
 
-.lightmode { color-scheme: light; color: black; background-color: var(--theme-background-color); }
-.darkmode { color-scheme: dark; color: white; background-color: var(--theme-background-color); }
+.lightmode { color-scheme: light; color: black; background: var(--theme-background); }
+.darkmode { color-scheme: dark; color: white; background: var(--theme-background); }
 
 .primary-color { --theme-primary-color: hsl(225, 100%, 50%); --theme-secondary-color: hsl(225, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
 .secondary-color { --theme-primary-color: hsl(225, 100%, 30%); --theme-secondary-color: hsl(225, 100%, 50%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
