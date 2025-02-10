@@ -751,11 +751,12 @@ swd-skeleton-text {
 swd-loading-spinner {
     display: inline-block;
     position: relative;
-    cursor: wait;
     height: max-content;
     min-height: calc(1em);
     min-width: calc(1em);
 }
+
+swd-loading-spinner[loading="true"] { cursor: wait }
 
 swd-loading-spinner[loading="true"]::after {
     content: '';
