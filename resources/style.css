@@ -386,6 +386,7 @@ a.button, button, input[type="submit"], swd-menu a, swd-navigation a, swd-footer
 
 a.button:not(.outline, .ghost), button:not(.outline, .ghost), input[type="submit"]:not(.outline, .ghost) {
     background: var(--theme-primary-color);
+    border: none;
     color: white;
 }
 
