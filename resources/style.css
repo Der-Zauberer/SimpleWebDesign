@@ -749,15 +749,14 @@ swd-skeleton-text {
 *   Loading Spinner   *
 **********************/
 
-swd-loading-spinner {
+swd-loading-spinner[loading="true"] {
     display: inline-block;
     position: relative;
     height: max-content;
+    cursor: wait;
     min-height: calc(1em);
     min-width: calc(1em);
 }
-
-swd-loading-spinner[loading="true"] { cursor: wait }
 
 swd-loading-spinner[loading="true"]::after {
     content: '';
