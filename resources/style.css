@@ -749,7 +749,7 @@ swd-skeleton-text {
 *   Loading Spinner   *
 **********************/
 
-swd-loading-spinner[loading="true"] {
+swd-loading-spinner[loading]:not([loading="false"]) {
     display: inline-block;
     position: relative;
     height: max-content;
@@ -758,7 +758,7 @@ swd-loading-spinner[loading="true"] {
     min-width: calc(1em);
 }
 
-swd-loading-spinner[loading="true"]::after {
+swd-loading-spinner[loading]:not([loading="false"])::after {
     content: '';
     position: absolute;
     mask: no-repeat center url('data:image/svg+xml;utf8,<svg width="18" height="18" stroke="white" xmlns="http://www.w3.org/2000/svg"><style>g{transform-origin:center;animation:rotation 2s linear infinite}g circle{animation:stroke 1.5s ease-in-out infinite}@keyframes rotation{100%{transform:rotate(360deg)}}@keyframes stroke{0%{stroke-dasharray:0 150;stroke-dashoffset:0}50%{stroke-dasharray:30 150;stroke-dashoffset:-20}95%,100%{stroke-dasharray:45 150;stroke-dashoffset:-49}}</style><g><circle cx="9" cy="9" r="8" fill="none" stroke-width="2"></circle></g></svg>');
@@ -773,7 +773,7 @@ swd-loading-spinner[loading="true"]::after {
     z-index: 1;
 }
 
-swd-loading-spinner[loading="true"]:not(:empty)::before {
+swd-loading-spinner[loading]:not([loading="false"]):not(:empty)::before {
     content: '';
     display: block;
     position: absolute;
@@ -1038,7 +1038,7 @@ swd-navigation[class*="-color"] *, swd-card[class*="-color"] *, swd-card-ghost.s
     --theme-element-primary-color: var(--theme-element-secondary-color);
 }
 
-[hidden] { display: none }
+[hidden]:not([hidden="false"]) { display: none }
 
 /*************
 *   Colors   *
