@@ -78,12 +78,15 @@ class Swd {
     }
 
     i18n(key) {
-        return this.#translation.get(key) `${key}[${this.#currentLocale}]`;
+        console.log(key)
+        const value = this.#translation.get(key)
+        if (!value) console.warn(`I18n key "${key}" does not exist in language "${undefined}"`)
+        return value || `${key}[${this.#currentLocale}]`;
     }
 
     #translate(elements) {
         for (const element of this.filterElementsByAttributeName('i18n', elements)) {
-            element.value = this.#translation.get(element.key) || `${element.key}[${this.#currentLocale}]`;
+            element.value = this.i18n(element.key);
             element.element.swdIgnoreNextI18nUpdate = true;
         }
     }

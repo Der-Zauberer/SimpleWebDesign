@@ -173,6 +173,9 @@
                     })
                     swd.setLanguage(navigator.language);
                 </script>
+                <script>
+                    console.log(swd.i18n('greeting.hello'));
+                </script>
                 <div class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 margin-bottom">
                     <button onclick="swd.setLanguage('en')">English</button>
                     <button onclick="swd.setLanguage('de')">Deutsch</button>
