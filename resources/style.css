@@ -415,9 +415,12 @@ a.button.ghost, button.ghost, input[type="submit"].ghost {
 a.button.ghost:not([disabled]):hover, a.button.ghost:not([disabled]):focus, a.button.ghost:not([disabled]):active, a.button:not([disabled]).ghost[selected],
 button.ghost:not(:disabled):hover, button.ghost:not(:disabled):focus, button.ghost:not(:disabled):active, button:not(:disabled).ghost[selected], 
 input[type="submit"].ghost:not(:disabled):hover, input[type="submit"].ghost:not(:disabled):focus, input[type="submit"].ghost:not(:disabled):active, input[type="submit"].ghost:not(:disabled)[selected],
-swd-navigation a:not([disabled]):hover, swd-navigation a:not([disabled]):focus, swd-navigation a:not([disabled]):active, swd-navigation a:not([disabled])[selected],
-swd-selection a:not([disabled]):hover, swd-selection a:not([disabled]):focus, swd-selection a:not([disabled]):active, swd-selection a:not([disabled])[selected] {
+swd-navigation a:not([disabled]):hover, swd-navigation a:not([disabled]):focus, swd-navigation a:not([disabled]):active, swd-navigation a:not([disabled])[selected] {
     background: var(--theme-element-primary-color);
+}
+
+swd-selection a:not([disabled]):hover, swd-selection a:not([disabled]):focus, swd-selection a:not([disabled]):active, swd-selection a:not([disabled])[selected] {
+    background: var(--theme-element-secondary-color);
 }
 
 /************
@@ -1029,12 +1032,12 @@ swd-navigation a, swd-select a { display: block }
 
 swd-dialog:not([shown]), swd-dropdown-content:not([shown]) { display: none }
 
-swd-navigation:not([class*="-color"]) *, swd-card:not([class*="-color"]) *, swd-card-ghost.swd-card-hover:hover:not([class*="-color"]) *, swd-selection:not([class*="-color"]) *, .grey-color * { 
+swd-navigation:not([class*="-color"]) *, swd-card:not([class*="-color"]) *, swd-card-ghost.swd-card-hover:hover:not([class*="-color"]) * .grey-color * { 
     --theme-element-primary-color: var(--theme-secondary-grey-color); 
     --theme-element-secondary-color: var(--theme-tertiary-grey-color);
 }
 
-swd-navigation[class*="-color"] *, swd-card[class*="-color"] *, swd-card-ghost.swd-card-hover:hover[class*="-color"] *, swd-selection[class*="-color"] * { 
+swd-navigation[class*="-color"] *, swd-card[class*="-color"] *, swd-card-ghost.swd-card-hover:hover[class*="-color"] * { 
     --theme-element-primary-color: var(--theme-element-secondary-color);
 }
 
