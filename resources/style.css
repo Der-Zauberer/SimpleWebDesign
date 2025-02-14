@@ -709,8 +709,10 @@ swd-dropdown-content.swd-dropdown-content-right { right: 0 }
 *************/
 
 swd-dialog {
-    display: flex;
     position: fixed;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
@@ -718,12 +720,17 @@ swd-dialog {
     left: 0;
     height: 100%;
     width: 100%;
-    padding: calc(var(--theme-element-spacing) / 2);
     background: rgba(0, 0, 0, 0.8);
+    padding: var(--theme-inner-element-spacing);
+    overflow-y: auto;
     z-index: 4;
 }
 
-swd-dialog > * { max-width: 400px; }
+swd-dialog > * { 
+    max-width: 400px; 
+    max-height: 100%; 
+    overflow-y: auto; 
+}
 
 /***********************
 *   Loading Skeleton   *
@@ -1016,13 +1023,13 @@ swd-router {
 
 [class*="container-"] > :first-child, swd-navigation > :first-child, swd-selection > :first-child,
 swd-card > :first-child, swd-card-outline > :first-child, swd-card-ghost > :first-child, swd-card-frame > :first-child,
-swd-loading-spinner > :first-child {
+swd-dialog > :first-child, swd-loading-spinner > :first-child {
     margin-top: 0
 }
 
 [class*="container-"] > :last-child, swd-navigation > :last-child, swd-selection > :last-child,
 swd-card > :last-child, swd-card-outline > :last-child,swd-card-ghost > :last-child, swd-card-frame > :last-child,
-swd-loading-spinner > :first-child {
+swd-dialog > :last-child, swd-loading-spinner > :first-child {
     margin-bottom: 0
 }
 
