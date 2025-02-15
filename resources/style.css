@@ -168,8 +168,8 @@ h6 { font-size: 0.9em; letter-spacing: 1px; font-weight: bold; text-transform: u
 
 swd-subtitle {
     display: block;
-    font-size: round(0.7em, 1px);
-    line-height: round(1.5em, 1px);
+    font-size: max(round(0.7em, 1px), 12px);
+    line-height: max(round(1.5em, 1px), 18px);
     color: var(--theme-text-grey-color);
 }
 
@@ -438,6 +438,7 @@ swd-input input, swd-input select, swd-input textarea {
     background: transparent !important;
     min-width: initial !important;
     min-height: initial !important;
+    height: round(1.2em, 1px);
     border: 0 !important; 
     padding: 0 !important; 
     border-radius: 0 !important;
