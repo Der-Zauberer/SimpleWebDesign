@@ -163,18 +163,17 @@
 
             <swd-card-outline class="top-item">
                 <script>
-                    swd.configureLanguages({
-                        languages: [
-                            { locale: 'en', src: 'i18n/en.properties' },
-                            { locale: 'de', src: 'i18n/de.properties' },
-                            { locale: 'es', src: 'i18n/es.properties' }
-                        ],
-                        fallback: 'en'
-                    })
-                    swd.setLanguage(navigator.language);
-                </script>
-                <script>
-                    console.log(swd.i18n('greeting.hello'));
+                    (async function () {
+                        await swd.configureLanguages({
+                            languages: [
+                                { locale: 'en', src: 'i18n/en.properties' },
+                                { locale: 'de', src: 'i18n/de.properties' },
+                                { locale: 'es', src: 'i18n/es.properties' }
+                            ],
+                            fallback: 'en'
+                        });
+                        swd.setLanguage(navigator.language);
+                    })();
                 </script>
                 <div class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 margin-bottom">
                     <button onclick="swd.setLanguage('en')">English</button>
@@ -188,15 +187,17 @@
             </swd-card-outline>
             <swd-code swd-code-language="html" class="bottom-item">
                 &lt;script&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;swd.configureLanguages({<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;languages: [<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'en', src: 'i18n/en.properties' },<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'de', src: 'i18n/de.properties' },<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'es', src: 'i18n/es.properties' }<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fallback: 'en'<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;})<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;swd.setLanguage(navigator.language); //Load browser language or use fallback<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;(async function () {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await swd.configureLanguages({<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;languages: [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'en', src: 'i18n/en.properties' },<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'de', src: 'i18n/de.properties' },<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ locale: 'es', src: 'i18n/es.properties' }<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fallback: 'en'<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swd.setLanguage(navigator.language);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;})();<br>
                 &lt;/script&gt;<br>
                 &lt;div class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 margin-bottom"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;button onclick="swd.setLanguage('en')"&gt;English&lt;/button&gt;<br>

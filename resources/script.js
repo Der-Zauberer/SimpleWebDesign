@@ -16,23 +16,23 @@ class Swd {
         document.addEventListener('readystatechange', event => {
             if (event.target.readyState === 'interactive') {
                 this.#loaded = true;
-                this.#afterRenderedActions.forEach(action => action.call());
+                this.#afterRenderedActions.forEach(action => action());
+                new MutationObserver((mutations, observer) => {
+                    for (const mutation of mutations) {
+                        const elements = Array.from(mutation.target.querySelectorAll('*'))
+                        .filter(element => this.#preFilterElementsByAttributeName(element, 'i18n'))
+                        .filter(target => {
+                            if (target.swdIgnoreNextI18nUpdate) {
+                                target.swdIgnoreNextI18nUpdate = false;
+                                return false;
+                            }
+                            return true;
+                        });
+                        if (elements.length !== 0) this.#translate(elements);
+                    }
+                }).observe(document, { attributes: true, childList: true, subtree: true });
             }
         })
-        new MutationObserver((mutations, observer) => {
-            for (const mutation of mutations) {
-                const elements = Array.from(mutation.target.querySelectorAll('*'))
-                .filter(element => this.#preFilterElementsByAttributeName(element, 'i18n'))
-                .filter(target => {
-                    if (target.swdIgnoreNextI18nUpdate) {
-                        target.swdIgnoreNextI18nUpdate = false;
-                        return false;
-                    }
-                    return true;
-                });
-                if (elements.length !== 0) this.#translate(elements);
-            }
-        }).observe(document, { attributes: true, childList: true, subtree: true });
     }
 
     from(element) {
@@ -53,7 +53,7 @@ class Swd {
     }
 
     doAfterRendered(action) {
-        if (this.#loaded) action.call();
+        if (this.#loaded) action();
         else this.#afterRenderedActions.push(action);
     }
 
@@ -74,13 +74,12 @@ class Swd {
             if (key && value) this.#translation.set(key, value);
         }
         this.#currentLocale = locale;
-        if (this.#loaded) this.#translate(Array.from(document.querySelectorAll('*')).filter(element => this.#preFilterElementsByAttributeName(element, 'i18n')));
+        this.doAfterRendered(() => this.#translate(Array.from(document.querySelectorAll('*')).filter(element => this.#preFilterElementsByAttributeName(element, 'i18n'))));
     }
 
     i18n(key) {
-        console.log(key)
-        const value = this.#translation.get(key)
-        if (!value) console.warn(`I18n key "${key}" does not exist in language "${undefined}"`)
+        const value = this.#translation.get(key);
+        if (!value) console.warn(`I18n key "${key}" does not exist in language "${this.#currentLocale}"`);
         return value || `${key}[${this.#currentLocale}]`;
     }
 
