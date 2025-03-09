@@ -137,13 +137,16 @@ class Swd {
 }
 
 window.swd = new Swd();
-window.addEventListener('resize', () => SwdDropdown.resizeAllDropdowns());
+
+document.addEventListener('click', event => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });
+document.addEventListener('input', event => event.target.setAttribute('dirty', 'true'));
+
+document.addEventListener('scroll', () => requestAnimationFrame(SwdDropdown.resizeAllDropdowns), { passive: true });
+window.addEventListener('resize', () => requestAnimationFrame(SwdDropdown.resizeAllDropdowns));
+
 window.addEventListener('wheel', event => SwdNavigation.wheel(event), { passive: false });
 window.addEventListener('touchstart', event => SwdNavigation.touchStart(event));
 window.addEventListener('touchmove', event => SwdNavigation.touchMove(event), { passive: false });
-document.addEventListener('scroll', () => SwdDropdown.resizeAllDropdowns());
-document.addEventListener('click', event => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });
-document.addEventListener('input', event => event.target.setAttribute('dirty', 'true'));
 
 class SwdElementRef {
 
@@ -529,6 +532,7 @@ class SwdDropdown extends SwdComponent {
     show() {
         if (!this.#dropdownContent) return;
         this.#dropdownContent.setAttribute('shown', 'true');
+        this.#setDropdownDirectionAndSize()
         SwdDropdown.#shownDropdowns.push(this);
         if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(this.#dropdownInput.value)
     }
@@ -550,22 +554,27 @@ class SwdDropdown extends SwdComponent {
     }
 
     #setDropdownDirectionAndSize() {
-        this.#dropdownContent.style.maxHeight = '';
-        this.#dropdownContent.classList.remove('swd-dropdown-content-right');
-        this.#dropdownContent.classList.remove('swd-dropdown-content-up');
+        Object.assign(this.#dropdownContent.style, { left: '', maxWidth: '', top: '', maxHeight: '' });
         const dropdownRect = this.getBoundingClientRect();
+        this.#dropdownContent.style.minWidth = `${dropdownRect.width}px`;
         const contentRect = this.#dropdownContent.getBoundingClientRect();
-        if (contentRect.right > window.innerWidth) this.#dropdownContent.classList.add('swd-dropdown-content-right');
-        if (contentRect.bottom > window.innerHeight) {
-            if (dropdownRect.top - contentRect.height > window.innerHeight - contentRect.bottom) {
-                if (dropdownRect.top - contentRect.height < 0) {
-                    this.#dropdownContent.style.maxHeight = `${dropdownRect.top}px`;
-                }
-                this.#dropdownContent.classList.add('swd-dropdown-content-up');
-            } else {
-                this.#dropdownContent.style.maxHeight = `${window.innerHeight - contentRect.top}px`;
-            }
+        const style = {
+            top: `${dropdownRect.bottom}px`,
+            maxHeight: `${window.innerHeight - dropdownRect.bottom}px`,
+            left: `${dropdownRect.left}px`,
+            maxWidth: `${window.innerWidth - dropdownRect.left}px`
         }
+        if (dropdownRect.bottom + contentRect.height > window.innerHeight && dropdownRect.top > window.innerHeight - dropdownRect.bottom) {
+            const top = dropdownRect.top - contentRect.height
+            style.top = `${top > 0 ? top : 0}px`;
+            style.maxHeight = `${dropdownRect.top}px`;
+        }
+        if (dropdownRect.left + contentRect.width > window.innerWidth && dropdownRect.left > window.innerWidth - dropdownRect.right) {
+            const left = dropdownRect.right - contentRect.width
+            style.left = `${left > 0 ? left : 0}px`;
+            style.maxWidth = `${dropdownRect.right}px`;
+        }
+        Object.assign(this.#dropdownContent.style, style);
     }
 
     static resizeAllDropdowns() {
