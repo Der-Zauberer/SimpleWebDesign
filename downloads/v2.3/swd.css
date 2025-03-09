@@ -14,7 +14,7 @@
     --theme-primary-grey-color: light-dark(hsl(0, 0%, 88%), hsl(0, 0%, 12%));
     --theme-secondary-grey-color: light-dark(hsl(0, 0%, 80%), hsl(0, 0%, 20%));
     --theme-tertiary-grey-color: light-dark(hsl(0, 0%, 72%), hsl(0, 0%, 28%));
-    --theme-background: light-dark(white, black);
+    --theme-background-color: light-dark(white, black);
     --theme-element-primary-color: var(--theme-primary-grey-color);
     --theme-element-secondary-color: var(--theme-secondary-grey-color);
     --theme-text-grey-color: light-dark(hsl(0, 0%, 40%), hsl(0, 0%, 60%));
@@ -26,7 +26,7 @@
     --theme-inner-element-spacing: 20px;
     --theme-menu-height: 50px;
     --theme-navigation-width: 250px;
-    background: var(--theme-background);
+    background: var(--theme-background-color);
     color: light-dark(black, white);
     font-family: var(--theme-font-family);
     font-size: 18px;
@@ -1051,8 +1051,8 @@ swd-navigation[class*="-color"] *, swd-card[class*="-color"] *, swd-card-ghost.s
 *   Colors   *
 *************/
 
-.lightmode { color-scheme: light; color: black; background: var(--theme-background); }
-.darkmode { color-scheme: dark; color: white; background: var(--theme-background); }
+.lightmode { color-scheme: light; color: black; background: var(--theme-background-color); }
+.darkmode { color-scheme: dark; color: white; background: var(--theme-background-color); }
 
 .primary-color { --theme-primary-color: hsl(225, 100%, 50%); --theme-secondary-color: hsl(225, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
 .secondary-color { --theme-primary-color: hsl(225, 100%, 30%); --theme-secondary-color: hsl(225, 100%, 50%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
