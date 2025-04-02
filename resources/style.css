@@ -583,7 +583,7 @@ swd-navigation[navigation-collapse]{ left: calc(var(--theme-navigation-width) * 
 @media only screen and (max-width: 1199px) {swd-navigation-content[navigation-collapse-xl]{ margin-left: 0 }}
 @media only screen and (max-width: 1399px) {swd-navigation-content[navigation-collapse-xxl]{ margin-left: 0 }}
 
-swd-navigation[shown] { left: 0 }
+swd-navigation[shown] { left: 0 !important }
 
 /*************
 *   Footer   *
