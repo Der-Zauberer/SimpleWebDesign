@@ -649,7 +649,7 @@ class SwdSelection extends SwdComponent {
     filter(text) {
         const event = new Event("filter", { cancelable: true, target: this });
         if (this.hasAttribute('onfilter')) {
-            eval(this.getAttribute('onfilter'));
+            new Function('event', this.getAttribute('onfilter')).call(this, event);
         }
         if (event.returnValue) {
             this.dispatchEvent(event);
