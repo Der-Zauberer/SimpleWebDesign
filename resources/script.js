@@ -557,23 +557,42 @@ class SwdDropdown extends SwdComponent {
         const dropdownRect = this.getBoundingClientRect();
         this.#dropdownContent.style.minWidth = `${dropdownRect.width}px`;
         const contentRect = this.#dropdownContent.getBoundingClientRect();
-        const style = {
-            top: `${dropdownRect.bottom}px`,
-            maxHeight: `${window.innerHeight - dropdownRect.bottom}px`,
-            left: `${dropdownRect.left}px`,
-            maxWidth: `${window.innerWidth - dropdownRect.left}px`
+        if (this.#dropdownContent.hasAttribute('fixed')) {
+            const style = {
+                top: `${dropdownRect.bottom}px`,
+                maxHeight: `${window.innerHeight - dropdownRect.bottom}px`,
+                left: `${dropdownRect.left}px`,
+                maxWidth: `${window.innerWidth - dropdownRect.left}px`
+            }
+            if (dropdownRect.bottom + contentRect.height > window.innerHeight && dropdownRect.top > window.innerHeight - dropdownRect.bottom) {
+                const top = dropdownRect.top - contentRect.height
+                style.top = `${top > 0 ? top : 0}px`;
+                style.maxHeight = `${dropdownRect.top}px`;
+            }
+            if (dropdownRect.left + contentRect.width > window.innerWidth && dropdownRect.left > window.innerWidth - dropdownRect.right) {
+                const left = dropdownRect.right - contentRect.width
+                style.left = `${left > 0 ? left : 0}px`;
+                style.maxWidth = `${dropdownRect.right}px`;
+            }
+            Object.assign(this.#dropdownContent.style, style);
+        } else {
+            const style = {
+                bottom: `initial`,
+                maxHeight: `${window.innerHeight - dropdownRect.bottom}px`,
+                right: `initial`,
+                maxWidth: `${window.innerWidth - dropdownRect.left}px`
+            }
+            if (dropdownRect.bottom + contentRect.height > window.innerHeight && dropdownRect.top > window.innerHeight - dropdownRect.bottom) {
+                style.bottom = '100%';
+                style.maxHeight = `${dropdownRect.top}px`;
+            }
+            if (dropdownRect.left + contentRect.width > window.innerWidth && dropdownRect.left > window.innerWidth - dropdownRect.right) {
+                style.right = '0';
+                style.maxWidth = `${dropdownRect.right}px`;
+            }
+            Object.assign(this.#dropdownContent.style, style);
         }
-        if (dropdownRect.bottom + contentRect.height > window.innerHeight && dropdownRect.top > window.innerHeight - dropdownRect.bottom) {
-            const top = dropdownRect.top - contentRect.height
-            style.top = `${top > 0 ? top : 0}px`;
-            style.maxHeight = `${dropdownRect.top}px`;
-        }
-        if (dropdownRect.left + contentRect.width > window.innerWidth && dropdownRect.left > window.innerWidth - dropdownRect.right) {
-            const left = dropdownRect.right - contentRect.width
-            style.left = `${left > 0 ? left : 0}px`;
-            style.maxWidth = `${dropdownRect.right}px`;
-        }
-        Object.assign(this.#dropdownContent.style, style);
+        
     }
 
     static resizeAllDropdowns() {
