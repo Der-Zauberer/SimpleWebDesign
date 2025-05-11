@@ -687,16 +687,21 @@ swd-selection a:not(:last-child) {
 *   Dropdown   *
 ***************/
 
-swd-dropdown input[readonly] { cursor: pointer }
-swd-dropdown input { width: 100% }
+swd-dropdown {
+    position: relative;
+}
 
-swd-dropdown-content {
+swd-dropdown swd-dropdown-content {
     display: block;
-    position: fixed;
+    position: absolute;
     z-index: 4;
     overflow-y: auto;
     will-change: transform, top, left, width, height;
 }
+
+swd-dropdown swd-dropdown-content[fixed] { position: fixed }
+swd-dropdown input[readonly] { cursor: pointer }
+swd-dropdown input { width: 100% }
 
 /*************
 *   Dialog   *
