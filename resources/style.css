@@ -521,14 +521,11 @@ swd-menu {
     height: var(--theme-menu-height);
     background: var(--theme-primary-color);
     z-index: 3;
-    overflow: hidden;
 }
 
 swd-menu * {
     color: white;
 }
-
-swd-menu:hover { overflow: auto }
 
 swd-menu a {
     min-width: fit-content;
