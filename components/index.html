@@ -31,7 +31,9 @@
             <div class="margin-bottom">
                 <b>Elements</b>
                 <a href="#get-started">Get started</a>
-                <a href="#layout">Layout</a>
+                <a href="#container">Container</a>
+                <a href="#grid">Grid</a>
+                <a href="#flex">Flex</a>
                 <a href="#menu">Menu</a>
                 <a href="#navigation">Navigation</a>
                 <a href="#footer">Footer</a>
@@ -90,7 +92,7 @@
 
                 <p>You could also install from npm <samp>npm i simplewebdesign</samp> and use <samp>import 'simplewebdesign'</samp>. You may have to configure the specific imports of the javascript and stylesheet seperately depending on the framework. Maybe you also have to enable web-components in your framework.</p>
 
-                <h2 id="layout">Layout</h2>
+                <h2 id="container">Container</h2>
 
                 <swd-card-outline class="top-item layout" style="padding-left: 15%; padding-right: 15%;">
                     <swd-card class="margin-0 text-center" style="background-color: var(--theme-primary-grey-color)">container</swd-card>
@@ -113,6 +115,8 @@
                     <tr><td><samp>container-xxl</samp></td><td><samp>1400px</samp></td></tr>
                     <tr><td><samp>container-fluid</samp></td><td><samp>100%</samp></td></tr>
                 </table>
+
+                <h2 id="grid">Grid</h2>
 
                 <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 text-center top-item layout">
                     <swd-card>Item 1</swd-card>
@@ -148,6 +152,25 @@
                     &lt;/div&gt;
                 </swd-code>
 
+                <swd-card-outline class="grid-cols-md-3 grid-cols-sm-2 grid-cols-1 grid-center text-center top-item layout">
+                    <swd-card>Item 1</swd-card>
+                    <button>Item2</button>
+                    <swd-icon class="star-icon"></swd-icon>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="grid-cols-md-3 grid-cols-sm-2, grid-cols-1 grid-center"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card>Item 1&lt;/swd-card&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button>Item2&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="star-icon">&lt;/swd-icon&gt;<br>
+                    &lt;/div&gt;
+                </swd-code>
+
+                <table>
+                    <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>grid-center</samp></td><td><samp>align-items: center</samp></td></tr>
+                    <tr><td><samp>grid-auto-height</samp></td><td><samp>height: auto</samp></td></tr>
+                </table>
+
                 <table>
                     <tr><th>Class</th><th>Breakpoint</th></tr>
                     <tr><td><samp>grid-cols-[1-12]</samp><br><samp>grid-span-[1-12]</samp></td><td><samp>Always</samp></td></tr>
@@ -157,6 +180,8 @@
                     <tr><td><samp>grid-cols-xl-[1-12]</samp><br><samp>grid-span-xl-[1-12]</samp></td><td><samp>min-width: 1200px</samp></td></tr>
                     <tr><td><samp>grid-cols-xxl-[1-12]</samp><br><samp>grid-span-xxl-[1-12]</samp></td><td><samp>min-width: 1400px</samp></td></tr>
                 </table>
+
+                <h2 id="flex">Flex</h2>
 
                 <swd-card-outline class="flex top-item layout">
                     <swd-card>Item 1</swd-card>
@@ -235,9 +260,24 @@
                     &lt;/div&gt;
                 </swd-code>
 
+                <swd-card-outline class="flex flex-center top-item layout">
+                    <swd-card>Item 1</swd-card>
+                    <button>Item2</button>
+                    <swd-icon class="star-icon"></swd-icon>
+                </swd-card-outline>
+                <swd-code swd-code-language="html" class="bottom-item">
+                    &lt;div class="flex flex-center"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card>Item 1&lt;/swd-card&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button>Item2&lt;/button&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="star-icon">&lt;/swd-icon&gt;<br>
+                    &lt;/div&gt;
+                </swd-code>
+
                 <table>
                     <tr><th>Class</th><th>Property</th></tr>
+                    <tr><td><samp>flex</samp></td><td><samp>display: flex</samp></td></tr>
                     <tr><td><samp>flex-wrap</samp></td><td><samp>flex-wrap: wrap</samp></td></tr>
+                    <tr><td><samp>flex-center</samp></td><td><samp>align-items: center</samp></td></tr>
                     <tr><td><samp>flex-end</samp></td><td><samp>justify-content: flex-end</samp></td></tr>
                     <tr><td><samp>flex-space-around</samp></td><td><samp>justify-content: space-around</samp></td></tr>
                     <tr><td><samp>flex-space-between</samp></td><td><samp>justify-content: space-between</samp></td></tr>

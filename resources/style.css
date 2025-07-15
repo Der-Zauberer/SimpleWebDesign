@@ -840,6 +840,7 @@ swd-loading-spinner[loading]:not([loading="false"]):not(:empty)::before {
     margin-bottom: var(--theme-element-spacing);
 }
 
+[class*="grid-cols-"].grid-center { align-items: center }
 [class*="grid-cols-"].grid-auto-height { height: auto }
 
 .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)) }
@@ -1015,6 +1016,7 @@ swd-loading-spinner[loading]:not([loading="false"]):not(:empty)::before {
 }
 
 .flex-wrap { flex-wrap: wrap }
+.flex-center { align-items: center }
 .flex-end { justify-content: flex-end }
 .flex-space-around { justify-content: space-around }
 .flex-space-between { justify-content: space-between }
