@@ -447,11 +447,11 @@ class SwdDropdown extends SwdComponent {
         this.swdRegisterManagedEvent(this, 'click', event => {
             if (this.#dropdownInput && this.#dropdownInput !== document.activeElement) this.#dropdownInput.focus()
             if (!this.#dropdownContent) return;
-            if (this.isHidden()) this.show();
-            else if (this.isHidden() || !this.#dropdownContent?.contains(event.target) || (this.#selection && this.#selection.contains(event.target))) this.hide();
+            if (this.isHidden() && !this.#dropdownContent.contains(event.target)) this.show();
+            else if (this.isHidden() || !this.#dropdownContent?.contains(event.target)) this.hide();
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
-            if (this.#selection && this.#dropdownInput && this.isHidden() && event.key === 'Enter') {
+            if (event.key === 'Enter' && this.#selection && this.#dropdownInput && this.isHidden()) {
                 event.preventDefault();
                 this.show();
                 return;
@@ -498,17 +498,18 @@ class SwdDropdown extends SwdComponent {
             })
             this.#dropdownContentObserver.observe(this, { attributes: false, childList: true, subtree: true });
         }
-        if (this.#selection && this.#dropdownInput) {
+        if (this.#selection) {
             this.#selection.setOnSelect((text, value) => {
-                if (this.#dropdownSecondaryInput) {
+                if (this.#dropdownInput && this.#dropdownSecondaryInput) {
                     this.#dropdownInput.value = text;
                     this.#dropdownSecondaryInput.value = value;
                     this.#dropdownInput.dispatchEvent(new Event('input'));
                     this.#dropdownSecondaryInput.dispatchEvent(new Event('input'));
-                } else {
+                } else if (this.#dropdownInput) {
                     this.#dropdownInput.value = value;
                     this.#dropdownInput.dispatchEvent(new Event('input'));
                 }
+                this.hide()
             })
         }
     }
@@ -613,11 +614,12 @@ class SwdSelection extends SwdComponent {
         if (this.children.length === 0) return;
         const original = this.querySelector('[selected]');
         let target = first ? undefined : original;
+        let i = 0
         do {
-            const nextTarget = target ? (next ? target.nextElementSibling : target.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild);
-            if (!nextTarget) return;
+            let nextTarget = target ? (next ? target.nextElementSibling : target.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild);
+            if (!nextTarget) nextTarget = next ? this.firstElementChild : this.lastElementChild
             target = nextTarget;
-        } while (target.nodeName !== 'A' || target.hasAttribute('hidden'));
+        } while ((target.nodeName !== 'A' || target.hasAttribute('hidden')) && i++ < this.children.length);
         original?.removeAttribute('selected');
         target.setAttribute('selected', 'true');
         const content = this.parentElement;

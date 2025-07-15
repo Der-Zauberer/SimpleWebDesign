@@ -487,6 +487,7 @@ swd-input:has(input.outline) swd-icon { transform: translateX(calc((round(0.5em,
 swd-input:has(input:focus) swd-icon { background: currentColor }
 
 input, select, textarea, swd-input {
+    text-align: unset;
     padding: round(0.5em, 1px) round(0.5em, 1px) calc(round(0.5em, 1px) - var(--theme-border-width)) round(0.5em, 1px);
     border: none;
     background: var(--theme-element-primary-color);
