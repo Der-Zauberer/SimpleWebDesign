@@ -440,27 +440,20 @@ class SwdDropdown extends SwdComponent {
 
     #INPUT_EVENT = event => {
         if (this.isHidden()) this.show();
-        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(event.target.value);
+        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly') && this.#dropdownInput.type !== 'button') this.#selection.filter(event.target.value);
     }
 
     swdOnInit() {
         this.swdRegisterManagedEvent(this, 'click', event => {
-            const canBeHidden = (event) => {
-                if (this.isHidden()) return;
-                if (this.#selection) {
-                    return this.#selection.contains(event.target);
-                } else {
-                    return !this.#dropdownContent || !this.#dropdownContent.contains(event.target);
-                }
-            }
+            if (this.#dropdownInput && this.#dropdownInput !== document.activeElement) this.#dropdownInput.focus()
             if (!this.#dropdownContent) return;
             if (this.isHidden()) this.show();
-            else if (canBeHidden(event)) this.hide();
+            else if (this.isHidden() || !this.#dropdownContent?.contains(event.target) || (this.#selection && this.#selection.contains(event.target))) this.hide();
         })
         this.swdRegisterManagedEvent(this, 'keydown', event => {
             if (this.#selection && this.#dropdownInput && this.isHidden() && event.key === 'Enter') {
                 event.preventDefault();
-                this.hide();
+                this.show();
                 return;
             }
             if (!this.#selection || this.isHidden()) return;
@@ -475,15 +468,10 @@ class SwdDropdown extends SwdComponent {
                     break;
                 case 'Enter':
                     event.preventDefault();
-                    if (this.isHidden()) {
-                        this.show();
-                    } else {
-                        this.#selection.select();
-                        this.hide();
-                    }
+                    this.#selection.select();
+                    this.hide();
                     break;
                 case 'Escape':
-                    if (this.#dropdownInput) document.activeElement.blur();
                     this.#selection.reset();
                     this.hide();
                     break;
@@ -515,14 +503,11 @@ class SwdDropdown extends SwdComponent {
                 if (this.#dropdownSecondaryInput) {
                     this.#dropdownInput.value = text;
                     this.#dropdownSecondaryInput.value = value;
-                    this.#dropdownInput.dispatchEvent(new Event("input"));
-                    this.#dropdownSecondaryInput.dispatchEvent(new Event("input"));
-                    this.#dropdownInput.dispatchEvent(new Event("select"));
-                    this.#dropdownSecondaryInput.dispatchEvent(new Event("select"));
+                    this.#dropdownInput.dispatchEvent(new Event('input'));
+                    this.#dropdownSecondaryInput.dispatchEvent(new Event('input'));
                 } else {
                     this.#dropdownInput.value = value;
-                    this.#dropdownInput.dispatchEvent(new Event("input"));
-                    this.#dropdownInput.dispatchEvent(new Event("select"));
+                    this.#dropdownInput.dispatchEvent(new Event('input'));
                 }
             })
         }
@@ -533,7 +518,7 @@ class SwdDropdown extends SwdComponent {
         this.#dropdownContent.setAttribute('shown', 'true');
         this.#setDropdownDirectionAndSize()
         SwdDropdown.#shownDropdowns.push(this);
-        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly')) this.#selection.filter(this.#dropdownInput.value)
+        if (this.#selection && this.#dropdownInput && !this.#dropdownInput.hasAttribute('readonly') && this.#dropdownInput.type !== 'button') this.#selection.filter(this.#dropdownInput.value)
     }
 
     hide() {
@@ -645,19 +630,24 @@ class SwdSelection extends SwdComponent {
 
     reset() {
         const target = this.querySelector('[selected]');
-        if (!target || !this.#selected || target === this.#selected) return;
+        if (!target || target === this.#selected) return;
         target.removeAttribute('selected');
-        this.#selected.addAttribute('selected', 'true');
+        this.#selected.setAttribute('selected', 'true');
     }
 
     select(target) {
         let targetToSelect = target ? target : this.querySelector('[selected]');
         while(targetToSelect && targetToSelect !== this && targetToSelect.tagName !== 'A') targetToSelect = targetToSelect.parentNode;
         if (!targetToSelect || targetToSelect.nodeName !== 'A' || targetToSelect.hasAttribute('hidden')) return;
-        this.selected = targetToSelect;
-        this.value = this.selected.getAttribute('value') || this.selected.innerText;
-        const name = this.selected.getAttribute('display') || this.selected.innerText;
-        this.dispatchEvent(new Event("select"));
+        this.#selected?.removeAttribute('selected');
+        this.#selected = targetToSelect;
+        this.#selected.setAttribute('selected', 'true');
+        this.value = this.#selected.getAttribute('value') || this.#selected.innerText;
+        const name = this.#selected.getAttribute('display') || this.#selected.innerText;
+        const event = new Event('select', { bubbles: true });
+        event.value = this.value;
+        event.name = name;
+        this.#selected.dispatchEvent(event);
         this.#selectionChangeAction?.(name, this.value);
     }
 
