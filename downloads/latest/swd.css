@@ -17,6 +17,7 @@
     --theme-background-color: light-dark(white, black);
     --theme-element-primary-color: var(--theme-primary-grey-color);
     --theme-element-secondary-color: var(--theme-secondary-grey-color);
+    --theme-text-color: light-dark(black, white);
     --theme-text-grey-color: light-dark(hsl(0, 0%, 40%), hsl(0, 0%, 60%));
     --theme-font-family: Roboto, sans-serif;
     --theme-border-radius: 5px;
@@ -27,7 +28,7 @@
     --theme-menu-height: 50px;
     --theme-navigation-width: 250px;
     background: var(--theme-background-color);
-    color: light-dark(black, white);
+    color: var(--theme-text-color);
     font-family: var(--theme-font-family);
     font-size: 18px;
     font-weight: 500;
@@ -126,14 +127,23 @@ swd-icon.share-icon { mask-image: url('data:image/svg+xml,<svg width="18" height
 swd-icon.done-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 9 L8 15 L17 3" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.close-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 1 L17 17 M17 1 L1 17" stroke-width="2" stroke="black"/></svg>') }
 swd-icon.add-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 9 L18 9 M9 0 L9 18" stroke-width="2" stroke="black"/></svg>') }
+swd-icon.pen-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 5 L4.5 17 L1 17 L1 13.5 L13 1.5 Z M3.5 12 L6.5 15" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.delete-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M6 1 H12 M0 3 H18 M3 3 L3 17 L15 17 L15 4 M7 6 V14 M11 6 V14" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.home-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 7.5 V17 H7 V11 H11 V17 H17 V7.5 L9 1.5 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.dashboard-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 3 H17 V15 H1 Z M4 7 H 14 M4 11 H 12" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.calendar-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 3 H17 V17 H1 Z M3 0 V3 M7 0 V3 M11 0 V3 M15 0 V3 M0 5 H18 M4 9 H6 M8 9 H10 M12 9 H14 M4 13 H6 M8 13 H10 M12 13 H14" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.chat-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 1 H17 V11 H10 L5 15.5 V11 H1 Z" stroke-width="2" stroke="black" fill="none"/><!--<path d="M1 1 H17 V13 H6 L1 16 H1 Z" stroke-width="2" stroke="black" fill="none"/>--></svg>') }
+swd-icon.user-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="5" r="4" stroke-width="2" stroke="black" fill="none"/><path d="M1 17 L17 17Q17 10 9 9 Q1 10 1 17 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.lock-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M3 7 H15 V17 H3 Z M5 6 Q5 1 9 1 Q13 1 13 6" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.search-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="5" stroke-width="2" stroke="black" fill="none"/><path d="M17 17 L9 9" stroke-width="2" stroke="black" fill="none"/></svg>') }
 swd-icon.history-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M1 9 Q1.5 16.5 9 17 Q16.5 16.5 17 9 Q16.5 1.5 9 1 Q4 1 1.4 5 M1 0 V5 H6 M9 4 V9 L13 12" stroke-width="2" stroke="black" fill="none"/></svg>') }
-swd-icon.settings-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><circle r="6" cx="9" cy="9" stroke-width="2" stroke="black" fill="none"/><path d="M9 0 L9 3 M15.4 2.6 L13 5 M18 9 L15 9 M15.4 15.4 L13 13 M9 18 L9 15 M2.6 15.4 L5 13 M0 9 L3 9 M2.6 2.6 L5 5" stroke-width="3" stroke="black" fill="none"/></svg>') }
-swd-icon.options-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 H18 M0 9 H 18 M0 15 H18 M3 0 V6 M13 6 V12 M7 12 V18" stroke-width="2" stroke="black"/></svg>') }
 swd-icon.filter-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M2 1 L16 1 L11 7 L11 13 L7 16 L7 7 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.options-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 H18 M0 9 H 18 M0 15 H18 M3 0 V6 M13 6 V12 M7 12 V18" stroke-width="2" stroke="black"/></svg>') }
+swd-icon.settings-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><circle r="6" cx="9" cy="9" stroke-width="2" stroke="black" fill="none"/><path d="M9 0 L9 3 M15.4 2.6 L13 5 M18 9 L15 9 M15.4 15.4 L13 13 M9 18 L9 15 M2.6 15.4 L5 13 M0 9 L3 9 M2.6 2.6 L5 5" stroke-width="3" stroke="black" fill="none"/></svg>') }
 swd-icon.star-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 2.5 L11 7 L16 7 L12.5 11 L14 16 L9 13 L4 16 L5.5 11 L2 7 L7 7 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
-swd-icon.star-filled-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 2.5 L11 7 L16 7 L12.5 11 L14 16 L9 13 L4 16 L5.5 11 L2 7 L7 7 Z" stroke-width="2" stroke="black" fill="black"/></svg>') }
+swd-icon.star-filled-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M9 2.5 L11 7 L16 7 L12.5 11 L14 16 L9 13 L4 16 L5.5 11 L2 7 L7 7 Z" stroke-width="2" stroke="black"/></svg>') }
+swd-icon.bookmark-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M3 1 L3 15.5 L9 10 L15 15.5 L15 1 Z" stroke-width="2" stroke="black" fill="none"/></svg>') }
+swd-icon.bookmark-filled-icon { mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M3 1 L3 15.5 L9 10 L15 15.5 L15 1 Z" stroke-width="2" stroke="black"/></svg>') }
 swd-icon.loading-spinner-icon { mask-image: url('data:image/svg+xml;utf8,<svg width="18" height="18" stroke="white" xmlns="http://www.w3.org/2000/svg"><style>g{transform-origin:center;animation:rotation 2s linear infinite}g circle{animation:stroke 1.5s ease-in-out infinite}@keyframes rotation{100%{transform:rotate(360deg)}}@keyframes stroke{0%{stroke-dasharray:0 150;stroke-dashoffset:0}50%{stroke-dasharray:30 150;stroke-dashoffset:-20}95%,100%{stroke-dasharray:45 150;stroke-dashoffset:-49}}</style><g><circle cx="9" cy="9" r="8" fill="none" stroke-width="2"></circle></g></svg>') }
 swd-icon.grid-icon { mask-image: url('data:image/svg+xml,<svg width="9" height="9" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 H9 M0 1 H9 M0 2 H9 M0 3 H9 M0 4 H9 M0 5 H9 M0 6 H9 M0 7 H9 M0 8 H9 M0 9 H9 M0 0 V9 M1 0 V9 M2 0 V9 M3 0 V9 M4 0 V9 M5 0 V9 M6 0 V9 M7 0 V9 M8 0 V9 M9 0 V9" stroke-width="0.1" stroke="black"/></svg>') }
 
@@ -142,6 +152,7 @@ swd-icon {
     background: currentColor;
     height: calc(1em - 1px);
     width: calc(1em - 1px);
+    mask-image: url('data:image/svg+xml,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"></svg>');
     mask-size: contain;
     mask-position: center;
     mask-repeat: no-repeat;
@@ -357,7 +368,7 @@ a.button, button, input, select, textarea, swd-menu a, swd-navigation a, swd-sel
     padding: calc(round(0.5em, 1px) - var(--theme-border-width)) calc(round(0.6em, 1px) - var(--theme-border-width));
     font-family: var(--theme-font-family);
     font-size: var(--theme-font-size);
-    color: light-dark(black, white);
+    color: var(--theme-text-color);
     user-select: none;
     -webkit-user-select: none;
     outline: none;
@@ -384,7 +395,7 @@ a.button, button, input[type="submit"], swd-menu a, swd-navigation a, swd-footer
     text-overflow: ellipsis;
 }
 
-a.button:not(.outline, .ghost), button:not(.outline, .ghost), input[type="submit"]:not(.outline, .ghost) {
+a.button, button, input[type="submit"] {
     background: var(--theme-primary-color);
     border-color: transparent;
     color: white;
@@ -399,6 +410,7 @@ input[type="submit"]:not(.outline, .ghost, :disabled):hover, input[type="submit"
 a.button.outline, button.outline, input[type="submit"].outline {
     background: transparent;
     border-color: var(--theme-primary-color);
+    color: var(--theme-text-color);
 }
 
 a.button.outline:not([disabled]):hover, a.button.outline:not([disabled]):focus, a.button.outline:not([disabled]):active, a.button.outline:not([disabled])[selected],
@@ -410,6 +422,7 @@ input[type="submit"].outline:not(:disabled):hover, input[type="submit"].outline:
 
 a.button.ghost, button.ghost, input[type="submit"].ghost {
     background: transparent;
+    color: var(--theme-text-color);
 }
 
 a.button.ghost:not([disabled]):hover, a.button.ghost:not([disabled]):focus, a.button.ghost:not([disabled]):active, a.button:not([disabled]).ghost[selected],
@@ -474,6 +487,7 @@ swd-input:has(input.outline) swd-icon { transform: translateX(calc((round(0.5em,
 swd-input:has(input:focus) swd-icon { background: currentColor }
 
 input, select, textarea, swd-input {
+    text-align: unset;
     padding: round(0.5em, 1px) round(0.5em, 1px) calc(round(0.5em, 1px) - var(--theme-border-width)) round(0.5em, 1px);
     border: none;
     background: var(--theme-element-primary-color);
@@ -619,10 +633,10 @@ swd-card, swd-card-outline, swd-card-ghost, .swd-card-image {
     height: fit-content;
     gap: var(--theme-inner-element-spacing) !important;
     padding: calc(var(--theme-inner-element-spacing) - var(--theme-border-width));
-    border: solid var(--theme-border-width) var(--theme-element-primary-color);
+    border: solid var(--theme-border-width) transparent;
     border-radius: var(--theme-border-radius);
     margin-bottom: var(--theme-element-spacing);
-    color: light-dark(black, white);
+    color: var(--theme-text-color);
     background: var(--theme-element-primary-color);
 }
 
@@ -633,8 +647,20 @@ swd-card-outline {
 }
 
 swd-card-ghost { background: initial; border-color: transparent; }
-swd-card.swd-card-hover:hover, swd-card-outline.swd-card-hover:hover { cursor: pointer; --theme-element-primary-color: var(--theme-element-secondary-color); }
-swd-card-ghost.swd-card-hover:hover { cursor: pointer; background: var(--theme-element-primary-color); }
+
+swd-card.swd-card-hover:hover, swd-card-outline.swd-card-hover:hover,
+swd-card.swd-card-hover:focus, swd-card-outline.swd-card-hover:focus,
+swd-card.swd-card-hover:active, swd-card-outline.swd-card-hover:active { 
+    cursor: pointer; 
+    --theme-element-primary-color: var(--theme-element-secondary-color);
+    outline: none;
+}
+
+swd-card-ghost.swd-card-hover:hover, swd-card-ghost.swd-card-hover:focus, swd-card-ghost.swd-card-hover:active { 
+    cursor: pointer; 
+    background: var(--theme-element-primary-color);
+    outline: none;
+}
 
 .swd-card-image {
     width: 100%;
@@ -825,6 +851,7 @@ swd-loading-spinner[loading]:not([loading="false"]):not(:empty)::before {
     margin-bottom: var(--theme-element-spacing);
 }
 
+[class*="grid-cols-"].grid-center { align-items: center }
 [class*="grid-cols-"].grid-auto-height { height: auto }
 
 .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)) }
@@ -1000,6 +1027,7 @@ swd-loading-spinner[loading]:not([loading="false"]):not(:empty)::before {
 }
 
 .flex-wrap { flex-wrap: wrap }
+.flex-center { align-items: center }
 .flex-end { justify-content: flex-end }
 .flex-space-around { justify-content: space-around }
 .flex-space-between { justify-content: space-between }
@@ -1067,7 +1095,7 @@ swd-navigation[class*="-color"] *, swd-card[class*="-color"] *, swd-card-ghost.s
 .yellow-color { --theme-primary-color: hsl(45, 100%, 50%); --theme-secondary-color: hsl(45, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
 .orange-color { --theme-primary-color: hsl(22.5, 100%, 50%); --theme-secondary-color: hsl(22.5, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
 .red-color { --theme-primary-color: hsl(0, 100%, 50%); --theme-secondary-color: hsl(0, 100%, 30%); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: white; }
-.grey-color { --theme-primary-color: var(--theme-element-primary-color); --theme-secondary-color: var(--theme-element-secondary-color); --theme-element-primary-color: var(--theme-primary-grey-color); --theme-element-secondary-color: var(--theme-secondary-grey-color); color: white;  }
+.grey-color { --theme-primary-color: var(--theme-element-primary-color); --theme-secondary-color: var(--theme-element-secondary-color); --theme-element-primary-color: var(--theme-primary-grey-color); --theme-element-secondary-color: var(--theme-secondary-grey-color); color: var(--theme-text-color);  }
 .light-color { --theme-primary-color: light-dark(white, black); --theme-secondary-color: light-dark(white, black); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: light-dark(black, white); }
 .dark-color { --theme-primary-color: light-dark(black, white); --theme-secondary-color: light-dark(black, white); --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: light-dark(white, black); }
 .white-color { --theme-primary-color: white; --theme-secondary-color: white; --theme-element-primary-color: var(--theme-primary-color); --theme-element-secondary-color: var(--theme-secondary-color); color: black; }
