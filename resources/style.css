@@ -641,12 +641,11 @@ swd-card, swd-card-outline, swd-card-ghost, .swd-card-image {
     box-sizing: border-box;
     height: fit-content;
     gap: var(--theme-inner-element-spacing) !important;
-    padding: calc(var(--theme-inner-element-spacing) - var(--theme-border-width));
-    border: solid var(--theme-border-width) transparent;
-    border-radius: var(--theme-border-radius);
-    margin-bottom: var(--theme-element-spacing);
+    padding: var(--theme-inner-element-spacing);
     color: var(--theme-text-color);
     background: var(--theme-element-primary-color);
+    border-radius: var(--theme-border-radius);
+    margin-bottom: var(--theme-element-spacing);
 }
 
 swd-card-outline {
