@@ -667,13 +667,11 @@
                     &lt;/swd-dropdown&gt;<br>
                 </swd-code>
 
-                <input>
-                <input type="button" value="Test">
-
                 <swd-card-outline class="flex flex-wrap flex-space-around top-item">
+                    <span>Experimental button selects</span>
                     <swd-dropdown>
                         <swd-input>
-                            <input placeholder="Autocomplete City" type="button">
+                            <input type="button" style="width: 20ch;">
                             <swd-icon class="down-icon" swd-input-icon></swd-icon>
                             <swd-icon class="close-icon" swd-input-reset-icon></swd-icon>
                         </swd-input>
@@ -692,7 +690,7 @@
                         </swd-dropdown-content>
                     </swd-dropdown>
                     <swd-dropdown>
-                        <input placeholder="Autocomplete City" type="button">
+                        <input type="button" style="width: 20ch;">
                         <swd-dropdown-content>
                             <swd-selection>
                                 <a>Amsterdam</a>
@@ -709,7 +707,42 @@
                     </swd-dropdown>
                 </swd-card-outline>
                 <swd-code swd-code-language="html" class="bottom-item">
-
+                    &lt;swd-dropdown&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-input&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="button" style="width: 20ch;"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="search-icon" swd-input-icon&gt;&lt;/swd-icon&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="close-icon" swd-input-reset-icon&gt;&lt;/swd-icon&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-input&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection onselect="doWhatYouWant()" onfilter="doWhatYouWant()"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Amsterdam&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Berlin&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Bern&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Brussels&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Los Angeles&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;New York&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Paris&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Rom&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Vienna&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
+                    &lt;/swd-dropdown&gt;<br><br>
+                    &lt;swd-dropdown&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="button" style="width: 20ch;"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-dropdown-content&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-selection onselect="doWhatYouWant()" onfilter="doWhatYouWant()"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Amsterdam&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Berlin&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Bern&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Brussels&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Los Angeles&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;New York&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Paris&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Rom&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Vienna&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-selection&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/swd-dropdown-content&gt;<br>
+                    &lt;/swd-dropdown&gt;
                 </swd-code>
 
                 <swd-card-outline class="flex flex-wrap flex-space-around top-item">
