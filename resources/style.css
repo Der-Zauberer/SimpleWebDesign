@@ -53,6 +53,11 @@ body {
     --theme-inner-element-spacing: 15px;
 }}
 
+:focus-visible {
+    outline: var(--theme-primary-color) solid var(--theme-border-width);
+    border-radius: var(--theme-border-radius);
+}
+
 /************************************************
 *   Fonts                                       *
 *   Roboto by Google unter Apache 2.0 license   *
@@ -371,7 +376,6 @@ a.button, button, input, select, textarea, swd-menu a, swd-navigation a, swd-sel
     color: var(--theme-text-color);
     user-select: none;
     -webkit-user-select: none;
-    outline: none;
     border: solid var(--theme-border-width) transparent;
     border-radius: var(--theme-border-radius);
 }
@@ -497,6 +501,7 @@ input, select, textarea, swd-input {
     border: none;
     background: var(--theme-element-primary-color);
     border-bottom: solid var(--theme-border-width) var(--theme-element-secondary-color);
+    outline: none !important;
 }
 
 input.outline, select.outline, textarea.outline, swd-input.outline {
@@ -514,6 +519,7 @@ input.ghost, select.ghost, textarea.ghost, swd-input.ghost {
 input[type="submit"] { border: none }
 input[type="submit"].outline { border: solid var(--theme-primary-color) var(--theme-border-width) }
 input[type="submit"].ghost { border: none }
+input[type="submit"]:focus-visible { outline: var(--theme-primary-color) solid var(--theme-border-width) !important }
 
 input:focus, select:focus, textarea:focus, input[selected], select[selected], textarea[selected], 
 swd-input:has(input:focus, select:focus, textarea:focus, input[selected], select[selected], textarea[selected]) {
@@ -547,6 +553,7 @@ swd-menu {
 }
 
 swd-menu * {
+    outline-color: white !important;
     color: white;
 }
 
@@ -661,13 +668,11 @@ swd-card.swd-card-hover:focus, swd-card-outline.swd-card-hover:focus,
 swd-card.swd-card-hover:active, swd-card-outline.swd-card-hover:active { 
     cursor: pointer; 
     --theme-element-primary-color: var(--theme-element-secondary-color);
-    outline: none;
 }
 
 swd-card-ghost.swd-card-hover:hover, swd-card-ghost.swd-card-hover:focus, swd-card-ghost.swd-card-hover:active { 
     cursor: pointer; 
     background: var(--theme-element-primary-color);
-    outline: none;
 }
 
 .swd-card-image {
