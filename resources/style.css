@@ -210,12 +210,17 @@ p {
 
 ol, ul {
     padding-left: 20px;
-    margin: 0px;
+    margin: 0;
     margin-bottom: var(--theme-element-spacing);
 }
 
-ol li, ul li {padding-bottom: 0px}
+ol li, ul li { padding-bottom: 0 }
 ol li:last-child, ul li:last-child { padding-bottom: 0 }
+
+ul.flex, ul[class*="grid-cols-"] {
+    list-style: none;
+    padding: 0;
+}
 
 /************
 *   Label   *
