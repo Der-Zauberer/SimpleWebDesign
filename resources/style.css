@@ -558,6 +558,8 @@ swd-menu {
 }
 
 swd-menu * {
+    --theme-element-primary-color: hsla(0, 100%, 0%, 30%);
+    --theme-element-secondary-color: hsla(0, 100%, 0%, 50%);
     outline-color: white !important;
     color: white;
 }

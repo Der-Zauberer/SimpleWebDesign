@@ -11,7 +11,7 @@
     </head>
     <body>
 
-        <swd-menu>
+        <swd-menu role="navigation">
             <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger-icon"></swd-icon></a>
             <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
             <div class="contents only-bigger-md">
@@ -19,7 +19,7 @@
                 <a href="/SimpleWebDesign/colors">Colors</a>
                 <a href="/SimpleWebDesign/functions">Functions</a>
             </div>
-            <a href="/SimpleWebDesign/downloads" class="button white-color blue-text" style="margin-left: auto;">Download</a>
+            <a href="/SimpleWebDesign/downloads" class="button white-color blue-text" style="margin-left: auto;" aria-current="page">Download</a>
         </swd-menu>
 
         <swd-navigation navigation-collapse>
@@ -208,7 +208,7 @@
 
         </div>
 
-        <swd-footer>
+        <swd-footer role="contentinfo">
             <a class="text-nowrap">&copy; 2024 Der Zauberer</a>
             <div class="width-100"></div>
             <a href="/SimpleWebDesign/imprint">Imprint</a>

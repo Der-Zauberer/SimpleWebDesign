@@ -11,21 +11,23 @@
     </head>
     <body>
 
-        <swd-menu>
-            <a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"><swd-icon class="hamburger-icon"></swd-icon></a>
+        <swd-menu class="navigation">
+            <button class="ghost only-smaller-md" onclick="swd.query('swd-navigation').toggle()">
+                <swd-icon class="hamburger-icon" aria-label="hamburger-menu"></swd-icon>
+            </button>
             <a class="swd-menu-title" href="/SimpleWebDesign">Simple Web Design</a>
             <div class="contents only-bigger-md">
-                <a href="/SimpleWebDesign/components/" selected>Components</a>
+                <a href="/SimpleWebDesign/components/" selected aria-current="page">Components</a>
                 <a href="/SimpleWebDesign/colors">Colors</a>
                 <a href="/SimpleWebDesign/functions">Functions</a>
             </div>
             <a href="/SimpleWebDesign/downloads" class="button white-color blue-text" style="margin-left: auto;">Download</a>
         </swd-menu>
 
-        <swd-navigation navigation-collapse-md>
+        <swd-navigation navigation-collapse-md class="navigation">
             <div class="only-smaller-md margin-bottom">
                 <a href="/SimpleWebDesign">Home</a>
-                <a href="/SimpleWebDesign/components" selected>Components</a>
+                <a href="/SimpleWebDesign/components" selected aria-current="page">Components</a>
                 <a href="/SimpleWebDesign/colors">Colors</a>
                 <a href="/SimpleWebDesign/functions">Functions</a>
             </div>
@@ -295,7 +297,7 @@
                     <swd-menu role="navigation" style="position: initial; z-index: initial; overflow-x: scroll;">
                         <a class="swd-menu-title" href="#">Page Title</a>
                         <a href="#">Item 1</a>
-                        <a href="#" selected>item 2</a>
+                        <a href="#" selected aria-current="page">item 2</a>
                         <a href="#">Item 3</a>
                     </swd-menu>
                 </swd-card-outline>
@@ -303,7 +305,7 @@
                     &lt;swd-menu role="navigation"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected aria-current="page"&gt;Item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
                     &lt;/swd-menu&gt;
                 </swd-code>
@@ -313,7 +315,7 @@
                         <a class="swd-menu-title" href="#">Page Title</a>
                         <div class="width-100"></div>
                         <a href="#">Item 1</a>
-                        <a href="#" selected>item 2</a>
+                        <a href="#" selected aria-current="page">item 2</a>
                         <a href="#">Item 3</a>
                     </swd-menu>
                 </swd-card-outline>
@@ -322,7 +324,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected aria-current="page"&gt;Item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
                     &lt;/swd-menu&gt;
                 </swd-code>
@@ -331,7 +333,7 @@
                     <swd-menu role="navigation" style="position: initial; z-index: initial;  overflow-x: scroll;">
                         <a class="swd-menu-title" href="#">Page Title</a>
                         <a href="#">Item 1</a>
-                        <a href="#" selected>item 2</a>
+                        <a href="#" selected aria-current="page">item 2</a>
                         <a href="#" >Item 3</a>
                         <div class="width-100"></div>
                         <a href="#">Item 4</a>
@@ -342,7 +344,7 @@
                     &lt;swd-menu role="navigation"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title"&gt;Page Title&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected aria-current="page"&gt;Item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="width-100"&gt;&lt;/div&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 4&lt;/a&gt;<br>
@@ -353,7 +355,7 @@
                 <swd-card-outline class="top-item">
                     <swd-menu role="navigation" class="flex-space-between margin-bottom" style="position: initial; z-index: initial;  overflow-x: scroll;">
                         <a href="#">Item 1</a>
-                        <a href="#" selected>item 2</a>
+                        <a href="#" selected aria-current="page">item 2</a>
                         <a href="#">Item 3</a>
                         <a href="#">Item 4</a>
                     </swd-menu>
@@ -361,7 +363,7 @@
                 <swd-code swd-code-language="html" class="bottom-item">
                     &lt;swd-menu role="navigation" class="flex-space-between"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected aria-current="page"&gt;Item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 4&lt;/a&gt;<br>
                     &lt;/swd-menu&gt;
@@ -386,7 +388,7 @@
                     <swd-navigation role="navigation" style="position: initial; z-index: initial; max-height: 400px;">
                         <b>Navigation</b>
                         <a>Item 1</a>
-                        <a selected>Item 2</a>
+                        <a selected aria-current="page">Item 2</a>
                         <a>Item 3</a>
                     </swd-navigation>
                 </swd-card-outline>
@@ -394,7 +396,7 @@
                     &lt;swd-navigation role="navigation"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;Navigation&lt;/b&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected aria-current="page"&gt;Item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
                     &lt;/swd-navigation&gt;<br>
                     &lt;swd-navigation-content&gt;<br>
@@ -407,7 +409,7 @@
                         <div class="margin-bottom">
                             <b>Navigation</b>
                             <a>Item 1</a>
-                            <a selected>Item 2</a>
+                            <a selected aria-current="page">Item 2</a>
                             <a>Item 3</a>
                         </div>
                         <swd-card>
@@ -421,7 +423,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="margin-bottom"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;b&gt;Navigation&lt;/b&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected&gt;Item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a selected aria-current="page"&gt;Item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;Item 3&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-card&gt;<br>
@@ -436,12 +438,14 @@
 
                 <swd-code swd-code-language="html">
                     &lt;swd-menu role="navigation"&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="only-smaller-md" tabindex="0" onclick="swd.query('swd-navigation').toggle()"&gt;&lt;swd-icon class="hamburger-icon"&gt;&lt;/swd-icon&gt;&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="ghost only-smaller-md" onclick="swd.query('swd-navigation').toggle()"&gt;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;swd-icon class="hamburger-icon" aria-label="hamburger-menu"&gt;&lt;/swd-icon&gt;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/button&gt;
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="swd-menu-title" href="#"&gt;Page Title&lt;/a&gt;<br>
                     &lt;/swd-menu&gt;<br><br>
                     &lt;swd-navigation navigation-collapse-md role="navigation"&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Item 1&lt;/a&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#" selected&gt;item 2&lt;/a&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#" selected aria-current="page"&gt;item 2&lt;/a&gt;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Item 3&lt;/a&gt;<br>
                     &lt;/swd-navigation&gt;<br><br>
                     &lt;swd-navigation-content navigation-collapse-md&gt;<br>
@@ -1382,7 +1386,7 @@
 
             </div>
 
-            <swd-footer>
+            <swd-footer class="contentinfo">
                 <a class="text-nowrap">&copy; 2024 Der Zauberer</a>
                 <div class="width-100"></div>
                 <a href="/SimpleWebDesign/imprint">Imprint</a>
