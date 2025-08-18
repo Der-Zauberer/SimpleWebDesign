@@ -37,6 +37,11 @@
     scroll-behavior: smooth;
 }
 
+@media only screen and (max-width: 575px) { :root {
+    --theme-element-spacing: 20px;
+    --theme-inner-element-spacing: 15px;
+}}
+
 ::selection {
     background: hsl(225, 100%, 50%);
     color: white;
@@ -48,10 +53,9 @@ body {
     background-repeat: no-repeat;
 }
 
-@media only screen and (max-width: 575px) { :root {
-    --theme-element-spacing: 20px;
-    --theme-inner-element-spacing: 15px;
-}}
+[inert] {
+    overflow: hidden;
+}
 
 :focus-visible {
     outline: var(--theme-primary-color) solid var(--theme-border-width);
@@ -767,7 +771,6 @@ swd-dialog {
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
     padding: var(--theme-inner-element-spacing);
-    overflow-y: auto;
     z-index: 4;
 }
 
@@ -776,6 +779,11 @@ swd-dialog > * {
     max-height: 100%; 
     overflow-y: auto; 
 }
+
+@media only screen and (max-width: 575px) { swd-dialog > * {
+    width: 100%;
+    max-width: 100%;
+}}
 
 /***********************
 *   Loading Skeleton   *

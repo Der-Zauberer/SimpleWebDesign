@@ -135,17 +135,31 @@ class Swd {
 
 }
 
+class SwdUtils {
+
+    static getScrollableChild(element) {
+        const stack = [element];
+        while (stack.length) {
+            const element = stack.pop();
+            const overflowY = getComputedStyle(element).overflowY;
+            if (overflowY === 'auto' || overflowY === 'scroll') return element;
+            stack.push(...element.children);
+        }
+    }
+
+}
+
 window.swd = new Swd();
 
-document.addEventListener('click', event => { SwdNavigation.autoHide(event); SwdDropdown.autoHide(event); });
+document.addEventListener('click', event => (SwdNavigation.autoHide(event), SwdDropdown.autoHide(event)));
 document.addEventListener('input', event => event.target.setAttribute('dirty', 'true'));
 
 document.addEventListener('scroll', () => requestAnimationFrame(SwdDropdown.resizeAllDropdowns), { passive: true });
 window.addEventListener('resize', () => requestAnimationFrame(SwdDropdown.resizeAllDropdowns));
 
-window.addEventListener('wheel', event => SwdNavigation.wheel(event), { passive: false });
-window.addEventListener('touchstart', event => SwdNavigation.touchStart(event));
-window.addEventListener('touchmove', event => SwdNavigation.touchMove(event), { passive: false });
+window.addEventListener('wheel', event => (SwdNavigation.wheel(event), SwdDialog.wheel(event)), { passive: false });
+window.addEventListener('touchstart', event => (SwdNavigation.touchStart(event), SwdDialog.touchStart(event)));
+window.addEventListener('touchmove', event => (SwdNavigation.touchMove(event), SwdDialog.touchMove(event)), { passive: false });
 
 class SwdElementRef {
 
@@ -335,7 +349,7 @@ class SwdNavigation extends SwdComponent {
     }
 
     static wheel(event) {
-        if (!SwdNavigation.#shownNavigation) return;
+        if (!SwdNavigation.#shownNavigation || SwdNavigation.#shownNavigation.contains(event.target)) return;
         SwdNavigation.#shownNavigation.scrollTop += event.deltaY;
         event.preventDefault();
     }
@@ -696,16 +710,23 @@ class SwdSelection extends SwdComponent {
 class SwdDialog extends SwdComponent {
 
     static #shownDialog;
+    static #yScroll = 0;
     
     show() {
         if (SwdDialog.#shownDialog) SwdDialog.#shownDialog.hide();
         SwdDialog.#shownDialog = this;
         this.setAttribute('shown', 'true');
+        const dialog = this;
+        //document.body.style.overflow = 'hidden'
+        Array.from(document.body.querySelectorAll('*')).filter(element => !dialog.contains(element) && !element.contains(dialog)).forEach(element => element.setAttribute('inert', ''))
+        SwdUtils.getScrollableChild(this).scrollTop = 0;
     }
 
     hide() {
         SwdDialog.#shownDialog = undefined;
         this.removeAttribute('shown');
+        document.body.querySelectorAll('[inert]').forEach(element => element.removeAttribute('inert'))
+        //document.body.style.overflow = 'auto'
     }
 
     isHidden() {
@@ -719,6 +740,25 @@ class SwdDialog extends SwdComponent {
 
     static hide() {
         SwdDialog.#shownDialog.hide();
+    }
+
+    static wheel(event) {
+        if (!SwdDialog.#shownDialog || (SwdDialog.#shownDialog.contains(event.target) && event.target !== SwdDialog.#shownDialog)) return;
+        SwdUtils.getScrollableChild(SwdDialog.#shownDialog).scrollTop += event.deltaY;
+        event.preventDefault();
+    }
+
+    static touchStart(event) {
+        if (!SwdDialog.#shownDialog) return;
+        SwdDialog.#yScroll = event.touches[0].clientY;
+    }
+
+    static touchMove(event) {
+        if (!SwdDialog.#shownDialog) return;
+        const deltaY = SwdDialog.#yScroll - event.touches[0].clientY;
+        SwdUtils.getScrollableChild(SwdDialog.#shownDialog).scrollTop += deltaY;
+        SwdDialog.#yScroll = event.touches[0].clientY;
+        event.preventDefault();
     }
 
 }
