@@ -355,12 +355,12 @@ class SwdNavigation extends SwdComponent {
     }
 
     static touchStart(event) {
-        if (!SwdNavigation.#shownNavigation) return;
+        if (!SwdNavigation.#shownNavigation || SwdNavigation.#shownNavigation.contains(event.target)) return;
         SwdNavigation.#yScroll = event.touches[0].clientY;
     }
 
     static touchMove(event) {
-        if (!SwdNavigation.#shownNavigation) return;
+        if (!SwdNavigation.#shownNavigation || SwdNavigation.#shownNavigation.contains(event.target)) return;
         const deltaY = SwdNavigation.#yScroll - event.touches[0].clientY;
         SwdNavigation.#shownNavigation.scrollTop += deltaY;
         SwdNavigation.#yScroll = event.touches[0].clientY;
@@ -717,7 +717,6 @@ class SwdDialog extends SwdComponent {
         SwdDialog.#shownDialog = this;
         this.setAttribute('shown', 'true');
         const dialog = this;
-        //document.body.style.overflow = 'hidden'
         Array.from(document.body.querySelectorAll('*')).filter(element => !dialog.contains(element) && !element.contains(dialog)).forEach(element => element.setAttribute('inert', ''))
         SwdUtils.getScrollableChild(this).scrollTop = 0;
     }
@@ -726,7 +725,6 @@ class SwdDialog extends SwdComponent {
         SwdDialog.#shownDialog = undefined;
         this.removeAttribute('shown');
         document.body.querySelectorAll('[inert]').forEach(element => element.removeAttribute('inert'))
-        //document.body.style.overflow = 'auto'
     }
 
     isHidden() {
@@ -749,12 +747,12 @@ class SwdDialog extends SwdComponent {
     }
 
     static touchStart(event) {
-        if (!SwdDialog.#shownDialog) return;
+        if (!SwdDialog.#shownDialog || (SwdDialog.#shownDialog.contains(event.target) && event.target !== SwdDialog.#shownDialog)) return;
         SwdDialog.#yScroll = event.touches[0].clientY;
     }
 
     static touchMove(event) {
-        if (!SwdDialog.#shownDialog) return;
+        if (!SwdDialog.#shownDialog || (SwdDialog.#shownDialog.contains(event.target) && event.target !== SwdDialog.#shownDialog)) return;
         const deltaY = SwdDialog.#yScroll - event.touches[0].clientY;
         SwdUtils.getScrollableChild(SwdDialog.#shownDialog).scrollTop += deltaY;
         SwdDialog.#yScroll = event.touches[0].clientY;
