@@ -147,6 +147,11 @@ class SwdUtils {
         }
     }
 
+    static isPointInideElement(element, x, y) {
+        const rect = element.getBoundingClientRect();
+        return rect.left <= x && rect.right >= x && rect.top <= y && rect.bottom >= y;
+    }
+
 }
 
 window.swd = new Swd();
@@ -355,12 +360,12 @@ class SwdNavigation extends SwdComponent {
     }
 
     static touchStart(event) {
-        if (!SwdNavigation.#shownNavigation || SwdNavigation.#shownNavigation.contains(event.target)) return;
+        if (!SwdNavigation.#shownNavigation) return;
         SwdNavigation.#yScroll = event.touches[0].clientY;
     }
 
     static touchMove(event) {
-        if (!SwdNavigation.#shownNavigation || SwdNavigation.#shownNavigation.contains(event.target)) return;
+        if (!SwdNavigation.#shownNavigation || SwdUtils.isPointInideElement(SwdNavigation.#shownNavigation, event.clientX, event.clientY)) return;
         const deltaY = SwdNavigation.#yScroll - event.touches[0].clientY;
         SwdNavigation.#shownNavigation.scrollTop += deltaY;
         SwdNavigation.#yScroll = event.touches[0].clientY;
@@ -741,18 +746,18 @@ class SwdDialog extends SwdComponent {
     }
 
     static wheel(event) {
-        if (!SwdDialog.#shownDialog || (SwdDialog.#shownDialog.contains(event.target) && event.target !== SwdDialog.#shownDialog)) return;
+        if (!SwdDialog.#shownDialog || (event.target !== SwdDialog.#shownDialog && SwdDialog.#shownDialog.contains(event.target))) return;
         SwdUtils.getScrollableChild(SwdDialog.#shownDialog).scrollTop += event.deltaY;
         event.preventDefault();
     }
 
     static touchStart(event) {
-        if (!SwdDialog.#shownDialog || (SwdDialog.#shownDialog.contains(event.target) && event.target !== SwdDialog.#shownDialog)) return;
+        if (!SwdDialog.#shownDialog) return;
         SwdDialog.#yScroll = event.touches[0].clientY;
     }
 
     static touchMove(event) {
-        if (!SwdDialog.#shownDialog || (SwdDialog.#shownDialog.contains(event.target) && event.target !== SwdDialog.#shownDialog)) return;
+        if (!SwdDialog.#shownDialog || SwdUtils.isPointInideElement(SwdDialog.#shownDialog.children[0], event.clientX, event.clientY)) return;
         const deltaY = SwdDialog.#yScroll - event.touches[0].clientY;
         SwdUtils.getScrollableChild(SwdDialog.#shownDialog).scrollTop += deltaY;
         SwdDialog.#yScroll = event.touches[0].clientY;
