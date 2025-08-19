@@ -22,15 +22,15 @@ There is a simple way to read and write data to attributes and inner-html to cre
 
 ### Usage in SPA-Frameworks (Vue, Angular)
 
-The SimpleWebDesign framework can be used in single-page-applicaton frameworks like vue and angular. But there are some configurations to make it work. You have to enable web-components in your framework and import the script and stylesheet. These steps can vary in different frameworks. I you want to access to swd variable you can do it by using `window.swd` if you are in a module context.
+The SimpleWebDesign framework can be used in single-page-applicaton frameworks like vue and angular. But there are some configurations to make it work. You have to enable web-components in your framework and import the script and stylesheet. These steps can vary in different frameworks. If you want to access the swd variable you can do it by using `window.swd` if you are in a module context.
 
 ## Setup
 
 Download you stylesheet [here](http://127.0.0.1:5500/SimpleWebDesign/downloads) or use the hostet version of the css and javascript files:
 
 ```html
-<link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.5/swd.min.css" rel="stylesheet">
-<script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.5/swd.min.js"></script>
+<link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.6/swd.min.css" rel="stylesheet">
+<script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.6/swd.min.js"></script>
 ```
 
 You can create a `.html` file using the following template. If you use the downloaded version of the resources you have to change the `script.src` and `link.href` paths to your local path.
@@ -42,8 +42,8 @@ You can create a `.html` file using the following template. If you use the downl
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#003ecc">
-        <link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.5/swd.min.css" rel="stylesheet">
-        <script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.5/swd.min.js"></script>
+        <link href="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.6/swd.min.css" rel="stylesheet">
+        <script src="https://der-zauberer.github.io/SimpleWebDesign/downloads/v2.6/swd.min.js"></script>
         <title>Template</title>
     </head>
     <body>
