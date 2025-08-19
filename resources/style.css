@@ -53,7 +53,7 @@ body {
     background-repeat: no-repeat;
 }
 
-[inert] {
+[inert], body[scroll-lock] {
     overflow: hidden;
 }
 
@@ -292,7 +292,7 @@ code, pre, swd-code {
     margin-bottom: var(--theme-element-spacing);
 }
 
-code:hover, pre:hover, swd-code:hover {
+code:hover, pre:hover, swd-code:hover, code:active, pre:active, swd-code:active {
     overflow: auto;
 }
 
@@ -598,11 +598,13 @@ swd-navigation {
     height: calc(100% - var(--theme-menu-height));
     background: var(--theme-element-primary-color);
     z-index: 2;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     overflow: hidden;
     transition: left 0.2s;
 }
 
-swd-navigation:hover { overflow-y: auto }
+swd-navigation:hover, swd-navigation:active, swd-navigation:has(*:active) { overflow-y: auto }
 
 swd-navigation-content {
     display: block;
@@ -637,7 +639,7 @@ swd-footer {
     overflow: hidden;
 }
 
-swd-footer:hover { overflow: auto }
+swd-footer:hover, swd-footer:active, swd-footer:has(*:active) { overflow: auto }
 
 swd-footer a {
     min-width: fit-content;
@@ -776,8 +778,10 @@ swd-dialog {
 
 swd-dialog > * { 
     max-width: 400px; 
-    max-height: 100%; 
-    overflow-y: auto; 
+    max-height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    overflow-y: auto;
 }
 
 @media only screen and (max-width: 575px) { swd-dialog > * {

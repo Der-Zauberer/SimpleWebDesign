@@ -149,6 +149,8 @@ class SwdUtils {
 
     static isPointInideElement(element, x, y) {
         const rect = element.getBoundingClientRect();
+        //console.log(rect.left, rect.right, rect.top, rect.bottom)
+        //console.log(x, y)
         return rect.left <= x && rect.right >= x && rect.top <= y && rect.bottom >= y;
     }
 
@@ -165,6 +167,7 @@ window.addEventListener('resize', () => requestAnimationFrame(SwdDropdown.resize
 window.addEventListener('wheel', event => (SwdNavigation.wheel(event), SwdDialog.wheel(event)), { passive: false });
 window.addEventListener('touchstart', event => (SwdNavigation.touchStart(event), SwdDialog.touchStart(event)));
 window.addEventListener('touchmove', event => (SwdNavigation.touchMove(event), SwdDialog.touchMove(event)), { passive: false });
+window.addEventListener('touchend', event => (SwdNavigation.touchEnd(event), SwdDialog.touchEnd(event)))
 
 class SwdElementRef {
 
@@ -323,12 +326,17 @@ class SwdNavigation extends SwdComponent {
         SwdNavigation.#shownNavigation = this;
         this.setAttribute('shown', 'true');
         SwdNavigation.#ignoreNextHide = true;
+        Array.from(document.body.querySelectorAll('*')).filter(element => !SwdNavigation.#shownNavigation.contains(element) && !element.contains(SwdNavigation.#shownNavigation)).forEach(element => element.setAttribute('inert', ''))
+        document.body.setAttribute('scroll-lock', '');
+        SwdNavigation.#shownNavigation.focus();
     }
 
     hide() {
         this.removeAttribute('shown');
         SwdNavigation.#shownNavigation = undefined;
         this.scrollTop = 0;
+        document.body.querySelectorAll('[inert]').forEach(element => element.removeAttribute('inert'))
+        document.body.removeAttribute('scroll-lock');
     }
 
     isHidden() {
@@ -361,11 +369,13 @@ class SwdNavigation extends SwdComponent {
 
     static touchStart(event) {
         if (!SwdNavigation.#shownNavigation) return;
+        SwdNavigation.#shownNavigation.focus()
         SwdNavigation.#yScroll = event.touches[0].clientY;
     }
 
     static touchMove(event) {
-        if (!SwdNavigation.#shownNavigation || SwdUtils.isPointInideElement(SwdNavigation.#shownNavigation, event.clientX, event.clientY)) return;
+        if (SwdNavigation.#shownNavigation) console.log(SwdNavigation.#shownNavigation.contains(event.targetTouches[0].target))
+        if (!SwdNavigation.#shownNavigation || event.targetTouches[0].target === SwdNavigation.#shownNavigation || SwdNavigation.#shownNavigation.contains(event.targetTouches[0].target)) return;
         const deltaY = SwdNavigation.#yScroll - event.touches[0].clientY;
         SwdNavigation.#shownNavigation.scrollTop += deltaY;
         SwdNavigation.#yScroll = event.touches[0].clientY;
@@ -721,8 +731,8 @@ class SwdDialog extends SwdComponent {
         if (SwdDialog.#shownDialog) SwdDialog.#shownDialog.hide();
         SwdDialog.#shownDialog = this;
         this.setAttribute('shown', 'true');
-        const dialog = this;
-        Array.from(document.body.querySelectorAll('*')).filter(element => !dialog.contains(element) && !element.contains(dialog)).forEach(element => element.setAttribute('inert', ''))
+        Array.from(document.body.querySelectorAll('*')).filter(element => !SwdDialog.#shownDialog.contains(element) && !element.contains(SwdDialog.#shownDialog)).forEach(element => element.setAttribute('inert', ''))
+        document.body.setAttribute('scroll-lock', '');
         SwdUtils.getScrollableChild(this).scrollTop = 0;
     }
 
@@ -730,6 +740,7 @@ class SwdDialog extends SwdComponent {
         SwdDialog.#shownDialog = undefined;
         this.removeAttribute('shown');
         document.body.querySelectorAll('[inert]').forEach(element => element.removeAttribute('inert'))
+        document.body.removeAttribute('scroll-lock', '');
     }
 
     isHidden() {
@@ -757,7 +768,7 @@ class SwdDialog extends SwdComponent {
     }
 
     static touchMove(event) {
-        if (!SwdDialog.#shownDialog || SwdUtils.isPointInideElement(SwdDialog.#shownDialog.children[0], event.clientX, event.clientY)) return;
+        if (!SwdDialog.#shownDialog || SwdDialog.#shownDialog.children[0].contains(event.targetTouches[0].target)) return;
         const deltaY = SwdDialog.#yScroll - event.touches[0].clientY;
         SwdUtils.getScrollableChild(SwdDialog.#shownDialog).scrollTop += deltaY;
         SwdDialog.#yScroll = event.touches[0].clientY;
