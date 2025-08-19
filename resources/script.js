@@ -147,13 +147,6 @@ class SwdUtils {
         }
     }
 
-    static isPointInideElement(element, x, y) {
-        const rect = element.getBoundingClientRect();
-        //console.log(rect.left, rect.right, rect.top, rect.bottom)
-        //console.log(x, y)
-        return rect.left <= x && rect.right >= x && rect.top <= y && rect.bottom >= y;
-    }
-
 }
 
 window.swd = new Swd();
@@ -167,7 +160,6 @@ window.addEventListener('resize', () => requestAnimationFrame(SwdDropdown.resize
 window.addEventListener('wheel', event => (SwdNavigation.wheel(event), SwdDialog.wheel(event)), { passive: false });
 window.addEventListener('touchstart', event => (SwdNavigation.touchStart(event), SwdDialog.touchStart(event)));
 window.addEventListener('touchmove', event => (SwdNavigation.touchMove(event), SwdDialog.touchMove(event)), { passive: false });
-window.addEventListener('touchend', event => (SwdNavigation.touchEnd(event), SwdDialog.touchEnd(event)))
 
 class SwdElementRef {
 
@@ -374,7 +366,6 @@ class SwdNavigation extends SwdComponent {
     }
 
     static touchMove(event) {
-        if (SwdNavigation.#shownNavigation) console.log(SwdNavigation.#shownNavigation.contains(event.targetTouches[0].target))
         if (!SwdNavigation.#shownNavigation || event.targetTouches[0].target === SwdNavigation.#shownNavigation || SwdNavigation.#shownNavigation.contains(event.targetTouches[0].target)) return;
         const deltaY = SwdNavigation.#yScroll - event.touches[0].clientY;
         SwdNavigation.#shownNavigation.scrollTop += deltaY;
