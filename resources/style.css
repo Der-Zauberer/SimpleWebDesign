@@ -30,7 +30,8 @@
     background: var(--theme-background-color);
     color: var(--theme-text-color);
     font-family: var(--theme-font-family);
-    font-size: 18px;
+    --theme-font-size: 18px;
+    font-size: var(--theme-font-size);
     font-weight: 500;
     line-height: round(1.6em, 1px);
     letter-spacing: 0.01em;

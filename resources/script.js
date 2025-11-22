@@ -377,6 +377,7 @@ class SwdNavigation extends SwdComponent {
 
 class SwdInput extends SwdComponent {
 
+    #CLICK_EVENT = () => this.#input?.focus();
     #INPUT_EVENT = () => { this.#updateIcon(); this.#INPUT_EVENT; }
     #INPUT_ICON_EVENT = () => this.#input?.focus();
     #INPUT_RESET_ICON_EVENT = () => { this.#input?.focus(); if (this.#input) this.#input.value = ''; this.#input.dispatchEvent(new Event('input', { bubbles: true })); }
@@ -385,6 +386,10 @@ class SwdInput extends SwdComponent {
     #inputIcon;
     #inputResetIcon;
     #selfUpdateQueue = 0;
+
+    swdOnInit() {
+        this.addEventListener('click', this.#CLICK_EVENT)
+    }
 
     swdOnUpdate() {
         if (this.#selfUpdateQueue-- > 0) return;
@@ -414,6 +419,7 @@ class SwdInput extends SwdComponent {
     }
 
     swdOnDestroy() {
+        this.removeEventListener('click', this.#CLICK_EVENT);
         this.#input?.removeEventListener('input', this.#INPUT_EVENT);
     }
 
