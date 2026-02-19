@@ -463,7 +463,8 @@ swd-navigation a:not([disabled]):hover, swd-navigation a:not([disabled]):focus, 
     outline-offset: var(--theme-border-width);
 }
 
-swd-selection a:not([disabled]):hover, swd-selection a:not([disabled]):focus, swd-selection a:not([disabled]):active, swd-selection a:not([disabled])[selected] {
+swd-selection a:not([disabled]):hover, swd-selection a:not([disabled]):focus, swd-selection a:not([disabled]):active, swd-selection a:not([disabled])[selected],
+swd-selection button:not([disabled]):hover, swd-selection button:not([disabled]):focus, swd-selection button:not([disabled]):active, swd-selection button:not([disabled])[selected] {
     background: var(--theme-element-secondary-color);
 }
 
@@ -738,12 +739,17 @@ swd-selection {
     border-radius: var(--theme-border-radius);
 }
 
-swd-selection a:not(:first-child) {
+swd-selection button {
+    text-align: start;
+    background-color: var(--theme-element-primary-color);
+}
+
+swd-selection a:not(:first-child), swd-selection button:not(:first-child) {
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 }
 
-swd-selection a:not(:last-child) {
+swd-selection a:not(:last-child), swd-selection button:not(:last-child) {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }

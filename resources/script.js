@@ -630,7 +630,7 @@ class SwdSelection extends SwdComponent {
     value;
 
     swdOnInit() {
-        this.swdRegisterManagedEvent(this, 'click', event => this.select(event.target));
+        this.swdRegisterManagedEvent(this, 'click', event => this.select(event.target, true));
     }
 
     next() { this.#nextOrPrevious(true, false) }
@@ -645,7 +645,7 @@ class SwdSelection extends SwdComponent {
             let nextTarget = target ? (next ? target.nextElementSibling : target.previousElementSibling) : (next ? this.firstElementChild : this.lastElementChild);
             if (!nextTarget) nextTarget = next ? this.firstElementChild : this.lastElementChild
             target = nextTarget;
-        } while ((target.nodeName !== 'A' || target.hasAttribute('hidden')) && i++ < this.children.length);
+        } while (((target.nodeName !== 'A' && target.nodeName !== 'BUTTON') || target.hasAttribute('hidden')) && i++ < this.children.length);
         original?.removeAttribute('selected');
         target.setAttribute('selected', 'true');
         const content = this.parentElement;
@@ -663,10 +663,10 @@ class SwdSelection extends SwdComponent {
         this.#selected.setAttribute('selected', 'true');
     }
 
-    select(target) {
+    select(target, click) {
         let targetToSelect = target ? target : this.querySelector('[selected]');
-        while(targetToSelect && targetToSelect !== this && targetToSelect.tagName !== 'A') targetToSelect = targetToSelect.parentNode;
-        if (!targetToSelect || targetToSelect.nodeName !== 'A' || targetToSelect.hasAttribute('hidden')) return;
+        while(targetToSelect && targetToSelect !== this && targetToSelect.tagName !== 'A' && targetToSelect.tagName !== 'BUTTON') targetToSelect = targetToSelect.parentNode;
+        if (!targetToSelect || (targetToSelect.nodeName !== 'A' && targetToSelect.nodeName !== 'BUTTON') || targetToSelect.hasAttribute('hidden')) return;
         this.#selected?.removeAttribute('selected');
         this.#selected = targetToSelect;
         this.#selected.setAttribute('selected', 'true');
@@ -675,6 +675,7 @@ class SwdSelection extends SwdComponent {
         const event = new Event('select', { bubbles: true });
         event.value = this.value;
         event.name = name;
+        if (!click) this.#selected.click();
         this.#selected.dispatchEvent(event);
         this.#selectionChangeAction?.(name, this.value);
     }
