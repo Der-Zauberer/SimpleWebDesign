@@ -427,9 +427,9 @@ input[type="button"] {
     cursor: pointer;
 }
 
-a.button:not(.outline, .ghost, [disabled]):hover, a.button:not(.outline, .ghost, [disabled]):focus, a.button:not(.outline, .ghost, [disabled]):active, a.button:not(.outline, .ghost, [disabled])[selected],
-button:not(.outline, .ghost, :disabled):hover, button:not(.outline, .ghost, :disabled):focus, button:not(.outline, .ghost, :disabled):active, button:not(.outline, .ghost, :disabled)[selected],
-input[type="submit"]:not(.outline, .ghost, :disabled):hover, input[type="submit"]:not(.outline, .ghost, :disabled):focus, input[type="submit"]:not(.outline, .ghost, :disabled):active, input[type="submit"]:not(.outline, .ghost, :disabled)[selected] {
+a.button:not(.outline, .ghost, [disabled]):hover, a.button:not(.outline, .ghost, [disabled]):focus-visible, a.button:not(.outline, .ghost, [disabled]):active, a.button:not(.outline, .ghost, [disabled])[selected],
+button:not(.outline, .ghost, :disabled):hover, button:not(.outline, .ghost, :disabled):focus-visible, button:not(.outline, .ghost, :disabled):active, button:not(.outline, .ghost, :disabled)[selected],
+input[type="submit"]:not(.outline, .ghost, :disabled):hover, input[type="submit"]:not(.outline, .ghost, :disabled):focus-visible, input[type="submit"]:not(.outline, .ghost, :disabled):active, input[type="submit"]:not(.outline, .ghost, :disabled)[selected] {
     background: var(--theme-secondary-color);
     outline-color: var(--theme-secondary-color);
     outline-offset: var(--theme-border-width);
@@ -441,9 +441,9 @@ a.button.outline, button.outline, input[type="submit"].outline {
     color: var(--theme-text-color);
 }
 
-a.button.outline:not([disabled]):hover, a.button.outline:not([disabled]):focus, a.button.outline:not([disabled]):active, a.button.outline:not([disabled])[selected],
-button.outline:not(:disabled):hover, button.outline:not(:disabled):focus, button.outline:not(:disabled):active, button.outline:not(:disabled)[selected],
-input[type="submit"].outline:not(:disabled):hover, input[type="submit"].outline:not(:disabled):focus, input[type="submit"].outline:not(:disabled):active, input[type="submit"].outline:not(:disabled)[selected] {
+a.button.outline:not([disabled]):hover, a.button.outline:not([disabled]):focus-visible, a.button.outline:not([disabled]):active, a.button.outline:not([disabled])[selected],
+button.outline:not(:disabled):hover, button.outline:not(:disabled):focus-visible, button.outline:not(:disabled):active, button.outline:not(:disabled)[selected],
+input[type="submit"].outline:not(:disabled):hover, input[type="submit"].outline:not(:disabled):focus-visible, input[type="submit"].outline:not(:disabled):active, input[type="submit"].outline:not(:disabled)[selected] {
     background: var(--theme-primary-color);
     color: white;
     outline: none;
@@ -454,17 +454,17 @@ a.button.ghost, button.ghost, input[type="submit"].ghost {
     color: var(--theme-text-color);
 }
 
-a.button.ghost:not([disabled]):hover, a.button.ghost:not([disabled]):focus, a.button.ghost:not([disabled]):active, a.button:not([disabled]).ghost[selected],
-button.ghost:not(:disabled):hover, button.ghost:not(:disabled):focus, button.ghost:not(:disabled):active, button:not(:disabled).ghost[selected], 
-input[type="submit"].ghost:not(:disabled):hover, input[type="submit"].ghost:not(:disabled):focus, input[type="submit"].ghost:not(:disabled):active, input[type="submit"].ghost:not(:disabled)[selected],
-swd-navigation a:not([disabled]):hover, swd-navigation a:not([disabled]):focus, swd-navigation a:not([disabled]):active, swd-navigation a:not([disabled])[selected] {
+a.button.ghost:not([disabled]):hover, a.button.ghost:not([disabled]):focus-visible, a.button.ghost:not([disabled]):active, a.button:not([disabled]).ghost[selected],
+button.ghost:not(:disabled):hover, button.ghost:not(:disabled):focus-visible, button.ghost:not(:disabled):active, button:not(:disabled).ghost[selected], 
+input[type="submit"].ghost:not(:disabled):hover, input[type="submit"].ghost:not(:disabled):focus-visible, input[type="submit"].ghost:not(:disabled):active, input[type="submit"].ghost:not(:disabled)[selected],
+swd-navigation a:not([disabled]):hover, swd-navigation a:not([disabled]):focus-visible, swd-navigation a:not([disabled]):active, swd-navigation a:not([disabled])[selected] {
     background: var(--theme-element-primary-color);
     outline-color: var(--theme-element-primary-color);
     outline-offset: var(--theme-border-width);
 }
 
-swd-selection a:not([disabled]):hover, swd-selection a:not([disabled]):focus, swd-selection a:not([disabled]):active, swd-selection a:not([disabled])[selected],
-swd-selection button:not([disabled]):hover, swd-selection button:not([disabled]):focus, swd-selection button:not([disabled]):active, swd-selection button:not([disabled])[selected] {
+swd-selection a:not([disabled]):hover, swd-selection a:not([disabled]):focus-visible, swd-selection a:not([disabled]):active, swd-selection a:not([disabled])[selected],
+swd-selection button:not([disabled]):hover, swd-selection button:not([disabled]):focus-visible, swd-selection button:not([disabled]):active, swd-selection button:not([disabled])[selected] {
     background: var(--theme-element-secondary-color);
 }
 
@@ -691,13 +691,13 @@ swd-card-outline {
 swd-card-ghost { background: initial; border-color: transparent; }
 
 swd-card.swd-card-hover:hover, swd-card-outline.swd-card-hover:hover,
-swd-card.swd-card-hover:focus, swd-card-outline.swd-card-hover:focus,
+swd-card.swd-card-hover:focus-visible, swd-card-outline.swd-card-hover:focus-visible,
 swd-card.swd-card-hover:active, swd-card-outline.swd-card-hover:active { 
     cursor: pointer; 
     --theme-element-primary-color: var(--theme-element-secondary-color);
 }
 
-swd-card-ghost.swd-card-hover:hover, swd-card-ghost.swd-card-hover:focus, swd-card-ghost.swd-card-hover:active { 
+swd-card-ghost.swd-card-hover:hover, swd-card-ghost.swd-card-hover:focus-visible, swd-card-ghost.swd-card-hover:active { 
     cursor: pointer; 
     background: var(--theme-element-primary-color);
 }
