@@ -29,8 +29,8 @@ The SimpleWebDesign framework can be used in single-page-applicaton frameworks l
 Download you [stylesheet](https://github.com/Der-Zauberer/SimpleWebDesign/releases) or use the hostet version of the css and javascript files:
 
 ```html
-<link href="https://cdn.jsdelivr.net/npm/simplewebdesign@2.7.1/swd.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/simplewebdesign@2.7.1/swd.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/simplewebdesign@2.7.2/swd.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/simplewebdesign@2.7.2/swd.min.js"></script>
 ```
 
 You can create a `.html` file using the following template. If you use the downloaded version of the resources you have to change the `script.src` and `link.href` paths to your local path.
@@ -42,8 +42,8 @@ You can create a `.html` file using the following template. If you use the downl
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#003ecc">
-        <link href="https://cdn.jsdelivr.net/npm/simplewebdesign@2.7.1/swd.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/simplewebdesign@2.7.1/swd.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/simplewebdesign@2.7.2/swd.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/simplewebdesign@2.7.2/swd.min.js"></script>
         <title>Template</title>
     </head>
     <body>
