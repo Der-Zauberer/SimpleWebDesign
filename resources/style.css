@@ -270,7 +270,7 @@ kbd {
     padding: calc(round(0.15em, 1px) - 1px) round(0.2em, 1px);
     font-family: 'Roboto Mono', monospace;
     border-radius: var(--theme-border-radius);
-    border: solid 1px currentColor;
+    border: solid 2px currentColor;
 }
 
 samp {
@@ -281,6 +281,11 @@ samp {
     font-family: 'Roboto Mono', monospace;
     background: var(--theme-element-primary-color);
     border-radius: var(--theme-border-radius);
+}
+
+.id {
+    color: light-dark(color-mix(in srgb, var(--theme-primary-color) 75%, black 25%), color-mix(in srgb, var(--theme-primary-color) 75%, white 25%));
+    background: color-mix(in srgb, var(--theme-primary-color) 40%, transparent);
 }
 
 /***********
@@ -336,6 +341,15 @@ table td, th {
     text-align: left;
     border: solid var(--theme-border-width) var(--theme-element-primary-color);
 }
+
+table.swd-row-table { border-collapse: separate }
+table.swd-row-table tr th:not(:first-child), table.swd-row-table tr td:not(:first-child) { border-left: 0 }
+table.swd-row-table tr th:not(:last-child), table.swd-row-table tr td:not(:last-child) { border-right: 0 }
+table.swd-row-table tr:not(:last-child) th, table.swd-row-table tr:not(:last-child) td { border-bottom: 0 }
+table.swd-row-table tr:first-child th:first-child { border-top-left-radius: var(--theme-border-radius) }
+table.swd-row-table tr:first-child th:last-child { border-top-right-radius: var(--theme-border-radius) }
+table.swd-row-table tr:last-child td:first-child { border-bottom-left-radius: var(--theme-border-radius) }
+table.swd-row-table tr:last-child td:last-child { border-bottom-right-radius: var(--theme-border-radius) }
 
 /************
 *   Media   *
